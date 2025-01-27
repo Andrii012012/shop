@@ -1,59 +1,59 @@
-@use '../utils/styles/functions.scss' as f;
+@use "../utils/styles/functions.scss" as f;
 @use "../utils/styles/fonts.scss" as *;
-@import '../utils/styles/null.scss';
+@import "../utils/styles/null.scss";
 
 .container {
-    max-width: f.rem(1480);
-    width: 100%;
-    padding: 0 f.rem(20);
-    margin: 0 auto;
-    overflow: hidden;
+  max-width: f.rem(1480);
+  width: 100%;
+  padding: 0 f.rem(20);
+  margin: 0 auto;
+  overflow: hidden;
 }
 
 .wrapper {
-    width: 100%;
-    font-family: 'Montserrat';
+  width: 100%;
+  font-family: "Montserrat";
 }
 
 .textExtraLarge {
-    font-family: 'Montserrat';
-    font-size: f.rem(35);
-    font-weight: 700;
-    line-height: f.em(42.67, 35);
+  font-family: "Montserrat";
+  font-size: f.rem(35);
+  font-weight: 700;
+  line-height: f.em(42.67, 35);
 }
 
 .textLarge {
-    font-family: 'Montserrat';
-    font-size: f.rem(25);
-    font-weight: 700;
-    line-height: f.em(30.48, 25);
+  font-family: "Montserrat";
+  font-size: f.rem(25);
+  font-weight: 700;
+  line-height: f.em(30.48, 25);
 }
 
 .textBig {
-    font-family: 'Montserrat';
-    font-size: f.rem(18);
-    line-height: f.em(21.94, 18);
+  font-family: "Montserrat";
+  font-size: f.rem(18);
+  line-height: f.em(21.94, 18);
 }
 
 .textMedium {
-    font-family: 'Montserrat';
-    font-size: f.rem(16);
-    line-height: f.em(19.5, 16);
+  font-family: "Montserrat";
+  font-size: f.rem(16);
+  line-height: f.em(19.5, 16);
 }
 
 .textExtraMedium {
-    font-family: 'Montserrat';
-    font-size: f.rem(16);
-    line-height: f.em(25, 16);
+  font-family: "Montserrat";
+  font-size: f.rem(16);
+  line-height: f.em(25, 16);
 }
 
 .textExtraBig {
-    font-family: 'Montserrat';
-    font-size: f.rem(18);
-    line-height: f.em(27, 18);
+  font-family: "Montserrat";
+  font-size: f.rem(18);
+  line-height: f.em(27, 18);
 }
 
 .textSmall {
-    font-size: f.rem(14);
-    line-height: f.em(21, 14);
+  font-size: f.rem(14);
+  line-height: f.em(21, 14);
 }
