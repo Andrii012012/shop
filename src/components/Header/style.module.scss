@@ -2,15 +2,15 @@
   background-color: F3F3F3;
 }
 
-.header-inner {
-  .header-contacts {
+.headerInner {
+  .headerContacts {
     display: flex;
     align-items: center;
     justify-content: space-between;
     column-gap: 10px;
     margin-bottom: 30px;
 
-    .header-sale {
+    .headerSale {
       display: grid;
       place-content: center;
 
@@ -27,7 +27,7 @@
       }
     }
 
-    .header-contacts-address {
+    .headerContactsAddress {
       max-width: 310px;
       width: 100%;
 
@@ -37,13 +37,13 @@
       color: #323232;
     }
 
-    .header-contacts-numbers {
+    .headerContactNumbers {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
       row-gap: 8px;
 
-      .header-contacts-number {
+      .headerContactItem {
         font-weight: 800;
         font-size: 25px;
         text-align: right;
@@ -55,7 +55,7 @@
         }
       }
 
-      .header-contacts-callback {
+      .headerContactCallback {
         font-weight: 500;
         font-size: 18px;
         color: #1e7637;
@@ -63,14 +63,14 @@
     }
   }
 }
-.header-inner {
+.headerInner {
   padding-top: 20px;
 
-  .header-info {
+  .headerInfo {
     display: flex;
     column-gap: 30px;
 
-    .header-info-item {
+    .headerInfoItem {
       display: flex;
       column-gap: 10px;
 
@@ -84,20 +84,20 @@
     }
   }
 }
-.header-inner {
-  .header-actions {
+.headerInner {
+  .headerActions {
     display: flex;
     align-items: flex-end;
     column-gap: 30px;
     margin: 30px 0;
 
-    .header-action-search-bar {
+    .headerActionSearchBar {
       position: relative;
       flex-basis: 770px;
       width: 100%;
       height: fit-content;
 
-      .header-search-bar {
+      .headerSearchBar {
         background: #fff;
         border: 2px solid #30b856;
         border-radius: 10px;
@@ -119,12 +119,9 @@
       }
     }
 
-    .header-action-favorites {
-    }
-
-    .header-action-favorites-link,
-    .header-action-trash-link,
-    .header-action-login-link {
+    .headerActionFavoritesLink,
+    .headerActionTrashLink,
+    .headerActionLoginLink {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -146,7 +143,7 @@
   }
 }
 
-.header-nav {
+.headerNav {
   display: flex;
   align-items: center;
   column-gap: 50px;
@@ -154,24 +151,85 @@
 
   padding: 20px 50px 20px;
   border-radius: 10px;
+  margin-bottom: 20px;
 
-  .burger-menu {
+  .burgerMenu {
     display: grid;
     place-content: center;
     background: none;
   }
 }
 
-.header-nav-list {
+.headerNavList {
   display: flex;
   column-gap: 50px;
 
-  .header-nav-item {
+  .headerNavItem {
     font-weight: 700;
     font-size: 18px;
 
-    .header-nav-link {
+    .headerNavLink {
       color: #fff;
     }
+  }
+}
+
+.headerSwiper {
+  position: relative;
+  width: 100%;
+  height: 500px;
+  border-radius: 10px;
+  user-select: none;
+
+  .headerSwiperSlide {
+    width: 100%;
+    min-height: 100%;
+    height: 100%;
+  }
+
+  .headerSwiperButtonPrev,
+  .headerSwiperButtonNext {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+
+    display: grid;
+    place-content: center;
+
+    width: 80px;
+    height: 80px;
+    background-color: #f3f3f3;
+    border-radius: 50%;
+    cursor: pointer;
+
+    svg {
+      fill: #323232;
+      transition: 0.15s;
+    }
+
+    &:hover svg {
+      fill: #2a8288;
+    }
+  }
+
+  .headerSwiperButtonPrev {
+    left: 8px;
+    transform: translate(-50%, -50%);
+  }
+
+  .headerSwiperButtonNext {
+    right: 8px;
+    transform: translate(50%, -50%);
+  }
+
+  .headerSwiperPagination {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    bottom: -10px;
+    height: 5px;
+    width: 100px;
+    background-color: #144f24;
   }
 }
