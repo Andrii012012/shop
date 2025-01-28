@@ -22,9 +22,9 @@ import ArrowRightIcon from "../../assets/images/header/arrowRightIcon.svg?react"
 // fill="current" stroke="none"
 
 function Header() {
-  const prevElRef = useRef(null);
-  const nextElRef = useRef(null);
-  const paginationRef = useRef(null);
+  const prevElRef = useRef<HTMLDivElement | null>(null);
+  const nextElRef = useRef<HTMLDivElement | null>(null);
+  const paginationRef = useRef<HTMLDivElement | null>(null);
 
   return (
     <header className={style.header}>
