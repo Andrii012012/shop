@@ -1,0 +1,27 @@
+@use 'sass:map';
+@use './functions.scss' as f;
+@import './colors.scss';
+
+@mixin button(
+    $padding: f.rem(15) f.rem(15) f.rem(15) f.rem(15),
+    $width: 100%,
+    $borderRadius: f.rem(100),
+    $border: 1px solid map.get($colors, 'lightGreen'),
+    $backgroundColor: map.get($colors, 'lightGreen'),
+    $color: map.get($colors, 'white')) {
+    padding: $padding;
+    max-width: $width;
+    width: 100%;
+    border-radius: $borderRadius;
+    border: $border;
+    background-color: $backgroundColor;
+    color: $color;
+};
+
+@mixin adaptationImage($width: 100%, $height: 100%, $objectFit: cover) {
+    max-width: $width;
+    width: 100%;
+    max-height: $height;
+    height: 100%;
+    object-fit: $objectFit;
+}

@@ -1,0 +1,170 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.buttonBody {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.button {
+    @include m.button(f.rem(15) f.rem(15) f.rem(15) f.rem(15), f.rem(162), 0 f.rem(100) f.rem(100) 0, 0px solid #0000, map.get($colors, 'lightGreen'), map.get($colors, 'white'));
+    font-weight: 700;
+}
+
+
+.card {
+    max-width: f.rem(272);
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    padding: f.rem(20) f.rem(20) f.rem(30) f.rem(20);
+    border-radius: f.rem(10);
+    cursor: pointer;
+    transition: 0.3s linear;
+}
+
+.activeCard {
+    transition: 0.3s linear;
+    box-shadow: 0px 4px 30px 3px #00000040;
+
+    .recipe {
+        span {
+            transition: 0.3s linear;
+            opacity: 1;
+        }
+    }
+
+    .wrrapperDelivery {
+        max-height: 100%;
+        opacity: 1;
+        transition: 0.3s linear;
+    }
+
+}
+
+.header {
+    display: flex;
+    font-weight: 700;
+}
+
+.iconHeart {
+    flex: 1 1 auto;
+}
+
+.imageProduct {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: f.rem(45);
+
+    img {
+        @include m.adaptationImage(f.rem(200), f.rem(193), cover);
+    }
+}
+
+.name {
+    font-weight: 700;
+    margin-bottom: f.rem(30);
+    text-align: center;
+}
+
+.list {
+    max-width: f.rem(165);
+    width: 100%;
+    margin-bottom: f.rem(32);
+
+    li {
+
+        h4 {
+            color: map.get($colors, 'gray');
+            font-weight: 700;
+        }
+
+        span {
+            margin-left: f.rem(5);
+        }
+    }
+
+    li:nth-child(2) {
+        display: flex;
+    }
+
+    li:last-child {
+        display: flex;
+    }
+}
+
+.price {
+    margin-bottom: f.rem(10);
+}
+
+.inStock {
+    color: map.get($colors, 'lightGreen');
+}
+
+.outStock {
+    color: map.get($colors, 'brick');
+}
+
+.recipe {
+    margin: 0 0 f.rem(10) -#{f.rem(20)};
+    max-width: f.rem(175);
+    position: relative;
+
+    span {
+        position: absolute;
+        top: -#{f.rem(40)};
+        transition: 0.3s linear;
+        opacity: 0;
+    }
+}
+
+.green {
+    width: 100%;
+    background-color: map.get($colors, 'green');
+    display: block;
+    padding: f.rem(6) f.rem(20);
+    color: map.get($colors, 'white');
+    font-weight: 700;
+}
+
+.red {
+    width: 100%;
+    background-color: map.get($colors, 'lightRed');
+    display: block;
+    padding: f.rem(6) f.rem(20);
+    color: map.get($colors, 'white');
+    font-weight: 700;
+}
+
+.buttonBody {
+    margin-bottom: f.rem(15);
+}
+
+.delivery {
+    text-align: center;
+    margin-bottom: f.rem(10);
+    font-weight: 700;
+}
+
+.deliveryGreen {
+    color: map.get($colors, 'lightGreen');
+}
+
+.deliveryRed {
+    color: map.get($colors, 'lightRed');
+}
+
+.deliveryInfo {
+    text-align: center;
+    line-height: f.rem(17);
+}
+
+.wrrapperDelivery {
+    text-align: center;
+    max-height: 0;
+    opacity: 0;
+    transition: 0.3s linear;
+}

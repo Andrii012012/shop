@@ -3,7 +3,7 @@ import style from "./style.module.scss";
 
 // IMPORT ICONS
 import BurgerIcon from "../../assets/images/header/burger-icon.svg?react";
-import HeartIcon from "../../assets/images/header/heart-icon.svg?react";
+import HeartIcon from "../../assets/images/global/iconHeartOutline.svg?react";
 import TrashIcon from "../../assets/images/header/trash-icon.svg?react";
 import UserIcon from "../../assets/images/header/user-icon.svg?react";
 import SearchIcon from "../../assets/images/header/search-icon.svg?react";
