@@ -1,12 +1,14 @@
 import { Layout } from "./layout/layout";
-import Header from "./components/Header/Header";
+import { Route, Routes } from "react-router-dom";
+import Home from "./pages/Home/Home";
+import { PATH_HOME } from "./routes/routes";
 
 function App() {
   return (
     <Layout>
-      <>
-        <Header />
-      </>
+      <Routes>
+        <Route path={PATH_HOME} element={<Home />} />
+      </Routes>
     </Layout>
   );
 }
