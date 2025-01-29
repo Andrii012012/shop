@@ -1,0 +1,37 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.header {
+    display: flex;
+}
+
+.title {
+    margin-bottom: f.rem(20);
+    flex: 1 1 auto;
+}
+
+.prevButton,
+.nextButton {
+    background-color: transparent;
+}
+
+.prevButton {
+    margin-right: f.rem(10);
+}
+
+
+.iconButton {
+    fill: map.get($colors, 'green');
+}
+
+.disabledButton {
+    svg {
+        fill: map.get($colors, 'darkGray') !important;
+    }
+}
+
+.iconButtonNext {
+    transform: rotate(-180deg);
+}
