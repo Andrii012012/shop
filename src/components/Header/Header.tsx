@@ -65,7 +65,7 @@ function Header() {
             <li className="header-action header-action-logo">
               <a href="#">
                 <img
-                  src="src/assets/images/header/WebsiteLogo.png"
+                  src="src/assets/images/header/websiteLogo.png"
                   alt="Website Logo"
                 />
               </a>
