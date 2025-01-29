@@ -1,15 +1,6 @@
 import gStyle from "../../styles/styles.module.scss";
 import style from "./style.module.scss";
 
-import { useRef } from "react";
-
-// SWIPER
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Pagination, Navigation } from "swiper/modules";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-
 // IMPORT ICONS
 import BurgerIcon from "../../assets/images/header/burgerIcon.svg?react";
 import HeartIcon from "../../assets/images/header/heartIcon.svg?react";
@@ -17,15 +8,9 @@ import TrashIcon from "../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../assets/images/header/userIcon.svg?react";
 import SearchIcon from "../../assets/images/header/searchIcon.svg?react";
 import CheckIcon from "../../assets/images/header/checkIcon.svg?react";
-import ArrowLeftIcon from "../../assets/images/header/arrowLeftIcon.svg?react";
-import ArrowRightIcon from "../../assets/images/header/arrowRightIcon.svg?react";
 // fill="current" stroke="none"
 
 function Header() {
-  const prevElRef = useRef<HTMLDivElement | null>(null);
-  const nextElRef = useRef<HTMLDivElement | null>(null);
-  const paginationRef = useRef<HTMLDivElement | null>(null);
-
   return (
     <header className={style.header}>
       <div className={gStyle.container}>
@@ -147,47 +132,6 @@ function Header() {
               </li>
             </ul>
           </nav>
-
-          <Swiper
-            className={style.headerSwiper}
-            modules={[Navigation, Pagination]}
-            direction="horizontal"
-            pagination={{
-              clickable: true,
-            }}
-            spaceBetween={20}
-            navigation={{
-              prevEl: prevElRef.current,
-              nextEl: nextElRef.current,
-            }}
-            onBeforeInit={(swiper) => {
-              swiper.params.navigation.prevEl = prevElRef.current;
-              swiper.params.navigation.nextEl = nextElRef.current;
-            }}
-          >
-            {[...Array(8)].map((_, index) => {
-              return (
-                <SwiperSlide key={index} className={style.headerSwiperSlide}>
-                  <img
-                    src="src/assets/images/header/artboardOne.jpg"
-                    alt="artboardOne"
-                  />
-                </SwiperSlide>
-              );
-            })}
-
-            <div className={style.headerSwiperButtonPrev} ref={prevElRef}>
-              <ArrowLeftIcon />
-            </div>
-            <div className={style.headerSwiperButtonNext} ref={nextElRef}>
-              <ArrowRightIcon />
-            </div>
-
-            <div
-              className={style.headerSwiperPagination}
-              ref={paginationRef}
-            ></div>
-          </Swiper>
         </div>
       </div>
     </header>
