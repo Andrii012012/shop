@@ -7,6 +7,7 @@ import Card from '../../containers/Card/Card';
 import SeasonProducts from './components/SeasonProducts/SeasonProducts';
 import DiscountProducts from './components/DiscountProducts/DiscountProducts';
 import HitProducts from './components/HitProducts/HitProducts';
+import Feedback from './components/Feedback/Feedback';
 
 export default function Home(): JSX.Element {
     return (
@@ -17,6 +18,7 @@ export default function Home(): JSX.Element {
                 <HitProducts />
                 <DiscountProducts />
             </div>
+            <Feedback/>
         </main>
     );
 }

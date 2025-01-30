@@ -1,0 +1,88 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.feedbackWrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    padding: f.rem(100) 0 f.rem(100) 0;
+}
+
+.backgroundFon {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+}
+
+.wrapper {
+    max-width: f.rem(680);
+    width: 100%;
+}
+
+.title {
+    font-size: f.rem(45);
+    font-weight: 800;
+    line-height: f.em(55, 45);
+    color: map.get($colors, 'darkGreen');
+}
+
+.subtitle {
+    font-size: f.rem(30);
+    font-weight: 500;
+    line-height: f.em(36.5, 30);
+    color: map.get($colors, 'darkGreen');
+    margin-bottom: f.rem(20);
+}
+
+.input {
+    @include m.input(f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        100%,
+        f.rem(10),
+        1px solid map.get($colors, 'mintGreen'),
+        map.get($colors, 'white'),
+        map.get($colors, 'middleGray'));
+}
+
+.inputActive {
+    margin-bottom: f.rem(20);
+}
+
+.wrapperInput {
+    display: flex;
+    width: 100%;
+    margin-bottom: f.rem(20);
+    column-gap: f.rem(20);
+
+    div {
+        width: 100%;
+    }
+}
+
+.button {
+    @include m.button(f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        100%,
+        f.rem(10),
+        0px solid #0000,
+        map.get($colors, 'deepGreen'),
+        map.get($colors, 'white'));
+    font-weight: 700;
+}
+
+.select {
+    margin-bottom: f.rem(20);
+}

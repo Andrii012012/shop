@@ -59,3 +59,7 @@
   font-size: f.rem(14);
   line-height: f.em(21, 14);
 }
+
+.errorField {
+  border: 1px solid red !important;
+}
