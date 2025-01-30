@@ -1,5 +1,9 @@
+// IMPORT STYLES
 import gStyle from "../../styles/styles.module.scss";
 import style from "./style.module.scss";
+
+// IMPORT HOOKS AND TYPES
+import { ReactNode, useState } from "react";
 
 // IMPORT ICONS
 import BurgerIcon from "../../assets/images/header/burgerIcon.svg?react";
@@ -8,9 +12,24 @@ import TrashIcon from "../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../assets/images/header/userIcon.svg?react";
 import SearchIcon from "../../assets/images/header/searchIcon.svg?react";
 import CheckIcon from "../../assets/images/header/checkIcon.svg?react";
+import ArrowChevronRightIcon from "../../assets/images/header/arrowChevronRightIcon.svg?react";
 // fill="current" stroke="none"
 
-function Header() {
+// INTERFACES
+interface HeaderProps {
+  PopupContainer: React.FC<{
+    isOpen: boolean;
+    children: ReactNode;
+  }>;
+}
+
+function Header({ PopupContainer }: HeaderProps) {
+  const [isShopСatalogOpen, setIsShopСatalogOpen] = useState<boolean>(false);
+
+  function handleClickBurgerButton() {
+    setIsShopСatalogOpen((prev) => !prev);
+  }
+
   return (
     <header className={style.header}>
       <div className={gStyle.container}>
@@ -96,8 +115,13 @@ function Header() {
             </li>
           </ul>
           <nav className={style.headerNav}>
-            <button className={style.burgerMenu}>
-              <BurgerIcon />
+            <button
+              className={style.burgerMenuButton}
+              onClick={handleClickBurgerButton}
+            >
+              <BurgerIcon
+                style={{ fill: isShopСatalogOpen ? "#30B856" : undefined }}
+              />
             </button>
             <ul className={style.headerNavList}>
               <li className={style.headerNavItem}>
@@ -132,6 +156,74 @@ function Header() {
               </li>
             </ul>
           </nav>
+
+          <PopupContainer isOpen={isShopСatalogOpen}>
+            <div className={style.shopCatalog}>
+              <div className={style.shopCatalogProducts}>
+                <a href="#" className={style.shopCatalogProductsLink}>
+                  <TrashIcon />
+                  <span>Каталог товаров</span>
+                </a>
+              </div>
+
+              <ul className={style.shopCatalogList}>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Лекарственные препараты</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Витамины и БАДы</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Красота и уход</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Планирование семьи</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Мама и малышь</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Медицинские изделия</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Ортопедические изделия</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Медицинская техника</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+                <li className={style.shopCatalogItem}>
+                  <a href="#" className={style.shopCatalogItemLink}>
+                    <span>Ветеринарная аптека</span>
+                    <ArrowChevronRightIcon />
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </PopupContainer>
         </div>
       </div>
     </header>

@@ -1,15 +1,10 @@
-import styles from './style.module.scss';
-import gStyles from '../../styles/styles.module.scss';
+import styles from "./style.module.scss";
+import gStyles from "../../styles/styles.module.scss";
 
-interface IProps {
-}
+interface IProps {}
 
 export default function Card(props: IProps): JSX.Element {
+  const {} = props;
 
-    const { } = props;
-
-
-    return (
-        <div className={styles.swiperContainer}></div>
-    );
+  return <div className={styles.swiperContainer}></div>;
 }
