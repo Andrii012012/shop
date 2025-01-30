@@ -1,5 +1,4 @@
 import styles from './style.module.scss';
-import gStyles from '../../../../styles/styles.module.scss';
 import ListProducts from '../../../../containers/ListProducts/ListProducts';
 import { SwiperSlide } from 'swiper/react';
 import Card from '../../../../containers/Card/Card';
