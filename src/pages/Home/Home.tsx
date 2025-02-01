@@ -6,6 +6,7 @@ import DiscountProducts from './components/DiscountProducts/DiscountProducts';
 import HitProducts from './components/HitProducts/HitProducts';
 import Feedback from './components/Feedback/Feedback';
 import Reviews from './components/Reviews/Reviews';
+import Gallery from './components/Gallery/Gallery';
 
 export default function Home(): JSX.Element {
     return (
@@ -18,6 +19,7 @@ export default function Home(): JSX.Element {
             </div>
             <Feedback />
             <Reviews />
+            <Gallery />
         </main>
     );
 }
