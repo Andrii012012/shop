@@ -8,6 +8,7 @@ import Feedback from './components/Feedback/Feedback';
 import Reviews from './components/Reviews/Reviews';
 import Gallery from './components/Gallery/Gallery';
 import News from './components/News/News';
+import Subscribe from './components/Subscribe/Subscribe';
 
 export default function Home(): JSX.Element {
     return (
@@ -19,9 +20,10 @@ export default function Home(): JSX.Element {
                 <DiscountProducts />
             </div>
             <Feedback />
-            <News/>
+            <News />
             <Reviews />
             <Gallery />
+            <Subscribe />
         </main>
     );
 }
