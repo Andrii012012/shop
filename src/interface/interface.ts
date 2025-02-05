@@ -42,3 +42,8 @@ export interface INews {
   date: string;
   detailedDescription: string;
 }
+
+export interface IBaseOptionsSlice {
+  error: null | string;
+  loading: "idle" | "pending" | "succeeded" | "failed";
+}
