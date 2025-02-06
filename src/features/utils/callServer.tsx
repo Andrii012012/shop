@@ -5,7 +5,7 @@ export const callServer = async (url: string, rejectWithValue: (message: string)
     const response = await axios(url);
 
     if (response.status === 200) {
-      return response.data.user;
+      return response.data;
     }
 
   } catch (err: any) {

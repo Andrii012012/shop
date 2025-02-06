@@ -1,97 +1,31 @@
 import styles from './style.module.scss';
-import gStyles from '../../../../styles/styles.module.scss';
 import ListProducts from '../../../../containers/ListProducts/ListProducts';
 import { SwiperSlide } from 'swiper/react';
 import Card from '../../../../containers/Card/Card';
+import { useAppSelector } from '../../../../hooks/useAppSelector';
+import { discountProductsFilter } from '../../../../features/products/filters';
 
 export default function DiscountProducts(): JSX.Element {
+
+    const products = useAppSelector(discountProductsFilter());
+
     return (
         <section className={styles.wrapper}>
             <ListProducts title='Товары по акции' prevButton={styles.prevButton} nextButton={styles.nextButton}>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <Card
-                        isStock={true}
-                        name='Вольтарен эмуногель 1%'
-                        manufacturer='NOVARTIS PHARMA'
-                        volume={100}
-                        release='гель'
-                        price={782}
-                        isRecipe={true}
-                        isDelivery={false}
-                    />
-                </SwiperSlide>
+                {products.map((item, _) => (
+                    <SwiperSlide>
+                        <Card
+                            isStock={true}
+                            name={item.name}
+                            manufacturer={item.manufacturer}
+                            volume={item.release[0].packing[0]}
+                            release={item.release[1].name}
+                            price={item.price}
+                            isRecipe={item.isRecipe}
+                            isDelivery={item.isDelivery}
+                        />
+                    </SwiperSlide>
+                ))}
             </ListProducts>
         </section>
     );

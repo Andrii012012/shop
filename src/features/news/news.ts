@@ -14,7 +14,9 @@ const initialState: IInitialNews = {
 
 export const getNewsThunk = createAsyncThunk(
   "news/get",
-  async (url, { rejectWithValue }) => callServer("", rejectWithValue)
+  async (_, { rejectWithValue }) => {
+    return callServer("src/servers/news.json", rejectWithValue);
+  }
 );
 
 const news = createSlice({

@@ -1,14 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-interface IState {
+interface IState<T> {
     error: null | string;
-    data: {};
+    data: {} | T;
     loading: boolean;
 }
 
-export function useFetch(url: string) {
-    const [state, setState] = useState<IState>({
+export function useFetch<T>(url: string) {
+    const [state, setState] = useState<IState<T>>({
         error: null,
         data: {},
         loading: false,
@@ -21,7 +21,7 @@ export function useFetch(url: string) {
             const response = await axios(url);
 
             if (response.status === 200) {
-                setState((prev) => ({ ...prev, loading: false, data: response }));
+                setState((prev) => ({ ...prev, loading: false, data: response.data }));
             }
 
         } catch (error: any) {

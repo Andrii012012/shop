@@ -42,30 +42,16 @@ export default function SwiperImages(): JSX.Element {
                     }}
                     onSwiper={(swiper) => setIsUploadedSwiper(true)}
                 >
-                    <SwiperSlide className={styles.swiperSlide}>
-                        <div>
-                            <img
-                                src={artboardOne}
-                                alt="artboardOne"
-                            />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.swiperSlide}>
-                        <div>
-                            <img
-                                src={artboardOne}
-                                alt="artboardOne"
-                            />
-                        </div>
-                    </SwiperSlide>
-                    <SwiperSlide className={styles.swiperSlide}>
-                        <div>
-                            <img
-                                src={artboardOne}
-                                alt="artboardOne"
-                            />
-                        </div>
-                    </SwiperSlide>
+                    {Array.from(Array(3)).map((item) => (
+                        <SwiperSlide key={item} className={styles.swiperSlide}>
+                            <div>
+                                <img
+                                    src={artboardOne}
+                                    alt="artboardOne"
+                                />
+                            </div>
+                        </SwiperSlide>
+                    ))}
                     <div className={styles.swiperButtonPrev} ref={prevElRef}>
                         <ArrowIcon className={styles.iconButton} />
                     </div>

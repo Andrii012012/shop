@@ -1,9 +1,12 @@
 export interface IComment {
-  author: string;
+  name: string;
+  surname: string;
   avatar: string;
-  stars: number;
+  marks: number;
   description: string;
 }
+
+export type TSeasons = "winter" | "summer" | "spring" | "autunm" | "all";
 
 export interface IBaseProduct {
   name: string;
@@ -14,6 +17,7 @@ export interface IBaseProduct {
   hitProduct: number;
   shelfLife: string;
   comments: IComment[];
+  [key: string]: any;
 }
 
 export interface IRelease {
@@ -24,7 +28,8 @@ export interface IRelease {
 }
 
 export interface IMedicalDrugs extends IBaseProduct {
-  seasons: "winter" | "summer" | "spring" | "autunm" | "all";
+  season: TSeasons;
+  activeIngredient: string;
   release: IRelease[];
   cures: string[];
   isDelivery: boolean;
