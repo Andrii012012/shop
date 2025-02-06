@@ -10,7 +10,6 @@ import BurgerIcon from "../../assets/images/header/burgerIcon.svg?react";
 import HeartIcon from "../../assets/images/header/heartIcon.svg?react";
 import TrashIcon from "../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../assets/images/header/userIcon.svg?react";
-import SearchIcon from "../../assets/images/header/searchIcon.svg?react";
 import CheckIcon from "../../assets/images/header/checkIcon.svg?react";
 import ArrowChevronRightIcon from "../../assets/images/header/arrowChevronRightIcon.svg?react";
 // fill="current" stroke="none"
@@ -21,9 +20,10 @@ interface HeaderProps {
     isOpen: boolean;
     children: ReactNode;
   }>;
+  SearchBar: React.FC;
 }
 
-function Header({ PopupContainer }: HeaderProps) {
+function Header({ PopupContainer, SearchBar }: HeaderProps) {
   const [isShopСatalogOpen, setIsShopСatalogOpen] = useState<boolean>(false);
 
   function handleClickBurgerButton() {
@@ -84,13 +84,8 @@ function Header({ PopupContainer }: HeaderProps) {
               </a>
             </li>
 
-            <li className={style.headerActionSearchBar}>
-              <input
-                type="text"
-                className={style.headerSearchBar}
-                placeholder="Поиск по названию, производителю, действующему веществу или симптому"
-              />
-              <SearchIcon />
+            <li className={style.headerActionSearch}>
+              <SearchBar />
             </li>
 
             <li className={style.headerActionFavorites}>
