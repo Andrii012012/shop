@@ -1,5 +1,8 @@
+@use '../../utils/styles/functions.scss' as f;
+
 .header {
   background-color: F3F3F3;
+  margin-bottom: f.rem(20);
 }
 
 .header-inner {
@@ -63,6 +66,7 @@
     }
   }
 }
+
 .header-inner {
   padding-top: 20px;
 
@@ -84,6 +88,7 @@
     }
   }
 }
+
 .header-inner {
   .header-actions {
     display: flex;
@@ -119,8 +124,7 @@
       }
     }
 
-    .header-action-favorites {
-    }
+    .header-action-favorites {}
 
     .header-action-favorites-link,
     .header-action-trash-link,

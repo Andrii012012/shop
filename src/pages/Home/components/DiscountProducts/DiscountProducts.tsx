@@ -1,0 +1,32 @@
+import styles from './style.module.scss';
+import ListProducts from '../../../../containers/ListProducts/ListProducts';
+import { SwiperSlide } from 'swiper/react';
+import Card from '../../../../containers/Card/Card';
+import { useAppSelector } from '../../../../hooks/useAppSelector';
+import { discountProductsFilter } from '../../../../features/products/filters';
+
+export default function DiscountProducts(): JSX.Element {
+
+    const products = useAppSelector(discountProductsFilter());
+
+    return (
+        <section className={styles.wrapper}>
+            <ListProducts title='Товары по акции' prevButton={styles.prevButton} nextButton={styles.nextButton}>
+                {products.map((item, _) => (
+                    <SwiperSlide>
+                        <Card
+                            isStock={true}
+                            name={item.name}
+                            manufacturer={item.manufacturer}
+                            volume={item.release[0].packing[0]}
+                            release={item.release[1].name}
+                            price={item.price}
+                            isRecipe={item.isRecipe}
+                            isDelivery={item.isDelivery}
+                        />
+                    </SwiperSlide>
+                ))}
+            </ListProducts>
+        </section>
+    );
+}
