@@ -21,6 +21,11 @@ export default function RangeSlider(props: IProps): JSX.Element {
     const refInputMax = useRef<HTMLInputElement | null>(null);
 
     useEffect(() => {
+        setMinState(value[0]);
+        setMaxState(value[1]);
+    }, [...value]);
+
+    useEffect(() => {
         if (refTrack.current) {
             const leftValue = `${(minState - min) / (max - min) * 100}%`;
             const rightValue = `${(max - maxState) / (max - min) * 100}%`;

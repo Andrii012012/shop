@@ -12,11 +12,12 @@ interface IProps {
     settings: ISettings;
     setSettings: React.Dispatch<React.SetStateAction<ISettings>>
     products: IBaseProduct[];
+    handleClearSettings: () => void;
 }
 
 export default function Settings(props: IProps): JSX.Element {
 
-    const { setSettings, settings, products } = props;
+    const { setSettings, settings, products, handleClearSettings } = props;
 
     const releaseForm = Object.entries(getReleaseFormProduct());
     const manufacturer = Object.entries(getInfoProduct("manufacturer"));
@@ -129,7 +130,7 @@ export default function Settings(props: IProps): JSX.Element {
                 </Accordion>
             </div>
             <Button title='Поиск' className={`${styles.button} ${gStyles.textBig}`} />
-            <Button title='Очистить фильтр' className={`${styles.clear} ${gStyles.textMedium}`} />
+            <Button title='Очистить фильтр' onClick={handleClearSettings} className={`${styles.clear} ${gStyles.textMedium}`} />
         </aside>
     );
 }

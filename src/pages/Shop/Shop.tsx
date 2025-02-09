@@ -28,13 +28,27 @@ export default function Shop(): JSX.Element {
 
     const products = useAppSelector((state) => state.products.products);
 
+    function handleClearSettings() {
+        setSettings((prevState) => {
+            const newState = { ...prevState };
+            newState.countryOrigin = [];
+            newState.manufacturer = [];
+            newState.price = [0, 15000];
+            newState.releaseForm = [];
+            newState.sortAlphabet = 'a';
+            newState.sort = 'Цена по убыванию';
+            newState.isRecipe = [];
+            return newState;
+        });
+    }
+
     return (
         <main className={styles.page}>
             <div className={gStyles.container}>
                 <div className={styles.wrapper}>
-                    <Settings products={products} settings={settings} setSettings={setSettings} />
+                    <Settings handleClearSettings={handleClearSettings} products={products} settings={settings} setSettings={setSettings} />
                     <section className={styles.content}>
-                        <AdditionalSort products={products} settings={settings} setSettings={setSettings} />
+                        <AdditionalSort products={filterProducts} settings={settings} setSettings={setSettings} />
                         <ProductLists currentValue={currentValue} products={filterProducts} />
                         <Pagination setCurrentValue={setCurrentValue} countPagination={Math.floor(products.length / 12)} currentNumber={currentValue} className={styles.pagination} />
                     </section>
