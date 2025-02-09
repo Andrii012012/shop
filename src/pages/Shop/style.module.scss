@@ -4,12 +4,13 @@
 
 .page {
     background-color: map.get($colors, 'grayWhite');
-    min-height: 100vh;
     width: 100%;
+    margin-bottom: f.rem(50);
 }
 
 .wrapper {
     display: flex;
+    margin-bottom: f.rem(130);
 }
 
 .settings {
@@ -26,8 +27,4 @@
     div:nth-child(2) {
         margin-top: f.rem(20);
     }
-}
-
-.pagination {
-    margin-bottom: f.rem(130);
 }

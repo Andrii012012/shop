@@ -8,6 +8,7 @@ import AdditionalSort from './components/AdditionalSort/AdditionalSort';
 import { shopProductsFilter } from '../../features/products/filters';
 import ProductLists from './components/ProductLists/ProductLists';
 import Pagination from '../../components/ui/Pagination/Pagination';
+import SimilarProducts from './components/SimilarProducts/SimilarProducts';
 
 export default function Shop(): JSX.Element {
 
@@ -38,6 +39,7 @@ export default function Shop(): JSX.Element {
                         <Pagination setCurrentValue={setCurrentValue} countPagination={Math.floor(products.length / 12)} currentNumber={currentValue} className={styles.pagination} />
                     </section>
                 </div>
+                <SimilarProducts />
             </div>
         </main>
     );
