@@ -5,8 +5,3 @@
 .page {
     background-color: map.get($colors, 'grayWhite');
 }
-
-.map {
-    width: 100%;
-    min-height: f.rem(500);
-}

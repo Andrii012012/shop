@@ -18,7 +18,7 @@ export default function Shop(): JSX.Element {
         manufacturer: [],
         countryOrigin: [],
         isRecipe: [],
-        sortAlphabet: 'a',
+        sortAlphabet: 'а',
         sort: 'Цена по убыванию',
     });
 
@@ -35,7 +35,7 @@ export default function Shop(): JSX.Element {
             newState.manufacturer = [];
             newState.price = [0, 15000];
             newState.releaseForm = [];
-            newState.sortAlphabet = 'a';
+            newState.sortAlphabet = 'а';
             newState.sort = 'Цена по убыванию';
             newState.isRecipe = [];
             return newState;
