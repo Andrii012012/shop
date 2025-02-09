@@ -4,7 +4,9 @@
 @import '../../../../utils/styles/colors.scss';
 
 .settings {
-    flex: 0 1 f.rem(302);
+    max-width: f.rem(302);
+    width: 100%;
+    margin-right: f.rem(20);
 }
 
 .wrapper {

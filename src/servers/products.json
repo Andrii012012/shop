@@ -2015,9 +2015,9 @@
         "pharmacologicalAction": ""
     },
     {
-        "name": "Вольтарен эмуногель 1%",
+        "name": "Польтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 125,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
@@ -2082,7 +2082,7 @@
     {
         "name": "Вольтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 25,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
@@ -2147,7 +2147,7 @@
     {
         "name": "Вольтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 225,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
@@ -2212,7 +2212,7 @@
     {
         "name": "Вольтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 325,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
@@ -2277,7 +2277,7 @@
     {
         "name": "Вольтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 625,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
@@ -2342,7 +2342,7 @@
     {
         "name": "Вольтарен эмуногель 1%",
         "manufacturer": "NOVARTIS PHARMA",
-        "price": 425,
+        "price": 925,
         "images": ["productImage.png"],
         "discount": null,
         "hitProduct": 3,
