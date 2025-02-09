@@ -1,9 +1,9 @@
 import styles from './style.module.scss';
-import gStyles from '../../../../styles/styles.module.scss';
-import letter from '../../../../assets/images/home/letter.png';
+import gStyles from "../../../styles/styles.module.scss";
+import letter from '../../../assets/images/home/letter.png';
 import { Field, Form, Formik } from 'formik';
-import { validateEmail } from '../../../../utils/js/validate';
-import Button from '../../../../components/ui/Button/Button';
+import { validateEmail } from '../../../utils/js/validate';
+import Button from '../../../components/ui/Button/Button';
 
 export default function Subscribe(): JSX.Element {
 
@@ -15,7 +15,7 @@ export default function Subscribe(): JSX.Element {
                         <img src={letter} alt="" />
                     </div>
                     <div className={styles.content}>
-                        <h2 className={styles.title}>Подпишитесь и получайте <br/> лучшие предложения первыми!</h2>
+                        <h2 className={styles.title}>Подпишитесь и получайте <br /> лучшие предложения первыми!</h2>
                         <Formik
                             initialValues={{ email: '' }}
                             onSubmit={(value) => { }}

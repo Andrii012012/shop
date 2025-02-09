@@ -1,8 +1,8 @@
 @use '../../utils/styles/functions.scss' as f;
 
 .header {
-  background-color: F3F3F3;
-  margin-bottom: f.rem(20);
+  background-color: #F3F3F3;
+  padding-bottom: f.rem(20);
 }
 
 .header-inner {

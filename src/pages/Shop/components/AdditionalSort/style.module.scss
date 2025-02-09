@@ -1,0 +1,124 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    margin-bottom: f.rem(30);
+}
+
+.header {
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+    padding: f.rem(30);
+    margin-bottom: f.rem(30);
+
+    span {
+        font-weight: 700;
+    }
+
+    p:first-child {
+        margin-bottom: f.rem(10);
+        font-weight: 500;
+    }
+
+    p:nth-child(2) {
+        margin-bottom: f.rem(10);
+    }
+}
+
+.bodySort {
+    display: flex;
+    align-items: center;
+
+    span {
+        margin-right: f.rem(10);
+    }
+
+    ul {
+        display: flex;
+        align-items: center;
+
+        li {
+            font-weight: 500;
+            margin-right: f.rem(3);
+            cursor: pointer;
+            color: map.get($colors, 'middleGray');
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+.activeWord {
+    color: map.get($colors, 'deepGreen') !important;
+    font-weight: 700;
+    position: relative;
+    transition: 0.3s linear;
+
+    &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background-color: map.get($colors, 'deepGreen');
+        position: absolute;
+        bottom: 0;
+        left: 0;
+    }
+}
+
+.sortWrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    span {
+        font-weight: 700;
+        display: inline-block;
+        margin-right: f.rem(30);
+    }
+
+    ul {
+        display: flex;
+        width: 100%;
+        align-items: center;
+
+        li {
+            padding: f.rem(20) f.rem(20);
+            background-color: map.get($colors, 'white');
+            border-radius: f.rem(100);
+            margin-right: f.rem(30);
+            cursor: pointer;
+            text-align: center;
+
+            &:last-child {
+                margin-right: 0;
+            }
+
+            &:nth-child(1) {
+                flex: 1 1 33.33%;
+                width: 100%;
+            }
+
+            &:nth-child(2) {
+                flex: 1 1 33.33%;
+
+                width: 100%;
+            }
+
+            &:nth-child(3) {
+                flex: 1 1 33.33%;
+
+                width: 100%;
+            }
+        }
+    }
+
+}
+
+.activeSort {
+    border: 3px solid map.get($colors, 'lightGreen');
+}

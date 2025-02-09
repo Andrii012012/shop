@@ -8,6 +8,7 @@ import TrashIcon from "../../assets/images/header/trash-icon.svg?react";
 import UserIcon from "../../assets/images/header/user-icon.svg?react";
 import SearchIcon from "../../assets/images/header/search-icon.svg?react";
 import CheckIcon from "../../assets/images/header/check-icon.svg?react";
+import { Link } from "react-router-dom";
 // fill="current" stroke="none"
 
 function Header() {
@@ -122,9 +123,9 @@ function Header() {
                 </a>
               </li>
               <li className={style["header-nav-item"]}>
-                <a className={style["header-nav-link"]} href="#">
+                <Link className={style["header-nav-link"]} to='shop'>
                   Помощь
-                </a>
+                </Link>
               </li>
               <li className={style["header-nav-item"]}>
                 <a className={style["header-nav-link"]} href="#">
