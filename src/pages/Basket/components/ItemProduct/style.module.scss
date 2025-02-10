@@ -1,0 +1,73 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+}
+
+.item {
+    width: 100%;
+    border: 2px solid map.get($colors, "lightGray");
+    border-radius: f.rem(10);
+    margin-bottom: f.rem(25);
+    padding: f.rem(20);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.bodyProduct {
+    display: flex;
+}
+
+.imageProduct {
+    margin-right: f.rem(20);
+
+    img {
+        @include m.adaptationImage(f.rem(106), f.rem(106));
+    }
+}
+
+.headerProduct {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: f.rem(20);
+
+    h3 {
+        flex: 1 1 auto;
+        font-weight: 700;
+    }
+}
+
+.bodyInfoProduct {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.bodyActions {
+    img:first-child {
+        margin-right: f.rem(10);
+    }
+}
+
+
+.bodyInfoProduct>div {
+    font-size: f.rem(14);
+    line-height: f.em(21, 14);
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.counter {
+    max-width: f.rem(120);
+    width: 100%;
+    border-radius: f.rem(100);
+    border: 2px solid map.get($colors, "lightGray");
+}

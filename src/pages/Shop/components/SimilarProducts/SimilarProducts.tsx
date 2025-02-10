@@ -29,6 +29,7 @@ export default function SimilarProducts(props: IProps): JSX.Element {
                             price={item.price}
                             isRecipe={item.isRecipe}
                             isDelivery={item.isDelivery}
+                            countryOrigin={item.countryOrigin}
                         />
                     </SwiperSlide>
                 ))}

@@ -9,6 +9,7 @@ import UserIcon from "../../assets/images/header/user-icon.svg?react";
 import SearchIcon from "../../assets/images/header/search-icon.svg?react";
 import CheckIcon from "../../assets/images/header/check-icon.svg?react";
 import { Link } from "react-router-dom";
+import { PATH_BASKET } from "../../routes/routes";
 // fill="current" stroke="none"
 
 function Header() {
@@ -89,10 +90,10 @@ function Header() {
             </li>
 
             <li className={style["header-action-trash"]}>
-              <a href="#" className={style["header-action-trash-link"]}>
+              <Link to={PATH_BASKET} className={style["header-action-trash-link"]}>
                 <TrashIcon />
                 Корзина
-              </a>
+              </Link>
             </li>
 
             <li className={style["header-action-login"]}>

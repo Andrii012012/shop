@@ -4,6 +4,9 @@ import Heart from '../../assets/images/global/iconHeartOutline.svg?react';
 import imageDefaultProduct from '../../assets/images/products/imageProductDefault.png';
 import Counter from '../../components/ui/Counter/Counter';
 import { useState } from 'react';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { addProduct } from '../../features/basket/basket';
+import { IBasketProduct } from '../../interface/interface';
 
 interface IProps {
     isStock: boolean;
@@ -14,13 +17,16 @@ interface IProps {
     price: number;
     isRecipe: boolean;
     isDelivery: boolean;
+    countryOrigin: string;
 }
 
 export default function Card(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, volume, release, price, isRecipe, isDelivery } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery } = props;
 
     const [count, setCount] = useState<number>(1);
+
+    const dispatch = useAppDispatch();
 
     function handleMouseEnterSetClass(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
         event.currentTarget.classList.add(styles.activeCard);
@@ -28,6 +34,10 @@ export default function Card(props: IProps): JSX.Element {
 
     function handleMouseLeaveSetClass(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
         event.currentTarget.classList.remove(styles.activeCard);
+    }
+
+    function handlePutProduct(productBasket: IBasketProduct) {
+        dispatch(addProduct(productBasket));
     }
 
     return (
@@ -51,7 +61,7 @@ export default function Card(props: IProps): JSX.Element {
             <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{price} грн</p>
             <div className={styles.buttonBody}>
                 <Counter value={count} setValue={setCount} />
-                <button className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
+                <button onClick={() => handlePutProduct({ name, manufacturer, countryOrigin, isRecipe, image: "", price })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
             </div>
             <div className={styles.wrrapperDelivery}>
                 <h4 className={`${styles.delivery} ${gStyles.textBig}`}>{isDelivery ? <span className={styles.deliveryGreen}>Доступна доставка</span> : <span className={styles.deliveryRed}>Доставка запрещена</span>}</h4>
