@@ -50,6 +50,10 @@
 }
 
 .bodyActions {
+    img {
+        cursor: pointer;
+    }
+
     img:first-child {
         margin-right: f.rem(10);
     }

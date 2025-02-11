@@ -54,6 +54,7 @@ export interface IBaseOptionsSlice {
 }
 
 export interface IBasketProduct {
+  id: string;
   image?: string;
   name: string;
   price: number;

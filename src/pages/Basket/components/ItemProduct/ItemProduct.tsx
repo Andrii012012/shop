@@ -5,26 +5,75 @@ import imageProduct from '../../../../assets/images/products/imageProductDefault
 import Counter from '../../../../components/ui/Counter/Counter';
 import iconHeart from '../../../../assets/images/global/iconHeartOutline.svg';
 import iconDelete from '../../../../assets/images/global/iconDelete.svg';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import { IAdditionalBasket, IState } from '../../type';
+import { useAppDispatch } from '../../../../hooks/useAppDispatch';
+import { removeSelectedProducts } from '../../../../features/basket/basket';
 interface IProps {
+    id: string;
     name: string;
     price: number;
     isRecipe: boolean;
     countryOrigin: string;
     manufacturer: string;
+    setState: React.Dispatch<React.SetStateAction<IState>>;
+    state: IState;
+    isSelectAllProduct: boolean;
 }
 
 export default function ItemProduct(props: IProps): JSX.Element {
 
-    const { manufacturer, countryOrigin, isRecipe, name, price } = props;
+    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id } = props;
 
     const [counter, setCounter] = useState<number>(1);
+
+    const dispatch = useAppDispatch();
+
+    function handlePutProduct(product: IAdditionalBasket) {
+        setState((prevState) => {
+            const newState = { ...prevState };
+            if (!newState.selectedProducts.find((item) => item.id === id)) {
+                newState.selectedProducts.push(product);
+            } else {
+                newState.selectedProducts = newState.selectedProducts.filter((item) => item.id !== id && item);
+            }
+            return newState;
+        });
+    }
+
+    function checkProduct(): boolean {
+        let isHas = false;
+        state.selectedProducts.forEach((item, _) => {
+            if (item.id === id) isHas = true;
+        });
+        return isHas;
+    }
+
+    useEffect(() => {
+        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price };
+        setState((prevState) => {
+            const newState = { ...prevState };
+            if (isSelectAllProduct) {
+                newState.selectedProducts.push(product);
+            }
+            else {
+                newState.selectedProducts = [];
+            }
+            return newState;
+        });
+
+    }, [isSelectAllProduct]);
+
+    function handleDeleteProduct() {
+        dispatch(removeSelectedProducts([id]));
+    }
 
     return (
         <li className={styles.item}>
             <div className={styles.bodyProduct}>
-                <Checkbox className={styles.checkboxSelectProduct} value={false} />
+                <div onClick={() => handlePutProduct({ id: id, name, isRecipe, manufacturer, countryOrigin, price })}>
+                    <Checkbox className={styles.checkboxSelectProduct} value={checkProduct()} />
+                </div>
                 <div className={styles.imageProduct}>
                     <img src={imageProduct} />
                 </div>
@@ -33,7 +82,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
                         <h3 className={gStyles.textBig}>{name}</h3>
                         <div className={styles.bodyActions}>
                             <img src={iconHeart} alt="" />
-                            <img src={iconDelete} alt="" />
+                            <img onClick={handleDeleteProduct} src={iconDelete} alt="" />
                         </div>
                     </div>
                     <div className={styles.bodyInfoProduct}>
