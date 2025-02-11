@@ -25,16 +25,16 @@ const basket = createSlice({
     ) => {
       state.basket.push(action.payload);
     },
-    removeSelectedProducts: (
-      state: IInitialBasket,
-      action: PayloadAction<string[]>
-    ) => {
+    removeProduct: (state: IInitialBasket, action: PayloadAction<string[]>) => {
       state.basket = state.basket.filter((item, _) => {
         if (!action.payload.includes(item.id)) return item;
       });
+    },
+    clearProducts: (state: IInitialBasket) => {
+      state.basket = [];
     },
   },
 });
 
 export const ReducerBasket = basket.reducer;
-export const { addProduct, removeSelectedProducts } = basket.actions;
+export const { addProduct, removeProduct, clearProducts } = basket.actions;

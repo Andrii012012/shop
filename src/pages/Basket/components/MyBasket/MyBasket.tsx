@@ -7,17 +7,19 @@ import ItemProduct from '../ItemProduct/ItemProduct';
 import { IState } from '../../type';
 import { useState } from 'react';
 import { useAppDispatch } from '../../../../hooks/useAppDispatch';
-import { removeSelectedProducts } from '../../../../features/basket/basket';
+import { removeProduct } from '../../../../features/basket/basket';
+import InfoProducts from '../InfoProducts/InfoProducts';
 
 interface IProps {
     products: IBasketProduct[];
     setState: React.Dispatch<React.SetStateAction<IState>>;
     state: IState;
+    SWITCH_CONTENT: string[];
 }
 
 export default function MyBasket(props: IProps): JSX.Element {
 
-    const { products, setState, state } = props;
+    const { products, setState, state, SWITCH_CONTENT } = props;
 
     const [isSelectAllProduct, setIsSelectAllProduct] = useState<boolean>(false);
 
@@ -30,7 +32,7 @@ export default function MyBasket(props: IProps): JSX.Element {
             selectedProductsId.push(item.id);
         });
 
-        dispatch(removeSelectedProducts(selectedProductsId));
+        dispatch(removeProduct(selectedProductsId));
     }
 
     return (
@@ -62,9 +64,13 @@ export default function MyBasket(props: IProps): JSX.Element {
                             ))}
                         </ul>
                     </div>
-                    <div className={styles.infoProducts}>
-
-                    </div>
+                    <InfoProducts
+                        selectedProducts={state.selectedProducts}
+                        discount={state.discount}
+                        payment={state.payment}
+                        setState={setState}
+                        SWITCH_CONTENT={SWITCH_CONTENT}
+                    />
                 </div>
             </div>
         </section>

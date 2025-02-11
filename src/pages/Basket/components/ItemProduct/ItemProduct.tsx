@@ -6,9 +6,9 @@ import Counter from '../../../../components/ui/Counter/Counter';
 import iconHeart from '../../../../assets/images/global/iconHeartOutline.svg';
 import iconDelete from '../../../../assets/images/global/iconDelete.svg';
 import { useEffect, useState } from 'react';
-import { IAdditionalBasket, IState } from '../../type';
+import { ISelectedProduct, IState } from '../../type';
 import { useAppDispatch } from '../../../../hooks/useAppDispatch';
-import { removeSelectedProducts } from '../../../../features/basket/basket';
+import { removeProduct } from '../../../../features/basket/basket';
 interface IProps {
     id: string;
     name: string;
@@ -29,7 +29,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
 
     const dispatch = useAppDispatch();
 
-    function handlePutProduct(product: IAdditionalBasket) {
+    function handlePutProduct(product: ISelectedProduct) {
         setState((prevState) => {
             const newState = { ...prevState };
             if (!newState.selectedProducts.find((item) => item.id === id)) {
@@ -65,7 +65,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
     }, [isSelectAllProduct]);
 
     function handleDeleteProduct() {
-        dispatch(removeSelectedProducts([id]));
+        dispatch(removeProduct([id]));
     }
 
     return (

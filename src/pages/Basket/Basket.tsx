@@ -17,6 +17,10 @@ export default function Basket(): JSX.Element {
 
     const [state, setState] = useState<IState>({
         selectedProducts: [],
+        discount: 2,
+        payment: "Оплата онлайн",
+        priceProducts: 0,
+        totalPrice: 0,
     });
 
     return (
@@ -28,7 +32,7 @@ export default function Basket(): JSX.Element {
                 <SwitchContent links={[{ name: SWITCH_CONTENT[0], to: `${PATH_BASKET}/${SWITCH_CONTENT[0]}` }, { name: SWITCH_CONTENT[1], to: `${PATH_BASKET}/${SWITCH_CONTENT[1]}` }, { name: SWITCH_CONTENT[2], to: `${PATH_BASKET}/${SWITCH_CONTENT[2]}` }]} />
             </div>
             <Routes>
-                <Route path={SWITCH_CONTENT[0]} element={<MyBasket setState={setState} state={state} products={products}/>} />
+                <Route path={SWITCH_CONTENT[0]} element={<MyBasket SWITCH_CONTENT={SWITCH_CONTENT} setState={setState} state={state} products={products} />} />
                 {/* <Route path={SWITCH_CONTENT[1]} element={ } />
                     <Route path={SWITCH_CONTENT[2]} element={ } /> */}
             </Routes>

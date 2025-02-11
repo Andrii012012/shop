@@ -1,9 +1,16 @@
 import { IBasketProduct } from "../../interface/interface";
 
-export interface IAdditionalBasket extends IBasketProduct {
+export interface ISelectedProduct extends IBasketProduct {
   id: string;
 }
 
+export type TPayment = "Оплата онлайн" | "Оплата при получении";
+
 export interface IState {
-  selectedProducts: IAdditionalBasket[];
+  selectedProducts: ISelectedProduct[];
+  discount: number;
+  payment: TPayment;
+  promo?: string;
+  priceProducts: number;
+  totalPrice: number;
 }
