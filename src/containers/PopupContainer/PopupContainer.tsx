@@ -10,7 +10,7 @@ interface PopupContainerProps {
 function PopupContainer({ isOpen, children }: PopupContainerProps) {
   if (!isOpen) return null;
 
-  return <div className={style.popupContent}>{children}</div>;
+  return <>{children}</>;
 }
 
 export default PopupContainer;

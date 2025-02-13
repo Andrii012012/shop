@@ -124,6 +124,7 @@
 }
 
 .headerNav {
+  position: relative;
   display: flex;
   align-items: center;
   column-gap: 50px;
@@ -131,16 +132,6 @@
 
   padding: 20px 50px 20px;
   border-radius: 10px;
-
-  .burgerMenuButton {
-    display: grid;
-    place-content: center;
-    background: none;
-
-    svg {
-      fill: #fff;
-    }
-  }
 }
 
 .headerNavList {
@@ -153,84 +144,6 @@
 
     .headerNavLink {
       color: #fff;
-    }
-  }
-}
-
-.shopCatalog {
-  position: absolute;
-
-  width: f.rem(460);
-
-  background-color: #fff;
-  padding: 30px 50px 50px;
-  border-radius: 0 0 10px 10px;
-  box-shadow: 0 4px 30px 3px rgba(0, 0, 0, 0.25);
-
-  .shopCatalogProducts {
-    width: 100%;
-    margin-bottom: 30px;
-
-    .shopCatalogProductsLink {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      column-gap: 10px;
-      height: f.rem(80);
-      border-radius: 10px;
-
-      font-weight: 700;
-      font-size: 18px;
-      color: #323232;
-
-      background-color: #f3f3f3;
-      transition: 0.1s;
-
-      svg {
-        fill: #323232;
-        transition: 0.1s;
-      }
-
-      &:hover {
-        background-color: #216823;
-        color: #fff;
-      }
-
-      &:hover svg {
-        fill: #fff;
-      }
-    }
-  }
-
-  .shopCatalogList {
-    display: flex;
-    flex-direction: column;
-    row-gap: 25px;
-
-    .shopCatalogItem {
-      .shopCatalogItemLink {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        font-weight: 500;
-        font-size: 18px;
-        color: #323232;
-        transition: 0.1s;
-
-        svg {
-          fill: #323232;
-          transition: 0.1s;
-        }
-
-        &:hover {
-          color: #216823;
-        }
-
-        &:hover svg {
-          fill: #216823;
-        }
-      }
     }
   }
 }
