@@ -9,12 +9,13 @@ interface IProps {
     products: IBasketProduct[];
     className?: string;
     price: number;
+    isDelivery?: boolean;
     footer: () => JSX.Element;
 }
 
 export default function PanelProduct(props: IProps): JSX.Element {
 
-    const { deliveryMethod, products, className = "", price, footer } = props;
+    const { deliveryMethod, products, className = "", price, footer, isDelivery = false } = props;
 
     return (
         <section className={`${styles.panel} ${className}`}>
@@ -44,7 +45,7 @@ export default function PanelProduct(props: IProps): JSX.Element {
                     </ul>
                     <div className={styles.body}>
                         <p className={`${styles.price} ${gStyles.textExtraBig}`}><span>Товаров на сумму:</span> <p>{price} $</p></p>
-                        {deliveryMethod === 'Доставка курьером' &&
+                        {isDelivery &&
                             <p className={`${styles.price} ${gStyles.textExtraBig}`}><span>Доставка:</span> <p>180 $</p></p>}
                     </div>
                     <p className={`${styles.totalPrice} ${styles.price}`}><span>Итого к оплате:</span> <p>{deliveryMethod === "Самовывоз" ? price : price + 180} $</p></p>

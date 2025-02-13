@@ -5,20 +5,31 @@ import styles from "./style.module.scss";
 interface IProps {
   links: { name: string; to: string }[];
   className?: string;
+  disabled?: number[];
 }
 
 export default function SwitchContent(props: IProps): JSX.Element {
 
-  const { links, className = '' } = props;
+  const { links, className = '', disabled = [] } = props;
 
   return (
     <div className={`${styles.wrapper} ${className}`}>
       <ul className={styles.list}>
-        {links.map((item, index) => (
-          <li style={{ flex: `1 1 ${100 / links.length}%` }} className={gStyles.textBig} key={index}>
-            <NavLink className={({ isActive }) => isActive ? styles.activeLink : ""} to={item.to}>{item.name}</NavLink>
-          </li>
-        ))}
+        {links.map((item, index) => {
+          if (disabled.includes(index)) {
+            return (
+              <li style={{ flex: `1 1 ${100 / links.length}%`, pointerEvents: 'none' }} className={gStyles.textBig} key={index}>
+                <NavLink className={({ isActive }) => isActive ? styles.activeLink : ""} to={item.to}>{item.name}</NavLink>
+              </li>
+            )
+          } else {
+            return (
+              <li style={{ flex: `1 1 ${100 / links.length}%` }} className={gStyles.textBig} key={index}>
+                <NavLink className={({ isActive }) => isActive ? styles.activeLink : ""} to={item.to}>{item.name}</NavLink>
+              </li>
+            )
+          }
+        })}
       </ul>
     </div>
   );

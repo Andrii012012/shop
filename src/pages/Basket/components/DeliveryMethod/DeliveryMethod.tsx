@@ -21,9 +21,7 @@ interface IProps {
 
 export default function DeliveryMethod(props: IProps): JSX.Element {
 
-    const { products, setState, state, setField, field, SWITCH_CONTENT } = props;
-
-    const [deliveryMethod, setDeliveryMethod] = useState<TDeliveryMethod>("Доставка курьером");
+    const { products, state, setState, setField, SWITCH_CONTENT } = props;
 
     const [isFurth, setIsFurth] = useState<boolean>(false);
 
@@ -35,6 +33,10 @@ export default function DeliveryMethod(props: IProps): JSX.Element {
         });
     }
 
+    function handleChangeDeliveryMethod(value: TDeliveryMethod): void {
+        setState((prevState) => ({ ...prevState, deliveryMethod: value }));
+    }
+
     return (
         <section className={styles.wrapper}>
             <div className={gStyles.container}>
@@ -42,22 +44,22 @@ export default function DeliveryMethod(props: IProps): JSX.Element {
                     <div className={styles.delivery}>
                         <div className={styles.header}>
                             <h3 className={gStyles.textLarge}>Способ получения:</h3>
-                            <Button onClick={() => setDeliveryMethod("Доставка курьером")}
-                                className={`${styles.deliveryButton} ${gStyles.textBig} ${deliveryMethod === "Доставка курьером" ? styles.activeDelivery : ""}`}
+                            <Button onClick={() => handleChangeDeliveryMethod("Доставка курьером")}
+                                className={`${styles.deliveryButton} ${gStyles.textBig} ${state.deliveryMethod === "Доставка курьером" ? styles.activeDelivery : ""}`}
                                 title="Доставка курьером" />
-                            <Button onClick={() => setDeliveryMethod("Самовывоз")}
-                                className={`${styles.deliveryButton} ${gStyles.textBig} ${deliveryMethod === "Самовывоз" ? styles.activeDelivery : ""}`}
+                            <Button onClick={() => handleChangeDeliveryMethod("Самовывоз")}
+                                className={`${styles.deliveryButton} ${gStyles.textBig} ${state.deliveryMethod === "Самовывоз" ? styles.activeDelivery : ""}`}
                                 title="Самовывоз" />
                         </div>
-                        {deliveryMethod === "Доставка курьером" ? <DeliveryCourier setIsFurth={setIsFurth} handleChangeField={handleChangeField} /> : <Pickup setIsFurth={setIsFurth} handleChangeField={handleChangeField} />}
+                        {state.deliveryMethod === "Доставка курьером" ? <DeliveryCourier setIsFurth={setIsFurth} handleChangeField={handleChangeField} /> : <Pickup setIsFurth={setIsFurth} handleChangeField={handleChangeField} />}
                     </div>
                     <PanelProduct
                         price={state.totalPrice}
                         className={styles.panel}
                         products={products}
-                        deliveryMethod={deliveryMethod}
+                        isDelivery={true}
+                        deliveryMethod={state.deliveryMethod}
                         footer={() => {
-                            console.log(isFurth);
                             return (
                                 <div className={styles.body}>
                                     <Link to={`${PATH_BASKET}/${SWITCH_CONTENT[0]}`} className={`${styles.buttonReturn} ${gStyles.textBig}`}>Вернуться назад</Link>

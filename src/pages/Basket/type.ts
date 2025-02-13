@@ -12,6 +12,7 @@ export interface IState {
   discount: number;
   payment: TPayment;
   promo?: string;
+  deliveryMethod: TDeliveryMethod;
   priceProducts: number;
   totalPrice: number;
 }
