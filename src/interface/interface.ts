@@ -61,4 +61,5 @@ export interface IBasketProduct {
   isRecipe: boolean;
   countryOrigin: string;
   manufacturer: string;
+  count: number;
 }

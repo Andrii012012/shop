@@ -27,6 +27,8 @@ export default function ItemProduct(props: IProps): JSX.Element {
 
     const [counter, setCounter] = useState<number>(1);
 
+    const [totalPrice, setTotalPrice] = useState(price * counter);
+
     const dispatch = useAppDispatch();
 
     function handlePutProduct(product: ISelectedProduct) {
@@ -50,7 +52,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
     }
 
     useEffect(() => {
-        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price };
+        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter, };
         setState((prevState) => {
             const newState = { ...prevState };
             if (isSelectAllProduct) {
@@ -68,10 +70,14 @@ export default function ItemProduct(props: IProps): JSX.Element {
         dispatch(removeProduct([id]));
     }
 
+    useEffect(() => {
+        setTotalPrice(price * counter);
+    }, [counter]);
+
     return (
         <li className={styles.item}>
             <div className={styles.bodyProduct}>
-                <div onClick={() => handlePutProduct({ id: id, name, isRecipe, manufacturer, countryOrigin, price })}>
+                <div onClick={() => handlePutProduct({ id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter })}>
                     <Checkbox className={styles.checkboxSelectProduct} value={checkProduct()} />
                 </div>
                 <div className={styles.imageProduct}>
@@ -92,7 +98,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
                         </div>
                         <p className={`${styles.price} ${gStyles.textLarge}`}>{price} $</p>
                         <Counter className={styles.counter} value={counter} setValue={setCounter} />
-                        <p className={`${styles.totalPrice} ${gStyles.textExtraLarge}`}>{price} $</p>
+                        <p className={`${styles.totalPrice} ${gStyles.textExtraLarge}`}>{totalPrice} $</p>
                     </div>
                 </div>
             </div>

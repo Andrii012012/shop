@@ -24,7 +24,7 @@ export default function Card(props: IProps): JSX.Element {
 
     const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery } = props;
 
-    const [count, setCount] = useState<number>(1);
+    const [counter, setCounter] = useState<number>(1);
 
     const uniqueId = useId();
 
@@ -62,8 +62,8 @@ export default function Card(props: IProps): JSX.Element {
             </ul>
             <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{price} грн</p>
             <div className={styles.buttonBody}>
-                <Counter value={count} setValue={setCount} />
-                <button onClick={() => handlePutProduct({ id: uniqueId, name, manufacturer, countryOrigin, isRecipe, image: "", price })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
+                <Counter value={counter} setValue={setCounter} />
+                <button onClick={() => handlePutProduct({ id: uniqueId, name, manufacturer, countryOrigin, isRecipe, image: "", price, count: counter })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
             </div>
             <div className={styles.wrrapperDelivery}>
                 <h4 className={`${styles.delivery} ${gStyles.textBig}`}>{isDelivery ? <span className={styles.deliveryGreen}>Доступна доставка</span> : <span className={styles.deliveryRed}>Доставка запрещена</span>}</h4>

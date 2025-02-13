@@ -7,7 +7,8 @@ import { Route, Routes } from 'react-router-dom';
 import MyBasket from './components/MyBasket/MyBasket';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import { useState } from 'react';
-import { IState } from './type';
+import { IFields, IState } from './type';
+import DeliveryMethod from './components/DeliveryMethod/DeliveryMethod';
 
 const SWITCH_CONTENT = ["Моя корзина", "Способ доставки", "Оплата и подтверждение"]
 
@@ -23,6 +24,17 @@ export default function Basket(): JSX.Element {
         totalPrice: 0,
     });
 
+    const [field, setField] = useState<IFields>({
+        phone: "",
+        email: '',
+        name: "",
+        surname: "",
+        street: "",
+        house: "",
+        appartament: "",
+        comment: "",
+    });
+
     return (
         <main className={styles.page}>
             <div className={gStyles.container}>
@@ -33,8 +45,8 @@ export default function Basket(): JSX.Element {
             </div>
             <Routes>
                 <Route path={SWITCH_CONTENT[0]} element={<MyBasket SWITCH_CONTENT={SWITCH_CONTENT} setState={setState} state={state} products={products} />} />
-                {/* <Route path={SWITCH_CONTENT[1]} element={ } />
-                    <Route path={SWITCH_CONTENT[2]} element={ } /> */}
+                <Route path={SWITCH_CONTENT[1]} element={<DeliveryMethod  SWITCH_CONTENT={SWITCH_CONTENT} field={field} setField={setField} setState={setState} state={state} products={state.selectedProducts} />} />
+                {/* <Route path={SWITCH_CONTENT[2]} element={ } /> */}
             </Routes>
         </main>
     );

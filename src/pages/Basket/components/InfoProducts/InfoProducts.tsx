@@ -7,6 +7,10 @@ import { ISelectedProduct, IState, TPayment } from '../../type';
 import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { clearProducts } from '../../../../features/basket/basket';
 import { PATH_BASKET, PATH_HOME } from '../../../../routes/routes';
+import { useEffect } from 'react';
+
+
+//! YOU NEED TO MAKE A COMMIT
 
 interface IProps {
     selectedProducts: ISelectedProduct[];
@@ -43,6 +47,10 @@ export default function InfoProducts(props: IProps): JSX.Element {
 
         return result - (result * Number(`0.0${discount}`));
     }
+
+    useEffect(() => {
+        setState((prevState) => ({ ...prevState, totalPrice: calcPriceWithDiscount() }));
+    }, [selectedProducts[0]]);
 
     return (
         <div className={styles.infoProducts}>

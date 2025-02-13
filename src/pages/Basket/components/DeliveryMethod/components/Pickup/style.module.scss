@@ -1,0 +1,23 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.activeDelivery {
+    border: 3px solid map.get($colors, 'lightGreen');
+}
+
+.input {
+    @include m.input($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+}
+
+.bodyInput {
+    display: flex;
+    gap: f.rem(20);
+    margin-bottom: f.rem(20);
+}
