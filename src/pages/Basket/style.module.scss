@@ -1,0 +1,13 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
+.page {
+    background-color: map.get($colors, 'grayWhite');
+    width: 100%;
+    margin-bottom: f.rem(50);
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}

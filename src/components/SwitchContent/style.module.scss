@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
+.list {
+  display: flex;
+  align-items: center;
+
+  li {
+    text-align: center;
+    font-weight: 700;
+
+    a {
+      color: map.get($colors, "darkGray");
+      padding: f.rem(24);
+      display: block;
+    }
+  }
+}
+
+.activeLink {
+  background-color: map.get($colors, 'white');
+  color: map.get($colors, "deepGreen") !important;
+}

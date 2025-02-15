@@ -52,3 +52,14 @@ export interface IBaseOptionsSlice {
   error: null | string;
   loading: "idle" | "pending" | "succeeded" | "failed";
 }
+
+export interface IBasketProduct {
+  id: string;
+  image?: string;
+  name: string;
+  price: number;
+  isRecipe: boolean;
+  countryOrigin: string;
+  manufacturer: string;
+  count: number;
+}

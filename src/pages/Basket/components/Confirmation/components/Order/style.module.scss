@@ -1,0 +1,26 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.order {
+    max-width: f.rem(646);
+    width: 100%;
+}
+
+.ordered {
+    font-size: f.rem(25);
+    line-height: f.em(40, 25);
+    margin-bottom: f.rem(30);
+    font-weight: 700;
+}
+
+.text {
+    display: flex;
+
+    span {
+        font-weight: 700;
+        display: block;
+        margin-right: f.rem(5);
+    }
+}

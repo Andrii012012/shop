@@ -3,8 +3,10 @@
 @import '../../../utils/styles/colors.scss';
 
 .checkbox {
-    width: f.rem(20);
-    height: f.rem(20);
+    min-width: f.rem(20);
+    min-height: f.rem(20);
+    max-width: f.rem(20);
+    max-height: f.rem(20);
     border-radius: f.rem(5);
     border: 2px solid map.get($colors, 'middleGray');
     cursor: pointer;
