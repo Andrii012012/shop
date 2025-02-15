@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.list {
+    margin-bottom: f.rem(30);
+}
+
+.item {
+    margin-bottom: f.rem(20);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+
+    h3 {
+        font-weight: 700;
+    }
+}
+
+.text {
+    display: flex;
+
+    span {
+        font-weight: 700;
+        display: block;
+        margin-right: f.rem(5);
+    }
+}

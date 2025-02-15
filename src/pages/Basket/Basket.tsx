@@ -6,7 +6,7 @@ import SwitchContent from '../../components/SwitchContent/SwitchContent';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import MyBasket from './components/MyBasket/MyBasket';
 import { useAppSelector } from '../../hooks/useAppSelector';
-import { useLayoutEffect, useState } from 'react';
+import { useEffect, useLayoutEffect, useState } from 'react';
 import { IFields, IState } from './type';
 import DeliveryMethod from './components/DeliveryMethod/DeliveryMethod';
 import Confirmation from './components/Confirmation/Confirmation';

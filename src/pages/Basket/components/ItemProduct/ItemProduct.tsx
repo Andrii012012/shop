@@ -19,13 +19,15 @@ interface IProps {
     setState: React.Dispatch<React.SetStateAction<IState>>;
     state: IState;
     isSelectAllProduct: boolean;
-}
+    count: number;
+    handleRemoveProduct: (productId: string[]) => void;
+};
 
 export default function ItemProduct(props: IProps): JSX.Element {
 
-    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id } = props;
+    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id, count, handleRemoveProduct } = props;
 
-    const [counter, setCounter] = useState<number>(1);
+    const [counter, setCounter] = useState<number>(count);
 
     const [totalPrice, setTotalPrice] = useState(price * counter);
 
@@ -52,7 +54,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
     }
 
     useEffect(() => {
-        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter, };
+        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter };
         setState((prevState) => {
             const newState = { ...prevState };
             if (isSelectAllProduct) {
@@ -61,18 +63,39 @@ export default function ItemProduct(props: IProps): JSX.Element {
             else {
                 newState.selectedProducts = [];
             }
+
             return newState;
         });
 
     }, [isSelectAllProduct]);
 
+
     function handleDeleteProduct() {
+        handleRemoveProduct([id]);
         dispatch(removeProduct([id]));
     }
 
     useEffect(() => {
         setTotalPrice(price * counter);
+        setState((prevState) => {
+            const newState = { ...prevState };
+            newState.selectedProducts = newState.selectedProducts.filter((item) => {
+                if (item.id === id) {
+                    item.count = counter;
+                    item.price = price * counter;
+                    return item;
+                }
+                return item;
+            });
+
+            newState.priceProducts = newState.selectedProducts.reduce((acc, item) => {
+                return acc += item.price;
+            }, 0);
+
+            return newState;
+        });
     }, [counter]);
+
 
     return (
         <li className={styles.item}>

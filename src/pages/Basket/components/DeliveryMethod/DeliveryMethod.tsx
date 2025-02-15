@@ -35,7 +35,9 @@ export default function DeliveryMethod(props: IProps): JSX.Element {
 
     function handleChangeDeliveryMethod(value: TDeliveryMethod): void {
         setState((prevState) => ({ ...prevState, deliveryMethod: value }));
-    }
+    };
+
+    console.log(state);
 
     return (
         <section className={styles.wrapper}>

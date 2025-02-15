@@ -25,12 +25,22 @@ export default function MyBasket(props: IProps): JSX.Element {
 
     const dispatch = useAppDispatch();
 
+    function handleRemoveProduct(productId: string[]): void {
+        setState((prevState) => {
+            const newState = { ...prevState };
+            newState.selectedProducts = newState.selectedProducts.filter((item) => !productId.includes(item.id) && item);
+            return newState;
+        })
+    }
+
     function handleAllRemoveSelectedProducts() {
         const selectedProductsId: string[] = [];
 
         state.selectedProducts.forEach((item, _) => {
             selectedProductsId.push(item.id);
         });
+
+        handleRemoveProduct(selectedProductsId);
 
         dispatch(removeProduct(selectedProductsId));
     }
@@ -57,19 +67,22 @@ export default function MyBasket(props: IProps): JSX.Element {
                                     isRecipe={item.isRecipe}
                                     countryOrigin={item.countryOrigin}
                                     manufacturer={item.manufacturer}
+                                    count={item.count}
                                     setState={setState}
                                     state={state}
                                     isSelectAllProduct={isSelectAllProduct}
+                                    handleRemoveProduct={handleRemoveProduct}
                                 />
                             ))}
                         </ul>
                     </div>
                     <InfoProducts
                         selectedProducts={state.selectedProducts}
-                        discount={state.discount}
                         payment={state.payment}
                         setState={setState}
                         SWITCH_CONTENT={SWITCH_CONTENT}
+                        discount={state.discount}
+                        isSelectAllProduct={isSelectAllProduct}
                     />
                 </div>
             </div>

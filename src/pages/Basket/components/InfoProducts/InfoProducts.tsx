@@ -8,21 +8,18 @@ import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { clearProducts } from '../../../../features/basket/basket';
 import { PATH_BASKET, PATH_HOME } from '../../../../routes/routes';
 import { useEffect } from 'react';
-
-
-//! YOU NEED TO MAKE A COMMIT
-
 interface IProps {
     selectedProducts: ISelectedProduct[];
-    discount: number;
     payment: TPayment;
     setState: React.Dispatch<React.SetStateAction<IState>>;
     SWITCH_CONTENT: string[];
+    isSelectAllProduct: boolean;
+    discount: number;
 }
 
 export default function InfoProducts(props: IProps): JSX.Element {
 
-    const { selectedProducts, discount, setState, payment, SWITCH_CONTENT } = props;
+    const { selectedProducts, discount, isSelectAllProduct, setState, payment, SWITCH_CONTENT } = props;
 
     const dispatch = useAppDispatch();
 
@@ -49,8 +46,8 @@ export default function InfoProducts(props: IProps): JSX.Element {
     }
 
     useEffect(() => {
-        setState((prevState) => ({ ...prevState, totalPrice: calcPriceWithDiscount() }));
-    }, [selectedProducts[0]]);
+        setState((prevState) => ({ ...prevState, totalPrice: calcPriceWithDiscount() }))
+    }, [selectedProducts, selectedProducts.length]);
 
     return (
         <div className={styles.infoProducts}>

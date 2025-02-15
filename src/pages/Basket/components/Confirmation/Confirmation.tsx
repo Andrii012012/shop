@@ -6,6 +6,9 @@ import PanelProduct from '../PanelProduct/PanelProduct';
 import Checkbox from '../../../../components/ui/Checkbox/Checkbox';
 import Button from '../../../../components/ui/Button/Button';
 import { useState } from 'react';
+import Portal from '../../../../containers/Portal/Portal';
+import ProductsList from './components/ProductsList/ProductsList';
+import Purchase from './components/Purchase/Purchase';
 
 interface IProps {
     address: { street: string, house: string };
@@ -21,6 +24,12 @@ export default function Confirmation(props: IProps): JSX.Element {
 
     const [isAgree, setIsAgree] = useState<boolean>(true);
 
+    const [isOpenPortal, setIsOpenPortal] = useState<boolean>(false);
+
+    function handleClosePortal(): void {
+        setIsOpenPortal(false);
+    }
+
     return (
         <section className={`${styles.confirmation}`}>
             <div className={gStyles.container}>
@@ -28,15 +37,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                     <div className={styles.order}>
                         <h2 className={`${gStyles.textExtraLarge} ${styles.title}`}>{payment === 'Оплата онлайн' ? "Оплата покупок картой онлайн" : "Оплата покупок при получении"}</h2>
                         <p className={styles.ordered}>Вы заказали:</p>
-                        <ul className={styles.list}>
-                            {products.map((item, index) => (
-                                <li key={index} className={styles.item}>
-                                    <h3 className={gStyles.textExtraBig}>{item.name}</h3>
-                                    <p className={`${styles.text} ${gStyles.textExtraBig}`}><span>Условия реализации:</span><p> {item.isRecipe ? "с рецептом" : "без рецепта"}</p></p>
-                                    <p className={`${styles.text} ${gStyles.textExtraBig}`}><span>Производитель:</span><p> {item.manufacturer} {item.countryOrigin}</p></p>
-                                </li>
-                            ))}
-                        </ul>
+                        <ProductsList className={styles.list} products={products} />
                         <p className={`${styles.text} ${gStyles.textExtraBig}`}><span>Способ доставки:</span>{deliveryMethod}</p>
                         <p className={`${styles.text} ${gStyles.textExtraBig}`}><span>Примерное время доставки:</span> Сегодня 13:00 - 15:00</p>
                         <p className={`${styles.text} ${gStyles.textExtraBig}`}><span>Адрес доставки:</span> г. Тамбов, ул. {address.street} {address.house}</p>
@@ -53,13 +54,16 @@ export default function Confirmation(props: IProps): JSX.Element {
                                         <Checkbox className={styles.checkbox} value={isAgree} />
                                         <p>Нажимая кнопку «Оплатить», Вы соглашаетесь с <span>политикой конфедицеальности</span></p>
                                     </div>
-                                    <Button className={`${styles.buyButton} ${gStyles.textBig}`} title="Оплатить" />
+                                    <Button onClick={() => {
+                                        if (isAgree) setIsOpenPortal(true);
+                                    }} className={`${styles.buyButton} ${gStyles.textBig}`} title="Оплатить" />
                                 </div>
                             );
                         }}
                     />
                 </div>
             </div>
+            <Portal isOpen={isOpenPortal}><Purchase handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
         </section>
     );
 }
