@@ -5,7 +5,7 @@ import { IFields, IState, TDeliveryMethod } from '../../type';
 import Button from '../../../../components/ui/Button/Button';
 import { useState } from 'react';
 import DeliveryCourier from './components/DeliveryCourier/DeliveryCourier';
-import Pickup from './components/Pickup/Pickup';
+import Pickup from '../Pickup/Pickup';
 import PanelProduct from '../PanelProduct/PanelProduct';
 import { Link } from 'react-router-dom';
 import { PATH_BASKET } from '../../../../routes/routes';
@@ -17,27 +17,18 @@ interface IProps {
     field: IFields;
     setField: React.Dispatch<React.SetStateAction<IFields>>;
     SWITCH_CONTENT: string[];
+    handleChangeField: (value: string, key: string) => void;
 }
 
 export default function DeliveryMethod(props: IProps): JSX.Element {
 
-    const { products, state, setState, setField, SWITCH_CONTENT } = props;
+    const { products, state, setState, setField, SWITCH_CONTENT, handleChangeField } = props;
 
     const [isFurth, setIsFurth] = useState<boolean>(false);
-
-    function handleChangeField(value: string, key: string): void {
-        setField((prevState) => {
-            const newState = { ...prevState };
-            newState[key] = value;
-            return newState;
-        });
-    }
 
     function handleChangeDeliveryMethod(value: TDeliveryMethod): void {
         setState((prevState) => ({ ...prevState, deliveryMethod: value }));
     };
-
-    console.log(state);
 
     return (
         <section className={styles.wrapper}>

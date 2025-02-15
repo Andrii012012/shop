@@ -116,7 +116,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
                     </div>
                     <div className={styles.bodyInfoProduct}>
                         <div >
-                            <p><span>Реализация:</span> {!isRecipe ? 'без рецепта' : "С рецептом"}</p>
+                            <p><span>Реализация:</span> {!isRecipe ? <span className={styles.textGreen}>без рецепта</span> : <span className={styles.textRed}>С рецептом</span>}</p>
                             <p><span>Производитель:</span> {manufacturer} {countryOrigin}</p>
                         </div>
                         <p className={`${styles.price} ${gStyles.textLarge}`}>{price} $</p>

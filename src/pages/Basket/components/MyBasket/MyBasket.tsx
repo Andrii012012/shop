@@ -15,11 +15,12 @@ interface IProps {
     setState: React.Dispatch<React.SetStateAction<IState>>;
     state: IState;
     SWITCH_CONTENT: string[];
+    isRecipeProduct: boolean;
 }
 
 export default function MyBasket(props: IProps): JSX.Element {
 
-    const { products, setState, state, SWITCH_CONTENT } = props;
+    const { products, setState, state, SWITCH_CONTENT, isRecipeProduct } = props;
 
     const [isSelectAllProduct, setIsSelectAllProduct] = useState<boolean>(false);
 
@@ -82,7 +83,7 @@ export default function MyBasket(props: IProps): JSX.Element {
                         setState={setState}
                         SWITCH_CONTENT={SWITCH_CONTENT}
                         discount={state.discount}
-                        isSelectAllProduct={isSelectAllProduct}
+                        isRecipeProduct={isRecipeProduct}
                     />
                 </div>
             </div>

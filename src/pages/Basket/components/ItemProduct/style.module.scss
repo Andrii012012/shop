@@ -75,3 +75,13 @@
     border-radius: f.rem(100);
     border: 2px solid map.get($colors, "lightGray");
 }
+
+.textGreen {
+    color: map.get($colors, 'deepGreen');
+    font-weight: 500 !important;
+}
+
+.textRed {
+    color: map.get($colors, "brick");
+    font-weight: 500 !important;
+}

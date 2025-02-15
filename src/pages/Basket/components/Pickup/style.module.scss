@@ -1,7 +1,7 @@
 @use 'sass:map';
-@use '../../../../../../utils/styles/functions.scss' as f;
-@use '../../../../../../utils/styles/mixin.scss' as m;
-@import '../../../../../../utils/styles/colors.scss';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
 
 .activeDelivery {
     border: 3px solid map.get($colors, 'lightGreen');

@@ -13,13 +13,13 @@ interface IProps {
     payment: TPayment;
     setState: React.Dispatch<React.SetStateAction<IState>>;
     SWITCH_CONTENT: string[];
-    isSelectAllProduct: boolean;
     discount: number;
+    isRecipeProduct: boolean;
 }
 
 export default function InfoProducts(props: IProps): JSX.Element {
 
-    const { selectedProducts, discount, isSelectAllProduct, setState, payment, SWITCH_CONTENT } = props;
+    const { selectedProducts, discount, setState, payment, SWITCH_CONTENT, isRecipeProduct } = props;
 
     const dispatch = useAppDispatch();
 
@@ -46,7 +46,7 @@ export default function InfoProducts(props: IProps): JSX.Element {
     }
 
     useEffect(() => {
-        setState((prevState) => ({ ...prevState, totalPrice: calcPriceWithDiscount() }))
+        setState((prevState) => ({ ...prevState, totalPrice: calcPriceWithDiscount() }));
     }, [selectedProducts, selectedProducts.length]);
 
     return (
@@ -75,7 +75,7 @@ export default function InfoProducts(props: IProps): JSX.Element {
             </div>
             <div className={styles.bodyButtons}>
                 <Link to={PATH_HOME} className={`${styles.continueBuyingButton} ${gStyles.textBig}`}>Продолжить покупки</Link>
-                <Link to={selectedProducts.length ? `${PATH_BASKET}/${SWITCH_CONTENT[1]}` : ""} className={`${styles.continueButton} ${gStyles.textBig}`} >Далее</Link>
+                <Link to={selectedProducts.length ? isRecipeProduct ? `${PATH_BASKET}/${SWITCH_CONTENT[1]}` : `${PATH_BASKET}/${SWITCH_CONTENT[2]}` : ""} className={`${styles.continueButton} ${gStyles.textBig}`} >Далее</Link>
             </div>
         </div>
     );

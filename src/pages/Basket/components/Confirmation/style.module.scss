@@ -9,11 +9,6 @@
     padding: f.rem(50) 0 0 0;
 }
 
-.order {
-    max-width: f.rem(646);
-    width: 100%;
-}
-
 .body {
     display: flex;
     justify-content: space-between;
@@ -21,13 +16,6 @@
 
 .title {
     margin-bottom: f.rem(20);
-}
-
-.ordered {
-    font-size: f.rem(25);
-    line-height: f.em(40, 25);
-    margin-bottom: f.rem(30);
-    font-weight: 700;
 }
 
 .bodyCheckbox {

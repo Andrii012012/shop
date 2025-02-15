@@ -1,21 +1,23 @@
 import styles from './style.module.scss';
-import gStyles from '../../../../../../styles/styles.module.scss';
-import { validateEmail, validateEmptyField, validatePhone } from '../../../../../../utils/js/validate';
+import gStyles from '../../../../styles/styles.module.scss';
+import { validateEmail, validateEmptyField, validatePhone } from '../../../../utils/js/validate';
 import { Field, Form, Formik } from 'formik';
 
 interface IProps {
     handleChangeField: (value: string, key: string) => void;
     setIsFurth: React.Dispatch<React.SetStateAction<boolean>>;
+    className?: string;
 }
 
 export default function Pickup(props: IProps): JSX.Element {
 
-    const { handleChangeField, setIsFurth } = props;
+    const { handleChangeField, setIsFurth, className = "" } = props;
 
     return (
         <Formik
             initialValues={{ phone: "", email: "", name: "", surname: "" }}
             onSubmit={(values) => { console.log(values) }}
+            className={className}
         >
             {({ errors, handleChange, values, handleSubmit }) => {
                 setIsFurth(Object.keys(errors).length > 0 || values.phone === "" ? false : true);
