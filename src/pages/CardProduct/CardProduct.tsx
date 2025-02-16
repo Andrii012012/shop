@@ -20,24 +20,33 @@ function CardProduct() {
         <ul className={style.tabs}>
           <li className={style.tabsItem}>
             <NavLink
-              to={`description`}
+              to={`/${PATH_CARD_PRODUCT}/description`}
               className={`${style.tabsItemLink} ${activeClassLink}`}
             >
               Описание товара
             </NavLink>
           </li>
           <li className={style.tabsItem}>
-            <NavLink to={`instruction`} className={style.tabsItemLink}>
+            <NavLink
+              to={`/${PATH_CARD_PRODUCT}/instruction`}
+              className={style.tabsItemLink}
+            >
               Инструкции по применению
             </NavLink>
           </li>
           <li className={style.tabsItem}>
-            <NavLink to={`usage`} className={style.tabsItemLink}>
+            <NavLink
+              to={`/${PATH_CARD_PRODUCT}/usage`}
+              className={style.tabsItemLink}
+            >
               Показания к применению
             </NavLink>
           </li>
           <li className={style.tabsItem}>
-            <NavLink to={`pharmocologic`} className={style.tabsItemLink}>
+            <NavLink
+              to={`/${PATH_CARD_PRODUCT}/pharmocologic`}
+              className={style.tabsItemLink}
+            >
               Фармокологическое действие
             </NavLink>
           </li>
@@ -45,20 +54,11 @@ function CardProduct() {
 
         <Routes>
           <Route index element={<CardProductDescription />} />
+          <Route path={`description`} element={<CardProductDescription />} />
+          <Route path={`instruction`} element={<CardProductInstruction />} />
+          <Route path={`usage`} element={<CardProductUsage />} />
           <Route
-            path={`${PATH_CARD_PRODUCT}/description`}
-            element={<CardProductDescription />}
-          />
-          <Route
-            path={`${PATH_CARD_PRODUCT}/instruction`}
-            element={<CardProductInstruction />}
-          />
-          <Route
-            path={`${PATH_CARD_PRODUCT}/usage`}
-            element={<CardProductUsage />}
-          />
-          <Route
-            path={`${PATH_CARD_PRODUCT}/pharmocologic`}
+            path={`pharmocologic`}
             element={<CardProductPharmacologic />}
           />
         </Routes>
