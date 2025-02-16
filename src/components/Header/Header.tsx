@@ -65,12 +65,12 @@ function Header() {
           </ul>
           <ul className={style["header-actions"]}>
             <li className="header-action header-action-logo">
-              <a href="#">
+              <Link to="/">
                 <img
-                  src="src/assets/images/header/WebsiteLogo.png"
+                  src="/src/assets/images/header/websiteLogo.png"
                   alt="Website Logo"
                 />
-              </a>
+              </Link>
             </li>
 
             <li className={style["header-action-search-bar"]}>
@@ -124,7 +124,7 @@ function Header() {
                 </a>
               </li>
               <li className={style["header-nav-item"]}>
-                <Link className={style["header-nav-link"]} to='shop'>
+                <Link className={style["header-nav-link"]} to="shop">
                   Помощь
                 </Link>
               </li>
