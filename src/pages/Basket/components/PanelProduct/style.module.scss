@@ -1,0 +1,119 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.panel {
+    max-width: f.rem(570);
+    width: 100%;
+}
+
+.header {
+    background-color: map.get($colors, "deepGreen");
+    padding: f.rem(25) f.rem(30);
+    display: flex;
+    align-items: center;
+    color: map.get($colors, "white");
+    border-radius: f.rem(10) f.rem(10) 0 0;
+
+    p:first-child {
+        flex: 1 1 auto;
+        font-weight: 700;
+    }
+}
+
+.content {
+    background-color: map.get($colors, "grayWhite");
+    padding: f.rem(30) f.rem(30) f.rem(50) f.rem(30);
+    border-radius: 0 0 f.rem(10) f.rem(10);
+    margin-bottom: f.rem(20);
+}
+
+.item {
+    display: flex;
+    margin-bottom: f.rem(20);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.image {
+    max-width: f.rem(90);
+    max-height: f.rem(90);
+    margin-right: f.rem(20);
+
+    img {
+        @include m.adaptationImage();
+        border-radius: f.rem(10);
+    }
+}
+
+.infoProductBody {
+    h3 {
+        font-weight: 700;
+        margin-bottom: f.rem(5);
+    }
+}
+
+.text {
+    font-size: f.rem(14);
+    line-height: f.em(21, 14);
+
+    span {
+        font-weight: 700;
+    }
+}
+
+.container {
+    height: 100%;
+    width: 100%;
+    max-width: f.rem(90);
+    max-height: f.rem(90);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-weight: 700;
+
+    p:nth-child(1) {
+        border: 2px solid map.get($colors, "deepGreen");
+        width: 100%;
+        text-align: center;
+        border-radius: f.rem(10) f.rem(10) 0 0;
+        padding: f.rem(14) 0 f.rem(14) 0;
+    }
+
+    p:nth-child(2) {
+        color: map.get($colors, "white");
+        width: 100%;
+        text-align: center;
+        background-color: map.get($colors, "deepGreen");
+        border-radius: 0 0 f.rem(10) f.rem(10);
+        padding: f.rem(5) 0 f.rem(5) 0
+    }
+}
+
+.list {
+    margin-bottom: f.rem(50);
+}
+
+.price {
+    display: flex;
+    width: 100%;
+
+    span {
+        font-weight: 700;
+        flex: 1 1 auto;
+    }
+}
+
+.totalPrice {
+    font-size: f.rem(25);
+    line-height: f.em(37.5, 25);
+    font-weight: 700;
+}
+
+.body {
+    margin-bottom: f.rem(30);
+}

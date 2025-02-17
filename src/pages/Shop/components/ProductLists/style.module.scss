@@ -1,0 +1,11 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.rem(10);
+    margin-bottom: f.rem(50);
+}

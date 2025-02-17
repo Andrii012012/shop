@@ -4,19 +4,11 @@
 
 .header {
   background-color: map.get($colors, "grayWhite");
+    padding-bottom: f.rem(20);
 }
 
 .headerInner {
   position: relative;
-}
-
-.body {
-  display: flex;
-  align-items: center;
-}
-
-.headerInner {
-  padding-top: f.rem(20);
 }
 
 .searchBar {
@@ -57,7 +49,7 @@
   align-items: center;
   column-gap: f.rem(50);
   background: map.get($colors, "forest");
-
   padding: f.rem(20) f.rem(50) f.rem(20);
   border-radius: f.rem(10);
+  }
 }

@@ -1,0 +1,59 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.confirmation {
+    width: 100%;
+    background-color: map.get($colors, "white");
+    padding: f.rem(50) 0 0 0;
+}
+
+.body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.bodyCheckbox {
+    display: flex;
+    margin-bottom: f.rem(30);
+
+    p {
+        font-size: f.rem(14);
+        line-height: f.em(17, 14);
+
+        span {
+            text-decoration: underline;
+        }
+    }
+}
+
+.checkbox {
+    margin-right: f.rem(10);
+}
+
+
+.text {
+    display: flex;
+
+    span {
+        font-weight: 700;
+        display: block;
+        margin-right: f.rem(5);
+    }
+}
+
+.buyButton {
+    @include m.button($padding: f.rem(28) f.rem(30) f.rem(28) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+}

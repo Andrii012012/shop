@@ -1,0 +1,25 @@
+@use 'sass:map';
+@use '../../../utils/styles/functions.scss' as f;
+@import '../../../utils/styles/colors.scss';
+
+.counter {
+    padding: f.rem(12);
+    border: 2px solid map.get($colors, 'lightGreen');
+    max-width: 70px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: f.rem(100) 0 0 f.rem(100);
+}
+
+.value {
+    margin: 0 f.rem(10);
+    font-weight: 700;
+}
+
+.button {
+    font-weight: 700;
+    background-color: transparent;
+}

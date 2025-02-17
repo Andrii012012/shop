@@ -1,0 +1,63 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    max-width: f.rem(820);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: f.rem(20);
+
+    h2 {
+        flex: 1 1 auto;
+        font-weight: 700;
+    }
+}
+
+.button {
+    @include m.button($padding: f.rem(14) f.rem(57) f.rem(14) f.rem(57),
+        $width: f.rem(224),
+        $borderRadius: f.rem(100),
+        $border: 3px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'grayWhite'),
+        $color: map.get($colors, 'darkGray'));
+    font-weight: 700;
+    width: 100%;
+}
+
+.form {
+    margin-bottom: f.rem(30);
+}
+
+.warning {
+    width: 100%;
+    border: 3px solid map.get($colors, 'brick');
+    border-radius: f.rem(10);
+}
+
+.icon {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.headerWarning {
+    background-color: map.get($colors, 'brick');
+    width: 100%;
+    padding: f.rem(8) 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textWarning {
+    color: map.get($colors, 'brick');
+    padding: f.rem(24) f.rem(21) f.rem(40) f.rem(21);
+    font-weight: 700;
+    text-align: center;
+}
