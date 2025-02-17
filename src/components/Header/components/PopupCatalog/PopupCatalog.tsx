@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
-
 import styles from "./styles.module.scss";
-
 import PopupCatalogItem from "../PopupCatalogItem/PopupCatalogItem";
-
-// IMPORT ICONS
 import BurgerIcon from "/src/assets/images/header/burgerIcon.svg?react";
 import { CatalogItem } from "../../interfaces/catalogItem";
 import TrashIcon from '../../../../assets/images/header/trashIcon.svg?react';
-import { catalogList } from "../../data/catalogList";
-
+import { catalogList } from "../../constants/catalogList";
 interface IProps {
   state: CatalogItem[];
   setState: React.Dispatch<React.SetStateAction<CatalogItem[]>>;
 }
 
-// COMPONENT
 function PopupCatalog(props: IProps) {
   const [isOpenСatalog, setIsOpenСatalog] = useState<boolean>(false);
 

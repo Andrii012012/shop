@@ -1,151 +1,39 @@
-// IMPORT STYLES
-import gStyle from "../../styles/styles.module.scss";
-import style from "./style.module.scss";
-
-// IMPORT HOOKS AND TYPES
-
-// IMPORT ICONS
-import HeartIcon from "../../assets/images/header/heartIcon.svg?react";
-import TrashIcon from "../../assets/images/header/trashIcon.svg?react";
-import UserIcon from "../../assets/images/header/userIcon.svg?react";
-import CheckIcon from "../../assets/images/header/checkIcon.svg?react";
+import gStyles from "../../styles/styles.module.scss";
+import styles from "./style.module.scss";
 import { useState } from "react";
 import PopupCatalog from "./components/PopupCatalog/PopupCatalog";
-import { catalogList } from "./data/catalogList";
 import { CatalogItem } from "./interfaces/catalogItem";
-// fill="current" stroke="none"
+import SearchBar from "./components/SearchBar/SearchBar";
+import AboutShop from "./components/AboutShop/AboutShop";
+import { Link } from "react-router-dom";
+import Logo from '../../assets/images/header/WebsiteLogo.svg?react';
+import { catalogList } from "./constants/catalogList";
+import NavigateMenu from "./components/NavigateMenu/NavigateMenu";
+import NavigateMenuUser from "./components/NavigateMenuUser/NavigateMenuUser";
 
-// INTERFACES
-interface HeaderProps {
-  SearchBar: React.FC;
-}
-
-export interface IModals {
-  [key: string]: boolean;
-}
-
-function Header({ SearchBar }: HeaderProps) {
-
+function Header() {
   const [modals, setModals] = useState<CatalogItem[]>(catalogList);
 
   return (
-    <header className={style.header}>
-      <div className={gStyle.container}>
-        <div className={style.headerInner}>
-          <div className={style.headerContacts}>
-            <div className={style.headerSale}>
-              <p>Скидка 2% при оформлении заказа на сайте !</p>
-            </div>
-            <p className={style.headerContactsAddress}>
-              г. Тамбов, ул. Советская 22 Время работы: пн-вс 8:00 - 22:00
-            </p>
-            <div className={style.headerContactNumbers}>
-              <a href="tel:+74752751410" className={style.headerContactItem}>
-                <span>Аптека</span> +7 (4752) 75‒14‒10
-              </a>
-              <a href="tel:+74752751025" className={style.headerContactItem}>
-                <span>Мед. техника</span> +7 (4752) 75‒10‒25
-              </a>
-              <a href="#" className={style.headerContactCallback}>
-                Заказать обратный звонок
-              </a>
-            </div>
+    <header className={styles.header}>
+      <div className={gStyles.container}>
+        <div className={styles.headerInner}>
+          <AboutShop />
+          <div className={styles.body}>
+            <Link className={styles.headerWebsiteLogo} to='/'>
+              <Logo />
+            </Link>
+            <SearchBar className={styles.searchBar} />
+            <NavigateMenuUser />
           </div>
-          <ul className={style.headerInfo}>
-            <li className={style.headerInfoItem}>
-              <CheckIcon />
-              <p>
-                Формат 3 в 1 (аптека, ветеринарная аптека, медицинская техника и
-                товары)
-              </p>
-            </li>
-            <li className={style.headerInfoItem}>
-              <CheckIcon />
-              <p>25 лет опыта</p>
-            </li>
-            <li className={style.headerInfoItem}>
-              <CheckIcon />
-              <p>Формацевтическое консультирование</p>
-            </li>
-            <li className={style.headerInfoItem}>
-              <CheckIcon />
-              <p>Быстрая и надежная доставка</p>
-            </li>
-          </ul>
-          <ul className={style.headerActions}>
-            <li className={style.headerWebsiteLogo}>
-              <a href="#">
-                <img
-                  src="src/assets/images/header/websiteLogo.png"
-                  alt="Website Logo"
-                />
-              </a>
-            </li>
-
-            <li className={style.headerActionSearch}>
-              <SearchBar />
-            </li>
-
-            <li className={style.headerActionFavorites}>
-              <a href="#" className={style.headerActionFavoritesLink}>
-                <HeartIcon />
-                Избранное
-              </a>
-            </li>
-
-            <li className={style.headerActionTrash}>
-              <a href="#" className={style.headerActionTrashLink}>
-                <TrashIcon />
-                Корзина
-              </a>
-            </li>
-
-            <li className={style.headerActionLogin}>
-              <a href="#" className={style.headerActionLoginLink}>
-                <UserIcon />
-                Войти
-              </a>
-            </li>
-          </ul>
-          <nav className={style.headerNav}>
+          <nav className={styles.headerNav}>
             <PopupCatalog state={modals} setState={setModals} />
-            <ul className={style.headerNavList}>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  Интернет-магазин
-                </a>
-              </li>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  Главная
-                </a>
-              </li>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  О компании
-                </a>
-              </li>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  Помощь
-                </a>
-              </li>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  Акции
-                </a>
-              </li>
-              <li className={style.headerNavItem}>
-                <a className={style.headerNavLink} href="#">
-                  Новости
-                </a>
-              </li>
-            </ul>
+            <NavigateMenu />
           </nav>
         </div>
       </div>
-    </header>
-  );
+    </header >
+  )
 }
 
 export default Header;

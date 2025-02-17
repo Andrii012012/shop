@@ -1,19 +1,15 @@
 import style from "./style.module.scss";
-
-// DATA
 import { CatalogItem } from "../../interfaces/catalogItem";
-
-// IMPORT ICONS
 import ArrowChevronRightIcon from "/src/assets/images/header/arrowChevronRightIcon.svg?react";
-
-// INTERFACE
-interface PCIProps {
+interface IProps {
   item: CatalogItem;
   handleToggleItem: (id: string) => void;
 }
 
-// COMPONENT
-function PopupCatalogItem({ item, handleToggleItem }: PCIProps) {
+function PopupCatalogItem(props: IProps) {
+
+  const { item, handleToggleItem } = props;
+
   return (
     <li
       className={style.shopCatalogItem}

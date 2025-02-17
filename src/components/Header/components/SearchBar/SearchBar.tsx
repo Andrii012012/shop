@@ -1,11 +1,17 @@
 import style from "./style.module.scss";
 import { useEffect, useRef, useState } from "react";
-
-// IMPORT ICONS
 import SearchIcon from "/src/assets/images/header/searchIcon.svg?react";
 
-function SearchBar() {
+interface IProps {
+  className?: string;
+}
+
+function SearchBar(props: IProps): JSX.Element {
+
+  const { className = "" } = props;
+
   const [isShopSearchBar, setIsShopSearchBar] = useState<boolean>(false);
+  
   const searchBarRef = useRef<HTMLDivElement | null>(null);
   const searchInputRef = useRef<HTMLDivElement | null>(null);
 
@@ -13,12 +19,11 @@ function SearchBar() {
     setIsShopSearchBar(true);
   }
 
-  function handleCloseSearchBar(e: MouseEvent) {
+  function handleCloseSearchBar(event: MouseEvent) {
     if (
-      searchBarRef.current &&
-      !searchBarRef.current.contains(e.target as Node) &&
-      searchInputRef.current &&
-      !searchInputRef.current.contains(e.target as Node)
+      event.target instanceof HTMLDivElement &&
+      !searchBarRef.current?.contains(event.target) &&
+      !searchInputRef.current?.contains(event.target)
     ) {
       setIsShopSearchBar(false);
     }
@@ -35,7 +40,7 @@ function SearchBar() {
   }, []);
 
   return (
-    <>
+    <div className={`${style.wrapper} ${className}`}>
       <div className={style.headerActionSearchBar} ref={searchInputRef}>
         <input
           type="text"
@@ -73,7 +78,7 @@ function SearchBar() {
           </a>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 

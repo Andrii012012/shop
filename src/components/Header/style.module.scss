@@ -1,125 +1,53 @@
+@use 'sass:map';
 @use "../../utils/styles/functions.scss" as f;
+@import '../../utils/styles/colors.scss';
 
 .header {
-  background-color: F3F3F3;
+  background-color: map.get($colors, "grayWhite");
 }
 
 .headerInner {
   position: relative;
-
-  .headerContacts {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 10px;
-    margin-bottom: 30px;
-
-    .headerSale {
-      display: grid;
-      place-content: center;
-
-      border: 2px solid #30b856;
-      border-radius: 10px;
-      width: 550px;
-      height: 65px;
-      background-color: #fff;
-
-      p {
-        font-weight: 700;
-        font-size: 18px;
-        color: #30b856;
-      }
-    }
-
-    .headerContactsAddress {
-      max-width: 310px;
-      width: 100%;
-
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 1.1em;
-      color: #323232;
-    }
-
-    .headerContactNumbers {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      row-gap: 8px;
-
-      .headerContactItem {
-        font-weight: 800;
-        font-size: 25px;
-        text-align: right;
-        color: #323232;
-
-        span {
-          font-weight: 500;
-          font-size: 18px;
-        }
-      }
-
-      .headerContactCallback {
-        font-weight: 500;
-        font-size: 18px;
-        color: #1e7637;
-      }
-    }
-  }
 }
-.headerInner {
-  padding-top: 20px;
 
-  .headerInfo {
-    display: flex;
-    column-gap: 30px;
-
-    .headerInfoItem {
-      display: flex;
-      column-gap: 10px;
-
-      font-weight: 500;
-      font-size: 14px;
-      color: #808080;
-
-      svg {
-        fill: #808080;
-      }
-    }
-  }
+.body {
+  display: flex;
+  align-items: center;
 }
+
 .headerInner {
-  .headerActions {
-    display: flex;
-    align-items: flex-end;
-    column-gap: 30px;
-    margin: 30px 0;
+  padding-top: f.rem(20);
+}
 
-    .headerActionSearch {
-      position: relative;
-    }
+.searchBar {
+  margin-right: f.rem(50);
+}
 
-    .headerActionFavoritesLink,
-    .headerActionTrashLink,
-    .headerActionLoginLink {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      row-gap: 10px;
+.headerWebsiteLogo {
+  margin-right: f.rem(20);
+}
 
-      font-weight: 500;
-      font-size: 18px;
-      color: #30b856;
+.headerActionSearch {
+  position: relative;
+}
 
-      svg {
-        fill: #323232;
-        transition: 0.15s;
-      }
+.headerActionLoginLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: f.rem(10);
 
-      &:hover svg {
-        fill: #30b856;
-      }
-    }
+  font-weight: 500;
+  font-size: f.rem(18);
+  color: map.get($colors, 'lightGreen');
+
+  svg {
+    fill: map.get($colors, 'darkGray');
+    transition: 0.15s;
+  }
+
+  &:hover svg {
+    fill: map.get($colors, 'lightGreen');
   }
 }
 
@@ -127,23 +55,9 @@
   position: relative;
   display: flex;
   align-items: center;
-  column-gap: 50px;
-  background: #144f24;
+  column-gap: f.rem(50);
+  background: map.get($colors, "forest");
 
-  padding: 20px 50px 20px;
-  border-radius: 10px;
-}
-
-.headerNavList {
-  display: flex;
-  column-gap: 50px;
-
-  .headerNavItem {
-    font-weight: 700;
-    font-size: 18px;
-
-    .headerNavLink {
-      color: #fff;
-    }
-  }
+  padding: f.rem(20) f.rem(50) f.rem(20);
+  border-radius: f.rem(10);
 }
