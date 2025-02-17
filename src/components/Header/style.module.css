@@ -1,0 +1,135 @@
+.header {
+  background-color: F3F3F3;
+}
+
+.headerInner {
+  position: relative;
+}
+.headerInner .headerContacts {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  margin-bottom: 30px;
+}
+.headerInner .headerContacts .headerSale {
+  display: grid;
+  place-content: center;
+  border: 2px solid #30b856;
+  border-radius: 10px;
+  width: 550px;
+  height: 65px;
+  background-color: #fff;
+}
+.headerInner .headerContacts .headerSale p {
+  font-weight: 700;
+  font-size: 18px;
+  color: #30b856;
+}
+.headerInner .headerContacts .headerContactsAddress {
+  max-width: 310px;
+  width: 100%;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 1.1em;
+  color: #323232;
+}
+.headerInner .headerContacts .headerContactNumbers {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  row-gap: 8px;
+}
+.headerInner .headerContacts .headerContactNumbers .headerContactItem {
+  font-weight: 800;
+  font-size: 25px;
+  text-align: right;
+  color: #323232;
+}
+.headerInner .headerContacts .headerContactNumbers .headerContactItem span {
+  font-weight: 500;
+  font-size: 18px;
+}
+.headerInner .headerContacts .headerContactNumbers .headerContactCallback {
+  font-weight: 500;
+  font-size: 18px;
+  color: #1e7637;
+}
+
+.headerInner {
+  padding-top: 20px;
+}
+.headerInner .headerInfo {
+  display: flex;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+}
+.headerInner .headerInfo .headerInfoItem {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  color: #808080;
+}
+.headerInner .headerInfo .headerInfoItem svg {
+  fill: #808080;
+}
+
+.headerInner .headerActions {
+  display: flex;
+  align-items: flex-end;
+  -moz-column-gap: 30px;
+       column-gap: 30px;
+  margin: 30px 0;
+}
+.headerInner .headerActions .headerActionSearch {
+  position: relative;
+}
+.headerInner .headerActions .headerActionFavoritesLink,
+.headerInner .headerActions .headerActionTrashLink,
+.headerInner .headerActions .headerActionLoginLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  font-weight: 500;
+  font-size: 18px;
+  color: #30b856;
+}
+.headerInner .headerActions .headerActionFavoritesLink svg,
+.headerInner .headerActions .headerActionTrashLink svg,
+.headerInner .headerActions .headerActionLoginLink svg {
+  fill: #323232;
+  transition: 0.15s;
+}
+.headerInner .headerActions .headerActionFavoritesLink:hover svg,
+.headerInner .headerActions .headerActionTrashLink:hover svg,
+.headerInner .headerActions .headerActionLoginLink:hover svg {
+  fill: #30b856;
+}
+
+.headerNav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+  background: #144f24;
+  padding: 20px 50px 20px;
+  border-radius: 10px;
+}
+
+.headerNavList {
+  display: flex;
+  -moz-column-gap: 50px;
+       column-gap: 50px;
+}
+.headerNavList .headerNavItem {
+  font-weight: 700;
+  font-size: 18px;
+}
+.headerNavList .headerNavItem .headerNavLink {
+  color: #fff;
+}

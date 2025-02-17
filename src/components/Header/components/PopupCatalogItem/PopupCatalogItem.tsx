@@ -9,25 +9,25 @@ import ArrowChevronRightIcon from "/src/assets/images/header/arrowChevronRightIc
 // INTERFACE
 interface PCIProps {
   item: CatalogItem;
-  openMenus: Record<string, boolean>;
-  toggleMenu: (id: string, isOpen: boolean) => void;
+  handleToggleItem: (id: string) => void;
 }
 
 // COMPONENT
-function PopupCatalogItem({ item, openMenus, toggleMenu }: PCIProps) {
+function PopupCatalogItem({ item, handleToggleItem }: PCIProps) {
   return (
     <li
       className={style.shopCatalogItem}
       id={item.id}
-      onMouseEnter={() => toggleMenu(item.id, true)}
-      // onMouseLeave={() => toggleMenu(item.id, false)}
+      onClick={(event) => {
+        event.stopPropagation();
+        handleToggleItem(item.id);
+      }}
     >
-      <a href="#" className={style.shopCatalogItemLink}>
+      <div className={style.shopCatalogItemLink}>
         <span>{item.name}</span>
         <ArrowChevronRightIcon />
-      </a>
-
-      {item.list?.length && openMenus[item.id] ? (
+      </div>
+      {item.open && item.list?.length ? (
         <div className={style.shopCatalogContainer}>
           <ul className={style.shopCatalogList}>
             {item.list?.map((item, index) => {
@@ -35,8 +35,7 @@ function PopupCatalogItem({ item, openMenus, toggleMenu }: PCIProps) {
                 <PopupCatalogItem
                   key={index}
                   item={item}
-                  openMenus={openMenus}
-                  toggleMenu={toggleMenu}
+                  handleToggleItem={handleToggleItem}
                 />
               );
             })}

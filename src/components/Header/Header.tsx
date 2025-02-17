@@ -9,15 +9,25 @@ import HeartIcon from "../../assets/images/header/heartIcon.svg?react";
 import TrashIcon from "../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../assets/images/header/userIcon.svg?react";
 import CheckIcon from "../../assets/images/header/checkIcon.svg?react";
+import { useState } from "react";
+import PopupCatalog from "./components/PopupCatalog/PopupCatalog";
+import { catalogList } from "./data/catalogList";
+import { CatalogItem } from "./interfaces/catalogItem";
 // fill="current" stroke="none"
 
 // INTERFACES
 interface HeaderProps {
   SearchBar: React.FC;
-  PopupCatalog: React.FC;
 }
 
-function Header({ SearchBar, PopupCatalog }: HeaderProps) {
+export interface IModals {
+  [key: string]: boolean;
+}
+
+function Header({ SearchBar }: HeaderProps) {
+
+  const [modals, setModals] = useState<CatalogItem[]>(catalogList);
+
   return (
     <header className={style.header}>
       <div className={gStyle.container}>
@@ -98,7 +108,7 @@ function Header({ SearchBar, PopupCatalog }: HeaderProps) {
             </li>
           </ul>
           <nav className={style.headerNav}>
-            <PopupCatalog />
+            <PopupCatalog state={modals} setState={setModals} />
             <ul className={style.headerNavList}>
               <li className={style.headerNavItem}>
                 <a className={style.headerNavLink} href="#">

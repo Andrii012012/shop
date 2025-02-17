@@ -20,6 +20,8 @@
 }
 
 .shopCatalogItem {
+  cursor: pointer;
+
   .shopCatalogItemLink {
     display: flex;
     justify-content: space-between;

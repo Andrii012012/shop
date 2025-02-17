@@ -1,5 +1,13 @@
 @use "/src/utils/styles/functions.scss" as f;
 
+.wrapper{
+  max-width: 100%;
+}
+
+.icon{
+  max-width: 100%;
+}
+
 .burgerMenuButton {
   display: grid;
   place-content: center;

@@ -1,68 +1,105 @@
 import { useEffect, useState } from "react";
 
-import style from "./style.module.scss";
+import styles from "./styles.module.scss";
 
 import PopupCatalogItem from "../PopupCatalogItem/PopupCatalogItem";
 
-import { catalogList } from "../../data/catalogList";
-
 // IMPORT ICONS
 import BurgerIcon from "/src/assets/images/header/burgerIcon.svg?react";
-import TrashIcon from "/src/assets/images/header/trashIcon.svg?react";
+import { CatalogItem } from "../../interfaces/catalogItem";
+import TrashIcon from '../../../../assets/images/header/trashIcon.svg?react';
+import { catalogList } from "../../data/catalogList";
+
+interface IProps {
+  state: CatalogItem[];
+  setState: React.Dispatch<React.SetStateAction<CatalogItem[]>>;
+}
 
 // COMPONENT
-function PopupCatalog() {
+function PopupCatalog(props: IProps) {
   const [isOpenСatalog, setIsOpenСatalog] = useState<boolean>(false);
 
-  const [openMenus, setOpenMenus] = useState<Record<string, boolean>>({});
-
-  function toggleMenu(id: string, isOpen: boolean) {
-    setOpenMenus((prev) => ({ ...prev, [id]: isOpen }));
-  }
+  const { state, setState } = props;
 
   function handleClickBurgerButton() {
     setIsOpenСatalog((prev) => !prev);
   }
 
   useEffect(() => {
-    console.log(openMenus);
-  }, [openMenus]);
+
+    function handleClick(event: MouseEvent) {
+      if (event.currentTarget !== document.querySelector(`.${styles.wrapper}`) && event.target instanceof HTMLElement && !event.target.closest(`.${styles.wrapper}`)) {
+        setIsOpenСatalog(false);
+        setState(catalogList);
+      }
+    }
+
+    document.addEventListener('click', handleClick);
+
+    return () => document.removeEventListener('click', handleClick);
+
+  }, []);
+
+  function handleChangeState(id: string) {
+    setState((prevState) => {
+      const newState = JSON.parse(JSON.stringify(prevState));
+
+      function revel(items: CatalogItem[]) {
+        for (const element of items) {
+          if (element.id === id) {
+            element.open = !element.open;
+            return true;
+          }
+
+          if (element.list && revel(element.list)) {
+            return true;
+          }
+        }
+        return false;
+      }
+
+      revel(newState);
+
+      return newState;
+    })
+  };
 
   return (
-    <>
+    <div className={styles.wrapper}>
       <button
-        className={style.burgerMenuButton}
+        className={styles.burgerMenuButton}
         onClick={handleClickBurgerButton}
       >
-        <BurgerIcon style={{ fill: isOpenСatalog ? "#30B856" : undefined }} />
+        <BurgerIcon className={styles.icon} style={{ fill: isOpenСatalog ? "#30B856" : undefined }} />
       </button>
 
       {isOpenСatalog ? (
         <div
-          className={`${style.shopCatalogContainer} ${style.shopCatalogMain}`}
+          className={`${styles.shopCatalogContainer} ${styles.shopCatalogMain}`}
         >
-          <div className={style.shopCatalogProducts}>
-            <a href="#" className={style.shopCatalogProductsLink}>
+          <div className={styles.shopCatalogProducts}>
+            <a href="#" className={styles.shopCatalogProductsLink}>
               <TrashIcon />
               <span>Каталог товаров</span>
             </a>
           </div>
 
-          <ul className={style.shopCatalogList}>
-            {catalogList.map((item, index) => {
-              return (
-                <PopupCatalogItem
-                  key={index}
-                  item={item}
-                  openMenus={openMenus}
-                  toggleMenu={toggleMenu}
-                />
-              );
-            })}
-          </ul>
+          <div>
+            <ul className={styles.shopCatalogList}>
+              {state.map((item, index) => {
+                return (
+                  <PopupCatalogItem
+                    key={index}
+                    item={item}
+                    handleToggleItem={handleChangeState}
+                  />
+                )
+              })}
+            </ul>
+          </div>
         </div>
       ) : null}
-    </>
+    </div>
   );
 }
 
