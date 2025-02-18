@@ -1,4 +1,6 @@
+@use 'sass:map';
 @use "/src/utils/styles/functions.scss" as f;
+@import '../../../../utils/styles/colors.scss';
 
 .headerActionSearchBar {
   position: relative;
@@ -16,7 +18,8 @@
 
     font-weight: 500;
     font-size: 16px;
-    color: #7f7f7f;
+    
+    color: map.get($colors, "darkGray");
     transition: 0.1s;
 
     &:focus {
@@ -65,4 +68,22 @@
 .searchPageLink {
   margin-top: f.rem(30);
   display: block;
+}
+
+.body {
+  position: relative;
+}
+
+.placeholder {
+  position: absolute;
+  top: 50%;
+  left: 32px;
+  transform: translate(0, -50%);
+  pointer-events: none;
+  opacity: 0.6;
+
+  span {
+    opacity: 0;
+    visibility: hidden;
+  }
 }

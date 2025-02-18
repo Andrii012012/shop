@@ -6,11 +6,12 @@ import './style.scss';
 
 interface IProps {
   products: IBaseProduct[];
+  handleSetPlaceholder: (name: string) => void;
 }
 
 function ProductLists(props: IProps) {
 
-  const { products } = props;
+  const { products, handleSetPlaceholder } = props;
 
   const refElement = useRef<HTMLDivElement | null>(null);
 
@@ -33,7 +34,7 @@ function ProductLists(props: IProps) {
       <ul className={style.searchPopupList}>
         {products.map((item, index) => {
           return (
-            <li key={index} className={style.searchPopupListItem}>
+            <li onMouseEnter={() => handleSetPlaceholder(item.name)} key={index} className={style.searchPopupListItem}>
               <a href="#" className={style.searchPopupListLink}>
                 <img
                   src="src/assets/images/header/productIcon.png"
