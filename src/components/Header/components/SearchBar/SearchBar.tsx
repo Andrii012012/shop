@@ -1,81 +1,45 @@
 import style from "./style.module.scss";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import SearchIcon from "/src/assets/images/header/searchIcon.svg?react";
+import { useAppSelector } from "../../../../hooks/useAppSelector";
+import { searchProductFilter } from "../../../../features/products/filters";
+import { IBaseProduct } from "../../../../interface/interface";
+import { Link } from "react-router-dom";
+import { PATH_SHOP } from "../../../../routes/routes";
+import ProductLists from "./components/ProductLists/ProductLists";
 
 interface IProps {
   className?: string;
 }
 
+
 function SearchBar(props: IProps): JSX.Element {
 
   const { className = "" } = props;
 
-  const [isShopSearchBar, setIsShopSearchBar] = useState<boolean>(false);
-  
-  const searchBarRef = useRef<HTMLDivElement | null>(null);
-  const searchInputRef = useRef<HTMLDivElement | null>(null);
+  const [inputState, setInputState] = useState<string>('');
 
-  function handleChangeSearchInput() {
-    setIsShopSearchBar(true);
-  }
-
-  function handleCloseSearchBar(event: MouseEvent) {
-    if (
-      event.target instanceof HTMLDivElement &&
-      !searchBarRef.current?.contains(event.target) &&
-      !searchInputRef.current?.contains(event.target)
-    ) {
-      setIsShopSearchBar(false);
-    }
-  }
-
-  useEffect(() => {
-    document.addEventListener("mousedown", handleCloseSearchBar);
-
-    return () => {
-      document.removeEventListener("mousedown", () =>
-        setIsShopSearchBar(false)
-      );
-    };
-  }, []);
+  const products: IBaseProduct[] = useAppSelector(searchProductFilter(inputState));
 
   return (
     <div className={`${style.wrapper} ${className}`}>
-      <div className={style.headerActionSearchBar} ref={searchInputRef}>
+      <div className={style.headerActionSearchBar}>
         <input
           type="text"
+          value={inputState}
           className={style.headerSearchInput}
           placeholder="Поиск по названию, производителю, действующему веществу или симптому"
-          onChange={handleChangeSearchInput}
+          onChange={(event) => setInputState(event.target.value)}
+          onBlur={() => setTimeout(() => { setInputState("") }, 100)}
         />
         <SearchIcon />
       </div>
-      {isShopSearchBar ? (
-        <div className={style.searchPopup} ref={searchBarRef}>
-          <ul className={style.searchPopupList}>
-            {[...Array(3)].map((_, index) => {
-              return (
-                <li key={index} className={style.searchPopupListItem}>
-                  <a href="#" className={style.searchPopupListLink}>
-                    <img
-                      src="src/assets/images/header/productIcon.png"
-                      alt="Product Icon"
-                      className={style.searchPopupListLinkImg}
-                    />
-                    <span className={style.searchPopupListLinkTitle}>
-                      Астрафарм антигельминтный препарат
-                    </span>
-                    <span className={style.searchPopupListLinkPrice}>
-                      371 ₽
-                    </span>
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-          <a href="#" className={style.searchPageLink}>
+      {products.length ? (
+        <div className={style.searchPopup}>
+          <ProductLists products={products} />
+          <Link to={PATH_SHOP} className={style.searchPageLink}>
             Перейти на страницу поиска
-          </a>
+          </Link>
         </div>
       ) : null}
     </div>

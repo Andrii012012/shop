@@ -7,6 +7,11 @@
     padding-bottom: f.rem(20);
 }
 
+.body{
+  display: flex;
+  align-items: center;
+}
+
 .headerInner {
   position: relative;
 }
@@ -52,4 +57,3 @@
   padding: f.rem(20) f.rem(50) f.rem(20);
   border-radius: f.rem(10);
   }
-}

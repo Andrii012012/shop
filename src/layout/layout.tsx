@@ -2,6 +2,7 @@ import gStyles from '../styles/styles.module.scss';
 import styles from './style.module.scss';
 import Header from "../components/Header/Header";
 import Subscribe from "./components/Subscribe/Subscribe";
+import { ReactNode } from 'react';
 
 export function Layout({ children }: { children: ReactNode }): JSX.Element {
     return (

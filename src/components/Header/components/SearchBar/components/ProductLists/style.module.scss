@@ -1,0 +1,42 @@
+@use "/src/utils/styles/functions.scss" as f;
+
+.scrollbar {
+  .os-scrollbar-track {
+    background-color: red !important;
+  }
+}
+
+.wrapper {
+  padding: f.rem(30) f.rem(30) 0 f.rem(30);
+  position: relative;
+  max-height: f.rem(200);
+}
+
+.searchPopupList {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+
+  .searchPopupListItem {
+    width: 100%;
+
+    .searchPopupListLink {
+      display: flex;
+      align-items: center;
+      column-gap: 10px;
+
+      font-weight: 500;
+      font-size: 16px;
+      color: #323232;
+      transition: 0.1s;
+
+      &:hover {
+        color: #216823;
+      }
+
+      .searchPopupListLinkTitle {
+        flex: 1;
+      }
+    }
+  }
+}

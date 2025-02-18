@@ -1,8 +1,7 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../../store/store";
-import { IBaseProduct, IRelease, TSeasons } from "../../interface/interface";
+import { IBaseProduct, TSeasons } from "../../interface/interface";
 import { ISettings } from "../../pages/Shop/types/type";
-import Settings from "../../pages/Shop/components/Settings/Settings";
 
 const products = (state: RootState) => state.products.products;
 
@@ -85,3 +84,16 @@ export const shopProductsFilter = (settings: ISettings) => {
     return products;
   });
 };
+
+export const searchProductFilter = (name: string) =>
+  createSelector(products, (state) => {
+    if (name === "") {
+      return [];
+    } else {
+      return state.filter((item, _) => {
+        if (item.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
+          return item;
+        }
+      });
+    }
+  });
