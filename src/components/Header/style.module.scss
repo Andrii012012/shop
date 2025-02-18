@@ -4,7 +4,7 @@
 
 .header {
   background-color: map.get($colors, "grayWhite");
-    padding-bottom: f.rem(20);
+  padding: f.rem(30) 0 f.rem(20) 0;
 }
 
 .headerInner {
@@ -51,5 +51,9 @@
   background: map.get($colors, "forest");
   padding: f.rem(20) f.rem(50) f.rem(20);
   border-radius: f.rem(10);
-  }
+}
+
+.body {
+  display: flex;
+  align-items: center;
 }
