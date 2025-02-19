@@ -16,7 +16,7 @@ export default function SwitchContent(props: IProps): JSX.Element {
     <div className={`${styles.wrapper} ${className}`}>
       <ul className={styles.list}>
         {links.map((item, index) => {
-          if (disabled[index].index === index) {
+          if (disabled.length && disabled[index].index === index) {
             return (
               <li style={{ flex: `1 1 ${100 / links.length}%`, pointerEvents: 'none' }} className={gStyles.textBig} key={index}>
                 <NavLink style={{ color: disabled[index].color }} className={({ isActive }) => isActive ? styles.activeLink : ""} to={item.to}>{item.name}</NavLink>

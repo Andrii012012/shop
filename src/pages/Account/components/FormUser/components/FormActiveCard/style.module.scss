@@ -1,0 +1,40 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.bodyActiveCard {
+    padding: 0 f.rem(50);
+}
+
+.buttonActiveCard {
+    @include m.button($padding: f.rem(28) f.rem(74) f.rem(28) f.rem(74),
+        $width: f.rem(302),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, "lightGreen"),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+}
+
+.body {
+    display: flex;
+    width: 100%;
+}
+
+.input {
+    @include m.input($padding: f.rem(21) f.rem(30) f.rem(21) f.rem(30),
+        $width: f.rem(1018),
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, "white"),
+        $color: map.get($colors, 'darkGray'));
+    margin-right: f.rem(20);
+}
+
+.title {
+    color: map.get($colors, "deepGreen");
+    margin-bottom: f.rem(20);
+    max-width: f.rem(900);
+}

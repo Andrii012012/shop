@@ -2,6 +2,7 @@ import { CatalogItem } from "../interfaces/catalogItem";
 import HeartIcon from "../../../assets/images/header/heartIcon.svg?react";
 import TrashIcon from "../../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../../assets/images/header/userIcon.svg?react";
+import { PATH_ACCOUNT } from "../../../routes/routes";
 
 export const catalogList: CatalogItem[] = [
   {
@@ -246,7 +247,8 @@ export const NAVIGATE_MENU_USER: {
       image: <TrashIcon />,
     },
     {
-      to: "",
+      //YOU WILL HAVE TO CHANGE THIS!!!
+      to: PATH_ACCOUNT,
       name: "Войти",
       image: <UserIcon />,
     },

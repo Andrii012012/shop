@@ -1,0 +1,54 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    padding: 0 0 f.rem(100) 0;
+}
+
+.container {
+    width: 100%;
+}
+
+.body {
+    display: flex;
+    margin-bottom: f.rem(50);
+}
+
+.showState {
+    max-width: f.rem(695);
+    width: 100%;
+    background-color: map.get($colors, "white");
+    border-radius: f.rem(20);
+    display: flex;
+    align-items: center;
+    padding: f.rem(30) f.rem(50);
+
+    p:first-child {
+        flex: 1 1 auto;
+        font-weight: 700;
+    }
+
+    p {
+        span {
+            color: map.get($colors, 'deepGreen');
+        }
+    }
+
+    &:first-child {
+        margin-right: f.rem(50);
+    }
+}
+
+.buttonDesign {
+    @include m.button($padding: f.rem(28) f.rem(10) f.rem(28) f.rem(10),
+        $width: f.rem(193),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, "lightGreen"),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+}
