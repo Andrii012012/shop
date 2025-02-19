@@ -5,6 +5,8 @@ import BurgerIcon from "/src/assets/images/header/burgerIcon.svg?react";
 import { CatalogItem } from "../../interfaces/catalogItem";
 import TrashIcon from '../../../../assets/images/header/trashIcon.svg?react';
 import { catalogList } from "../../constants/catalogList";
+import { PATH_CATALOG } from "../../../../routes/routes";
+import { Link } from "react-router-dom";
 interface IProps {
   state: CatalogItem[];
   setState: React.Dispatch<React.SetStateAction<CatalogItem[]>>;
@@ -72,10 +74,10 @@ function PopupCatalog(props: IProps) {
           className={`${styles.shopCatalogContainer} ${styles.shopCatalogMain}`}
         >
           <div className={styles.shopCatalogProducts}>
-            <a href="#" className={styles.shopCatalogProductsLink}>
+            <Link onClick={() => setIsOpenСatalog(false)} to={PATH_CATALOG} className={styles.shopCatalogProductsLink}>
               <TrashIcon />
               <span>Каталог товаров</span>
-            </a>
+            </Link>
           </div>
 
           <div>

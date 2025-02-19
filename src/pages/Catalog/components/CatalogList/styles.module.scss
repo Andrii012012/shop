@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@import '../../../../utils/styles/colors.scss';
+
+.item {
+    font-weight: 700;
+    margin-bottom: f.rem(20);
+
+    a {
+        color: map.get($colors, "darkGray");
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
