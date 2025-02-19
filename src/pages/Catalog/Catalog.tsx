@@ -1,11 +1,13 @@
-import styles from './style.module.scss';
-import gStyles from '../../styles/styles.module.scss';
+import styles from './styles.module.scss';
+import gStyles from "../../styles/styles.module.scss";
 import Navigate from '../../components/Navigate/Navigate';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 import { CATALOG } from './constants/catalog';
 import { useRef } from 'react';
 import { ICatalog } from './type';
 import { PATH_CATALOG } from '../../routes/routes';
+import CatalogItem from './components/CatalogItem/CatalogItem';
+import CatalogList from './components/CatalogList/CatalogList';
 
 export default function Catalog(): JSX.Element {
 
@@ -20,41 +22,17 @@ export default function Catalog(): JSX.Element {
                 <h2 className={`${gStyles.textExtraLarge} ${styles.title}`}>Каталог товаров</h2>
                 <div className={styles.content}>
                     <aside className={styles.aside}>
-                        <ul className={styles.list}>
-                            {CATALOG.map((item, index) => (
-                                <li onClick={() => refSaveItemCatalog.current = item} key={index} className={`${styles.item} ${gStyles.textBig}`}>
-                                    <NavLink style={({ isActive }) => ({
-                                        color: isActive ? "#216823" : "",
-                                    })} to={item.to}>
-                                        {item.name}
-                                    </NavLink>
-                                </li>
-                            ))}
-                        </ul>
+                        <CatalogList refSaveItemCatalog={refSaveItemCatalog} />
                     </aside>
                     {location.pathname === '/catalog' ?
                         <ul className={styles.listSections}>
                             {CATALOG.map((item, index) => (
-                                <li onClick={() => refSaveItemCatalog.current = item} key={index} className={styles.itemSection}>
-                                    <Link to={item.to}>
-                                        <div className={styles.body}>
-                                            <img src={item.image} alt="" />
-                                        </div>
-                                        <p className={gStyles.textBig}>{item.name}</p>
-                                    </Link>
-                                </li>
+                                <CatalogItem className={`${styles.itemSection}`} key={index} item={item} refSaveItemCatalog={refSaveItemCatalog} />
                             ))}
                         </ul>
                         : <ul className={`${styles.listPart} ${styles.listSections}`}>
                             {refSaveItemCatalog.current.list?.map((item, index) => (
-                                <li key={index} className={`${styles.itemSection} ${styles.itemPart}`}>
-                                    <Link to={item.to}>
-                                        <div className={styles.body}>
-                                            <img src={item.image} alt="" />
-                                        </div>
-                                        <p className={gStyles.textBig}>{item.name}</p>
-                                    </Link>
-                                </li>
+                                <CatalogItem className={`${styles.itemSection} ${styles.itemPart}`} key={index} item={item} refSaveItemCatalog={refSaveItemCatalog} />
                             ))}
                         </ul>}
                 </div>

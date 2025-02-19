@@ -30,20 +30,6 @@
     align-items: flex-start;
 }
 
-.item {
-    font-weight: 700;
-    margin-bottom: f.rem(20);
-
-    a {
-        color: map.get($colors, "darkGray");
-    }
-
-    &:last-child {
-        margin-bottom: 0;
-    }
-}
-
-
 .listSections {
     display: flex;
     flex-wrap: wrap;
@@ -82,31 +68,31 @@
     }
 
     &:nth-child(5) {
-        .body {
+        div:first-child {
             align-items: flex-end;
         }
     }
-}
 
-.body {
-    width: 100%;
-    background-color: map.get($colors, 'white');
-    margin-bottom: f.rem(10);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: 0.3s linear;
-    min-height: f.rem(249);
-
-    &:hover {
-        box-shadow: 0px 4px 30px 3px #00000040;
+    div:first-child {
+        width: 100%;
+        background-color: map.get($colors, 'white');
+        margin-bottom: f.rem(10);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         transition: 0.3s linear;
-    }
+        min-height: f.rem(249);
 
-    img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
+        &:hover {
+            box-shadow: 0px 4px 30px 3px #00000040;
+            transition: 0.3s linear;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+        }
     }
 }
 
@@ -116,7 +102,7 @@
 
 .itemPart {
     &:nth-child(5) {
-        .body {
+        div:first-child {
             img {
                 align-self: center;
             }
@@ -124,7 +110,7 @@
     }
 
     &:nth-child(7) {
-        .body {
+        div:first-child {
             img {
                 align-self: flex-end;
             }
@@ -132,7 +118,7 @@
     }
 
     &:nth-child(8) {
-        .body {
+        div:first-child {
             img {
                 align-self: flex-end;
             }
