@@ -63,3 +63,18 @@ export interface IBasketProduct {
   manufacturer: string;
   count: number;
 }
+
+export type TSex = "man" | "woman";
+
+export interface IUser {
+  name: string;
+  surname: string;
+  familyName: string;
+  birthday: string;
+  email: string;
+  phone: string;
+  marks: number;
+  password: string | number;
+  isCard: boolean;
+  sex: TSex;
+}

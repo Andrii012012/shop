@@ -6,17 +6,20 @@ import {
   ReducerProducts,
 } from "../features/products/products";
 import { IInitialBasket, ReducerBasket } from "../features/basket/basket";
+import { IInitialUser, ReducerUser } from "../features/user/user";
 
 interface IReducer {
   news: Reducer<IInitialNews>;
   products: Reducer<IInitialProducts>;
   basket: Reducer<IInitialBasket>;
+  user: Reducer<IInitialUser>;
 }
 
 const reducer: IReducer = {
   news: ReducerNews,
   products: ReducerProducts,
   basket: ReducerBasket,
+  user: ReducerUser,
 };
 
 export const store = configureStore({
