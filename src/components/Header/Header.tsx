@@ -35,8 +35,8 @@ function Header() {
             <NavigateMenu />
           </nav>
         </div>
-        <Portal isOpen={modalLogin}>
-          <PortalLoginRegister setModalLogin={setModalLogin}/>
+        <Portal isOpen={modalLogin} setIsOpen={setModalLogin}>
+          <PortalLoginRegister setModalLogin={setModalLogin} />
         </Portal>
       </div>
     </header>
