@@ -1,9 +1,4 @@
 import { CatalogItem } from "../interfaces/catalogItem";
-import HeartIcon from "../../../assets/images/header/heartIcon.svg?react";
-import TrashIcon from "../../../assets/images/header/trashIcon.svg?react";
-import UserIcon from "../../../assets/images/header/userIcon.svg?react";
-import { PATH_ACCOUNT } from "../../../routes/routes";
-
 export const catalogList: CatalogItem[] = [
   {
     id: "0",
@@ -228,28 +223,5 @@ export const NAVIGATE_ITEMS: {
     {
       to: "",
       name: "Новости",
-    },
-  ];
-
-export const NAVIGATE_MENU_USER: {
-  to: string;
-  name: string;
-  image: JSX.Element;
-}[] = [
-    {
-      to: "",
-      name: "Избранное",
-      image: <HeartIcon />,
-    },
-    {
-      to: "",
-      name: "Корзина",
-      image: <TrashIcon />,
-    },
-    {
-      //YOU WILL HAVE TO CHANGE THIS!!!
-      to: PATH_ACCOUNT,
-      name: "Войти",
-      image: <UserIcon />,
     },
   ];

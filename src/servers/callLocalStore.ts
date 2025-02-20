@@ -1,8 +1,10 @@
-export function callLocalStore(key: string, object: {}) {
-  if (!localStorage.getItem(key)) {
+export function callLocalStore<T>(key: string, object?: null | {}): T | {} {
+  if (typeof object === "object") {
     localStorage.setItem(key, JSON.stringify(object));
-    return localStorage.getItem(key);
+    const data = localStorage.getItem(key) || "";
+    return JSON.parse(data);
   } else {
-    return localStorage.getItem(key);
+    const data = localStorage.getItem(key) || "";
+    return JSON.parse(data);
   }
 }

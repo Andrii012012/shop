@@ -10,9 +10,13 @@ import Logo from '../../assets/images/header/WebsiteLogo.svg?react';
 import { catalogList } from "./constants/catalogList";
 import NavigateMenu from "./components/NavigateMenu/NavigateMenu";
 import NavigateMenuUser from "./components/NavigateMenuUser/NavigateMenuUser";
+import Portal from "../../containers/Portal/Portal";
+import PortalLoginRegister from "./components/PortalLoginRegister/PortalLoginRegister";
 
 function Header() {
+
   const [modals, setModals] = useState<CatalogItem[]>(catalogList);
+  const [modalLogin, setModalLogin] = useState<boolean>(false);
 
   return (
     <header className={styles.header}>
@@ -24,13 +28,16 @@ function Header() {
               <Logo />
             </Link>
             <SearchBar className={styles.searchBar} />
-            <NavigateMenuUser />
+            <NavigateMenuUser setModalLogin={setModalLogin} />
           </div>
           <nav className={styles.headerNav}>
             <PopupCatalog state={modals} setState={setModals} />
             <NavigateMenu />
           </nav>
         </div>
+        <Portal isOpen={modalLogin}>
+          <PortalLoginRegister setModalLogin={setModalLogin}/>
+        </Portal>
       </div>
     </header>
   )

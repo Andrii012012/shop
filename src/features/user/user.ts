@@ -1,19 +1,26 @@
-import { createSlice } from "@reduxjs/toolkit";
-import { callLocalStore } from "../../servers/callLocalStore";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../interface/interface";
 
 export interface IInitialUser {
-  user: IUser | {};
+  user: IUser | null | {};
 }
 
 const initialState: IInitialUser = {
-  user: callLocalStore("user", {}) || {},
+  user: null,
 };
 
 const user = createSlice({
   name: "user",
   initialState,
-  reducers: {},
+  reducers: {
+    LoginUser: (state: IInitialUser, action: PayloadAction<IUser | {}>) => {
+      state.user = action.payload;
+    },
+    LogoutUser: (state: IInitialUser) => {
+      state.user = null;
+    },
+  },
 });
 
 export const ReducerUser = user.reducer;
+export const { LoginUser, LogoutUser } = user.actions;
