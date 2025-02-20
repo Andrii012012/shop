@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { IUser } from "../../interface/interface";
 
 export interface IInitialUser {
-  user: IUser | null | {};
+  user: IUser | null;
 }
 
 const initialState: IInitialUser = {
@@ -13,8 +13,8 @@ const user = createSlice({
   name: "user",
   initialState,
   reducers: {
-    LoginUser: (state: IInitialUser, action: PayloadAction<IUser | {}>) => {
-      state.user = action.payload;
+    LoginUser: (state: IInitialUser, action: PayloadAction<IUser>) => {
+      state.user = action.payload as IUser;
     },
     LogoutUser: (state: IInitialUser) => {
       state.user = null;

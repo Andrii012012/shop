@@ -26,33 +26,9 @@
     }
 }
 
-.input {
-    @include m.input($padding: f.rem(8) f.rem(10) f.rem(8) f.rem(10),
-        $width: 100%,
-        $borderRadius: f.rem(3),
-        $border: 0px solid map.get($colors, 'lightGreen'),
-        $backgroundColor: transparent,
-        $color: map.get($colors, 'darkGray'));
-    border-bottom: 2px solid map.get($colors, "darkGray");
-    margin-bottom: f.rem(5);
-}
-
-.bodyInput {
-    position: relative;
-}
 
 .bodyInputs {
     margin-bottom: f.rem(20);
-}
-
-.bodyChange {
-    position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translate(0, -50%);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
 }
 
 .form {
@@ -62,16 +38,6 @@
     margin-bottom: f.rem(50);
 }
 
-.buttonSave {
-    background-color: transparent;
-    color: map.get($colors, "lightGreen");
-    margin-right: f.rem(10);
-}
-
-.buttonCancel {
-    background-color: transparent;
-    color: map.get($colors, "brick");
-}
 
 .buttonSaveForm {
     @include m.button($padding: f.rem(28) f.rem(10) f.rem(28) f.rem(10),

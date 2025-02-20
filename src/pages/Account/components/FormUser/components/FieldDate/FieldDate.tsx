@@ -1,22 +1,32 @@
 
 import styles from './style.module.scss';
 import gStyles from '../../../../../../styles/styles.module.scss';
-import { Field, Form, Formik } from 'formik';
+import { Form, Formik } from 'formik';
 import { useState } from 'react';
 import Button from '../../../../../../components/ui/Button/Button';
-import { FIELD, NAME_FIELD } from './constants/fields';
+import { fieldUser, NAME_FIELD } from './constants/fields';
 import { IField } from './type';
+import { IUser } from '../../../../../../interface/interface';
+import FieldItem from './components/FieldItem/FieldItem';
+import { callLocalStore } from '../../../../../../servers/callLocalStore';
 
-export default function FieldDate(): JSX.Element {
+interface IProps {
+    dataUser: IUser;
+}
 
-    const [state, setState] = useState<IField[]>(FIELD);
 
-    function handleChangeEdit(index: number): void {
-        setState((prevState) => {
-            const newState = [...prevState];
-            newState[index].isEdit = !newState[index].isEdit;
-            return newState;
-        })
+export default function FieldDate(props: IProps): JSX.Element {
+
+    const { dataUser } = props;
+
+    const [state, setState] = useState<IField[]>(fieldUser(dataUser));
+
+    function handleSavePassword(): void {
+        if (dataUser.password === state[7].oldPassword) {
+            const dataUserCopy = JSON.parse(JSON.stringify(dataUser));
+            dataUserCopy.password = state[8].newPassword;
+            callLocalStore('user', dataUserCopy);
+        }
     }
 
     return (
@@ -37,23 +47,15 @@ export default function FieldDate(): JSX.Element {
                             <div className={styles.wrapperInput}>
                                 <div className={styles.bodyInputs}>
                                     {state.map((item, index) => {
+                                        const fieldName = Object.entries(item)[0][0];
                                         return (
-                                            <div className={styles.bodyInput}>
-                                                <Field className={`${styles.input}`} name={Object.entries(item)[0][0]} />
-                                                {(Object.entries(item)[0][0] !== "newPassword" && Object.entries(item)[0][0] !== 'oldPassword') && <div>
-                                                    {!item.isEdit ? <div onClick={() => handleChangeEdit(index)} className={styles.bodyChange}><p className={gStyles.textExtraBig}>Редактировать</p></div>
-                                                        : <div className={styles.bodyChange}>
-                                                            <Button className={`${styles.buttonSave} ${gStyles.textExtraBig}`} title='Сохранить' />
-                                                            <Button onClick={() => handleChangeEdit(index)} className={`${styles.buttonCancel} ${gStyles.textExtraBig}`} title='Отменить' />
-                                                        </div>}
-                                                </div>}
-                                            </div>
+                                            <FieldItem dataUser={dataUser} setState={setState} index={index} key={index} item={item} fieldName={fieldName} />
                                         )
                                     })}
                                 </div>
                             </div>
                         </div>
-                        <Button classNameWrapper={styles.bodyButton} className={`${styles.buttonSaveForm} ${gStyles.textMedium}`} title="Сохранить пароль" />
+                        <Button onClick={() => handleSavePassword()} classNameWrapper={styles.bodyButton} className={`${styles.buttonSaveForm} ${gStyles.textMedium}`} title="Сохранить пароль" />
                     </div>
                 </Form>
             )}

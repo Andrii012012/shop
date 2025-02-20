@@ -1,4 +1,5 @@
 export interface IField {
   isEdit: boolean;
-  [key: string]: string | boolean;   
+  type: string;
+  [key: string]: string | boolean | number;   
 }

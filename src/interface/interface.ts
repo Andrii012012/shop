@@ -77,4 +77,5 @@ export interface IUser {
   password: string | number;
   isCard: boolean;
   sex: TSex;
+  [key: string]: any;
 }
