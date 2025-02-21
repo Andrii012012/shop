@@ -6,7 +6,7 @@ import { ISettings } from '../../types/type';
 import { IBaseProduct } from '../../../../interface/interface';
 import RangeSlider from '../../../../components/ui/RangeSlider/RangeSlider';
 import Button from '../../../../components/ui/Button/Button';
-
+import Arrow from '../../../../assets/images/global/arrowAccordion.svg?react';
 
 interface IProps {
     settings: ISettings;
@@ -79,7 +79,13 @@ export default function Settings(props: IProps): JSX.Element {
     return (
         <aside className={styles.settings}>
             <div className={styles.wrapper}>
-                <Accordion className={styles.accordion} title='Форма выпуска'>
+                <Accordion classActive={styles.activeAccordion} className={styles.accordion}
+                    header={
+                        <>
+                            <Arrow className={styles.iconArrow} />
+                            <p className={gStyles.textBig}>Форма выпуска</p>
+                        </>
+                    }>
                     <ul className={styles.list}>
                         {releaseForm.map((item, _) => (
                             <li onClick={() => handleChangeSettings("releaseForm", item[0])}>
@@ -90,12 +96,23 @@ export default function Settings(props: IProps): JSX.Element {
                         ))}
                     </ul>
                 </Accordion>
-                <Accordion className={styles.accordion} title='Цена'>
+                <Accordion classActive={styles.activeAccordion} className={styles.accordion} header={
+                    <>
+                        <Arrow className={styles.iconArrow} />
+                        <p className={gStyles.textBig}>Цена</p>
+                    </>
+                }>
                     <div>
                         <RangeSlider min={0} max={15000} value={settings.price} onChange={handleChangePrice} />
                     </div>
                 </Accordion>
-                <Accordion className={styles.accordion} title='Производитель'>
+                <Accordion classActive={styles.activeAccordion} className={styles.accordion}
+                    header={
+                        <>
+                            <Arrow className={styles.iconArrow} />
+                            <p className={gStyles.textBig}>Производитель</p>
+                        </>
+                    }>
                     <ul className={styles.list}>
                         {manufacturer.map((item, _) => (
                             <li onClick={() => handleChangeSettings("manufacturer", item[0])}>
@@ -106,7 +123,13 @@ export default function Settings(props: IProps): JSX.Element {
                         ))}
                     </ul>
                 </Accordion>
-                <Accordion className={styles.accordion} title='Страна производства'>
+                <Accordion classActive={styles.activeAccordion} className={styles.accordion}
+                    header={
+                        <>
+                            <Arrow className={styles.iconArrow} />
+                            <p className={gStyles.textBig}>Страна производства</p>
+                        </>
+                    }>
                     <ul className={styles.list}>
                         {countryOrigin.map((item, _) => (
                             <li onClick={() => handleChangeSettings("countryOrigin", item[0])}>
@@ -117,7 +140,13 @@ export default function Settings(props: IProps): JSX.Element {
                         ))}
                     </ul>
                 </Accordion>
-                <Accordion className={styles.accordion} title='Рецептуарность'>
+                <Accordion classActive={styles.activeAccordion} className={styles.accordion}
+                    header={
+                        <>
+                            <Arrow className={styles.iconArrow} />
+                            <p className={gStyles.textBig}>Рецептуарность</p>
+                        </>
+                    }>
                     <ul className={styles.list}>
                         {recipes.map((item, _) => (
                             <li onClick={() => handleChangeSettings("isRecipe", item[0])}>

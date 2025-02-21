@@ -1,0 +1,125 @@
+@use 'sass:map';
+@use '../../../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../../../utils/styles/colors.scss';
+
+
+.header {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-radius: f.rem(10);
+    background-color: map.get($colors, "grayWhite");
+    padding: f.rem(29) f.rem(50);
+    border-bottom: 0px solid transparent;
+    transition: 0.3s linear;
+}
+
+.icon {
+    margin-right: f.rem(50);
+}
+
+.number {
+    flex: 1 1 f.rem(380);
+    font-weight: 500 !important;
+}
+
+.date {
+    flex: 1 1 f.rem(83);
+    font-weight: 500 !important;
+}
+
+.count {
+    flex: 1 1 f.rem(100);
+    font-weight: 500 !important;
+}
+
+.state {
+    flex: 1 1 f.rem(240);
+    font-weight: 500 !important;
+}
+
+.accordion {
+    border: 2px solid map.get($colors, "lightGray");
+    border-radius: f.rem(10);
+}
+
+.accordionActive {
+    .header {
+        border-radius: f.rem(10) f.rem(10) 0 0;
+        border-bottom: 2px solid map.get($colors, "lightGray");
+    }
+}
+
+.wrapperProduct {
+    padding: f.rem(20) f.rem(50) f.rem(50) f.rem(50);
+}
+
+.extraInfo {
+    font-weight: 700;
+    margin-bottom: f.rem(10);
+}
+
+.headerProduct {
+    display: flex;
+
+    ul {
+        flex: 1 1 auto;
+    }
+}
+
+.textBold {
+    span {
+        font-weight: 700;
+    }
+}
+
+.buttonCancel {
+    @include m.button($padding: f.rem(0) f.rem(0) f.rem(0) f.rem(0),
+        $width: f.rem(156),
+        $borderRadius: f.rem(0),
+        $border: 0px solid transparent,
+        $backgroundColor: transparent,
+        $color: map.get($colors, 'brick'));
+    font-weight: 700;
+    margin-top: f.rem(16);
+}
+
+.content {
+    display: flex;
+    align-items: flex-end;
+}
+
+.bodyLocal {
+    flex: 1 1 auto;
+}
+
+.deliveryPrice,
+.totalPrice {
+    span {
+        margin-right: f.rem(20);
+        font-size: f.rem(18);
+    }
+
+    font-weight: 500 !important;
+}
+
+.deliveryPrice {
+    flex: 1 1 f.rem(85);
+}
+
+.totalPrice {
+    flex: 1 1 f.rem(50);
+}
+
+.buttonComment {
+    @include m.button($padding: f.rem(22) f.rem(20) f.rem(22) f.rem(20),
+        $width: f.rem(300),
+        $borderRadius: f.rem(0),
+        $border: 3px solid map.get($colors, "deepGreen"),
+        $backgroundColor: transparent,
+        $color: map.get($colors, "deepGreen"));
+    font-weight: 700;
+    text-align: center;
+    border-radius: f.rem(10);
+}

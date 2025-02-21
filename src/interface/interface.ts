@@ -66,6 +66,24 @@ export interface IBasketProduct {
 
 export type TSex = "man" | "woman";
 
+export interface IAdditionalInfoOrder {
+  name: string;
+  count: number;
+  manufacturer: string;
+  originalCountery: string;
+}
+export interface IOrder {
+  number: number;
+  date: string;
+  count: number;
+  state: string;
+  price: number;
+  deliveryPrice: number;
+  delivery: string;
+  address: string;
+  additionalInfo: IAdditionalInfoOrder[];
+}
+
 export interface IUser {
   name: string;
   surname: string;
@@ -77,5 +95,6 @@ export interface IUser {
   password: string | number;
   isCard: boolean;
   sex: TSex;
+  orders: IOrder;
   [key: string]: any;
 }

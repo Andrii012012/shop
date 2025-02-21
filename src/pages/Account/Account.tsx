@@ -7,6 +7,7 @@ import { PATH_ACCOUNT } from '../../routes/routes';
 import FormUser from './components/FormUser/FormUser';
 import { Route, Routes } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
+import Order from './components/Order/Order';
 
 const NAME_SECTIONS = ["Мой профиль", "Заказы", "Подписки", "Оставить отзыв"];
 
@@ -28,6 +29,7 @@ export default function Account(): JSX.Element {
                 </div>
                 <Routes>
                     <Route path={`${NAME_SECTIONS[0]}/*`} element={<FormUser nameSection={NAME_SECTIONS[0]} dataUser={dataUser} />} />
+                    <Route path={`${NAME_SECTIONS[1]}`} element={<Order dataUser={dataUser} />} />
                 </Routes>
             </main>
         );
