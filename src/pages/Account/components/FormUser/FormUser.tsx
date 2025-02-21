@@ -1,35 +1,25 @@
 
 import styles from './style.module.scss';
-import gStyles from '../../../../styles/styles.module.scss';
-import FieldDate from './components/FieldDate/FieldDate';
-import { Link } from 'react-router-dom';
-import FormActiveCard from './components/FormActiveCard/FormActiveCard';
+import { Route, Routes } from 'react-router-dom';
 import { IUser } from '../../../../interface/interface';
+import MainPage from './components/MainPage/MainPage';
+import PreOrder from './components/PreOrder/PreOrder';
 interface IProps {
     dataUser: IUser;
+    nameSection: string;
 }
 
 export default function FormUser(props: IProps): JSX.Element {
 
-    const { dataUser } = props;
+    const { dataUser, nameSection } = props;
 
     return (
         <section className={styles.wrapper}>
             <div className={styles.container}>
-                <FieldDate dataUser={dataUser} />
-                <div className={gStyles.container}>
-                    <div className={styles.body}>
-                        <div className={styles.showState}>
-                            <p className={gStyles.textLarge}>Бонусные баллы</p>
-                            <p className={gStyles.textLarge}><span>{dataUser.marks || 0}</span> баллов</p>
-                        </div>
-                        <div className={styles.showState}>
-                            <p className={gStyles.textLarge}>Оформить предзаказ</p>
-                            <Link className={`${styles.textMedium} ${styles.buttonDesign}`} to="/">Оформить</Link>
-                        </div>
-                    </div>
-                    <FormActiveCard />
-                </div>
+                <Routes>
+                    <Route index element={<MainPage nameSection={nameSection} dataUser={dataUser} />} />
+                    <Route path={`/preOrder`} element={<PreOrder />} />
+                </Routes>
             </div>
         </section>
     );

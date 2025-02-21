@@ -27,7 +27,7 @@ export default function Account(): JSX.Element {
                     />
                 </div>
                 <Routes>
-                    <Route path={NAME_SECTIONS[0]} element={<FormUser dataUser={dataUser} />} />
+                    <Route path={`${NAME_SECTIONS[0]}/*`} element={<FormUser nameSection={NAME_SECTIONS[0]} dataUser={dataUser} />} />
                 </Routes>
             </main>
         );
