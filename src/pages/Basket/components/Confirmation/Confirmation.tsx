@@ -19,11 +19,12 @@ interface IProps {
     payment: TPayment;
     isRecipeProduct: boolean;
     handleChangeField: (value: string, key: string) => void;
+    deliveryPrice: number;
 }
 
 export default function Confirmation(props: IProps): JSX.Element {
 
-    const { address, deliveryMethod, totalPrice, products, payment, isRecipeProduct, handleChangeField } = props;
+    const { address, deliveryMethod, totalPrice, products, payment, isRecipeProduct, handleChangeField, deliveryPrice } = props;
 
     const [isFurth, setIsFurth] = useState<boolean>(false);
 
@@ -62,7 +63,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                     />
                 </div>
             </div>
-            <Portal isOpen={isOpenPortal}><Purchase handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
+            <Portal setIsOpen={setIsOpenPortal} isOpen={isOpenPortal}><Purchase deliveryPrice={deliveryPrice} price={totalPrice} handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
         </section>
     );
 }

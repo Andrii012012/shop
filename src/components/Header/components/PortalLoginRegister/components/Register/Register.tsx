@@ -26,10 +26,17 @@ export default function Register(props: IProps): JSX.Element {
         const dataUser = callLocalStore<IUser>('user', {
           name: values.name,
           surname: values.surname,
+          familyName: "",
           phone: values.phone,
           email: values.email,
-          password: values.password
+          password: values.password,
+          orders: [],
+          birthday: "",
+          marks: 0,
+          isCard: false,
+          sex: "",
         });
+
         dispatch(LoginUser(dataUser));
         setModalLogin(false);
       }}

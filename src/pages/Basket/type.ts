@@ -15,6 +15,7 @@ export interface IState {
   deliveryMethod: TDeliveryMethod;
   priceProducts: number;
   totalPrice: number;
+  deliveryPrice: number;
 }
 
 export interface IFields {

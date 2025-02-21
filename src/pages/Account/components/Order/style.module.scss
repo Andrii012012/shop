@@ -13,6 +13,10 @@
     width: 100%;
 }
 
+.activeSwitch {
+    color: map.get($colors, "green");
+}
+
 .listOrder {
     li {
         margin-bottom: f.rem(20);
@@ -28,6 +32,11 @@
     align-items: center;
     gap: f.rem(20);
     margin-bottom: f.rem(30);
+
+    li {
+        cursor: pointer;
+        font-weight: 700;
+    }
 }
 
 .table {

@@ -28,6 +28,7 @@ export default function Basket(): JSX.Element {
         deliveryMethod: "Доставка курьером",
         priceProducts: 0,
         totalPrice: 0,
+        deliveryPrice: 180,
     });
 
     const [field, setField] = useState<IFields>({
@@ -73,7 +74,7 @@ export default function Basket(): JSX.Element {
             <Routes>
                 <Route path={SWITCH_CONTENT[0]} element={<MyBasket isRecipeProduct={isRecipeProduct} SWITCH_CONTENT={SWITCH_CONTENT} setState={setState} state={state} products={products} />} />
                 <Route path={SWITCH_CONTENT[1]} element={<DeliveryMethod handleChangeField={handleChangeField} SWITCH_CONTENT={SWITCH_CONTENT} field={field} setField={setField} setState={setState} state={state} products={state.selectedProducts} />} />
-                <Route path={SWITCH_CONTENT[2]} element={<Confirmation handleChangeField={handleChangeField} isRecipeProduct={isRecipeProduct} payment={state.payment} address={{ street: field.street, house: field.house }} deliveryMethod={state.deliveryMethod} totalPrice={state.totalPrice} products={state.selectedProducts} />} />
+                <Route path={SWITCH_CONTENT[2]} element={<Confirmation deliveryPrice={state.deliveryPrice} handleChangeField={handleChangeField} isRecipeProduct={isRecipeProduct} payment={state.payment} address={{ street: field.street, house: field.house }} deliveryMethod={state.deliveryMethod} totalPrice={state.totalPrice} products={state.selectedProducts} />} />
             </Routes>
         </main>
     );

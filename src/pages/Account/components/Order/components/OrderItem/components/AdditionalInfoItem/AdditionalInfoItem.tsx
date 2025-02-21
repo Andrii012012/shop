@@ -17,7 +17,7 @@ export default function AdditionalInfoItem(props: IProps): JSX.Element {
                 <li className={`${styles.textBig} ${styles.item}`} key={index}>
                     <p className={gStyles.textBig}>{item.name}</p>
                     <p className={gStyles.textBig}><span>Количество:</span> {item.count} шт</p>
-                    <p className={gStyles.textBig}>{item.manufacturer} {item.originalCountery}</p>
+                    <p className={gStyles.textBig}>{item.manufacturer} {item.countryOrigin}</p>
                 </li>
             ))}
         </>
