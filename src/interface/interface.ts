@@ -63,3 +63,57 @@ export interface IBasketProduct {
   manufacturer: string;
   count: number;
 }
+
+export type TSex = "мужчина" | "женщина" | "";
+
+export interface IAdditionalInfoOrder {
+  name: string;
+  count: number;
+  manufacturer: string;
+  countryOrigin: string;
+  isRecipe: boolean;
+}
+
+export type TStateOrder =
+  | "Доставлен"
+  | "Согласован"
+  | "В обработке"
+  | "Новый"
+  | "Отменен"
+  | "Отгружен"
+  | "Возврат";
+
+export interface IOrder {
+  number: number | string;
+  date: string;
+  count: number;
+  state: TStateOrder;
+  price: number;
+  deliveryPrice: number;
+  delivery: string;
+  address: string;
+  additionalInfo: IAdditionalInfoOrder[];
+}
+
+export interface INotification {
+  isOrderSMS: boolean;
+  isOrderEmail: boolean;
+  isDiscountSMS: boolean;
+  isDiscountEmail: boolean;
+}
+export interface IUser {
+  id: number;
+  name: string;
+  surname: string;
+  familyName: string;
+  birthday: string;
+  email: string;
+  phone: string;
+  marks: number;
+  password: string | number;
+  isCard: boolean;
+  sex: TSex;
+  orders: IOrder[];
+  notification: INotification;
+  [key: string]: any;
+}

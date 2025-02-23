@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use '../../../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../../../utils/styles/colors.scss';
+
+.bodyInput {
+    position: relative;
+}
+
+
+.bodyChange {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translate(0, -50%);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.buttonSave {
+    background-color: transparent;
+    color: map.get($colors, "lightGreen");
+    margin-right: f.rem(10);
+}
+
+.buttonCancel {
+    background-color: transparent;
+    color: map.get($colors, "brick");
+}
+
+.input {
+    @include m.input($padding: f.rem(8) f.rem(10) f.rem(8) f.rem(10),
+        $width: 100%,
+        $borderRadius: f.rem(3),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: transparent,
+        $color: map.get($colors, 'darkGray'));
+    border-bottom: 2px solid map.get($colors, "darkGray");
+    margin-bottom: f.rem(5);
+}

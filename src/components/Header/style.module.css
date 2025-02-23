@@ -1,18 +1,10 @@
 .header {
   background-color: #F3F3F3;
+  padding: 1.875rem 0 1.25rem 0;
 }
 
 .headerInner {
   position: relative;
-}
-
-.body {
-  display: flex;
-  align-items: center;
-}
-
-.headerInner {
-  padding-top: 1.25rem;
 }
 
 .searchBar {
@@ -53,4 +45,9 @@
   background: #144F24;
   padding: 1.25rem 3.125rem 1.25rem;
   border-radius: 0.625rem;
+}
+
+.body {
+  display: flex;
+  align-items: center;
 }

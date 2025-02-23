@@ -1,0 +1,69 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.body {
+    display: flex;
+}
+
+.wrapperInput {
+    width: 100%;
+}
+
+.nameField {
+    max-width: f.rem(153);
+    width: 100%;
+    margin-right: f.rem(50);
+
+    li {
+        margin-bottom: f.rem(12);
+        font-weight: 700;
+    }
+
+    li:last-child {
+        margin-bottom: 0;
+    }
+}
+
+
+.bodyInputs {
+    margin-bottom: f.rem(20);
+}
+
+.form {
+    width: 100%;
+    background-color: map.get($colors, "white");
+    padding: f.rem(50) 0 f.rem(50) 0;
+    margin-bottom: f.rem(50);
+}
+
+
+.buttonSaveForm {
+    @include m.button($padding: f.rem(28) f.rem(10) f.rem(28) f.rem(10),
+        $width: f.rem(302),
+        $borderRadius: f.rem(10),
+        $border: 3px solid map.get($colors, 'deepGreen'),
+        $backgroundColor: map.get($colors, "white"),
+        $color: map.get($colors, 'deepGreen'));
+    text-align: center;
+    font-weight: 700;
+}
+
+.bodyButton {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    margin-left: #{f.rem(20)};
+}
+
+.bodyForm {
+    width: 100%;
+    background-color: map.get($colors, "white");
+    padding: 0 0 f.rem(50) 0;
+    margin-bottom: f.rem(50);
+}
+
+.container {
+    max-width: f.rem(1094);
+}

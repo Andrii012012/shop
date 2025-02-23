@@ -1,0 +1,57 @@
+@use 'sass:map';
+@use '../../../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../../../utils/styles/colors.scss';
+
+
+.wrapper {
+    margin-right: f.rem(50);
+    max-width: f.rem(820);
+    width: 100%;
+}
+
+.form {
+    width: 100%;
+}
+
+.wrapperInput {
+    display: flex;
+    gap: f.rem(20);
+    margin-bottom: f.rem(20);
+}
+
+.input {
+    @include m.input($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+}
+
+.textarea {
+    @include m.input($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+    resize: none;
+    min-height: f.rem(190);
+    margin-bottom: f.rem(20);
+}
+
+.inputActive {
+    margin-bottom: f.rem(20);
+}
+
+.button {
+    @include m.button($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: f.rem(400),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+}

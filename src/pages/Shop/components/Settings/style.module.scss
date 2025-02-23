@@ -60,3 +60,19 @@
     width: 100%;
     display: block;
 }
+
+.iconArrow {
+    margin-right: f.rem(12);
+    transition: 0.3s linear;
+}
+
+.activeAccordion {
+    .iconArrow {
+        transform: rotate(180deg);
+        transition: 0.3s linear;
+    }
+
+    div:nth-child(2) {
+        margin-top: f.rem(20);
+    }
+}

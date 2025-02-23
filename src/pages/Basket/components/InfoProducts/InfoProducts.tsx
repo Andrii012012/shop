@@ -64,11 +64,11 @@ export default function InfoProducts(props: IProps): JSX.Element {
                 <div className={styles.abilityPayment}>
                     <h3 className={gStyles.textExtraBig}>Способ оплаты:</h3>
                     <div onClick={() => handleChangePayment('Оплата онлайн')} className={styles.bodyCheckbox}>
-                        <Checkbox className={styles.checkbox} value={payment === "Оплата онлайн" ? true : false} />
+                        <Checkbox className={styles.checkbox} valueCheckbox={payment === "Оплата онлайн" ? true : false} />
                         <p>Оплата онлайн</p>
                     </div>
                     <div onClick={() => handleChangePayment('Оплата при получении')} className={styles.bodyCheckbox}>
-                        <Checkbox className={styles.checkbox} value={payment === "Оплата при получении" ? true : false} />
+                        <Checkbox className={styles.checkbox} valueCheckbox={payment === "Оплата при получении" ? true : false} />
                         <p>Оплата при получении</p>
                     </div>
                 </div>

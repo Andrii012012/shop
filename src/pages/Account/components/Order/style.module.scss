@@ -1,0 +1,71 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    padding: f.rem(50) 0 f.rem(100) 0;
+}
+
+.container {
+    width: 100%;
+}
+
+.activeSwitch {
+    color: map.get($colors, "green");
+}
+
+.listOrder {
+    li {
+        margin-bottom: f.rem(20);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.switchList {
+    display: flex;
+    align-items: center;
+    gap: f.rem(20);
+    margin-bottom: f.rem(30);
+
+    li {
+        cursor: pointer;
+        font-weight: 700;
+    }
+}
+
+.table {
+    width: 100%;
+    background-color: map.get($colors, "grayWhite");
+    border-radius: f.rem(10);
+    margin-bottom: f.rem(30);
+    padding: f.rem(29) f.rem(50);
+    display: flex;
+    align-items: center;
+
+    li {
+        font-weight: 700;
+
+        &:nth-child(1) {
+            flex: 1 1 f.rem(330);
+            margin-left: f.rem(65);
+        }
+
+        &:nth-child(2) {
+            flex: 1 1 f.rem(30);
+        }
+
+        &:nth-child(3) {
+            flex: 1 1 f.rem(50);
+        }
+
+        &:nth-child(4) {
+            flex: 1 1 f.rem(125);
+        }
+    }
+}
