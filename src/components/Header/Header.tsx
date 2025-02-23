@@ -14,7 +14,6 @@ import Portal from "../../containers/Portal/Portal";
 import PortalLoginRegister from "./components/PortalLoginRegister/PortalLoginRegister";
 
 function Header() {
-
   const [modals, setModals] = useState<CatalogItem[]>(catalogList);
   const [modalLogin, setModalLogin] = useState<boolean>(false);
 

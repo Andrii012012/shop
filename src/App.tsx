@@ -1,4 +1,3 @@
-import { Layout } from "./layout/layout";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
 import { PATH_ACCOUNT, PATH_BASKET, PATH_CATALOG, PATH_HOME, PATH_SHOP } from "./routes/routes";
