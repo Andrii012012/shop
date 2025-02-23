@@ -1,177 +1,59 @@
+@use 'sass:map';
+@use "../../utils/styles/functions.scss" as f;
+@import '../../utils/styles/colors.scss';
+
 .header {
-  background-color: F3F3F3;
+  background-color: map.get($colors, "grayWhite");
+  padding: f.rem(30) 0 f.rem(20) 0;
 }
 
-.header-inner {
-  .header-contacts {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    column-gap: 10px;
-    margin-bottom: 30px;
+.headerInner {
+  position: relative;
+}
 
-    .header-sale {
-      display: grid;
-      place-content: center;
+.searchBar {
+  margin-right: f.rem(50);
+}
 
-      border: 2px solid #30b856;
-      border-radius: 10px;
-      width: 550px;
-      height: 65px;
-      background-color: #fff;
+.headerWebsiteLogo {
+  margin-right: f.rem(20);
+}
 
-      p {
-        font-weight: 700;
-        font-size: 18px;
-        color: #30b856;
-      }
-    }
+.headerActionSearch {
+  position: relative;
+}
 
-    .header-contacts-address {
-      max-width: 310px;
-      width: 100%;
+.headerActionLoginLink {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: f.rem(10);
 
-      font-weight: 500;
-      font-size: 18px;
-      line-height: 1.1em;
-      color: #323232;
-    }
+  font-weight: 500;
+  font-size: f.rem(18);
+  color: map.get($colors, 'lightGreen');
 
-    .header-contacts-numbers {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      row-gap: 8px;
-
-      .header-contacts-number {
-        font-weight: 800;
-        font-size: 25px;
-        text-align: right;
-        color: #323232;
-
-        span {
-          font-weight: 500;
-          font-size: 18px;
-        }
-      }
-
-      .header-contacts-callback {
-        font-weight: 500;
-        font-size: 18px;
-        color: #1e7637;
-      }
-    }
+  svg {
+    fill: map.get($colors, 'darkGray');
+    transition: 0.15s;
   }
-}
-.header-inner {
-  padding-top: 20px;
 
-  .header-info {
-    display: flex;
-    column-gap: 30px;
-
-    .header-info-item {
-      display: flex;
-      column-gap: 10px;
-
-      font-weight: 500;
-      font-size: 14px;
-      color: #808080;
-
-      svg {
-        fill: #808080;
-      }
-    }
-  }
-}
-.header-inner {
-  .header-actions {
-    display: flex;
-    align-items: flex-end;
-    column-gap: 30px;
-    margin: 30px 0;
-
-    .header-action-search-bar {
-      position: relative;
-      flex-basis: 770px;
-      width: 100%;
-      height: fit-content;
-
-      .header-search-bar {
-        background: #fff;
-        border: 2px solid #30b856;
-        border-radius: 10px;
-        width: 772px;
-        height: 65px;
-        padding: 22px 30px;
-
-        font-weight: 500;
-        font-size: 16px;
-        color: #7f7f7f;
-      }
-
-      svg {
-        position: absolute;
-        top: 50%;
-        right: 4%;
-        transform: translateY(-50%);
-        fill: #30b856;
-      }
-    }
-
-    .header-action-favorites {
-    }
-
-    .header-action-favorites-link,
-    .header-action-trash-link,
-    .header-action-login-link {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      row-gap: 10px;
-
-      font-weight: 500;
-      font-size: 18px;
-      color: #30b856;
-
-      svg {
-        fill: #323232;
-        transition: 0.15s;
-      }
-
-      &:hover svg {
-        fill: #30b856;
-      }
-    }
+  &:hover svg {
+    fill: map.get($colors, 'lightGreen');
   }
 }
 
-.header-nav {
+.headerNav {
+  position: relative;
   display: flex;
   align-items: center;
-  column-gap: 50px;
-  background: #144f24;
-
-  padding: 20px 50px 20px;
-  border-radius: 10px;
-
-  .burger-menu {
-    display: grid;
-    place-content: center;
-    background: none;
-  }
+  column-gap: f.rem(50);
+  background: map.get($colors, "forest");
+  padding: f.rem(20) f.rem(50) f.rem(20);
+  border-radius: f.rem(10);
 }
 
-.header-nav-list {
+.body {
   display: flex;
-  column-gap: 50px;
-
-  .header-nav-item {
-    font-weight: 700;
-    font-size: 18px;
-
-    .header-nav-link {
-      color: #fff;
-    }
-  }
+  align-items: center;
 }

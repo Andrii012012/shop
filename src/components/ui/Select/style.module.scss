@@ -1,0 +1,58 @@
+@use 'sass:map';
+@use '../../../utils/styles/functions.scss' as f;
+@use '../../../utils/styles/mixin.scss' as m;
+@import '../../../utils/styles/colors.scss';
+
+.select {
+    transition: 0.3s linear;
+}
+
+.list {
+    overflow: hidden;
+    transition: 0.3s linear;
+}
+
+.header {
+    @include m.input(f.rem(22) f.rem(50) f.rem(22) f.rem(50),
+        100%,
+        f.rem(10),
+        1px solid map.get($colors, 'mintGreen'),
+        map.get($colors, 'white'),
+        map.get($colors, 'middleGray'));
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+    p {
+        flex: 1 1 auto;
+    }
+
+    .iconArrow {
+        transform: rotate(0deg);
+        transition: 0.3s linear;
+    }
+
+}
+
+.item {
+    padding: f.rem(11) f.rem(50) f.rem(11) f.rem(50);
+    background-color: map.get($colors, 'white');
+    cursor: pointer;
+
+    &:hover {
+        background-color: map.get($colors, 'mintGreen');
+    }
+}
+
+.activeSelect {
+    transition: 0.3s linear;
+
+    .header {
+        border-radius: 10px 10px 0 0;
+    }
+
+    .iconArrow {
+        transform: rotate(180deg);
+        transition: 0.3s linear;
+    }
+}

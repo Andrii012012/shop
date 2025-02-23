@@ -1,0 +1,107 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    background-color: map.get($colors, "white");
+}
+
+.delivery {
+    margin: f.rem(40) f.rem(50) 0 0;
+    max-width: f.rem(820);
+    width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: f.rem(20);
+
+    h3 {
+        margin-right: f.rem(20);
+    }
+}
+
+.deliveryButton {
+    display: block;
+    @include m.button($padding: f.rem(14) f.rem(50) f.rem(14) f.rem(50),
+        $width: 100%,
+        $borderRadius: f.rem(100),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'grayWhite'),
+        $color: map.get($colors, 'darkGray'));
+    font-weight: 700;
+}
+
+.activeDelivery {
+    border: 3px solid map.get($colors, 'lightGreen');
+}
+
+.input {
+    @include m.input($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+}
+
+.bodyInput {
+    display: flex;
+    gap: f.rem(20);
+    margin-bottom: f.rem(20);
+}
+
+.sendButton {
+    @include m.button($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: f.rem(400),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    font-weight: 700;
+}
+
+.textarea {
+    margin-bottom: f.rem(20);
+    min-height: f.rem(190);
+    resize: none;
+}
+
+.body {
+    display: flex;
+}
+
+.panel {
+    margin-top: f.rem(50);
+}
+
+.body {
+    display: flex;
+}
+
+.buttonReturn {
+    @include m.button($padding: f.rem(28) f.rem(30) f.rem(28) f.rem(30),
+        $width: f.rem(300),
+        $borderRadius: f.rem(10),
+        $border: 3px solid map.get($colors, 'deepGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'deepGreen'));
+    text-align: center;
+    font-weight: 700;
+    margin-right: f.rem(20);
+}
+
+.buttonFurth {
+    @include m.button($padding: f.rem(28) f.rem(30) f.rem(28) f.rem(30),
+        $width: f.rem(250),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+}

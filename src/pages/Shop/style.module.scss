@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
+.page {
+    background-color: map.get($colors, 'grayWhite');
+    width: 100%;
+    margin-bottom: f.rem(50);
+}
+
+.wrapper {
+    display: flex;
+    margin-bottom: f.rem(130);
+}
+
+.settings {
+    flex: 0 1 f.rem(302);
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+}
+
+.content {
+    flex: 1 1 100%;
+}
+
+.accordion {
+    div:nth-child(2) {
+        margin-top: f.rem(20);
+    }
+}

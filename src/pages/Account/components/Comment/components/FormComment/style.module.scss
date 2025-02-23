@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use '../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../utils/styles/colors.scss';
+
+.input {
+    @include m.input($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 2px solid map.get($colors, 'mintGreen'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+    margin-bottom: f.rem(20);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.buttonSend {
+    @include m.button($padding: f.rem(22) f.rem(30) f.rem(22) f.rem(30),
+        $width: f.rem(400),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    font-weight: 700;
+}
+
+.textarea {
+    min-height: f.rem(190);
+    resize: none;
+}

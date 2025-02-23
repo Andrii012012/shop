@@ -1,0 +1,39 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    background-color: map.get($colors, "white");
+}
+
+.body {
+    display: flex;
+}
+
+.products {
+    max-width: f.rem(953);
+    width: 100%;
+    margin: f.rem(70) f.rem(50) 0 0;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: f.rem(30);
+}
+
+.selectProduct {
+    display: flex;
+    align-items: center;
+    flex: 1 1 auto;
+}
+
+.checkboxSelectProducts {
+    margin-right: f.rem(20);
+}
+
+.clearSelected {
+    background-color: transparent;
+}

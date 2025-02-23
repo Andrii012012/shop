@@ -1,0 +1,78 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.settings {
+    max-width: f.rem(302);
+    width: 100%;
+    margin-right: f.rem(20);
+}
+
+.wrapper {
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+    padding: f.rem(20);
+    margin-bottom: f.rem(20);
+}
+
+.accordion {
+    margin-bottom: f.rem(20);
+}
+
+.list {
+    li {
+        display: flex;
+        align-items: center;
+        margin-bottom: f.rem(15);
+        cursor: pointer;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.name {
+    flex: 1 1 auto;
+}
+
+.checkbox {
+    margin-right: f.rem(10);
+}
+
+.button {
+    @include m.button($padding: f.rem(27) f.rem(15) f.rem(27) f.rem(15),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: f.rem(20);
+}
+
+.clear {
+    background-color: transparent;
+    color: map.get($colors, 'brick');
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
+.iconArrow {
+    margin-right: f.rem(12);
+    transition: 0.3s linear;
+}
+
+.activeAccordion {
+    .iconArrow {
+        transform: rotate(180deg);
+        transition: 0.3s linear;
+    }
+
+    div:nth-child(2) {
+        margin-top: f.rem(20);
+    }
+}

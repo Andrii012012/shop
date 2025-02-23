@@ -1,0 +1,22 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
+.list {
+  display: flex;
+  align-items: center;
+
+  li {
+    a {
+      color: map.get($colors, 'darkGray');
+    }
+
+    svg {
+      margin: 0 f.rem(20);
+    }
+  }
+}
+
+.iconHouse {
+  margin-right: f.rem(10) !important;
+}

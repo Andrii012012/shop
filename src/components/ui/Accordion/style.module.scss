@@ -1,0 +1,30 @@
+@use 'sass:map';
+@use '../../../utils/styles/functions.scss' as f;
+@use '../../../utils/styles/mixin.scss' as m;
+@import '../../../utils/styles/colors.scss';
+
+.accordion {
+    transition: 0.3s linear;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    p {
+        font-weight: 700;
+    }
+}
+
+.content {
+    transition: 0.3s linear;
+    overflow: hidden;
+}
+
+.activeAccordion {
+    .iconArrow {
+        transform: rotate(180deg);
+        transition: 0.3s linear;
+    }
+}

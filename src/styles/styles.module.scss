@@ -1,13 +1,14 @@
+@use 'sass:map';
 @use "../utils/styles/functions.scss" as f;
 @use "../utils/styles/fonts.scss" as *;
 @import "../utils/styles/null.scss";
+@import '../utils/styles/colors.scss';
 
 .container {
   max-width: f.rem(1480);
   width: 100%;
   padding: 0 f.rem(20);
   margin: 0 auto;
-  overflow: hidden;
 }
 
 .wrapper {
@@ -56,4 +57,8 @@
 .textSmall {
   font-size: f.rem(14);
   line-height: f.em(21, 14);
+}
+
+.errorField {
+  border: 1px solid red !important;
 }

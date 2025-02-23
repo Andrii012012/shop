@@ -1,0 +1,17 @@
+@use 'sass:map';
+@use "/src/utils/styles/functions.scss" as f;
+@import '../../../../utils/styles/colors.scss';
+
+.headerNavList {
+  display: flex;
+  column-gap: f.rem(50);
+
+  .headerNavItem {
+    font-weight: 700;
+    font-size: f.rem(18);
+
+    .headerNavLink {
+      color: map.get($colors, 'white');
+    }
+  }
+}

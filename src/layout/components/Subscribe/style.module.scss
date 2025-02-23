@@ -1,0 +1,67 @@
+@use 'sass:map';
+@use '../../../utils/styles/functions.scss' as f;
+@use '../../../utils/styles/mixin.scss' as m;
+@import '../../../utils/styles/colors.scss';
+
+.subscribe {
+    background-color: map.get($colors, 'white');
+    padding: f.rem(45) 0;
+}
+
+.wrapper {
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+}
+
+.content {
+    max-width: f.rem(942);
+    width: 100%;
+}
+
+.image {
+    margin-right: f.rem(70);
+    max-width: f.rem(271);
+    width: 100%;
+
+    img {
+        @include m.adaptationImage(100%, 100%, cover);
+    }
+}
+
+.title {
+    font-size: f.rem(45);
+    line-height: f.em(55, 45);
+    font-weight: 700;
+    margin-bottom: f.rem(40);
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.input {
+    @include m.input(f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        f.rem(623),
+        f.rem(10),
+        1px solid map.get($colors, 'mintGreen'),
+        map.get($colors, 'white'),
+        map.get($colors, 'middleGray'));
+    margin-right: f.rem(30);
+}
+
+.button {
+    @include m.button(f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        f.rem(289),
+        f.rem(10),
+        1px solid map.get($colors, 'green'),
+        map.get($colors, 'green'),
+        map.get($colors, 'white'));
+    width: 100%;
+}
+
+.bodyButton {
+    display: contents;
+}

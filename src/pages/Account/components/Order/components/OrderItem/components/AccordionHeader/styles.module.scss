@@ -1,0 +1,32 @@
+@use 'sass:map';
+@use '../../../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../../../utils/styles/colors.scss';
+
+.number {
+    flex: 1 1 f.rem(380);
+    font-weight: 500 !important;
+}
+
+.date {
+    flex: 1 1 f.rem(83);
+    font-weight: 500 !important;
+}
+
+.count {
+    flex: 1 1 f.rem(100);
+    font-weight: 500 !important;
+}
+
+.state {
+    flex: 1 1 f.rem(240);
+    font-weight: 500 !important;
+}
+
+.red {
+    color: map.get($colors, "brick");
+}
+
+.green {
+    color: map.get($colors, "lightGreen");
+}

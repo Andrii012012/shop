@@ -1,0 +1,42 @@
+@use 'sass:map';
+@use '../../../../../../../../utils/styles/functions.scss' as f;
+@use '../../../../../../../../utils/styles/mixin.scss' as m;
+@import '../../../../../../../../utils/styles/colors.scss';
+
+.wrapper {
+    max-width: f.rem(570);
+    width: 100%;
+    background-color: map.get($colors, "grayWhite");
+    border-radius: f.rem(10);
+}
+
+.header {
+    background-color: map.get($colors, "deepGreen");
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: f.rem(10) 0;
+    border-radius: f.rem(10) f.rem(10) 0 0;
+    margin-bottom: f.rem(50);
+}
+
+.message {
+    text-align: center;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    p {
+        max-width: f.rem(382);
+        margin-bottom: f.rem(68);
+    }
+}
+
+.icon{
+    max-width: f.rem(60);
+    max-height: f.rem(60);
+    width: 100%;
+    height: 100%;
+}
