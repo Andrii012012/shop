@@ -3,17 +3,17 @@ import { Link } from 'react-router-dom';
 import { ICatalog } from '../../type';
 
 interface IProps {
-    refSaveItemCatalog: React.MutableRefObject<ICatalog>;
+    setItemCatalog: React.Dispatch<React.SetStateAction<ICatalog>>;
     item: ICatalog;
     className?: string;
 }
 
 export default function CatalogItem(props: IProps): JSX.Element {
 
-    const { refSaveItemCatalog, item, className } = props;
+    const { setItemCatalog, item, className } = props;
 
     return (
-        <li onClick={() => refSaveItemCatalog.current = item} className={`${gStyles.textBig} ${className}`}>
+        <li onClick={() => setItemCatalog(item)} className={`${gStyles.textBig} ${className}`}>
             <Link to={item.to}>
                 <div>
                     <img src={item.image} alt="" />

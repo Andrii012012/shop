@@ -3,6 +3,7 @@ import styles from './style.module.scss';
 import Header from "../components/Header/Header";
 import Subscribe from "./components/Subscribe/Subscribe";
 import Footer from "../components/Footer/Footer";
+import { ReactNode } from 'react';
 
 export function Layout({ children }: { children: ReactNode }): JSX.Element {
     return (

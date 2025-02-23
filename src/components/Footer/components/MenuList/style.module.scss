@@ -1,0 +1,22 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@import '../../../../utils/styles/colors.scss';
+
+.item {
+  font-size: f.rem(16);
+  line-height: f.em(30, 16);
+
+  a {
+    color: map.get($colors, "darkGray");
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  margin-bottom: f.rem(10);
+  font-weight: 700;
+}

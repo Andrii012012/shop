@@ -11,8 +11,7 @@ import Order from './components/Order/Order';
 import Subscribe from './components/Subscribe/Subscribe';
 import Comment from './components/Comment/Comment';
 import { useLayoutEffect } from 'react';
-
-const NAME_SECTIONS = ["Мой профиль", "Заказы", "Подписки", "Оставить отзыв"];
+import { ACCOUNT_SECTIONS } from '../../constants/path';
 
 export default function Account(): JSX.Element {
 
@@ -21,7 +20,7 @@ export default function Account(): JSX.Element {
     const navigate = useNavigate();
 
     useLayoutEffect(() => {
-        navigate(`${PATH_ACCOUNT}/${NAME_SECTIONS[0]}`);
+        navigate(`${PATH_ACCOUNT}/${ACCOUNT_SECTIONS.myProfile}`);
     }, [dataUser?.id]);
 
     if (dataUser) {
@@ -30,17 +29,17 @@ export default function Account(): JSX.Element {
                 <div className={gStyles.container}>
                     <Navigate className={styles.navigate} links={[{ name: "Личный кабинет", to: "" }]} />
                     <SwitchContent
-                        links={[{ name: NAME_SECTIONS[0], to: `${PATH_ACCOUNT}/${NAME_SECTIONS[0]}` },
-                        { name: NAME_SECTIONS[1], to: `${PATH_ACCOUNT}/${NAME_SECTIONS[1]}` },
-                        { name: NAME_SECTIONS[2], to: `${PATH_ACCOUNT}/${NAME_SECTIONS[2]}` },
-                        { name: NAME_SECTIONS[3], to: `${PATH_ACCOUNT}/${NAME_SECTIONS[3]}` }]}
+                        links={[{ name: ACCOUNT_SECTIONS.myProfile, to: `${PATH_ACCOUNT}/${ACCOUNT_SECTIONS.myProfile}` },
+                        { name: ACCOUNT_SECTIONS.orders, to: `${PATH_ACCOUNT}/${ACCOUNT_SECTIONS.orders}` },
+                        { name: ACCOUNT_SECTIONS.subscriptions, to: `${PATH_ACCOUNT}/${ACCOUNT_SECTIONS.subscriptions}` },
+                        { name: ACCOUNT_SECTIONS.leaveFeedback, to: `${PATH_ACCOUNT}/${ACCOUNT_SECTIONS.leaveFeedback}` }]}
                     />
                 </div>
                 <Routes>
-                    <Route path={`${NAME_SECTIONS[0]}/*`} element={<FormUser nameSection={NAME_SECTIONS[0]} dataUser={dataUser} />} />
-                    <Route path={`${NAME_SECTIONS[1]}`} element={<Order nameSection={NAME_SECTIONS[3]} />} />
-                    <Route path={`${NAME_SECTIONS[2]}`} element={<Subscribe />} />
-                    <Route path={`${NAME_SECTIONS[3]}`} element={<Comment />} />
+                    <Route path={`${ACCOUNT_SECTIONS.myProfile}/*`} element={<FormUser nameSection={ACCOUNT_SECTIONS.myProfile} dataUser={dataUser} />} />
+                    <Route path={`${ACCOUNT_SECTIONS.orders}`} element={<Order nameSection={ACCOUNT_SECTIONS.leaveFeedback} />} />
+                    <Route path={`${ACCOUNT_SECTIONS.subscriptions}`} element={<Subscribe />} />
+                    <Route path={`${ACCOUNT_SECTIONS.leaveFeedback}`} element={<Comment />} />
                 </Routes>
             </main>
         );

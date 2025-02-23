@@ -5,22 +5,28 @@ import { ICatalog } from '../../type';
 import { CATALOG } from '../../constants/catalog';
 
 interface IProps {
-    refSaveItemCatalog: React.MutableRefObject<ICatalog>;
+    setItemCatalog: React.Dispatch<React.SetStateAction<ICatalog>>;
+    pathName: string;
 }
 
 export default function CatalogList(props: IProps): JSX.Element {
 
-    const { refSaveItemCatalog } = props;
+    const { setItemCatalog, pathName } = props;
 
     return (
         <ul className={styles.list}>
-            {CATALOG.map((item, index) => (
-                <li key={index} onClick={() => refSaveItemCatalog.current = item} className={`${gStyles.textBig} ${styles.item}`}>
-                    <NavLink style={({ isActive }) => isActive ? { color: '#216823' } : {}} to={item.to}>
-                        {item.name}
-                    </NavLink>
-                </li >
-            ))}
+            {CATALOG.map((item, index) => {
+                if (decodeURIComponent(pathName) == item.to) {
+                    setItemCatalog(item);
+                }
+                return (
+                    <li key={index} onClick={() => setItemCatalog(item)} className={`${gStyles.textBig} ${styles.item}`}>
+                        <NavLink style={({ isActive }) => isActive ? { color: '#216823' } : {}} to={item.to}>
+                            {item.name}
+                        </NavLink>
+                    </li >
+                )
+            })}
         </ul>
     );
 }

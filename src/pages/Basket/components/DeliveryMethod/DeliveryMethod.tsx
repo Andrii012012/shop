@@ -9,20 +9,19 @@ import Pickup from '../Pickup/Pickup';
 import PanelProduct from '../PanelProduct/PanelProduct';
 import { Link } from 'react-router-dom';
 import { PATH_BASKET } from '../../../../routes/routes';
+import { BASKET_SECTIONS } from '../../../../constants/path';
 
 interface IProps {
     products: IBasketProduct[];
     setState: React.Dispatch<React.SetStateAction<IState>>;
     state: IState;
     field: IFields;
-    setField: React.Dispatch<React.SetStateAction<IFields>>;
-    SWITCH_CONTENT: string[];
     handleChangeField: (value: string, key: string) => void;
 }
 
 export default function DeliveryMethod(props: IProps): JSX.Element {
 
-    const { products, state, setState, setField, SWITCH_CONTENT, handleChangeField } = props;
+    const { products, state, setState, handleChangeField } = props;
 
     const [isFurth, setIsFurth] = useState<boolean>(false);
 
@@ -56,8 +55,8 @@ export default function DeliveryMethod(props: IProps): JSX.Element {
                         footer={() => {
                             return (
                                 <div className={styles.body}>
-                                    <Link to={`${PATH_BASKET}/${SWITCH_CONTENT[0]}`} className={`${styles.buttonReturn} ${gStyles.textBig}`}>Вернуться назад</Link>
-                                    <Link to={isFurth ? `${PATH_BASKET}/${SWITCH_CONTENT[2]}` : ""} className={`${styles.buttonFurth} ${gStyles.textBig}`}>Далее</Link>
+                                    <Link to={`${PATH_BASKET}/${BASKET_SECTIONS.myBasket}`} className={`${styles.buttonReturn} ${gStyles.textBig}`}>Вернуться назад</Link>
+                                    <Link to={isFurth ? `${PATH_BASKET}/${BASKET_SECTIONS.paymentConfirmation}` : ""} className={`${styles.buttonFurth} ${gStyles.textBig}`}>Далее</Link>
                                 </div>
                             );
                         }}

@@ -1,67 +1,44 @@
+@use "sass:map";
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
 .footer {
-  padding: 50px 0px;
-  background-color: #f3f3f3;
-  margin-top: 20px;
+  padding: f.rem(50) 0;
+  background-color: map.get($colors, "white")
 }
 
-.footerInner {
-}
+.footerInner {}
 
 .footerTop {
   display: flex;
-  column-gap: 90px;
-  margin-bottom: 50px;
+  column-gap: f.rem(90);
+  margin-bottom: f.rem(50);
 }
 
 .footerInfo {
-  max-width: 310px;
+  max-width: f.rem(310);
   width: 100%;
 
   .footerInfoWebsiteLogo {
-    margin-bottom: 35px;
+    margin-bottom: f.rem(35);
   }
 
   .footerInfoAddress {
     font-weight: 500;
-    font-size: 18px;
-    color: #323232;
+    font-size: f.rem(18);
+    color: map.get($colors, "darkGray");
     line-height: 1.1em;
-    margin-bottom: 20px;
+    margin-bottom: f.rem(20);
   }
 
   .footerInfoSociaMedia {
-    margin-bottom: 20px;
+    margin-bottom: f.rem(20);
 
     .footerSocialMediaTitle {
       font-weight: 700;
-      font-size: 18px;
-      color: #323232;
-      margin-bottom: 10px;
-    }
-
-    .footerSocialMediaList {
-      display: flex;
-      column-gap: 20px;
-
-      .footerSocialMediaItem {
-        display: grid;
-        place-content: center;
-
-        border-radius: 10px;
-        width: 40px;
-        height: 40px;
-        background-color: #1e7637;
-        cursor: pointer;
-        transition: 0.15s;
-
-        svg {
-          fill: white;
-        }
-
-        &:hover {
-          background-color: #2b8e47;
-        }
-      }
+      font-size: f.rem(18);
+      color: map.get($colors, "darkGray");
+      margin-bottom: f.rem(10);
     }
   }
 
@@ -71,53 +48,23 @@
 
     .footerInfoContactsNumber {
       font-weight: 800;
-      font-size: 35px;
-      color: #323232;
-      margin-bottom: 5px;
+      font-size: f.rem(35);
+      color: map.get($colors, "darkGray");
+      margin-bottom: f.rem(5);
     }
 
     .footerInfoContactsCallBack {
       font-weight: 500;
-      font-size: 18px;
-      color: #1e7637;
+      font-size: f.rem(18);
+      color: map.get($colors, "deepGreen");
+      background-color: transparent;
     }
   }
 }
 
 .footerNavigation {
   display: flex;
-  column-gap: 50px;
-
-  .footerNavigationLists {
-    display: flex;
-    flex-direction: column;
-    row-gap: 50px;
-  }
-
-  .footerNavigationList {
-    display: flex;
-    flex-direction: column;
-    row-gap: 12px;
-    color: #323232;
-
-    .footerNavigationListTitle {
-      font-weight: 700;
-      font-size: 16px;
-      margin-bottom: 6px;
-    }
-    .footerNavigationListItem {
-      .footerNavigationListLink {
-        font-weight: 500;
-        font-size: 16px;
-        color: #323232;
-        transition: 0.1s;
-
-        &:hover {
-          color: #216823;
-        }
-      }
-    }
-  }
+  column-gap: f.rem(50);
 }
 
 .footerBottom {
@@ -126,21 +73,21 @@
   align-items: flex-end;
 
   .footerBottomCopyright {
-    flex-basis: 370px;
+    flex-basis: f.rem(370);
 
     .footerBottomCopyrightLink {
       display: inline-block;
       font-weight: 500;
-      font-size: 16px;
+      font-size: f.rem(16);
       text-decoration: underline;
       text-decoration-skip-ink: none;
-      color: #323232;
-      margin-bottom: 20px;
+      color: map.get($colors, "darkGray");
+      margin-bottom: f.rem(20);
     }
 
     .footerBottomCopyrightText {
       font-weight: 500;
-      font-size: 16px;
+      font-size: f.rem(16);
       line-height: 156%;
       color: #2e2e2e;
     }
@@ -148,10 +95,32 @@
 
   .footerBottomMapLink {
     font-weight: 500;
-    font-size: 16px;
+    font-size: f.rem(16);
     line-height: 156%;
     text-decoration: underline;
     text-decoration-skip-ink: none;
-    color: #216823;
+    color: map.get($colors, "green");
   }
+}
+
+
+.listMain {
+  margin-bottom: f.rem(50);
+}
+
+.footerSocialMediaList {
+  display: flex;
+  align-items: center;
+  gap: f.rem(20);
+}
+
+.footerSocialMediaItem {
+  border-radius: f.rem(10);
+  background-color: map.get($colors, "green");
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }

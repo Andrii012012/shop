@@ -9,6 +9,7 @@ import Shop from "./pages/Shop/Shop";
 import Basket from "./pages/Basket/Basket";
 import Catalog from "./pages/Catalog/Catalog";
 import Account from "./pages/Account/Account";
+import { Layout } from "./layout/layout";
 
 function App() {
 

@@ -8,18 +8,18 @@ import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { clearProducts } from '../../../../features/basket/basket';
 import { PATH_BASKET, PATH_HOME } from '../../../../routes/routes';
 import { useEffect } from 'react';
+import { BASKET_SECTIONS } from '../../../../constants/path';
 interface IProps {
     selectedProducts: ISelectedProduct[];
     payment: TPayment;
     setState: React.Dispatch<React.SetStateAction<IState>>;
-    SWITCH_CONTENT: string[];
     discount: number;
     isRecipeProduct: boolean;
 }
 
 export default function InfoProducts(props: IProps): JSX.Element {
 
-    const { selectedProducts, discount, setState, payment, SWITCH_CONTENT, isRecipeProduct } = props;
+    const { selectedProducts, discount, setState, payment, isRecipeProduct } = props;
 
     const dispatch = useAppDispatch();
 
@@ -75,7 +75,7 @@ export default function InfoProducts(props: IProps): JSX.Element {
             </div>
             <div className={styles.bodyButtons}>
                 <Link to={PATH_HOME} className={`${styles.continueBuyingButton} ${gStyles.textBig}`}>Продолжить покупки</Link>
-                <Link to={selectedProducts.length ? isRecipeProduct ? `${PATH_BASKET}/${SWITCH_CONTENT[1]}` : `${PATH_BASKET}/${SWITCH_CONTENT[2]}` : ""} className={`${styles.continueButton} ${gStyles.textBig}`} >Далее</Link>
+                <Link to={selectedProducts.length ? isRecipeProduct ? `${PATH_BASKET}/${BASKET_SECTIONS.methodDelivery}` : `${PATH_BASKET}/${BASKET_SECTIONS.paymentConfirmation}` : ""} className={`${styles.continueButton} ${gStyles.textBig}`} >Далее</Link>
             </div>
         </div>
     );

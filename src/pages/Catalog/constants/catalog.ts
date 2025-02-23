@@ -20,17 +20,18 @@ import iconWoman from "../../../assets/images/catalog/iconWoman.png";
 import iconDiabetics from "../../../assets/images/catalog/iconDiabetics.png";
 import iconVision from "../../../assets/images/catalog/iconVision.png";
 import iconHair from "../../../assets/images/catalog/iconHair.png";
+import { CATALOG_PRODUCT } from "../../../constants/path";
 
 export const CATALOG: ICatalog[] = [
   {
     name: "Лекарственные препараты",
-    to: `${PATH_CATALOG}/Лекарственные препараты`,
+    to: CATALOG_PRODUCT.medicines,
     image: iconPill,
     list: null,
   },
   {
     name: "Витамины и БАДы",
-    to: `${PATH_CATALOG}/Витамины и БАДы`,
+    to: CATALOG_PRODUCT.vitamins,
     image: iconVitamins,
     list: [
       {
@@ -92,43 +93,43 @@ export const CATALOG: ICatalog[] = [
   },
   {
     name: "Красота и уход",
-    to: `${PATH_CATALOG}/Красота и уход`,
+    to: CATALOG_PRODUCT.beauty,
     image: iconBeauty,
     list: null,
   },
   {
     name: "Планирование семьи",
-    to: `${PATH_CATALOG}/Планирование семьи`,
+    to: CATALOG_PRODUCT.familyPlanning,
     image: iconFamilyPlanning,
     list: null,
   },
   {
     name: "Мама и малышь",
-    to: `${PATH_CATALOG}/Мама и малышь`,
+    to: CATALOG_PRODUCT.momBaby,
     image: iconMamBaby,
     list: null,
   },
   {
     name: "Медицинские изделия",
-    to: `${PATH_CATALOG}/Медицинские изделия`,
+    to: CATALOG_PRODUCT.medicalProducts,
     image: iconMedicalProducts,
     list: null,
   },
   {
     name: "Ортопедические изделия",
-    to: `${PATH_CATALOG}/Ортопедические изделия`,
+    to: CATALOG_PRODUCT.orthopedicProducts,
     image: iconOrthopedicProducts,
     list: null,
   },
   {
     name: "Медицинская техника",
-    to: `${PATH_CATALOG}/Медицинская техника`,
+    to: CATALOG_PRODUCT.medicalTechnology,
     image: iconMedicalTechnology,
     list: null,
   },
   {
     name: "Ветеринарная аптека",
-    to: `${PATH_CATALOG}/Ветеринарная аптека`,
+    to: CATALOG_PRODUCT.veterinaryPharmacy,
     image: iconVeterinaryPharmacy,
     list: null,
   },
