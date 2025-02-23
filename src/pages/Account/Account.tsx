@@ -9,6 +9,7 @@ import { Route, Routes } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import Order from './components/Order/Order';
 import Subscribe from './components/Subscribe/Subscribe';
+import Comment from './components/Comment/Comment';
 
 const NAME_SECTIONS = ["Мой профиль", "Заказы", "Подписки", "Оставить отзыв"];
 
@@ -32,6 +33,7 @@ export default function Account(): JSX.Element {
                     <Route path={`${NAME_SECTIONS[0]}/*`} element={<FormUser nameSection={NAME_SECTIONS[0]} dataUser={dataUser} />} />
                     <Route path={`${NAME_SECTIONS[1]}`} element={<Order nameSection={NAME_SECTIONS[3]} />} />
                     <Route path={`${NAME_SECTIONS[2]}`} element={<Subscribe />} />
+                    <Route path={`${NAME_SECTIONS[3]}`} element={<Comment />} />
                 </Routes>
             </main>
         );

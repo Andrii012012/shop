@@ -7,19 +7,21 @@ interface IProps {
     size?: number;
     colorActive?: string;
     colorInactive?: string;
+    setState?: React.Dispatch<React.SetStateAction<number>>;
+    className?: string; 
 }
 
 export default function StarRating(props: IProps): JSX.Element {
 
-    const { mark, size = 15, colorActive = '#1E7637', colorInactive, countStars = 5 } = props;
+    const { mark, size = 15, colorActive = '#1E7637', colorInactive, countStars = 5, setState, className } = props;
 
     return (
-        <div className={`${styles.starRating}`}>
-            {Array.from(Array(countStars).keys()).map((item) => {
+        <div className={`${styles.starRating} ${className}`}>
+            {Array.from(Array(countStars).keys()).map((item, index) => {
                 if (item < mark) {
-                    return <Star key={item} style={{ width: size, height: size, fill: colorActive }} />
+                    return <Star onClick={() => setState?.(index + 1)} key={item} style={{ width: size, height: size, fill: colorActive }} />
                 } else {
-                    return <Star key={item} style={{ width: size, height: size, fill: colorInactive }} />
+                    return <Star onClick={() => setState?.(index + 1)} key={item} style={{ width: size, height: size, fill: colorInactive }} />
                 }
             })}
         </div>
