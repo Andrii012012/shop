@@ -71,12 +71,23 @@ export interface IAdditionalInfoOrder {
   count: number;
   manufacturer: string;
   countryOrigin: string;
+  isRecipe: boolean;
 }
+
+export type TStateOrder =
+  | "Доставлен"
+  | "Согласован"
+  | "В обработке"
+  | "Новый"
+  | "Отменен"
+  | "Отгружен"
+  | "Возврат";
+
 export interface IOrder {
   number: number;
   date: string;
   count: number;
-  state: string;
+  state: TStateOrder;
   price: number;
   deliveryPrice: number;
   delivery: string;

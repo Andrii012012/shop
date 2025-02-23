@@ -22,3 +22,11 @@
     flex: 1 1 f.rem(240);
     font-weight: 500 !important;
 }
+
+.red {
+    color: map.get($colors, "brick");
+}
+
+.green {
+    color: map.get($colors, "lightGreen");
+}

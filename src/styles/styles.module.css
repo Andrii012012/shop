@@ -64,6 +64,7 @@ body {
   font-family: "Montserrat";
   line-height: 1;
   font-size: 16px;
+  font-weight: 500;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -169,4 +170,8 @@ h6 {
 .textSmall {
   font-size: 0.875rem;
   line-height: 1.5em;
+}
+
+.errorField {
+  border: 1px solid red !important;
 }

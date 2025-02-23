@@ -15,6 +15,15 @@
     transition: 0.3s linear;
 }
 
+.item {
+    display: flex;
+    max-width: f.rem(835);
+}
+
+.body {
+    flex: 1 1 auto;
+}
+
 .icon {
     margin-right: f.rem(50);
 }
@@ -122,4 +131,8 @@
     font-weight: 700;
     text-align: center;
     border-radius: f.rem(10);
+}
+
+.isRecipe {
+    color: map.get($colors, 'brick');
 }

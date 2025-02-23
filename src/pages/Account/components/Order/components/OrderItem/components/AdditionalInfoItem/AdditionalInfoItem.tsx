@@ -15,9 +15,12 @@ export default function AdditionalInfoItem(props: IProps): JSX.Element {
         <>
             {additionalInfoOrder.map((item, index) => (
                 <li className={`${styles.textBig} ${styles.item}`} key={index}>
-                    <p className={gStyles.textBig}>{item.name}</p>
-                    <p className={gStyles.textBig}><span>Количество:</span> {item.count} шт</p>
-                    <p className={gStyles.textBig}>{item.manufacturer} {item.countryOrigin}</p>
+                    <div className={styles.body}>
+                        <p className={gStyles.textBig}>{item.name}</p>
+                        <p className={gStyles.textBig}><span>Количество:</span> {item.count} шт</p>
+                        <p className={gStyles.textBig}>{item.manufacturer} {item.countryOrigin}</p>
+                    </div>
+                    <p className={`${styles.isRecipe} ${gStyles.textBig}`}>{item.isRecipe ? 'Отпускается, только по рецепту' : ""}</p>
                 </li>
             ))}
         </>

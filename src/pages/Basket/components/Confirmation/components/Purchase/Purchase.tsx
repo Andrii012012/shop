@@ -19,11 +19,12 @@ interface IProps {
     handleClosePortal: () => void;
     price: number;
     deliveryPrice: number;
+    isRecipeProduct: boolean;
 }
 
 export default function Purchase(props: IProps): JSX.Element {
 
-    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice } = props;
+    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice, isRecipeProduct } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -50,7 +51,8 @@ export default function Purchase(props: IProps): JSX.Element {
                 name: item.name,
                 count: item.count,
                 manufacturer: item.manufacturer,
-                countryOrigin: item.countryOrigin
+                countryOrigin: item.countryOrigin,
+                isRecipe: item.isRecipe,
             })
         });
 
@@ -60,8 +62,6 @@ export default function Purchase(props: IProps): JSX.Element {
     useEffect(() => {
         if (dataUser) {
             const dataUserCopy = JSON.parse(JSON.stringify(dataUser));
-
-            console.log(dataUserCopy);
 
             dataUserCopy.orders.push({
                 number: number,
