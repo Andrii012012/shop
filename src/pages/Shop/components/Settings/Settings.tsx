@@ -89,7 +89,7 @@ export default function Settings(props: IProps): JSX.Element {
                     <ul className={styles.list}>
                         {releaseForm.map((item, _) => (
                             <li onClick={() => handleChangeSettings("releaseForm", item[0])}>
-                                <Checkbox className={styles.checkbox} value={settings.releaseForm.includes(item[0])} />
+                                <Checkbox className={styles.checkbox} valueCheckbox={settings.releaseForm.includes(item[0])} />
                                 <p className={styles.name}>{item[0].split(" ")[0]}</p>
                                 <p>[ {item[1]} ]</p>
                             </li>
@@ -116,7 +116,7 @@ export default function Settings(props: IProps): JSX.Element {
                     <ul className={styles.list}>
                         {manufacturer.map((item, _) => (
                             <li onClick={() => handleChangeSettings("manufacturer", item[0])}>
-                                <Checkbox className={styles.checkbox} value={settings.manufacturer.includes(item[0])} />
+                                <Checkbox className={styles.checkbox} valueCheckbox={settings.manufacturer.includes(item[0])} />
                                 <p className={styles.name}>{item[0].split(" ")[0]}</p>
                                 <p>[ {item[1]} ]</p>
                             </li>
@@ -133,7 +133,7 @@ export default function Settings(props: IProps): JSX.Element {
                     <ul className={styles.list}>
                         {countryOrigin.map((item, _) => (
                             <li onClick={() => handleChangeSettings("countryOrigin", item[0])}>
-                                <Checkbox className={styles.checkbox} value={settings.countryOrigin.includes(item[0])} />
+                                <Checkbox className={styles.checkbox} valueCheckbox={settings.countryOrigin.includes(item[0])} />
                                 <p className={styles.name}>{item[0].split(" ")[0]}</p>
                                 <p>[ {item[1]} ]</p>
                             </li>
@@ -150,7 +150,7 @@ export default function Settings(props: IProps): JSX.Element {
                     <ul className={styles.list}>
                         {recipes.map((item, _) => (
                             <li onClick={() => handleChangeSettings("isRecipe", item[0])}>
-                                <Checkbox className={styles.checkbox} value={settings.isRecipe.includes(item[0])} />
+                                <Checkbox className={styles.checkbox} valueCheckbox={settings.isRecipe.includes(item[0])} />
                                 <p className={styles.name}>{item[0] !== 'false' ? 'Да' : 'Нет'}</p>
                                 <p>[ {item[1]} ]</p>
                             </li>

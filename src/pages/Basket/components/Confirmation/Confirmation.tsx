@@ -51,7 +51,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                             return (
                                 <div className={styles.wrapper}>
                                     <div onClick={() => setIsAgree(!isAgree)} className={styles.bodyCheckbox}>
-                                        <Checkbox className={styles.checkbox} value={isAgree} />
+                                        <Checkbox className={styles.checkbox} valueCheckbox={isAgree} />
                                         <p>Нажимая кнопку «Оплатить», Вы соглашаетесь с <span>политикой конфедицеальности</span></p>
                                     </div>
                                     <Button onClick={() => {

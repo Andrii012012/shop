@@ -35,6 +35,12 @@ export default function Register(props: IProps): JSX.Element {
           marks: 0,
           isCard: false,
           sex: "",
+          notification: {
+            isDiscountEmail: true,
+            isDiscountSMS: true,
+            isOrderEmail: true,
+            isOrderSMS: true,
+          }
         });
 
         dispatch(LoginUser(dataUser));

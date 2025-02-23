@@ -95,6 +95,12 @@ export interface IOrder {
   additionalInfo: IAdditionalInfoOrder[];
 }
 
+export interface INotification {
+  isOrderSMS: boolean;
+  isOrderEmail: boolean;
+  isDiscountSMS: boolean;
+  isDiscountEmail: boolean;
+}
 export interface IUser {
   name: string;
   surname: string;
@@ -107,5 +113,6 @@ export interface IUser {
   isCard: boolean;
   sex: TSex;
   orders: IOrder[] | [];
+  notification: INotification;
   [key: string]: any;
 }
