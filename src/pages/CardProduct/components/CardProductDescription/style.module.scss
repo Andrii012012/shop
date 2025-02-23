@@ -1,0 +1,380 @@
+@use "../../../../utils/styles/functions.scss" as f;
+@import "../../../../utils/styles/colors.scss";
+
+.cardProductDescription {
+  background-color: map-get($colors, "white");
+  padding: 50px 0px 100px;
+  color: map-get($colors, "darkGray");
+}
+
+.productDescriptionMain {
+  display: flex;
+  column-gap: f.rem(30);
+}
+
+.productImagesBlock {
+  width: f.rem(512);
+
+  .imageMain {
+    display: grid;
+    place-content: center;
+
+    width: f.rem(512);
+    height: f.rem(512);
+
+    border: 2px solid map-get($colors, "silver");
+    border-radius: f.rem(10);
+    background-color: map-get($colors, "white");
+
+    margin-bottom: f.rem(20);
+  }
+
+  .imagesList {
+    display: flex;
+    column-gap: f.rem(20);
+
+    .imagesListItem {
+      display: grid;
+      place-content: center;
+
+      flex: 1;
+      width: f.rem(112);
+      height: f.rem(112);
+
+      border: 2px solid map-get($colors, "silver");
+      border-radius: f.rem(10);
+
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+.productDescriptionBlock {
+  max-width: f.rem(560);
+
+  .productDescriptionH2Titles {
+    font-weight: 700;
+    font-size: f.rem(20);
+    margin-bottom: f.rem(10);
+  }
+
+  .productDescriptionTitle {
+    font-weight: 700;
+    font-size: f.rem(30);
+    color: map-get($colors, "darkGray");
+    margin-bottom: f.rem(30);
+  }
+
+  .productDescriptionCuresList {
+    display: flex;
+    flex-direction: column;
+    row-gap: f.rem(10);
+    margin-bottom: f.rem(30);
+
+    .curesListItem {
+      position: relative;
+      font-weight: 500;
+      font-size: f.rem(16);
+      line-height: 156%;
+      padding-left: f.rem(15);
+
+      &::before {
+        content: "";
+        position: absolute;
+        top: f.rem(9);
+        left: 0px;
+
+        min-width: f.rem(6);
+        min-height: f.rem(6);
+        border-radius: 50%;
+        background-color: map-get($colors, "darkTurquoise");
+      }
+    }
+  }
+
+  .productDescriptionRelease {
+    margin-bottom: f.rem(30);
+
+    .productDescriptionReleaseTitle {
+    }
+
+    .productDescriptionReleaseList {
+      display: flex;
+      flex-direction: column;
+      row-gap: f.rem(10);
+
+      .releaseListItem {
+        display: flex;
+        align-items: center;
+        column-gap: f.rem(20);
+        padding: f.rem(7);
+
+        background-color: map-get($colors, "grayWhite");
+        border: 3px solid map-get($colors, "grayWhite");
+
+        height: f.rem(50);
+        border-radius: f.rem(25);
+        &.isFormType {
+          border-color: map-get($colors, "lightGreen");
+        }
+
+        p {
+          font-weight: 600;
+          font-size: f.rem(16);
+          line-height: 120%;
+        }
+      }
+    }
+  }
+
+  .productDescriptionDosage {
+    margin-bottom: f.rem(30);
+
+    .productDescriptionDosageTitle {
+    }
+
+    .productDescriptionDosageList {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: fit-content;
+      height: f.rem(50);
+      border-radius: f.rem(25);
+      background-color: map-get($colors, "grayWhite");
+
+      overflow: hidden;
+
+      .dosageListItem {
+        display: grid;
+        place-content: center;
+        font-weight: 600;
+        font-size: f.rem(16);
+        line-height: 120%;
+        width: f.rem(110);
+        border: 3px solid map-get($colors, "grayWhite");
+
+        &.isDosageType {
+          border-color: map-get($colors, "lightGreen");
+          height: 100%;
+          border-radius: f.rem(25) 0 0 f.rem(25);
+        }
+      }
+    }
+  }
+
+  .productDescriptionPacking {
+    margin-bottom: f.rem(30);
+
+    .productDescriptionPackingTitle {
+    }
+
+    .productDescriptionPackingList {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: fit-content;
+      height: f.rem(50);
+      border-radius: f.rem(25);
+      background-color: map-get($colors, "grayWhite");
+
+      overflow: hidden;
+
+      .packingListItem {
+        display: grid;
+        place-content: center;
+        height: 100%;
+        font-weight: 600;
+        font-size: f.rem(16);
+        line-height: 120%;
+        width: f.rem(110);
+        border: 3px solid map-get($colors, "grayWhite");
+
+        &.isPackingType {
+          border-color: map-get($colors, "lightGreen");
+          height: 100%;
+        }
+      }
+    }
+  }
+
+  .productDescriptionInfo {
+    .productDescriptionInfoList {
+      display: flex;
+      flex-direction: column;
+      row-gap: 20px;
+
+      font-weight: 400;
+      font-size: f.rem(16);
+      line-height: 155%;
+
+      .infoListItem {
+        column-gap: f.rem(5);
+
+        .infoListItemTitle {
+          font-weight: 600;
+        }
+
+        .infoListItemLink {
+          color: map-get($colors, "green");
+        }
+      }
+    }
+  }
+}
+
+.productDescriptionPriceBlock {
+  width: f.rem(310);
+
+  .productDescriptionPrice {
+    font-weight: 700;
+    font-size: f.rem(55);
+    text-align: right;
+    margin-bottom: f.rem(20);
+    margin-top: f.rem(10);
+  }
+
+  .productDescriptionPriceInfo {
+    .priceInfoInStock,
+    .priceInfoDelivery,
+    .priceInfoQuantity {
+      display: flex;
+      align-content: center;
+      justify-content: space-between;
+      font-weight: 700;
+      font-size: f.rem(18);
+      margin-bottom: f.rem(20);
+
+      .priceInfoInStockValue,
+      .priceInfoDeliveryValue {
+        color: map-get($colors, "lightGreen");
+      }
+    }
+  }
+
+  .priceInfoQuantity {
+    .priceInfoQuantityTitle {
+      display: grid;
+      place-content: center;
+    }
+
+    .priceInfoQuantityCounter {
+      display: grid;
+      grid-template-columns: 1fr f.rem(24) 1fr;
+      justify-content: center;
+      align-items: center;
+      column-gap: f.rem(10);
+
+      border: 2px solid map-get($colors, "lightGreen");
+      border-radius: f.rem(25);
+      height: f.rem(50);
+      width: f.rem(100);
+
+      font-weight: 700;
+      font-size: f.rem(18);
+
+      overflow: hidden;
+
+      .decrementQuantity,
+      .incrementQuantity {
+        display: grid;
+        place-content: center;
+
+        cursor: pointer;
+        font-weight: 700;
+        font-size: f.rem(18);
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        user-select: none;
+      }
+
+      .decrementQuantity {
+        justify-content: end;
+      }
+
+      .incrementQuantity {
+        justify-content: start;
+      }
+
+      .priceInfoQuantityValue {
+        display: grid;
+        place-content: center;
+      }
+    }
+  }
+
+  .cartButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: f.rem(10);
+
+    width: 100%;
+    height: f.rem(70);
+    border-radius: f.rem(35);
+    background-color: map-get($colors, "lightGreen");
+
+    font-weight: 700;
+    font-size: f.rem(18);
+    color: map-get($colors, "white");
+  }
+
+  .productDescriptionPriceContacts {
+    margin-top: f.rem(50);
+    padding: f.rem(28);
+    border: 2px solid map-get($colors, "silver");
+    border-radius: f.rem(10);
+
+    .contactsListInfo {
+      display: flex;
+      flex-direction: column;
+      row-gap: f.rem(10);
+      margin-bottom: f.rem(30);
+
+      .contactsListInfoItem {
+        .contactsListInfoLink {
+          font-weight: 500;
+          font-size: 16px;
+          line-height: 110%;
+          text-decoration: underline;
+          text-decoration-skip-ink: none;
+          color: map-get($colors, "green");
+        }
+      }
+    }
+
+    .contactsTimeInfo {
+      font-weight: 500;
+      font-size: f.rem(16);
+      line-height: 110%;
+      margin-bottom: f.rem(20);
+
+      .contactsTimeInfoTitle {
+        font-weight: 700;
+        font-size: f.rem(18);
+      }
+    }
+
+    .contactsPhoneInfo {
+      font-weight: 500;
+      font-size: f.rem(16);
+      line-height: 110%;
+
+      .contactsPhoneInfoTitle {
+        font-weight: 700;
+        font-size: f.rem(18);
+        margin-bottom: f.rem(5);
+      }
+
+      .phoneLink {
+        display: inline-block;
+        font-size: f.rem(18);
+        line-height: 160%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: map-get($colors, "darkGray");
+      }
+    }
+  }
+}

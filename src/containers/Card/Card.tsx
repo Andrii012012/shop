@@ -44,68 +44,68 @@ export default function Card(props: IProps): JSX.Element {
   }
 
   return (
-    <Link to={"/cardProduct"}>
-      <div
-        className={`${styles.card}`}
-        onMouseLeave={(event) => handleMouseLeaveSetClass(event)}
-        onMouseEnter={(event) => handleMouseEnterSetClass(event)}
-      >
-        <div className={styles.header}>
-          <div className={styles.iconHeart}>
-            <Heart />
-          </div>
-          <p className={gStyles.textMedium}>
-            {isStock ? (
-              <span className={styles.inStock}>В наличии</span>
-            ) : (
-              <span className={styles.outStock}>Закончились</span>
-            )}
-          </p>
+    <div
+      className={`${styles.card}`}
+      onMouseLeave={(event) => handleMouseLeaveSetClass(event)}
+      onMouseEnter={(event) => handleMouseEnterSetClass(event)}
+    >
+      <div className={styles.header}>
+        <div className={styles.iconHeart}>
+          <Heart />
         </div>
-        <div className={styles.imageProduct}>
-          <img src={imageDefaultProduct} alt="" />
-        </div>
-        <div className={`${styles.recipe} ${gStyles.textMedium}`}>
-          {isRecipe ? (
-            <span className={styles.red}>С рецептом</span>
+        <p className={gStyles.textMedium}>
+          {isStock ? (
+            <span className={styles.inStock}>В наличии</span>
           ) : (
-            <span className={styles.green}>Без рецепта</span>
+            <span className={styles.outStock}>Закончились</span>
           )}
-        </div>
-        <p className={`${styles.name} ${gStyles.textBig}`}>{name}</p>
-        <ul className={styles.list}>
-          <li className={gStyles.textExtraMedium}>
-            <h4>Производитель:</h4> <p>{manufacturer}</p>
-          </li>
-          <li className={gStyles.textExtraMedium}>
-            <h4>Объем:</h4> <span>{volume} г</span>
-          </li>
-          <li className={gStyles.textExtraMedium}>
-            <h4>Выпуск:</h4> <span>{release}</span>
-          </li>
-        </ul>
-        <p className={`${styles.price} ${gStyles.textExtraLarge}`}>
-          {price} грн
         </p>
-        <div className={styles.buttonBody}>
-          <Counter value={count} setValue={setCount} />
-          <button className={`${styles.button} ${gStyles.textMedium}`}>
-            В корзину
-          </button>
-        </div>
-        <div className={styles.wrrapperDelivery}>
-          <h4 className={`${styles.delivery} ${gStyles.textBig}`}>
-            {isDelivery ? (
-              <span className={styles.deliveryGreen}>Доступна доставка</span>
-            ) : (
-              <span className={styles.deliveryRed}>Доставка запрещена</span>
-            )}
-          </h4>
-          <p className={`${styles.deliveryInfo} ${gStyles.textSmall}`}>
-            Доставим по указанному адресу в ближайшее время
-          </p>
-        </div>
       </div>
-    </Link>
+      <div className={styles.imageProduct}>
+        <img src={imageDefaultProduct} alt="" />
+      </div>
+      <div className={`${styles.recipe} ${gStyles.textMedium}`}>
+        {isRecipe ? (
+          <span className={styles.red}>С рецептом</span>
+        ) : (
+          <span className={styles.green}>Без рецепта</span>
+        )}
+      </div>
+
+      <Link to={`/cardProduct`}>
+        <p className={`${styles.name} ${gStyles.textBig}`}>{name}</p>
+      </Link>
+
+      <ul className={styles.list}>
+        <li className={gStyles.textExtraMedium}>
+          <h4>Производитель:</h4> <p>{manufacturer}</p>
+        </li>
+        <li className={gStyles.textExtraMedium}>
+          <h4>Объем:</h4> <span>{volume} г</span>
+        </li>
+        <li className={gStyles.textExtraMedium}>
+          <h4>Выпуск:</h4> <span>{release}</span>
+        </li>
+      </ul>
+      <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{price} грн</p>
+      <div className={styles.buttonBody}>
+        <Counter value={count} setValue={setCount} />
+        <button className={`${styles.button} ${gStyles.textMedium}`}>
+          В корзину
+        </button>
+      </div>
+      <div className={styles.wrrapperDelivery}>
+        <h4 className={`${styles.delivery} ${gStyles.textBig}`}>
+          {isDelivery ? (
+            <span className={styles.deliveryGreen}>Доступна доставка</span>
+          ) : (
+            <span className={styles.deliveryRed}>Доставка запрещена</span>
+          )}
+        </h4>
+        <p className={`${styles.deliveryInfo} ${gStyles.textSmall}`}>
+          Доставим по указанному адресу в ближайшее время
+        </p>
+      </div>
+    </div>
   );
 }

@@ -28,10 +28,10 @@
       color: map-get($colors, "darkGray");
 
       user-select: none;
-      transition: 0.15s;
+      transition: 0.1s;
     }
 
-    .active {
+    .activeLink {
       color: map-get($colors, "deepGreen");
       background-color: map-get($colors, "white");
     }

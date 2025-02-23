@@ -1,18 +1,34 @@
 import style from "./style.module.scss";
 import gStyle from "../../styles/styles.module.scss";
-import { Routes, Route, NavLink } from "react-router-dom";
+import { Routes, Route, NavLink, useNavigate } from "react-router-dom";
 
 import { PATH_CARD_PRODUCT } from "../../routes/routes";
+import { useAppSelector } from "../../hooks/useAppSelector";
 
-import CardProductDescription from "./components/CardProductDescription";
+import { IBaseProduct } from "../../interface/interface";
+
+import CardProductDescription from "./components/CardProductDescription/CardProductDescription";
 import CardProductInstruction from "./components/CardProductInstruction";
 import CardProductUsage from "./components/CardProductUsage";
 import CardProductPharmacologic from "./components/CardProductPharmacologic";
+import { useFetch } from "../../hooks/useFetch";
+import { useEffect } from "react";
 
 function CardProduct() {
   function activeClassLink({ isActive }: { isActive: boolean }) {
-    return isActive ? "activeLink" : "";
+    return `${style.tabsItemLink} ${isActive ? style.activeLink : ""}`.trim();
   }
+
+  const [data] = useFetch("src/servers/productItem.json");
+
+  const products = useAppSelector((state) => state.products.products);
+  console.log(products);
+
+  const navigateRoute = useNavigate();
+
+  useEffect(() => {
+    navigateRoute(`description`);
+  }, []);
 
   return (
     <div className={style.cardProduct}>
@@ -21,7 +37,7 @@ function CardProduct() {
           <li className={style.tabsItem}>
             <NavLink
               to={`/${PATH_CARD_PRODUCT}/description`}
-              className={`${style.tabsItemLink} ${activeClassLink}`}
+              className={activeClassLink}
             >
               Описание товара
             </NavLink>
@@ -29,7 +45,7 @@ function CardProduct() {
           <li className={style.tabsItem}>
             <NavLink
               to={`/${PATH_CARD_PRODUCT}/instruction`}
-              className={style.tabsItemLink}
+              className={activeClassLink}
             >
               Инструкции по применению
             </NavLink>
@@ -37,7 +53,7 @@ function CardProduct() {
           <li className={style.tabsItem}>
             <NavLink
               to={`/${PATH_CARD_PRODUCT}/usage`}
-              className={style.tabsItemLink}
+              className={activeClassLink}
             >
               Показания к применению
             </NavLink>
@@ -45,24 +61,27 @@ function CardProduct() {
           <li className={style.tabsItem}>
             <NavLink
               to={`/${PATH_CARD_PRODUCT}/pharmocologic`}
-              className={style.tabsItemLink}
+              className={activeClassLink}
             >
               Фармокологическое действие
             </NavLink>
           </li>
         </ul>
-
-        <Routes>
-          <Route index element={<CardProductDescription />} />
-          <Route path={`description`} element={<CardProductDescription />} />
-          <Route path={`instruction`} element={<CardProductInstruction />} />
-          <Route path={`usage`} element={<CardProductUsage />} />
-          <Route
-            path={`pharmocologic`}
-            element={<CardProductPharmacologic />}
-          />
-        </Routes>
       </div>
+
+      <Routes>
+        <Route
+          index
+          element={<CardProductDescription products={products} data={data} />}
+        />
+        <Route
+          path={`description`}
+          element={<CardProductDescription products={products} data={data} />}
+        />
+        <Route path={`instruction`} element={<CardProductInstruction />} />
+        <Route path={`usage`} element={<CardProductUsage />} />
+        <Route path={`pharmocologic`} element={<CardProductPharmacologic />} />
+      </Routes>
     </div>
   );
 }
