@@ -63,7 +63,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                     />
                 </div>
             </div>
-            <Portal setIsOpen={setIsOpenPortal} isOpen={isOpenPortal}><Purchase isRecipeProduct={isRecipeProduct} deliveryPrice={deliveryPrice} price={totalPrice} handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
+            <Portal setIsOpen={setIsOpenPortal} isOpen={isOpenPortal}><Purchase deliveryPrice={deliveryPrice} price={totalPrice} handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
         </section>
     );
 }

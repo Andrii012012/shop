@@ -84,7 +84,7 @@ export type TStateOrder =
   | "Возврат";
 
 export interface IOrder {
-  number: number;
+  number: number | string;
   date: string;
   count: number;
   state: TStateOrder;
@@ -102,6 +102,7 @@ export interface INotification {
   isDiscountEmail: boolean;
 }
 export interface IUser {
+  id: number;
   name: string;
   surname: string;
   familyName: string;
@@ -112,7 +113,7 @@ export interface IUser {
   password: string | number;
   isCard: boolean;
   sex: TSex;
-  orders: IOrder[] | [];
+  orders: IOrder[];
   notification: INotification;
   [key: string]: any;
 }

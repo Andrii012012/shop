@@ -53,7 +53,7 @@ export default function MyBasket(props: IProps): JSX.Element {
                     <div className={styles.products}>
                         <div className={styles.header}>
                             <div onClick={() => setIsSelectAllProduct(!isSelectAllProduct)} className={styles.selectProduct}>
-                                <Checkbox className={styles.checkboxSelectProducts} value={isSelectAllProduct} />
+                                <Checkbox className={styles.checkboxSelectProducts} valueCheckbox={isSelectAllProduct} />
                                 <p className={gStyles.textBig}>Выбрать все</p>
                             </div>
                             <Button onClick={handleAllRemoveSelectedProducts} className={`${styles.clearSelected} ${gStyles.textBig}`} title={"Удалить выбранные"} />

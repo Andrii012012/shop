@@ -24,6 +24,7 @@ export default function Register(props: IProps): JSX.Element {
       initialValues={{ phone: '', password: "", name: "", surname: "", email: "" }}
       onSubmit={(values) => {
         const dataUser = callLocalStore<IUser>('user', {
+          id: 1,
           name: values.name,
           surname: values.surname,
           familyName: "",

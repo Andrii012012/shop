@@ -6,7 +6,7 @@ import Arrow from '../../../../../../../../assets/images/global/arrowAccordion.s
 import { TStateOrder } from '../../../../../../../../interface/interface';
 
 interface IProps {
-    number: number;
+    number: number | string;
     date: string;
     count: number;
     state: TStateOrder;

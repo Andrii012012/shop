@@ -6,7 +6,7 @@
 .wrapper {
     width: 100%;
     background-color: map.get($colors, 'white');
-    padding: f.rem(50) 0 0 0;
+    padding: f.rem(50) 0 f.rem(100) 0;
 }
 
 .container {

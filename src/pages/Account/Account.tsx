@@ -5,17 +5,24 @@ import SwitchContent from '../../components/SwitchContent/SwitchContent';
 import Navigate from '../../components/Navigate/Navigate';
 import { PATH_ACCOUNT } from '../../routes/routes';
 import FormUser from './components/FormUser/FormUser';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../hooks/useAppSelector';
 import Order from './components/Order/Order';
 import Subscribe from './components/Subscribe/Subscribe';
 import Comment from './components/Comment/Comment';
+import { useLayoutEffect } from 'react';
 
 const NAME_SECTIONS = ["Мой профиль", "Заказы", "Подписки", "Оставить отзыв"];
 
 export default function Account(): JSX.Element {
 
     const dataUser = useAppSelector((state) => state.user.user);
+
+    const navigate = useNavigate();
+
+    useLayoutEffect(() => {
+        navigate(`${PATH_ACCOUNT}/${NAME_SECTIONS[0]}`);
+    }, [dataUser?.id]);
 
     if (dataUser) {
         return (

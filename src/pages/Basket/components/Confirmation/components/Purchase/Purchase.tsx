@@ -1,7 +1,7 @@
 import styles from './style.module.scss';
 import gStyles from '../../../../../../styles/styles.module.scss';
 import { TDeliveryMethod } from '../../../../type';
-import { IAdditionalInfoOrder, IBasketProduct } from '../../../../../../interface/interface';
+import { IAdditionalInfoOrder, IBasketProduct, IUser } from '../../../../../../interface/interface';
 import ProductsList from '../ProductsList/ProductsList';
 import { Link } from 'react-router-dom';
 import { PATH_HOME } from '../../../../../../routes/routes';
@@ -19,12 +19,11 @@ interface IProps {
     handleClosePortal: () => void;
     price: number;
     deliveryPrice: number;
-    isRecipeProduct: boolean;
 }
 
 export default function Purchase(props: IProps): JSX.Element {
 
-    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice, isRecipeProduct } = props;
+    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -61,7 +60,7 @@ export default function Purchase(props: IProps): JSX.Element {
 
     useEffect(() => {
         if (dataUser) {
-            const dataUserCopy = JSON.parse(JSON.stringify(dataUser));
+            const dataUserCopy: IUser = JSON.parse(JSON.stringify(dataUser));
 
             dataUserCopy.orders.push({
                 number: number,
@@ -74,6 +73,8 @@ export default function Purchase(props: IProps): JSX.Element {
                 address: `ул. ${address.street} ${address.house}`,
                 additionalInfo: makeOrderObject(),
             });
+
+            dataUserCopy.marks += Math.round(price / 20);
 
             const newDataUser = callLocalStore('user', dataUserCopy);
 

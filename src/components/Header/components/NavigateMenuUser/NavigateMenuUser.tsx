@@ -35,12 +35,12 @@ function NavigateMenuUser(props: IProps): JSX.Element {
         </Link>
       </li>
       {!dataUser ? <li onClick={() => setModalLogin(true)} className={styles.headerActionFavorites}>
-        <Link to={PATH_ACCOUNT} className={styles.headerActionFavoritesLink}>
+        <Link to='' className={styles.headerActionFavoritesLink}>
           <UserIcon />
           Войти
         </Link>
       </li> : <li onClick={() => dispatch(LogoutUser())} className={styles.headerActionFavorites}>
-        <Link to={PATH_ACCOUNT} className={styles.headerActionFavoritesLink}>
+        <Link to='' className={styles.headerActionFavoritesLink}>
           <UserIcon />
           Выйти
         </Link>

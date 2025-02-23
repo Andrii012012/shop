@@ -101,7 +101,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
         <li className={styles.item}>
             <div className={styles.bodyProduct}>
                 <div onClick={() => handlePutProduct({ id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter })}>
-                    <Checkbox className={styles.checkboxSelectProduct} value={checkProduct()} />
+                    <Checkbox className={styles.checkboxSelectProduct} valueCheckbox={checkProduct()} />
                 </div>
                 <div className={styles.imageProduct}>
                     <img src={imageProduct} />
