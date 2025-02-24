@@ -20,6 +20,18 @@ export interface IBaseProduct {
   [key: string]: any;
 }
 
+export interface IDefaultDisplayProduct {
+  isStock: boolean;
+  name: string;
+  manufacturer: string;
+  volume: number;
+  release: string;
+  price: number;
+  isRecipe: boolean;
+  isDelivery: boolean;
+  countryOrigin: string;
+}
+
 export interface IRelease {
   name: string;
   icon: string;
@@ -115,5 +127,6 @@ export interface IUser {
   sex: TSex;
   orders: IOrder[];
   notification: INotification;
+  likedProducts: IDefaultDisplayProduct[];
   [key: string]: any;
 }

@@ -1,12 +1,15 @@
 import styles from './style.module.scss';
 import gStyles from '../../styles/styles.module.scss';
-import Heart from '../../assets/images/global/iconHeartOutline.svg?react';
+import Heart from '../../assets/images/header/heartIcon.svg?react';
 import imageDefaultProduct from '../../assets/images/products/imageProductDefault.png';
 import Counter from '../../components/ui/Counter/Counter';
 import { useId, useState } from 'react';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { addProduct } from '../../features/basket/basket';
-import { IBasketProduct } from '../../interface/interface';
+import { IBasketProduct, IUser } from '../../interface/interface';
+import { LoginUser } from '../../features/user/user';
+import { useAppSelector } from '../../hooks/useAppSelector';
+import { callLocalStore } from '../../servers/callLocalStore';
 
 interface IProps {
     isStock: boolean;
@@ -30,6 +33,8 @@ export default function Card(props: IProps): JSX.Element {
 
     const dispatch = useAppDispatch();
 
+    const dataUser = useAppSelector((state) => state.user.user);
+
     function handleMouseEnterSetClass(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
         event.currentTarget.classList.add(styles.activeCard);
     }
@@ -42,11 +47,42 @@ export default function Card(props: IProps): JSX.Element {
         dispatch(addProduct(productBasket));
     }
 
+    function handleToggleLikedProduct(): void {
+
+        const dataUserCopy: IUser = JSON.parse(JSON.stringify(dataUser));
+
+        if (!dataUserCopy.likedProducts.find((item, _) => item.name === name)) {
+            dataUserCopy.likedProducts.push({
+                isStock,
+                name,
+                manufacturer,
+                volume,
+                release,
+                price,
+                isRecipe,
+                isDelivery,
+                countryOrigin,
+            });
+        } else {
+            dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);
+        }
+
+        const newDataUser = callLocalStore<IUser>("user", dataUserCopy);
+
+        dispatch(LoginUser(newDataUser));
+
+    }
+
+    function checkIsLikedProduct(): boolean {
+        const result = dataUser?.likedProducts.find((item, _) => item.name === name && item);
+        return typeof result === 'object' ? true : false;
+    }
+
     return (
         <div className={`${styles.card}`} onMouseLeave={(event) => handleMouseLeaveSetClass(event)} onMouseEnter={(event) => handleMouseEnterSetClass(event)}>
             <div className={styles.header}>
-                <div className={styles.iconHeart}>
-                    <Heart />
+                <div onClick={() => dataUser && handleToggleLikedProduct()} className={styles.iconHeart}>
+                    <Heart className={checkIsLikedProduct() ? styles.iconActive : ""} />
                 </div>
                 <p className={gStyles.textMedium}>{isStock ? <span className={styles.inStock}>В наличии</span> : <span className={styles.outStock}>Закончились</span>}</p>
             </div>

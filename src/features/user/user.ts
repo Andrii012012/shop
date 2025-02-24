@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { IUser } from "../../interface/interface";
+import { IDefaultDisplayProduct, IUser } from "../../interface/interface";
 
 export interface IInitialUser {
   user: IUser | null;

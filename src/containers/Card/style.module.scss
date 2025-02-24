@@ -51,6 +51,10 @@
 
 .iconHeart {
     flex: 1 1 auto;
+
+    svg {
+        fill: map.get($colors, "darkGray");
+    }
 }
 
 .imageProduct {
@@ -167,4 +171,8 @@
     max-height: 0;
     opacity: 0;
     transition: 0.3s linear;
+}
+
+.iconActive {
+    fill: map.get($colors, 'brick') !important;
 }

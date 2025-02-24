@@ -1,0 +1,24 @@
+@use "sass:map";
+@use '../../utils/styles/functions.scss' as f;
+@import '../../utils/styles/colors.scss';
+
+.liked {
+    width: 100%;
+    padding: f.rem(30) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.title {
+    margin-bottom: f.rem(20);
+    font-weight: 700;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.rem(20);
+}
