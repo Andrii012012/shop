@@ -7,6 +7,11 @@
   padding: f.rem(30) 0 f.rem(20) 0;
 }
 
+.body {
+  display: flex;
+  align-items: center;
+}
+
 .headerInner {
   position: relative;
 }

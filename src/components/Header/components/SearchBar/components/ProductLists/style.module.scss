@@ -1,0 +1,45 @@
+@use "sass:map";
+@use "/src/utils/styles/functions.scss" as f;
+@import '../../../../../../utils/styles/colors.scss';
+
+.scrollbar {
+  .os-scrollbar-track {
+    background-color: map.get($colors, "brick") !important;
+  }
+}
+
+.wrapper {
+  padding: f.rem(30) f.rem(30) 0 f.rem(30);
+  position: relative;
+  max-height: f.rem(200);
+}
+
+.searchPopupList {
+  display: flex;
+  flex-direction: column;
+  row-gap: f.rem(20);
+
+  .searchPopupListItem {
+    width: 100%;
+
+    .searchPopupListLink {
+      display: flex;
+      align-items: center;
+      column-gap: f.rem(10);
+
+      font-weight: 500;
+      font-size: f.rem(16);
+      color: map.get($colors, "darkGray");
+      transition: 0.1s;
+
+      &:hover {
+        color: map.get($colors, "deepGreen");
+        ;
+      }
+
+      .searchPopupListLinkTitle {
+        flex: 1;
+      }
+    }
+  }
+}
