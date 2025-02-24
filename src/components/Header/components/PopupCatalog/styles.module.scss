@@ -1,10 +1,12 @@
+@use 'sass:map';
 @use "/src/utils/styles/functions.scss" as f;
+@import '../../../../utils/styles/colors.scss';
 
-.wrapper{
+.wrapper {
   max-width: 100%;
 }
 
-.icon{
+.icon {
   max-width: 100%;
 }
 
@@ -22,14 +24,14 @@
   position: relative;
   top: 100%;
   left: 0;
-  border-radius: 0 0 10px 10px;
+  border-radius: 0 0 f.rem(10) f.rem(10);
 }
 
 .shopCatalogContainer {
   position: absolute;
   width: f.rem(460);
-  background-color: #fff;
-  padding: 30px 50px 50px;
+  background-color: map.get($colors, "white");
+  padding: f.rem(30) f.rem(50) f.rem(50);
   box-shadow: 0 4px 30px 3px rgba(0, 0, 0, 0.25);
 
   .shopCatalogProducts {
@@ -40,15 +42,15 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      column-gap: 10px;
+      column-gap: f.rem(10);
       height: f.rem(80);
-      border-radius: 10px;
+      border-radius: f.rem(10);
 
       font-weight: 700;
       font-size: 18px;
       color: #323232;
 
-      background-color: #f3f3f3;
+      background-color: map.get($colors, "white");
       transition: 0.1s;
 
       svg {
@@ -57,12 +59,12 @@
       }
 
       &:hover {
-        background-color: #216823;
-        color: #fff;
+        background-color: map.get($colors, "deepGreen");
+        color: map.get($colors, "white")
       }
 
       &:hover svg {
-        fill: #fff;
+        fill: map.get($colors, "white");
       }
     }
   }
@@ -70,7 +72,7 @@
   .shopCatalogList {
     display: flex;
     flex-direction: column;
-    row-gap: 25px;
+    row-gap: f.rem(25);
 
     .shopCatalogItem {
       .shopCatalogItemLink {
@@ -79,21 +81,21 @@
         align-items: center;
 
         font-weight: 500;
-        font-size: 18px;
-        color: #323232;
+        font-size: f.rem(18);
+        color: map.get($colors, "darkGray");
         transition: 0.1s;
 
         svg {
-          fill: #323232;
+          fill: map.get($colors, "darkGray");
           transition: 0.1s;
         }
 
         &:hover {
-          color: #216823;
+          color: map.get($colors, "deepGreen");
         }
 
         &:hover svg {
-          fill: #216823;
+          fill: map.get($colors, "deepGreen");
         }
       }
     }

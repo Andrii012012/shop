@@ -1,4 +1,6 @@
+@use "sass:map";
 @use "/src/utils/styles/functions.scss" as f;
+@import '../../../../utils/styles/colors.scss';
 
 .shopCatalogContainer {
   position: absolute;
@@ -7,16 +9,16 @@
   left: 100%;
   width: f.rem(460);
 
-  border-radius: 10px 10px;
-  background-color: #fff;
-  padding: 30px 50px;
+  border-radius: f.rem(10) f.rem(10);
+  background-color: map.get($colors, "white");
+  padding: f.rem(30) f.rem(50);
   box-shadow: 0 4px 30px 3px rgba(0, 0, 0, 0.25);
 }
 
 .shopCatalogList {
   display: flex;
   flex-direction: column;
-  row-gap: 25px;
+  row-gap: f.rem(25);
 }
 
 .shopCatalogItem {
@@ -28,21 +30,21 @@
     align-items: center;
 
     font-weight: 500;
-    font-size: 18px;
-    color: #323232;
+    font-size: f.rem(18);
+    color: map.get($colors, "darkGray");
     transition: 0.1s;
 
     svg {
-      fill: #323232;
+      fill: map.get($colors, "darkGray");
       transition: 0.1s;
     }
 
     &:hover {
-      color: #216823;
+      color: map.get($colors, "deepGreen");
     }
 
     &:hover svg {
-      fill: #216823;
+      fill: map.get($colors, "deepGreen");
     }
   }
 }
