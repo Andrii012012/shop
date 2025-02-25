@@ -1,12 +1,9 @@
 import styles from './style.module.scss';
 import gStyles from '../../styles/styles.module.scss';
-import Heart from '../../assets/images/global/iconHeartOutline.svg?react';
 import imageDefaultProduct from '../../assets/images/products/imageProductDefault.png';
-import Counter from '../../components/ui/Counter/Counter';
-import { useId, useState } from 'react';
-import { useAppDispatch } from '../../hooks/useAppDispatch';
-import { addProduct } from '../../features/basket/basket';
-import { IBasketProduct } from '../../interface/interface';
+import { useState } from 'react';
+import HeaderCard from './components/HeaderCard/HeaderCard';
+import CounterCard from './components/CounterCard/CounterCard';
 
 interface IProps {
     isStock: boolean;
@@ -26,10 +23,6 @@ export default function Card(props: IProps): JSX.Element {
 
     const [counter, setCounter] = useState<number>(1);
 
-    const uniqueId = useId();
-
-    const dispatch = useAppDispatch();
-
     function handleMouseEnterSetClass(event: React.MouseEvent<HTMLDivElement, MouseEvent>): void {
         event.currentTarget.classList.add(styles.activeCard);
     }
@@ -38,18 +31,19 @@ export default function Card(props: IProps): JSX.Element {
         event.currentTarget.classList.remove(styles.activeCard);
     }
 
-    function handlePutProduct(productBasket: IBasketProduct) {
-        dispatch(addProduct(productBasket));
-    }
-
     return (
         <div className={`${styles.card}`} onMouseLeave={(event) => handleMouseLeaveSetClass(event)} onMouseEnter={(event) => handleMouseEnterSetClass(event)}>
-            <div className={styles.header}>
-                <div className={styles.iconHeart}>
-                    <Heart />
-                </div>
-                <p className={gStyles.textMedium}>{isStock ? <span className={styles.inStock}>В наличии</span> : <span className={styles.outStock}>Закончились</span>}</p>
-            </div>
+            <HeaderCard
+                isStock={isStock}
+                name={name}
+                manufacturer={manufacturer}
+                volume={volume}
+                release={release}
+                price={counter * price}
+                isRecipe={isRecipe}
+                isDelivery={isDelivery}
+                countryOrigin={countryOrigin}
+            />
             <div className={styles.imageProduct}>
                 <img src={imageDefaultProduct} alt="" />
             </div>
@@ -60,11 +54,16 @@ export default function Card(props: IProps): JSX.Element {
                 <li className={gStyles.textExtraMedium}><h4>Объем:</h4> <span>{volume} г</span></li>
                 <li className={gStyles.textExtraMedium}><h4>Выпуск:</h4> <span>{release}</span></li>
             </ul>
-            <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{price} грн</p>
-            <div className={styles.buttonBody}>
-                <Counter value={counter} setValue={setCounter} />
-                <button onClick={() => handlePutProduct({ id: uniqueId, name, manufacturer, countryOrigin, isRecipe, image: "", price, count: counter })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
-            </div>
+            <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{counter * price} грн</p>
+            <CounterCard
+                name={name}
+                manufacturer={manufacturer}
+                price={price}
+                isRecipe={isRecipe}
+                countryOrigin={countryOrigin}
+                counter={counter}
+                setCounter={setCounter}
+            />
             <div className={styles.wrrapperDelivery}>
                 <h4 className={`${styles.delivery} ${gStyles.textBig}`}>{isDelivery ? <span className={styles.deliveryGreen}>Доступна доставка</span> : <span className={styles.deliveryRed}>Доставка запрещена</span>}</h4>
                 <p className={`${styles.deliveryInfo} ${gStyles.textSmall}`}>

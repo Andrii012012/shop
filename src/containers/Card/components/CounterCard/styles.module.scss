@@ -1,0 +1,16 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.buttonBody {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    margin-bottom: f.rem(12);
+}
+
+.button {
+    @include m.button(f.rem(15) f.rem(15) f.rem(15) f.rem(15), f.rem(162), 0 f.rem(100) f.rem(100) 0, 0px solid #0000, map.get($colors, 'lightGreen'), map.get($colors, 'white'));
+    font-weight: 700;
+}

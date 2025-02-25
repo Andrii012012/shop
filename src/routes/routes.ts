@@ -3,3 +3,4 @@ export const PATH_SHOP = "shop";
 export const PATH_BASKET = "/basket";
 export const PATH_CATALOG = "/catalog";
 export const PATH_ACCOUNT = "/account";
+export const PATH_LIKED = "/liked";

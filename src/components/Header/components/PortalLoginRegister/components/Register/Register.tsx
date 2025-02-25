@@ -41,7 +41,8 @@ export default function Register(props: IProps): JSX.Element {
             isDiscountSMS: true,
             isOrderEmail: true,
             isOrderSMS: true,
-          }
+          },
+          likedProducts: [],
         });
 
         dispatch(LoginUser(dataUser));
