@@ -1,7 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import {
   IBaseOptionsSlice,
-  IBaseProduct,
   IBasketProduct,
 } from "../../interface/interface";
 

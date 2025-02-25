@@ -19,11 +19,12 @@ interface IProps {
     handleClosePortal: () => void;
     price: number;
     deliveryPrice: number;
+    clearSelectedProducts: () => void;
 }
 
 export default function Purchase(props: IProps): JSX.Element {
 
-    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice } = props;
+    const { address, deliveryMethod, products, handleClosePortal, price, deliveryPrice, clearSelectedProducts } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -60,6 +61,7 @@ export default function Purchase(props: IProps): JSX.Element {
 
     useEffect(() => {
         if (dataUser) {
+            clearSelectedProducts();
             const dataUserCopy: IUser = JSON.parse(JSON.stringify(dataUser));
 
             dataUserCopy.orders.push({

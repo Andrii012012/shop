@@ -34,14 +34,8 @@ export default function MyBasket(props: IProps): JSX.Element {
     }
 
     function handleAllRemoveSelectedProducts() {
-        const selectedProductsId: string[] = [];
-
-        state.selectedProducts.forEach((item, _) => {
-            selectedProductsId.push(item.id);
-        });
-
+        const selectedProductsId = products.map((item, _) => item.id);
         handleRemoveProduct(selectedProductsId);
-
         dispatch(removeProduct(selectedProductsId));
     }
 
