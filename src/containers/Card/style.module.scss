@@ -3,17 +3,6 @@
 @use '../../utils/styles/mixin.scss' as m;
 @import '../../utils/styles/colors.scss';
 
-.buttonBody {
-    display: flex;
-    align-items: center;
-    width: 100%;
-}
-
-.button {
-    @include m.button(f.rem(15) f.rem(15) f.rem(15) f.rem(15), f.rem(162), 0 f.rem(100) f.rem(100) 0, 0px solid #0000, map.get($colors, 'lightGreen'), map.get($colors, 'white'));
-    font-weight: 700;
-}
-
 
 .card {
     max-width: f.rem(272);
@@ -44,18 +33,6 @@
 
 }
 
-.header {
-    display: flex;
-    font-weight: 700;
-}
-
-.iconHeart {
-    flex: 1 1 auto;
-
-    svg {
-        fill: map.get($colors, "darkGray");
-    }
-}
 
 .imageProduct {
     width: 100%;
@@ -171,8 +148,4 @@
     max-height: 0;
     opacity: 0;
     transition: 0.3s linear;
-}
-
-.iconActive {
-    fill: map.get($colors, 'brick') !important;
 }
