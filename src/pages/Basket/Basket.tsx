@@ -11,12 +11,16 @@ import { IFields, IState } from './type';
 import DeliveryMethod from './components/DeliveryMethod/DeliveryMethod';
 import Confirmation from './components/Confirmation/Confirmation';
 import { BASKET_SECTIONS } from '../../constants/path';
+import { useAppDispatch } from '../../hooks/useAppDispatch';
+import { removeProduct } from '../../features/basket/basket';
 
 export default function Basket(): JSX.Element {
 
     const products = useAppSelector((state) => state.basket.basket);
 
     const navigateRoute = useNavigate();
+
+    const dispatch = useAppDispatch();
 
     const [isRecipeProduct, setIsRecipeProduct] = useState<boolean>(false);
 
@@ -62,6 +66,10 @@ export default function Basket(): JSX.Element {
         });
     }
 
+    function clearSelectedProducts(): void {
+        dispatch(removeProduct(state.selectedProducts.map((item, _) => item.id)));
+    }
+
     return (
         <main className={styles.page}>
             <div className={gStyles.container}>
@@ -81,7 +89,7 @@ export default function Basket(): JSX.Element {
             <Routes>
                 <Route path={BASKET_SECTIONS.myBasket} element={<MyBasket isRecipeProduct={isRecipeProduct} setState={setState} state={state} products={products} />} />
                 <Route path={BASKET_SECTIONS.methodDelivery} element={<DeliveryMethod handleChangeField={handleChangeField} field={field} setState={setState} state={state} products={state.selectedProducts} />} />
-                <Route path={BASKET_SECTIONS.paymentConfirmation} element={<Confirmation deliveryPrice={state.deliveryPrice} handleChangeField={handleChangeField} isRecipeProduct={isRecipeProduct} payment={state.payment} address={{ street: field.street, house: field.house }} deliveryMethod={state.deliveryMethod} totalPrice={state.totalPrice} products={state.selectedProducts} />} />
+                <Route path={BASKET_SECTIONS.paymentConfirmation} element={<Confirmation clearSelectedProducts={clearSelectedProducts} deliveryPrice={state.deliveryPrice} handleChangeField={handleChangeField} isRecipeProduct={isRecipeProduct} payment={state.payment} address={{ street: field.street, house: field.house }} deliveryMethod={state.deliveryMethod} totalPrice={state.totalPrice} products={state.selectedProducts} />} />
             </Routes>
         </main>
     );
