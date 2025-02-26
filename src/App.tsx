@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { PATH_ACCOUNT, PATH_BASKET, PATH_CATALOG, PATH_HOME, PATH_LIKED, PATH_SHOP } from "./routes/routes";
+import { PATH_ABOUT_COMPANY, PATH_ACCOUNT, PATH_BASKET, PATH_CATALOG, PATH_HOME, PATH_LIKED, PATH_SHOP } from "./routes/routes";
 import { useEffect } from "react";
 import { getNewsThunk } from "./features/news/news";
 import { useAppDispatch } from "./hooks/useAppDispatch";
@@ -11,6 +11,7 @@ import Catalog from "./pages/Catalog/Catalog";
 import Account from "./pages/Account/Account";
 import { Layout } from "./layout/layout";
 import Liked from "./pages/Liked/Liked";
+import AboutCompany from "./pages/AboutCompany/AboutCompany";
 
 function App() {
 
@@ -30,6 +31,7 @@ function App() {
         <Route path={`${PATH_CATALOG}/*`} element={<Catalog />} />
         <Route path={`${PATH_ACCOUNT}/*`} element={<Account />} />
         <Route path={PATH_LIKED} element={<Liked />} />
+        <Route path={`${PATH_ABOUT_COMPANY}/*`} element={<AboutCompany />} />
       </Routes>
     </Layout>
   );

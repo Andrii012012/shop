@@ -1,0 +1,28 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.partner {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    padding: f.rem(50) 0 f.rem(100) 0;
+    margin-bottom: f.rem(100);
+}
+
+.title {
+    margin-bottom: f.rem(30);
+}
+
+.list {
+    display: flex;
+    gap: f.rem(20);
+
+    li {
+        flex: 1 1 20%;
+
+        img {
+            @include m.adaptationImage();
+        }
+    }
+}

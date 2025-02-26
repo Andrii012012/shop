@@ -1,3 +1,4 @@
+import { PATH_ABOUT_COMPANY } from "../../../routes/routes";
 import { CatalogItem } from "../interfaces/catalogItem";
 export const catalogList: CatalogItem[] = [
   {
@@ -209,7 +210,7 @@ export const NAVIGATE_ITEMS: {
       name: "Главная",
     },
     {
-      to: "",
+      to: PATH_ABOUT_COMPANY,
       name: "О компании",
     },
     {
