@@ -7,6 +7,7 @@ import iconGallery2 from '../../../../assets/images/aboutCompany/iconGallery2.pn
 import iconGallery3 from '../../../../assets/images/aboutCompany/iconGallery3.png';
 import iconGallery4 from '../../../../assets/images/aboutCompany/iconGallery4.png';
 import iconGallery5 from '../../../../assets/images/aboutCompany/iconGallery5.png';
+import { ABOUT_COMPANY } from '../../../../constants/path';
 
 interface IProps { }
 
@@ -19,11 +20,11 @@ export default function Gallery(props: IProps): JSX.Element {
             <div className={gStyles.container}>
                 <h2 className={`${gStyles.textExtraLarge} ${styles.title}`}>Фотогалерея</h2>
                 <ul className={styles.list}>
-                    <ItemChoose to="" image={iconGallery1} footer={<div className={styles.body}><p>Наши сотрудники</p><img src={iconStart} alt="" /></div>} />
-                    <ItemChoose to="" image={iconGallery2} footer={<div className={styles.body}><p>Аптека готовых <br />лекарственных форм</p><img src={iconStart} alt="" /></div>} />
-                    <ItemChoose to="" image={iconGallery3} footer={<div className={styles.body}><p>Ветеринарная аптека, зоотовары, корма</p><img src={iconStart} alt="" /></div>} />
-                    <ItemChoose to="" image={iconGallery4} footer={<div className={styles.body}><p>Медицинские изделия и техника. Ортопедические товары</p><img src={iconStart} alt="" /></div>} />
-                    <ItemChoose to="" image={iconGallery5} footer={<div className={styles.body}><p>НАптекарский магазинъ ( фасад, Торговый зал, витрины,зона обслуживания )</p><img src={iconStart} alt="" /></div>} />
+                    <ItemChoose to={ABOUT_COMPANY.requisite} image={iconGallery1} footer={<div className={styles.body}><p>Наши сотрудники</p><img src={iconStart} alt="" /></div>} />
+                    <ItemChoose to={ABOUT_COMPANY.requisite} image={iconGallery2} footer={<div className={styles.body}><p>Аптека готовых <br />лекарственных форм</p><img src={iconStart} alt="" /></div>} />
+                    <ItemChoose to={ABOUT_COMPANY.requisite} image={iconGallery3} footer={<div className={styles.body}><p>Ветеринарная аптека, зоотовары, корма</p><img src={iconStart} alt="" /></div>} />
+                    <ItemChoose to={ABOUT_COMPANY.requisite} image={iconGallery4} footer={<div className={styles.body}><p>Медицинские изделия и техника. Ортопедические товары</p><img src={iconStart} alt="" /></div>} />
+                    <ItemChoose to={ABOUT_COMPANY.requisite} image={iconGallery5} footer={<div className={styles.body}><p>НАптекарский магазинъ ( фасад, Торговый зал, витрины,зона обслуживания )</p><img src={iconStart} alt="" /></div>} />
                 </ul>
             </div>
         </div>

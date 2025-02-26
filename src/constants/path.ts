@@ -24,3 +24,7 @@ export const enum BASKET_SECTIONS {
   methodDelivery = "Способ доставки",
   paymentConfirmation = "Оплата и подтверждение",
 }
+
+export const enum ABOUT_COMPANY {
+  requisite = 'Реквизиты',
+}

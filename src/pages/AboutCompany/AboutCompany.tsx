@@ -1,23 +1,16 @@
 import styles from './styles.module.scss';
-import gStyles from '../../styles/styles.module.scss';
-import Navigate from '../../components/Navigate/Navigate';
-import Description from './components/Description/Description';
-import Advantage from './components/Advantage/Advantage';
-import Necessary from './components/Necessary/Necessary';
-import Partner from './components/Partner/Partner';
-import Gallery from './components/Gallery/Gallery';
+import { Route, Routes } from 'react-router-dom';
+import InfoAboutCompany from './components/InfoAboutCompany/InfoAboutCompany';
+import Requisite from './components/Requisite/Requisite';
+import { ABOUT_COMPANY } from '../../constants/path';
 
 export default function AboutCompany(): JSX.Element {
     return (
         <main className={styles.aboutCompany}>
-            <div className={gStyles.container}>
-                <Navigate className={styles.navigate} links={[{ name: 'О компании', to: "" }]} />
-                <Description />
-            </div>
-            <Advantage />
-            <Necessary />
-            <Partner />
-            <Gallery />
+            <Routes>
+                <Route index element={<InfoAboutCompany />} />
+                <Route path={ABOUT_COMPANY.requisite} element={<Requisite />} />
+            </Routes>
         </main>
     )
 }
