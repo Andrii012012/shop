@@ -15,7 +15,7 @@ const initialState: IInitialPromotion = {
 export const getPromotionThunk = createAsyncThunk(
   "promotion/get",
   async (_, { rejectWithValue }) => {
-    return callServer("src/servers/news.json", rejectWithValue);
+    return callServer("src/servers/promotion.json", rejectWithValue);
   }
 );
 

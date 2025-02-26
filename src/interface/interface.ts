@@ -14,6 +14,7 @@ export interface IBaseProduct {
   price: number;
   images: string[];
   discount: number | null;
+  promotion: string | null;
   hitProduct: number;
   shelfLife: string;
   comments: IComment[];

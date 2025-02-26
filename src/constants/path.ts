@@ -26,5 +26,9 @@ export const enum BASKET_SECTIONS {
 }
 
 export const enum ABOUT_COMPANY {
-  requisite = 'Реквизиты',
+  requisite = "Реквизиты",
+}
+
+export const enum PROMOTION {
+  detailsPromotion = 'detailsPromotion',
 }
