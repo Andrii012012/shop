@@ -130,3 +130,10 @@ export interface IUser {
   likedProducts: IDefaultDisplayProduct[];
   [key: string]: any;
 }
+
+export interface IPromotion {
+  images: string[];
+  till: string;
+  title: string;
+  description: string;
+}

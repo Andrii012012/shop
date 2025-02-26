@@ -12,6 +12,7 @@ import Account from "./pages/Account/Account";
 import { Layout } from "./layout/layout";
 import Liked from "./pages/Liked/Liked";
 import AboutCompany from "./pages/AboutCompany/AboutCompany";
+import { getPromotionThunk } from "./features/promotion/promotion";
 
 function App() {
 
@@ -20,6 +21,7 @@ function App() {
   useEffect(() => {
     dispatch(getNewsThunk());
     dispatch(getProductsThunk());
+    dispatch(getPromotionThunk());
   }, []);
 
   return (
