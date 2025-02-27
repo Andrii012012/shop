@@ -5,6 +5,7 @@ import {
   PATH_ACCOUNT,
   PATH_BASKET,
   PATH_CATALOG,
+  PATH_DELIVERY,
   PATH_FEEDBACK,
   PATH_HOME,
   PATH_LIKED,
@@ -29,6 +30,7 @@ import Promotion from "./pages/Promotion/Promotion";
 import News from "./pages/News/News";
 import Feedback from "./pages/Feedback/Feedback";
 import Politics from "./pages/Politics/Politics";
+import Delivery from "./pages/Delivery/Delivery";
 
 function App() {
 
@@ -54,6 +56,7 @@ function App() {
         <Route path={`${PATH_NEWS}/*`} element={<News />} />
         <Route path={`${PATH_FEEDBACK}`} element={<Feedback />} />
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
+        <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
       </Routes>
     </Layout>
   );

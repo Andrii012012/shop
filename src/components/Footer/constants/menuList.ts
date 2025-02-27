@@ -1,5 +1,5 @@
 import { ACCOUNT_SECTIONS, CATALOG_PRODUCT } from "../../../constants/path";
-import { PATH_ACCOUNT, PATH_FEEDBACK, PATH_NEWS, PATH_POLITICS, PATH_PROMOTION } from "../../../routes/routes";
+import { PATH_ACCOUNT, PATH_DELIVERY, PATH_FEEDBACK, PATH_NEWS, PATH_POLITICS, PATH_PROMOTION } from "../../../routes/routes";
 import { IMenuList } from "../type";
 
 export const MENU_LIST: IMenuList = {
@@ -11,7 +11,7 @@ export const MENU_LIST: IMenuList = {
   help: [
     { name: "Как сделать заказ", to: "/" },
     { name: "Оплата и бронирование", to: "/" },
-    { name: "Доставка", to: "/" },
+    { name: "Доставка", to: PATH_DELIVERY },
     { name: "Политика конфиденциальности", to: PATH_POLITICS },
     { name: "Разрешительная документация", to: "/" },
     { name: "Условия дистанционной продажи", to: "/" },

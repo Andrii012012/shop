@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.delivery {
+    padding: f.rem(10) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.content {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    padding: f.rem(50) f.rem(30) f.rem(100) f.rem(30);
+    border-radius: f.rem(10);
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.aboutDelivery {
+    margin-bottom: f.rem(20);
+}
+
+.explainDelivery {
+    color: map.get($colors, 'green');
+    margin-bottom: f.rem(30);
+    max-width: f.rem(1203);
+}
+
+.weightDelivery {
+    display: flex;
+    font-weight: 700;
+
+    div{
+        span{
+            margin-bottom: f.rem(30);
+        }
+    }
+
+    div:nth-child(1) {
+        display: flex;
+        max-width: f.rem(228);
+        width: 100%;
+        flex-direction: column;
+        margin-right: f.rem(50);
+    }
+
+    div:nth-child(2) {
+        display: flex;
+        max-width: f.rem(79);
+        width: 100%;
+        flex-direction: column;
+        margin-right: f.rem(50);
+    }
+
+    div:nth-child(3) {
+        display: flex;
+        max-width: f.rem(105);
+        width: 100%;
+        flex-direction: column;
+    }
+}
