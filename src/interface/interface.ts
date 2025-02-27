@@ -53,12 +53,17 @@ export interface IMedicalDrugs extends IBaseProduct {
   pharmacologicalAction: string;
 }
 
-export interface INews {
+export interface ISectionNews {
   title: string;
   description: string;
   images: string[];
   date: string;
   detailedDescription: string;
+}
+
+export interface INews {
+  sectionNews: ISectionNews[];
+  sectionEvents: ISectionNews[];
 }
 
 export interface IBaseOptionsSlice {

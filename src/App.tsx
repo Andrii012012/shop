@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home/Home";
-import { PATH_ABOUT_COMPANY, PATH_ACCOUNT, PATH_BASKET, PATH_CATALOG, PATH_HOME, PATH_LIKED, PATH_PROMOTION, PATH_SHOP } from "./routes/routes";
+import { PATH_ABOUT_COMPANY, PATH_ACCOUNT, PATH_BASKET, PATH_CATALOG, PATH_HOME, PATH_LIKED, PATH_NEWS, PATH_PROMOTION, PATH_SHOP } from "./routes/routes";
 import { useEffect } from "react";
 import { getNewsThunk } from "./features/news/news";
 import { useAppDispatch } from "./hooks/useAppDispatch";
@@ -14,6 +14,7 @@ import Liked from "./pages/Liked/Liked";
 import AboutCompany from "./pages/AboutCompany/AboutCompany";
 import { getPromotionThunk } from "./features/promotion/promotion";
 import Promotion from "./pages/Promotion/Promotion";
+import News from "./pages/News/News";
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <Route path={PATH_LIKED} element={<Liked />} />
         <Route path={`${PATH_ABOUT_COMPANY}/*`} element={<AboutCompany />} />
         <Route path={`${PATH_PROMOTION}/*`} element={<Promotion />} />
+        <Route path={`${PATH_NEWS}/*`} element={<News />} />
       </Routes>
     </Layout>
   );

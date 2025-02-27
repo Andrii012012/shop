@@ -11,7 +11,8 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 // @ts-ignore
 import 'swiper/css/scrollbar';
-import { Navigation } from 'swiper/modules';
+// @ts-ignore
+import { Navigation, Pagination } from 'swiper/modules';
 
 
 interface IProps {
@@ -20,12 +21,16 @@ interface IProps {
     spaceBetween?: number;
     nextButton: string;
     prevButton: string;
+    isPagination?: boolean;
+    bullets?: string;
+    bulletsEl?: string;
+    bulletsActive?: string;
     title: string;
 }
 
 export default function ListProducts(props: IProps): JSX.Element {
 
-    const { children, slidesPerView = 5, spaceBetween = 20, title, nextButton, prevButton } = props;
+    const { children, slidesPerView = 5, spaceBetween = 20, title, isPagination, nextButton, prevButton, bullets = "", bulletsActive = "", bulletsEl = "" } = props;
 
     const [isUploadedSwiper, setIsUploadedSwiper] = useState<boolean>(false);
 
@@ -46,15 +51,25 @@ export default function ListProducts(props: IProps): JSX.Element {
             <Swiper
                 slidesPerView={slidesPerView}
                 spaceBetween={spaceBetween}
-                modules={[Navigation]}
+                modules={[Navigation, Pagination]}
                 navigation={{
                     nextEl: nextEl.current,
                     prevEl: prevEl.current,
                     disabledClass: styles.disabledButton,
                 }}
+                pagination={isPagination &&
+                {
+                    clickable: true,
+                    el: `.${bulletsEl}`,
+                    bulletClass: bullets,
+                    type: "bullets",
+                    bulletActiveClass: bulletsActive,
+                }
+                }
                 onSwiper={(swiper) => { setIsUploadedSwiper(true) }}
             >
                 {children}
+                {isPagination && <div className={bulletsEl}></div>}
             </Swiper >
         </div >
     );
