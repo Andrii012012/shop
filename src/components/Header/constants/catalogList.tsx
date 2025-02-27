@@ -1,4 +1,4 @@
-import { PATH_ABOUT_COMPANY, PATH_NEWS, PATH_PROMOTION } from "../../../routes/routes";
+import { PATH_ABOUT_COMPANY, PATH_FEEDBACK, PATH_HOME, PATH_NEWS, PATH_PROMOTION, PATH_SHOP } from "../../../routes/routes";
 import { CatalogItem } from "../interfaces/catalogItem";
 export const catalogList: CatalogItem[] = [
   {
@@ -202,11 +202,11 @@ export const NAVIGATE_ITEMS: {
   name: string;
 }[] = [
     {
-      to: "",
+      to: PATH_SHOP,
       name: "Интернет-магазин",
     },
     {
-      to: "",
+      to: PATH_HOME,
       name: "Главная",
     },
     {
@@ -214,7 +214,7 @@ export const NAVIGATE_ITEMS: {
       name: "О компании",
     },
     {
-      to: "",
+      to: PATH_FEEDBACK,
       name: "Помощь",
     },
     {

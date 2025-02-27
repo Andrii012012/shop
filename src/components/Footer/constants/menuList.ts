@@ -1,11 +1,11 @@
 import { ACCOUNT_SECTIONS, CATALOG_PRODUCT } from "../../../constants/path";
-import { PATH_ACCOUNT } from "../../../routes/routes";
+import { PATH_ACCOUNT, PATH_FEEDBACK, PATH_NEWS, PATH_PROMOTION } from "../../../routes/routes";
 import { IMenuList } from "../type";
 
 export const MENU_LIST: IMenuList = {
   main: [
-    { name: "Акция", to: "/" },
-    { name: "Новости", to: "/" },
+    { name: "Акция", to: PATH_PROMOTION },
+    { name: "Новости", to: PATH_NEWS },
   ],
   company: [{ name: "Реквизиты", to: "/" }],
   help: [
@@ -15,7 +15,7 @@ export const MENU_LIST: IMenuList = {
     { name: "Политика конфиденциальности", to: "/" },
     { name: "Разрешительная документация", to: "/" },
     { name: "Условия дистанционной продажи", to: "/" },
-    { name: "Обратная связь", to: "/" },
+    { name: "Обратная связь", to: PATH_FEEDBACK },
   ],
   catalog: [
     { name: "Лекарственные препараты", to: CATALOG_PRODUCT.medicines },
