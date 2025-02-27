@@ -144,3 +144,8 @@ export interface IPromotion {
   title: string;
   description: string;
 }
+
+export interface IPolitics {
+  title: string;
+  description: string | null;
+}

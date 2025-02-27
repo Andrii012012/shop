@@ -9,6 +9,7 @@ import {
   PATH_HOME,
   PATH_LIKED,
   PATH_NEWS,
+  PATH_POLITICS,
   PATH_PROMOTION,
   PATH_SHOP
 } from "./routes/routes";
@@ -27,6 +28,7 @@ import { getPromotionThunk } from "./features/promotion/promotion";
 import Promotion from "./pages/Promotion/Promotion";
 import News from "./pages/News/News";
 import Feedback from "./pages/Feedback/Feedback";
+import Politics from "./pages/Politics/Politics";
 
 function App() {
 
@@ -51,6 +53,7 @@ function App() {
         <Route path={`${PATH_PROMOTION}/*`} element={<Promotion />} />
         <Route path={`${PATH_NEWS}/*`} element={<News />} />
         <Route path={`${PATH_FEEDBACK}`} element={<Feedback />} />
+        <Route path={`${PATH_POLITICS}`} element={<Politics />} />
       </Routes>
     </Layout>
   );
