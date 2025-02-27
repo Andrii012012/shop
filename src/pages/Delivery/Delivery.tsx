@@ -18,8 +18,8 @@ export default function Delivery(): JSX.Element {
                             <span>Вес заказа свыше 2 кг</span>
                         </div>
                         <div>
-                            <span>180 руб.</span>
-                            <span>250 руб.</span>
+                            <span>180 грн.</span>
+                            <span>250 грн.</span>
                         </div>
                         <div>
                             <span>9:00 - 21:00</span>

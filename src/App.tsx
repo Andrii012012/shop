@@ -10,6 +10,7 @@ import {
   PATH_HOME,
   PATH_LIKED,
   PATH_NEWS,
+  PATH_PAYMENT_BOOKING,
   PATH_POLITICS,
   PATH_PROMOTION,
   PATH_SHOP
@@ -31,6 +32,7 @@ import News from "./pages/News/News";
 import Feedback from "./pages/Feedback/Feedback";
 import Politics from "./pages/Politics/Politics";
 import Delivery from "./pages/Delivery/Delivery";
+import PaymentBooking from "./pages/PaymentBooking/PaymentBooking";
 
 function App() {
 
@@ -57,6 +59,7 @@ function App() {
         <Route path={`${PATH_FEEDBACK}`} element={<Feedback />} />
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
         <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
+        <Route path={`${PATH_PAYMENT_BOOKING}`} element={<PaymentBooking />} />
       </Routes>
     </Layout>
   );
