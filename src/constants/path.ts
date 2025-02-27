@@ -32,3 +32,7 @@ export const enum ABOUT_COMPANY {
 export const enum PROMOTION {
   detailsPromotion = 'detailsPromotion',
 }
+
+export const enum NEWS {
+  detailsNews = 'detailsNews',
+}

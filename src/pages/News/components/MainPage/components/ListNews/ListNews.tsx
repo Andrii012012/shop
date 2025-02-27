@@ -6,10 +6,12 @@ import imageNews1 from '../../../../../../assets/images/news/imageNews1.png';
 import { useAppSelector } from '../../../../../../hooks/useAppSelector';
 import ListProducts from '../../../../../../containers/ListProducts/ListProducts';
 import { Link } from 'react-router-dom';
+import { PATH_NEWS } from '../../../../../../routes/routes';
+import { NEWS } from '../../../../../../constants/path';
 
 export default function ListNews(): JSX.Element {
 
-    const news = useAppSelector((state) => state.news.news?.sectionEvents);
+    const news = useAppSelector((state) => state.news.news?.sectionNews);
 
     return (
         <section className={pStyles.wrapper}>
@@ -21,8 +23,8 @@ export default function ListNews(): JSX.Element {
                                 <img src={imageNews1} alt="" />
                             </div>
                             <div className={styles.content}>
-                                <p className={gStyles.textLarge}>{item.description}</p>
-                                <Link className={pStyles.button} to=''>Подробнее</Link>
+                                <p className={gStyles.textLarge}>{item.title}</p>
+                                <Link className={pStyles.button} to={`${PATH_NEWS}/${NEWS.detailsNews}/sectionNews/${item.title}`}>Подробнее</Link>
                             </div>
                         </div>
                     </SwiperSlide>

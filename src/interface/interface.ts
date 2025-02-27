@@ -58,12 +58,13 @@ export interface ISectionNews {
   description: string;
   images: string[];
   date: string;
-  detailedDescription: string;
+  detailedDescription?: string;
 }
 
 export interface INews {
   sectionNews: ISectionNews[];
   sectionEvents: ISectionNews[];
+  [key: string]: ISectionNews[];
 }
 
 export interface IBaseOptionsSlice {

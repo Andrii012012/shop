@@ -8,37 +8,42 @@
     margin-bottom: f.rem(50);
 }
 
-.content {
-    display: flex;
+.body {
     background-color: map.get($colors, 'white');
-    padding: f.rem(30);
+    padding: f.rem(30) f.rem(30) f.rem(100) f.rem(30);
     border-radius: f.rem(10);
 }
 
 .image {
-    margin-right: f.rem(30);
-    max-width: f.rem(675);
     width: 100%;
+    max-height: f.rem(340);
+    position: relative;
+    margin-bottom: f.rem(30);
+    color: map.get($colors, 'white');
 
     img {
+        width: 100%;
+        max-height: f.rem(340);
+        object-fit: cover;
         border-radius: f.rem(10);
-        @include m.adaptationImage();
+    }
+
+    >div {
+        position: absolute;
+        bottom: f.rem(30);
+        left: f.rem(50);
     }
 }
 
-.title {
-    margin-bottom: f.rem(30);
+.button {
     color: map.get($colors, 'green');
-}
-
-.description {
-    margin-bottom: f.rem(30);
-}
-
-.body {
-    margin-top: f.rem(30);
+    text-decoration: underline;
 }
 
 .content {
-    margin-bottom: f.rem(100);
+    margin-bottom: f.rem(30);
+}
+
+.navigate{
+    margin-bottom: f.rem(50);
 }

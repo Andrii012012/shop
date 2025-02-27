@@ -27,7 +27,7 @@ export default function ListPromotions(): JSX.Element {
                                     <h2 className={gStyles.textExtraBig}>{item.title}</h2>
                                     <h2 className={gStyles.textExtraBig}>{item.till}</h2>
                                 </div>
-                                <Link to={`${PATH_PROMOTION}/${PROMOTION.detailsPromotion}/:${item.title}`} className={styles.button}>Подробнее</Link>
+                                <Link to={`${PATH_PROMOTION}/${PROMOTION.detailsPromotion}/${item.title}`} className={styles.button}>Подробнее</Link>
                             </div>
                         </li>
                     ))}

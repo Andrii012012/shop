@@ -15,8 +15,6 @@ export default function DetailsPromotion(): JSX.Element {
 
     let titlePromotion: string = useParams().title || "";
 
-    titlePromotion = titlePromotion.replace(/^:/, '');
-
     const promotion = useAppSelector(findPromotion(titlePromotion));
 
     const productsPromotion = useAppSelector(findProductWithPromotionFilter(titlePromotion));
