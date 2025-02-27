@@ -6,7 +6,7 @@ import ListNews from './components/ListNews/ListNews';
 
 export default function MainPage(): JSX.Element {
     return (
-        <main className={styles.news}>
+        <main className={styles.body}>
             <div className={gStyles.container}>
                 <Navigate className={styles.navigate} links={[{ name: "Новости", to: "" }]} />
                 <ListNews />

@@ -5,5 +5,5 @@
 
 .promotion {
     background-color: map.get($colors, "grayWhite");
-    padding: 0 0 f.rem(100) 0;
+    padding: f.rem(10) 0 f.rem(100) 0;
 }

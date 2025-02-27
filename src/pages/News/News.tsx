@@ -6,7 +6,7 @@ import { Route, Routes } from 'react-router-dom';
 
 export default function News(): JSX.Element {
     return (
-        <main className={styles.promotion}>
+        <main className={styles.news}>
             <Routes>
                 <Route index element={<MainPage />} />
                 <Route path={`${NEWS.detailsNews}/:section/:title`} element={<DetailsNews />} />

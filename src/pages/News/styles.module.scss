@@ -3,7 +3,7 @@
 @use '../../utils/styles/mixin.scss' as m;
 @import '../../utils/styles/colors.scss';
 
-.promotion {
+.news {
     background-color: map.get($colors, "grayWhite");
-    padding: 0 0 f.rem(100) 0;
+    padding: f.rem(10) 0 f.rem(100) 0;
 }
