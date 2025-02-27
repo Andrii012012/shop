@@ -3,13 +3,13 @@ import { IBaseOptionsSlice, INews } from "../../interface/interface";
 import { callServer } from "../utils/callServer";
 
 export interface IInitialNews extends IBaseOptionsSlice {
-  news: INews[];
+  news: INews | null;
 }
 
 const initialState: IInitialNews = {
   error: null,
   loading: "idle",
-  news: [],
+  news: null,
 };
 
 export const getNewsThunk = createAsyncThunk(
@@ -30,7 +30,7 @@ const news = createSlice({
       })
       .addCase(
         getNewsThunk.fulfilled,
-        (state: IInitialNews, action: PayloadAction<INews[]>) => {
+        (state: IInitialNews, action: PayloadAction<INews>) => {
           state.loading = "succeeded";
           state.news = action.payload;
         }

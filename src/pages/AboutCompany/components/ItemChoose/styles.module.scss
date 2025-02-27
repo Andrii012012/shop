@@ -1,0 +1,44 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: f.rem(10) f.rem(10) 0 0;
+
+    a {
+        display: block;
+        color: map.get($colors, 'white');
+        width: 100%;
+        height: 100%;
+    }
+
+    font-weight: 700;
+}
+
+.image {
+    height: 100%;
+    width: 100%;
+
+    img {
+       @include m.adaptationImage();
+    }
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background-color: map.get($colors, "lightGreen");
+    transition: 0.3s linear;
+
+    &:hover {
+        transition: 0.3s linear;
+        background-color: map.get($colors, "green");
+    }
+}

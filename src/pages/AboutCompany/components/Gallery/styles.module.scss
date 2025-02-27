@@ -1,0 +1,54 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.gallery {
+    width: 100%;
+}
+
+.title {
+    margin-bottom: f.rem(30);
+}
+
+.list {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: f.rem(20);
+    align-items: flex-start;
+
+    li {
+        display: flex;
+        width: 100%;
+        flex-direction: row;
+        font-size: f.rem(20);
+        line-height: f.em(30, 20);
+        max-height: f.rem(467);
+
+        .body {
+            height: f.rem(130);
+            display: flex;
+            font-weight: 700;
+            align-items: center;
+            padding: 0 f.rem(30);
+
+            img {
+                max-width: 60px;
+                max-height: 60px;
+            }
+
+            p {
+                flex: 1 1 auto;
+            }
+        }
+
+        &:first-child {
+            font-size: f.rem(25);
+            line-height: f.em(37.5, 25);
+        }
+
+        &:nth-child(5) {
+            grid-column: 2 span;
+        }
+    }
+}

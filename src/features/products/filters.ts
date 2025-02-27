@@ -97,3 +97,12 @@ export const searchProductFilter = (name: string) =>
       });
     }
   });
+
+export const findProductWithPromotionFilter = (promotion: string) =>
+  createSelector(products, (state) => {
+    return state.filter((item, _) => {
+      if (item.promotion === promotion) {
+        return item;
+      }
+    });
+  });

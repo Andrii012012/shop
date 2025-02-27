@@ -1,0 +1,49 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.body {
+    background-color: map.get($colors, 'white');
+    padding: f.rem(30) f.rem(30) f.rem(100) f.rem(30);
+    border-radius: f.rem(10);
+}
+
+.image {
+    width: 100%;
+    max-height: f.rem(340);
+    position: relative;
+    margin-bottom: f.rem(30);
+    color: map.get($colors, 'white');
+
+    img {
+        width: 100%;
+        max-height: f.rem(340);
+        object-fit: cover;
+        border-radius: f.rem(10);
+    }
+
+    >div {
+        position: absolute;
+        bottom: f.rem(30);
+        left: f.rem(50);
+    }
+}
+
+.button {
+    color: map.get($colors, 'green');
+    text-decoration: underline;
+}
+
+.content {
+    margin-bottom: f.rem(30);
+}
+
+.navigate{
+    margin-bottom: f.rem(50);
+}

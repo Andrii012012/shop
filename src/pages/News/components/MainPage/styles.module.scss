@@ -1,0 +1,63 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+
+.wrapper {
+    margin-bottom: f.rem(100);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.button {
+    display: block;
+    color: map.get($colors, 'green');
+    opacity: 0.5;
+    font-weight: 700;
+    align-self: center;
+    transition: 0.3s linear;
+    align-self: flex-end;
+
+    &:hover {
+        transition: 0.3s linear;
+        color: map.get($colors, 'deepGreen');
+        opacity: 1;
+        text-decoration: underline;
+    }
+}
+
+.swiperSlide {
+    display: flex;
+    height: initial;
+}
+
+.bullets {
+    width: 10px;
+    height: 10px;
+    background-color: map.get($colors, 'lightGreen');
+    border-radius: f.rem(10);
+    display: block;
+}
+
+.bulletsEl {
+    width: 100%;
+    display: flex;
+    gap: f.rem(27.5);
+    justify-content: center;
+    margin-top: f.rem(50);
+}
+
+.bulletsActive {
+    width: 25px;
+    height: 10px;
+    border-radius: f.rem(100);
+    background-color: map.get($colors, "forest");
+}

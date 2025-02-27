@@ -1,0 +1,10 @@
+@use "sass:map";
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.aboutCompany {
+    width: 100%;
+    padding: f.rem(10) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}

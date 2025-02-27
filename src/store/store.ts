@@ -7,12 +7,17 @@ import {
 } from "../features/products/products";
 import { IInitialBasket, ReducerBasket } from "../features/basket/basket";
 import { IInitialUser, ReducerUser } from "../features/user/user";
+import {
+  IInitialPromotion,
+  ReducerPromotion,
+} from "../features/promotion/promotion";
 
 interface IReducer {
   news: Reducer<IInitialNews>;
   products: Reducer<IInitialProducts>;
   basket: Reducer<IInitialBasket>;
   user: Reducer<IInitialUser>;
+  promotion: Reducer<IInitialPromotion>;
 }
 
 const reducer: IReducer = {
@@ -20,6 +25,7 @@ const reducer: IReducer = {
   products: ReducerProducts,
   basket: ReducerBasket,
   user: ReducerUser,
+  promotion: ReducerPromotion,
 };
 
 export const store = configureStore({

@@ -1,0 +1,76 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: f.rem(50);
+}
+
+.item {
+    transition: 0.3s linear;
+
+    &:hover {
+        transition: 0.3s linear;
+        box-shadow: 0px 4px 20px 0px #00000040;
+    }
+}
+
+.image {
+    max-width: f.rem(695);
+    width: 100%;
+
+    img {
+        @include m.adaptationImage();
+    }
+}
+
+.body {
+    background-color: map.get($colors, 'white');
+    padding: f.rem(20) f.rem(30) f.rem(10) f.rem(30);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    border-radius: 0 0 f.rem(10) f.rem(10);
+}
+
+.container {
+    h2:last-child {
+        color: map.get($colors, 'deepGreen');
+    }
+
+    h2:first-child {
+        font-weight: 700;
+        margin-bottom: f.rem(30);
+    }
+
+    max-width: f.rem(342);
+
+
+}
+
+.button {
+    @include m.button($padding: f.rem(22) f.rem(15) f.rem(22) f.rem(15),
+        $width: f.rem(159),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'lightGreen'),
+        $backgroundColor: map.get($colors, 'lightGreen'),
+        $color: map.get($colors, 'white'));
+    text-align: center;
+    font-weight: 700;
+    align-self: center;
+    transition: 0.3s linear;
+
+    &:hover {
+        transition: 0.3s linear;
+        background-color: map.get($colors, 'deepGreen');
+    }
+}

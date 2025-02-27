@@ -1,14 +1,14 @@
 import styles from './style.module.scss';
 import gStyles from '../../../../styles/styles.module.scss';
-import newsImage from '../../../../assets/images/news/news1.png';
 import { Link } from 'react-router-dom';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
+import ItemEvent from '../../../../containers/ItemEvent/ItemEvent';
 
 export default function News(): JSX.Element {
 
     let news = useAppSelector((state) => state.news.news);
 
-    if (news.length) {
+    if (news) {
         return (
             <section className={styles.wrapper}>
                 <div className={gStyles.container}>
@@ -17,19 +17,8 @@ export default function News(): JSX.Element {
                         <Link className={`${styles.button} ${gStyles.textBig}`} to='/'>Все новости</Link>
                     </div>
                     <ul className={styles.list}>
-                        {Array.from(Array(news[0], news[1])).map((item, _) => (
-                            <li key={item.title} className={styles.item}>
-                                <div className={styles.image}>
-                                    <img src={newsImage} alt="" />
-                                </div>
-                                <div className={styles.content}>
-                                    <h3 className={styles.titleNews}>{item.title}</h3>
-                                    <p className={`${styles.description} ${gStyles.textExtraMedium}`}>
-                                        {item.description}
-                                    </p>
-                                    <Link to='/' className={`${styles.buttonExtraInfo} ${gStyles.textBig}`}>Подробнее</Link>
-                                </div>
-                            </li>
+                        {new Array(news.sectionEvents[0], news.sectionEvents[1]).map((item, _) => (
+                            <ItemEvent title={item.title} description={item.description} to='/' className={styles.item} />
                         ))}
                     </ul>
                 </div>

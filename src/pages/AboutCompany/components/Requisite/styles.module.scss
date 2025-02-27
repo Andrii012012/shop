@@ -1,0 +1,100 @@
+@use "sass:map";
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.content {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+    padding: f.rem(40) f.rem(72) f.rem(100) f.rem(30);
+    font-size: f.rem(20);
+    line-height: f.em(35, 20);
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.aboutWork {
+    display: flex;
+}
+
+.textDetail {
+    span {
+        font-weight: 700;
+    }
+}
+
+.staff {
+    h3 {
+        font-weight: 700;
+    }
+
+    &:nth-child(3) {
+        margin-bottom: f.rem(50);
+    }
+}
+
+.requisiteSection {
+    margin-right: f.rem(20);
+    flex: 1 1 f.rem(498);
+}
+
+.subtitle {
+    font-weight: 700;
+    margin-bottom: f.rem(50);
+    font-size: f.rem(25);
+}
+
+.work {
+    h2 {
+        font-weight: 700;
+    }
+
+    margin-right: f.rem(50);
+}
+
+.hotline {
+    h3 {
+        font-weight: 700;
+        margin-bottom: f.rem(10);
+    }
+
+    p {
+        font-size: f.rem(35);
+        line-height: f.em(56, 35);
+    }
+}
+
+.titleSection {
+    font-weight: 700;
+    margin-bottom: f.rem(50);
+}
+
+.record {
+    margin-bottom: f.rem(50);
+    max-width: f.rem(498);
+}
+
+.linkLicenses {
+    color: map.get($colors, 'deepGreen');
+    text-decoration: underline;
+    margin-bottom: f.rem(50);
+    display: block;
+    font-weight: 700;
+}
+
+.number {
+    margin-bottom: f.rem(50);
+}

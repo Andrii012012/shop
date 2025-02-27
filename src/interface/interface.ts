@@ -14,6 +14,7 @@ export interface IBaseProduct {
   price: number;
   images: string[];
   discount: number | null;
+  promotion: string | null;
   hitProduct: number;
   shelfLife: string;
   comments: IComment[];
@@ -52,12 +53,18 @@ export interface IMedicalDrugs extends IBaseProduct {
   pharmacologicalAction: string;
 }
 
-export interface INews {
+export interface ISectionNews {
   title: string;
   description: string;
   images: string[];
   date: string;
-  detailedDescription: string;
+  detailedDescription?: string;
+}
+
+export interface INews {
+  sectionNews: ISectionNews[];
+  sectionEvents: ISectionNews[];
+  [key: string]: ISectionNews[];
 }
 
 export interface IBaseOptionsSlice {
@@ -129,4 +136,11 @@ export interface IUser {
   notification: INotification;
   likedProducts: IDefaultDisplayProduct[];
   [key: string]: any;
+}
+
+export interface IPromotion {
+  images: string[];
+  till: string;
+  title: string;
+  description: string;
 }
