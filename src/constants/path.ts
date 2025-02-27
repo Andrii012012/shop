@@ -30,9 +30,14 @@ export const enum ABOUT_COMPANY {
 }
 
 export const enum PROMOTION {
-  detailsPromotion = 'detailsPromotion',
+  detailsPromotion = "detailsPromotion",
 }
 
 export const enum NEWS {
-  detailsNews = 'detailsNews',
+  detailsNews = "detailsNews",
+}
+
+export const enum HOWTOMAKEORDER {
+  medicineWithoutPrescription = "Лекарственный препарат без рецепта",
+  medicineWithPrescription = "Лекарственный препарат по рецепту врача",
 }

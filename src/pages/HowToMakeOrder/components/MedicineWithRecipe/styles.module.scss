@@ -1,0 +1,106 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.wrapper {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    padding: f.rem(50) 0 f.rem(100) 0;
+
+    p {
+        max-width: f.rem(1203);
+    }
+}
+
+.sectionStepFirst {
+
+    p {
+        margin-bottom: f.rem(50);
+
+    }
+}
+
+.image {
+    width: 100%;
+
+    img {
+        @include m.adaptationImage();
+    }
+}
+
+.section {
+    margin-bottom: f.rem(100);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.sectionStepSecond {
+    p {
+        margin-bottom: f.rem(50);
+    }
+
+}
+
+.image {
+    width: 100%;
+
+    img {
+        @include m.adaptationImage();
+    }
+}
+
+.sectionStepThird {
+    h2 {
+        margin-bottom: f.rem(20);
+    }
+
+    p {
+        margin-bottom: f.rem(25);
+    }
+}
+
+.sectionStepFourth {
+    p {
+        margin-bottom: f.rem(30);
+    }
+
+    strong {
+        display: block;
+        margin-bottom: f.rem(30);
+    }
+
+
+    p:nth-child(3) {
+        margin-bottom: f.rem(50);
+    }
+}
+
+.sectionStepFiveth {
+    p {
+        margin-bottom: f.rem(50);
+
+        span {
+            font-weight: 700;
+        }
+    }
+}
+
+.sectionStepSixth {
+    p {
+        margin-bottom: f.rem(50);
+    }
+
+    .image {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            max-width: f.rem(600);
+            max-height: f.rem(674);
+        }
+    }
+}

@@ -3,6 +3,7 @@ import {
   PATH_ACCOUNT,
   PATH_DELIVERY,
   PATH_FEEDBACK,
+  PATH_HOW_TO_MAKE_ORDER,
   PATH_NEWS,
   PATH_PAYMENT_BOOKING,
   PATH_POLITICS,
@@ -17,7 +18,7 @@ export const MENU_LIST: IMenuList = {
   ],
   company: [{ name: "Реквизиты", to: "/" }],
   help: [
-    { name: "Как сделать заказ", to: "/" },
+    { name: "Как сделать заказ", to: PATH_HOW_TO_MAKE_ORDER },
     { name: "Оплата и бронирование", to: PATH_PAYMENT_BOOKING },
     { name: "Доставка", to: PATH_DELIVERY },
     { name: "Политика конфиденциальности", to: PATH_POLITICS },
