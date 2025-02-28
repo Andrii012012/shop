@@ -49,7 +49,7 @@ export default function DeliveryMethod(props: IProps): JSX.Element {
                         price={state.totalPrice}
                         className={styles.panel}
                         products={products}
-                        isDelivery={true}
+                        isDelivery={state.deliveryMethod === 'Доставка курьером' ? true : false}
                         deliveryPrice={state.deliveryPrice}
                         deliveryMethod={state.deliveryMethod}
                         footer={() => {

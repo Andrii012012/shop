@@ -26,6 +26,7 @@ export default function Liked(): JSX.Element {
                                 isRecipe={item.isRecipe}
                                 isDelivery={item.isDelivery}
                                 countryOrigin={item.countryOrigin}
+                                weight={item.weight}
                             />
                         </li>
                     ))}

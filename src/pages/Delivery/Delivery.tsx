@@ -1,6 +1,7 @@
 import styles from './styles.module.scss';
 import gStyles from '../../styles/styles.module.scss';
 import Navigate from '../../components/Navigate/Navigate';
+import { DELIVERY } from '../../constants/product';
 
 export default function Delivery(): JSX.Element {
     return (
@@ -18,8 +19,8 @@ export default function Delivery(): JSX.Element {
                             <span>Вес заказа свыше 2 кг</span>
                         </div>
                         <div>
-                            <span>180 грн.</span>
-                            <span>250 грн.</span>
+                            <span>{DELIVERY.priceUpToTwoKg} грн.</span>
+                            <span>{DELIVERY.priceOverTwoKg} грн.</span>
                         </div>
                         <div>
                             <span>9:00 - 21:00</span>

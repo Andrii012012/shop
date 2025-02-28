@@ -21,17 +21,20 @@ interface IProps {
     isSelectAllProduct: boolean;
     count: number;
     handleRemoveProduct: (productId: string[]) => void;
+    weight: number;
 };
 
 export default function ItemProduct(props: IProps): JSX.Element {
 
-    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id, count, handleRemoveProduct } = props;
+    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id, count, handleRemoveProduct, weight } = props;
 
     const [counter, setCounter] = useState<number>(count);
 
     const [totalPrice, setTotalPrice] = useState(price * counter);
 
     const dispatch = useAppDispatch();
+
+    const pattern = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter, weight };
 
     function handlePutProduct(product: ISelectedProduct) {
         setState((prevState) => {
@@ -54,7 +57,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
     }
 
     useEffect(() => {
-        const product = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter };
+        const product = pattern;
         setState((prevState) => {
             const newState = { ...prevState };
             if (isSelectAllProduct) {
@@ -100,7 +103,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
     return (
         <li className={styles.item}>
             <div className={styles.bodyProduct}>
-                <div onClick={() => handlePutProduct({ id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter })}>
+                <div onClick={() => handlePutProduct(pattern)}>
                     <Checkbox className={styles.checkboxSelectProduct} valueCheckbox={checkProduct()} />
                 </div>
                 <div className={styles.imageProduct}>
