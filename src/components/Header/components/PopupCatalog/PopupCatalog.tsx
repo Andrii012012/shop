@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import styles from "./styles.module.scss";
+import gStyles from '../../../../styles/styles.module.scss';
 import PopupCatalogItem from "../PopupCatalogItem/PopupCatalogItem";
 import BurgerIcon from "/src/assets/images/header/burgerIcon.svg?react";
 import { CatalogItem } from "../../interfaces/catalogItem";
@@ -63,10 +64,11 @@ function PopupCatalog(props: IProps) {
   return (
     <div className={styles.wrapper}>
       <button
-        className={styles.burgerMenuButton}
+        className={`${styles.burgerMenuButton} ${isOpenСatalog ? styles.active : ""}`}
         onClick={handleClickBurgerButton}
       >
-        <BurgerIcon className={styles.icon} style={{ fill: isOpenСatalog ? "#30B856" : undefined }} />
+        <BurgerIcon className={styles.icon} />
+        <p className={gStyles.textBig}>Интернет-магазин</p>
       </button>
 
       {isOpenСatalog ? (

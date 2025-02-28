@@ -2,8 +2,8 @@ import styles from "./styles.module.scss";
 import HeartIcon from "../../../../assets/images/header/heartIcon.svg?react";
 import TrashIcon from "../../../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../../../assets/images/header/userIcon.svg?react";
-import { Link } from "react-router-dom";
-import { PATH_BASKET, PATH_LIKED } from "../../../../routes/routes";
+import { NavLink } from "react-router-dom";
+import { PATH_ACCOUNT, PATH_BASKET, PATH_LIKED } from "../../../../routes/routes";
 import { useAppSelector } from "../../../../hooks/useAppSelector";
 import { useAppDispatch } from "../../../../hooks/useAppDispatch";
 import { LogoutUser } from "../../../../features/user/user";
@@ -23,27 +23,27 @@ function NavigateMenuUser(props: IProps): JSX.Element {
   return (
     <ul className={styles.headerActions}>
       <li className={styles.headerActionFavorites}>
-        <Link to={PATH_LIKED} className={styles.headerActionFavoritesLink}>
+        <NavLink to={PATH_LIKED} className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
           <HeartIcon />
           Избранное
-        </Link>
+        </NavLink>
       </li>
       <li className={styles.headerActionFavorites}>
-        <Link to={PATH_BASKET} className={styles.headerActionFavoritesLink}>
+        <NavLink to={PATH_BASKET} className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
           <TrashIcon />
           Корзина
-        </Link>
+        </NavLink>
       </li>
       {!dataUser ? <li onClick={() => setModalLogin(true)} className={styles.headerActionFavorites}>
-        <Link to="" className={styles.headerActionFavoritesLink}>
+        <NavLink to="" className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
           <UserIcon />
           Войти
-        </Link>
+        </NavLink>
       </li> : <li onClick={() => dispatch(LogoutUser())} className={styles.headerActionFavorites}>
-        <Link to="" className={styles.headerActionFavoritesLink}>
+        <NavLink to={PATH_ACCOUNT} className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
           <UserIcon />
           Выйти
-        </Link>
+        </NavLink>
       </li>}
 
     </ul>

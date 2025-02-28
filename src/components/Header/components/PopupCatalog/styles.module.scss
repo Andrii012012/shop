@@ -11,12 +11,24 @@
 }
 
 .burgerMenuButton {
-  display: grid;
+  display: flex;
   place-content: center;
   background: none;
+  font-weight: 700;
+  color: map.get($colors, 'white');
 
   svg {
-    fill: #fff;
+    display: block;
+    fill: map.get($colors, 'white');
+    margin-right: f.rem(52);
+  }
+}
+
+.active {
+  color: map.get($colors, 'lightGreen');
+
+  svg {
+    fill: map.get($colors, 'lightGreen');
   }
 }
 
