@@ -15,11 +15,12 @@ interface IProps {
     isRecipe: boolean;
     isDelivery: boolean;
     countryOrigin: string;
+    weight?: number;
 }
 
 export default function Card(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, weight } = props;
 
     const [counter, setCounter] = useState<number>(1);
 
@@ -63,6 +64,7 @@ export default function Card(props: IProps): JSX.Element {
                 countryOrigin={countryOrigin}
                 counter={counter}
                 setCounter={setCounter}
+                weight={weight}
             />
             <div className={styles.wrrapperDelivery}>
                 <h4 className={`${styles.delivery} ${gStyles.textBig}`}>{isDelivery ? <span className={styles.deliveryGreen}>Доступна доставка</span> : <span className={styles.deliveryRed}>Доставка запрещена</span>}</h4>

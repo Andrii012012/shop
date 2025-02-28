@@ -44,7 +44,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                     {!isRecipeProduct ? <Form handleChangeField={handleChangeField} setIsFurth={setIsFurth} />
                         : <Order payment={payment} products={products} deliveryMethod={deliveryMethod} address={address} />}
                     <PanelProduct
-                        price={totalPrice}
+                        price={totalPrice + deliveryPrice}
                         className={styles.panel}
                         products={products}
                         deliveryMethod={deliveryMethod}
@@ -64,7 +64,7 @@ export default function Confirmation(props: IProps): JSX.Element {
                     />
                 </div>
             </div>
-            <Portal setIsOpen={setIsOpenPortal} isOpen={isOpenPortal}><Purchase clearSelectedProducts={clearSelectedProducts} deliveryPrice={deliveryPrice} price={totalPrice} handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
+            <Portal setIsOpen={setIsOpenPortal} isOpen={isOpenPortal}><Purchase clearSelectedProducts={clearSelectedProducts} deliveryPrice={deliveryPrice} price={totalPrice + deliveryPrice} handleClosePortal={handleClosePortal} address={address} products={products} deliveryMethod={deliveryMethod} /></Portal>
         </section>
     );
 }

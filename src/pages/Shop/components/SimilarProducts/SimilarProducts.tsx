@@ -30,6 +30,7 @@ export default function SimilarProducts(props: IProps): JSX.Element {
                             isRecipe={item.isRecipe}
                             isDelivery={item.isDelivery}
                             countryOrigin={item.countryOrigin}
+                            weight={item.weight}
                         />
                     </SwiperSlide>
                 ))}

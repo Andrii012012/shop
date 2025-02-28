@@ -13,6 +13,7 @@ import Confirmation from './components/Confirmation/Confirmation';
 import { BASKET_SECTIONS } from '../../constants/path';
 import { useAppDispatch } from '../../hooks/useAppDispatch';
 import { removeProduct } from '../../features/basket/basket';
+import { DELIVERY } from '../../constants/product';
 
 export default function Basket(): JSX.Element {
 
@@ -31,7 +32,7 @@ export default function Basket(): JSX.Element {
         deliveryMethod: "Доставка курьером",
         priceProducts: 0,
         totalPrice: 0,
-        deliveryPrice: 180,
+        deliveryPrice: 0,
     });
 
     const [field, setField] = useState<IFields>({
@@ -56,6 +57,15 @@ export default function Basket(): JSX.Element {
 
     useEffect(() => {
         setIsRecipeProduct(checkElementForRecipe());
+        setState((prevState) => {
+            const newState = { ...prevState };
+            const numbers = newState.selectedProducts.map((item, _) => item.weight);
+            const isOver = Math.floor((numbers.reduce((acc, item, _) => {
+                return acc += item;
+            }, 0) / DELIVERY.limitUpToKg));
+            newState.deliveryPrice = isOver ? DELIVERY.priceOverTwoKg : DELIVERY.priceUpToTwoKg;
+            return newState;
+        })
     }, [state.selectedProducts.length, state.selectedProducts]);
 
     function handleChangeField(value: string, key: string): void {

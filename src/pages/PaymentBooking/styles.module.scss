@@ -1,0 +1,68 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.delivery {
+    padding: f.rem(10) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.body {
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+    width: 100%;
+    padding: f.rem(50) f.rem(30) f.rem(100) f.rem(30);
+    margin-bottom: f.rem(50);
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.bodyOnlineCard {
+    p {
+        margin-bottom: f.rem(30);
+        max-width: f.rem(1203);
+    }
+
+    p:nth-child(4) {
+        margin-bottom: f.rem(50);
+    }
+}
+
+.bodyCard {
+    display: flex;
+    gap: f.rem(15);
+    align-items: center;
+}
+
+.bodyCash {
+    p {
+        margin-bottom: f.rem(30);
+        max-width: f.rem(1203);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.bodyBooking {
+    p {
+        margin-bottom: f.rem(30);
+        max-width: f.rem(1203);
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}

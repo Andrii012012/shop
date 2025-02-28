@@ -14,11 +14,12 @@ interface IProps {
     countryOrigin: string;
     counter: number;
     setCounter: React.Dispatch<React.SetStateAction<number>>;
+    weight?: number;
 }
 
 export default function CounterCard(props: IProps): JSX.Element {
 
-    const { name, manufacturer, countryOrigin, price, isRecipe, setCounter, counter } = props;
+    const { name, manufacturer, countryOrigin, price, isRecipe, setCounter, counter, weight } = props;
 
     const uniqueId = useId();
 
@@ -31,7 +32,7 @@ export default function CounterCard(props: IProps): JSX.Element {
     return (
         <div className={styles.buttonBody}>
             <Counter value={counter} setValue={setCounter} />
-            <button onClick={() => handlePutProduct({ id: uniqueId, name, manufacturer, countryOrigin, isRecipe, image: "", price, count: counter })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
+            <button onClick={() => handlePutProduct({ id: uniqueId, name, manufacturer, countryOrigin, isRecipe, image: "", price, count: counter, weight: weight || 0 })} className={`${styles.button} ${gStyles.textMedium}`}>В корзину</button>
         </div>
     );
 }

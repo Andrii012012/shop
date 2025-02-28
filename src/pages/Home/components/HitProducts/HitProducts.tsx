@@ -24,6 +24,7 @@ export default function HitProducts(): JSX.Element {
                             isRecipe={item.isRecipe}
                             isDelivery={item.isDelivery}
                             countryOrigin={item.countryOrigin}
+                            weight={item.weight}
                         />
                     </SwiperSlide>
                 ))}

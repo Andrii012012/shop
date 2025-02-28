@@ -1,0 +1,83 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.feedback {
+    padding: f.rem(10) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.content {
+    width: 100%;
+    max-width: f.rem(705);
+    margin-right: f.rem(20);
+    background-color: map.get($colors, 'white');
+    padding: f.rem(50) f.rem(30) f.rem(182) f.rem(30);
+    border-radius: f.rem(10);
+
+    p:nth-child(2) {
+        max-width: f.rem(559);
+        margin-bottom: f.rem(30);
+    }
+
+    p:nth-child(3) {
+        color: map.get($colors, 'green');
+        font-weight: 700;
+        max-width: f.rem(559);
+    }
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.form {
+    width: 100%;
+    max-width: f.rem(645);
+}
+
+.input {
+    @include m.input($padding: f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        $width: 100%,
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'white'),
+        $backgroundColor: map.get($colors, 'white'),
+        $color: map.get($colors, 'middleGray'));
+}
+
+.body {
+    display: flex;
+    gap: f.rem(20);
+    margin-bottom: f.rem(20);
+}
+
+.button {
+    @include m.button($padding: f.rem(22) f.rem(22) f.rem(22) f.rem(22),
+        $width: f.rem(205),
+        $borderRadius: f.rem(10),
+        $border: 0px solid map.get($colors, 'deepGreen'),
+        $backgroundColor: map.get($colors, 'deepGreen'),
+        $color: map.get($colors, 'white'));
+    font-weight: 700;
+}
+
+.question {
+    min-height: f.rem(216);
+    margin-bottom: f.rem(20);
+    resize: none;
+}
+
+.bodyButton {
+    display: flex;
+    justify-content: flex-end;
+}

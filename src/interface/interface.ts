@@ -18,6 +18,7 @@ export interface IBaseProduct {
   hitProduct: number;
   shelfLife: string;
   comments: IComment[];
+  weight?: number;
   [key: string]: any;
 }
 
@@ -31,6 +32,7 @@ export interface IDefaultDisplayProduct {
   isRecipe: boolean;
   isDelivery: boolean;
   countryOrigin: string;
+  weight?: number;
 }
 
 export interface IRelease {
@@ -81,6 +83,7 @@ export interface IBasketProduct {
   countryOrigin: string;
   manufacturer: string;
   count: number;
+  weight: number;
 }
 
 export type TSex = "мужчина" | "женщина" | "";
@@ -143,4 +146,9 @@ export interface IPromotion {
   till: string;
   title: string;
   description: string;
+}
+
+export interface IPolitics {
+  title: string;
+  description: string | null;
 }

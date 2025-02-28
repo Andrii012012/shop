@@ -1,0 +1,41 @@
+@use 'sass:map';
+@use '../../utils/styles/functions.scss' as f;
+@use '../../utils/styles/mixin.scss' as m;
+@import '../../utils/styles/colors.scss';
+
+.politics {
+    padding: f.rem(10) 0 f.rem(100) 0;
+    background-color: map.get($colors, "grayWhite");
+}
+
+.navigate {
+    margin-bottom: f.rem(50);
+}
+
+.content {
+    width: 100%;
+    background-color: map.get($colors, 'white');
+    border-radius: f.rem(10);
+    padding: f.rem(50) f.rem(30);
+}
+
+.item {
+    margin-bottom: f.rem(30);
+    font-weight: 400;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.button {
+    color: map.get($colors, 'green');
+    font-weight: 700;
+    background-color: transparent;
+    opacity: 0.5;
+    margin-top: f.rem(50);
+}

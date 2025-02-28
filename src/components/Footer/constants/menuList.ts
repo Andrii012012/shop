@@ -1,21 +1,28 @@
 import { ACCOUNT_SECTIONS, CATALOG_PRODUCT } from "../../../constants/path";
-import { PATH_ACCOUNT } from "../../../routes/routes";
+import {
+  PATH_ACCOUNT,
+  PATH_DELIVERY,
+  PATH_FEEDBACK,
+  PATH_HOW_TO_MAKE_ORDER,
+  PATH_NEWS,
+  PATH_PAYMENT_BOOKING,
+  PATH_POLITICS,
+  PATH_PROMOTION,
+} from "../../../routes/routes";
 import { IMenuList } from "../type";
 
 export const MENU_LIST: IMenuList = {
   main: [
-    { name: "Акция", to: "/" },
-    { name: "Новости", to: "/" },
+    { name: "Акция", to: PATH_PROMOTION },
+    { name: "Новости", to: PATH_NEWS },
   ],
   company: [{ name: "Реквизиты", to: "/" }],
   help: [
-    { name: "Как сделать заказ", to: "/" },
-    { name: "Оплата и бронирование", to: "/" },
-    { name: "Доставка", to: "/" },
-    { name: "Политика конфиденциальности", to: "/" },
-    { name: "Разрешительная документация", to: "/" },
-    { name: "Условия дистанционной продажи", to: "/" },
-    { name: "Обратная связь", to: "/" },
+    { name: "Как сделать заказ", to: PATH_HOW_TO_MAKE_ORDER },
+    { name: "Оплата и бронирование", to: PATH_PAYMENT_BOOKING },
+    { name: "Доставка", to: PATH_DELIVERY },
+    { name: "Политика конфиденциальности", to: PATH_POLITICS },
+    { name: "Обратная связь", to: PATH_FEEDBACK },
   ],
   catalog: [
     { name: "Лекарственные препараты", to: CATALOG_PRODUCT.medicines },

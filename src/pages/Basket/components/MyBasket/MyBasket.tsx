@@ -66,6 +66,7 @@ export default function MyBasket(props: IProps): JSX.Element {
                                     state={state}
                                     isSelectAllProduct={isSelectAllProduct}
                                     handleRemoveProduct={handleRemoveProduct}
+                                    weight={item.weight}
                                 />
                             ))}
                         </ul>
