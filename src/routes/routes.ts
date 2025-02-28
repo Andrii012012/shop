@@ -7,4 +7,3 @@ export const PATH_LIKED = "/liked";
 export const PATH_ABOUT_COMPANY = "/aboutCompany";
 export const PATH_PROMOTION = "/promotion";
 export const PATH_NEWS = "/news";
-export const PATH_CARD_PRODUCT = "cardProduct";

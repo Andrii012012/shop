@@ -6,7 +6,7 @@ import { CatalogItem } from "./interfaces/catalogItem";
 import SearchBar from "./components/SearchBar/SearchBar";
 import AboutShop from "./components/AboutShop/AboutShop";
 import { Link } from "react-router-dom";
-import Logo from "../../assets/images/header/WebsiteLogo.svg?react";
+import Logo from '../../assets/images/header/WebsiteLogo.svg?react';
 import { catalogList } from "./constants/catalogList";
 import NavigateMenu from "./components/NavigateMenu/NavigateMenu";
 import NavigateMenuUser from "./components/NavigateMenuUser/NavigateMenuUser";
@@ -23,7 +23,7 @@ function Header() {
         <div className={styles.headerInner}>
           <AboutShop />
           <div className={styles.body}>
-            <Link className={styles.headerWebsiteLogo} to="/">
+            <Link className={styles.headerWebsiteLogo} to='/'>
               <Logo />
             </Link>
             <SearchBar className={styles.searchBar} />
@@ -39,7 +39,7 @@ function Header() {
         </Portal>
       </div>
     </header>
-  );
+  )
 }
 
 export default Header;
