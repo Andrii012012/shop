@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": 0,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -519,6 +519,72 @@
     }
   },
   {
+    "id": 1,
+    "name": "Вольтарен эмуногель 1%",
+    "manufacturer": "NOVARTIS PHARMA",
+    "price": 425,
+    "images": ["productImage.png"],
+    "discount": null,
+    "hitProduct": 3,
+    "shelfLife": "3 года",
+    "activeIngredient": "диклофенак",
+    "countryOrigin": "Япония",
+    "comments": [
+      {
+        "name": "Елена",
+        "surname": "И.",
+        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOxEJ8dX10uG6ftfE1ZZg8QmP_l7zmjneOBQ&s",
+        "marks": 4,
+        "description": "очень хороший товар"
+      }
+    ],
+    "season": "all",
+    "release": [
+      {
+        "name": "Ампулы / Растворы для инъекций",
+        "icon": "",
+        "dosage": [1, 2],
+        "packing": [20, 50, 75, 100, 150]
+      },
+      {
+        "name": "Суппозитории",
+        "icon": "",
+        "dosage": [2, 3],
+        "packing": [20, 50, 75, 100]
+      },
+      {
+        "name": "Пластырь",
+        "icon": "",
+        "dosage": [3, 4],
+        "packing": [20, 50, 75]
+      },
+      {
+        "name": "Гель / Туба",
+        "icon": "",
+        "dosage": [1, 2],
+        "packing": [20, 50, 75, 100, 150]
+      },
+      {
+        "name": "Таблетки",
+        "icon": "",
+        "dosage": [4, 5],
+        "packing": [20, 50]
+      }
+    ],
+    "cures": [
+      "Боли в спине при воспалительных  и дегенеративных заболеваниях позвоночника",
+      "Боли в суставах  (в. ч  суставы пальцев рук, коленей)",
+      "Боли в мышцах  (в следствии растяжений. перенапряжений,  ушибов, травм)",
+      "Воспаление и отечность мягкий тканей и суставов в следствии травм  и при ревматических заболеваний"
+    ],
+    "isDelivery": true,
+    "isRecipe": false,
+    "storageConditions": "препарат следует хранить в недоступном для детей месте при температуре не выше 30 С",
+    "instructionsUse": "",
+    "indicationsUse": "",
+    "pharmacologicalAction": ""
+  },
+  {
     "id": 2,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
@@ -585,6 +651,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 3,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -650,6 +717,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 4,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -715,6 +783,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 5,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -780,6 +849,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 6,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -845,6 +915,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 7,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -910,6 +981,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 8,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -975,6 +1047,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 9,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 425,
@@ -1040,72 +1113,8 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 10,
     "name": "Вольтарен эмуногель 1%",
-    "manufacturer": "NOVARTIS PHARMA",
-    "price": 425,
-    "images": ["productImage.png"],
-    "discount": null,
-    "hitProduct": 3,
-    "shelfLife": "3 года",
-    "activeIngredient": "диклофенак",
-    "countryOrigin": "Япония",
-    "comments": [
-      {
-        "name": "Елена",
-        "surname": "И.",
-        "avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOxEJ8dX10uG6ftfE1ZZg8QmP_l7zmjneOBQ&s",
-        "marks": 4,
-        "description": "очень хороший товар"
-      }
-    ],
-    "season": "all",
-    "release": [
-      {
-        "name": "Ампулы / Растворы для инъекций",
-        "icon": "",
-        "dosage": [1, 2],
-        "packing": [20, 50, 75, 100, 150]
-      },
-      {
-        "name": "Суппозитории",
-        "icon": "",
-        "dosage": [2, 3],
-        "packing": [20, 50, 75, 100]
-      },
-      {
-        "name": "Пластырь",
-        "icon": "",
-        "dosage": [3, 4],
-        "packing": [20, 50, 75]
-      },
-      {
-        "name": "Гель / Туба",
-        "icon": "",
-        "dosage": [1, 2],
-        "packing": [20, 50, 75, 100, 150]
-      },
-      {
-        "name": "Таблетки",
-        "icon": "",
-        "dosage": [4, 5],
-        "packing": [20, 50]
-      }
-    ],
-    "cures": [
-      "Боли в спине при воспалительных  и дегенеративных заболеваниях позвоночника",
-      "Боли в суставах  (в. ч  суставы пальцев рук, коленей)",
-      "Боли в мышцах  (в следствии растяжений. перенапряжений,  ушибов, травм)",
-      "Воспаление и отечность мягкий тканей и суставов в следствии травм  и при ревматических заболеваний"
-    ],
-    "isDelivery": true,
-    "isRecipe": false,
-    "storageConditions": "препарат следует хранить в недоступном для детей месте при температуре не выше 30 С",
-    "instructionsUse": "",
-    "indicationsUse": "",
-    "pharmacologicalAction": ""
-  },
-  {
-    "name": "Польтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 125,
     "images": ["productImage.png"],
@@ -1170,6 +1179,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 11,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 25,
@@ -1235,6 +1245,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 12,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 225,
@@ -1300,6 +1311,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 13,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 325,
@@ -1365,6 +1377,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 14,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 625,
@@ -1430,6 +1443,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 15,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1495,6 +1509,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 16,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1560,6 +1575,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 17,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1625,6 +1641,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 18,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1690,6 +1707,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 19,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1755,6 +1773,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 20,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1820,6 +1839,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 21,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1885,6 +1905,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 22,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -1950,6 +1971,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 23,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2015,6 +2037,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 24,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2080,6 +2103,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 25,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2145,6 +2169,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 26,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2210,6 +2235,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 27,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2275,6 +2301,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 28,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2340,6 +2367,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 29,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2405,6 +2433,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 30,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2470,6 +2499,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 31,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2535,6 +2565,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 32,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2600,6 +2631,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 33,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2665,6 +2697,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 34,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2730,6 +2763,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 35,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2795,6 +2829,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 36,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2860,6 +2895,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 37,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2925,6 +2961,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 38,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -2990,6 +3027,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 39,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3055,6 +3093,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 40,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3120,6 +3159,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 41,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3185,6 +3225,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 42,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3250,6 +3291,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 43,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3315,6 +3357,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 44,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3380,6 +3423,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 45,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3445,6 +3489,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 46,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3510,6 +3555,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 47,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3575,6 +3621,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 48,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3640,6 +3687,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 49,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3705,6 +3753,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 50,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
@@ -3770,6 +3819,7 @@
     "pharmacologicalAction": ""
   },
   {
+    "id": 51,
     "name": "Вольтарен эмуногель 1%",
     "manufacturer": "NOVARTIS PHARMA",
     "price": 925,
