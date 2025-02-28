@@ -1,0 +1,73 @@
+@use "../../../../utils/styles/functions.scss" as f;
+@import "../../../../utils/styles/colors.scss";
+
+.cardProductInstruction {
+  background-color: map-get($colors, "white");
+  padding: 50px 0px 100px;
+  color: map-get($colors, "darkGray");
+}
+
+.cardProductInstructionMain {
+  .instructionTitle {
+    font-weight: 700;
+    font-size: f.rem(35);
+    margin-bottom: f.rem(20);
+  }
+
+  .instructionParagraphBlock {
+    margin-bottom: f.rem(30);
+
+    &:last-child {
+      margin-bottom: f.rem(0);
+    }
+
+    .instructionParagraph {
+      font-weight: 500;
+      font-size: f.rem(16);
+      line-height: 169%;
+
+      .instructionParagraphTitle {
+        font-weight: 700;
+      }
+    }
+  }
+
+  .instructionTable {
+    width: f.rem(880);
+    border-collapse: collapse;
+    border-radius: f.rem(10);
+    border-style: hidden;
+    overflow: hidden;
+    box-shadow: 0 0 0 2px map-get($colors, "lightGray");
+
+    font-size: f.rem(18);
+    margin-bottom: f.rem(50);
+    margin-left: f.rem(2);
+
+    .instructionTableHeader {
+      background-color: map-get($colors, "grayWhite");
+    }
+    .instructionTableHeader,
+    .instructionTableBody {
+      height: f.rem(65);
+    }
+
+    .instructionTableRow {
+    }
+
+    .instructionTableColumn {
+      text-align: center;
+
+      &:last-child {
+        width: f.rem(160);
+      }
+
+      border: 2px solid map-get($colors, "lightGray");
+
+      &:first-child {
+        text-align-last: left;
+        padding-left: f.rem(30);
+      }
+    }
+  }
+}

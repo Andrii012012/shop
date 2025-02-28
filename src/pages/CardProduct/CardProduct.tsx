@@ -8,9 +8,9 @@ import { useAppSelector } from "../../hooks/useAppSelector";
 import { IBaseProduct } from "../../interface/interface";
 
 import CardProductDescription from "./components/CardProductDescription/CardProductDescription";
-import CardProductInstruction from "./components/CardProductInstruction";
-import CardProductUsage from "./components/CardProductUsage";
-import CardProductPharmacologic from "./components/CardProductPharmacologic";
+import CardProductInstruction from "./components//CardProductInstruction/CardProductInstruction";
+import CardProductUsage from "./components/CardProductUsage/CardProductUsage";
+import CardProductPharmacologic from "./components/CardProductPharmacologic/CardProductPharmacologic";
 import { useFetch } from "../../hooks/useFetch";
 import { useEffect } from "react";
 
@@ -78,9 +78,18 @@ function CardProduct() {
           path={`description`}
           element={<CardProductDescription products={products} data={data} />}
         />
-        <Route path={`instruction`} element={<CardProductInstruction />} />
-        <Route path={`usage`} element={<CardProductUsage />} />
-        <Route path={`pharmocologic`} element={<CardProductPharmacologic />} />
+        <Route
+          path={`instruction`}
+          element={<CardProductInstruction product={products[0]} />}
+        />
+        <Route
+          path={`usage`}
+          element={<CardProductUsage product={products[0]} />}
+        />
+        <Route
+          path={`pharmocologic`}
+          element={<CardProductPharmacologic product={products[0]} />}
+        />
       </Routes>
     </div>
   );

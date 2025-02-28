@@ -13,7 +13,7 @@ import { useState } from "react";
 import Button from "../../../../components/ui/Button/Button";
 import { Link } from "react-router-dom";
 
-interface CProps {
+interface PProps {
   product: IBaseProduct;
 }
 
