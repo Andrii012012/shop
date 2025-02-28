@@ -12,6 +12,7 @@ import NavigateMenu from "./components/NavigateMenu/NavigateMenu";
 import NavigateMenuUser from "./components/NavigateMenuUser/NavigateMenuUser";
 import Portal from "../../containers/Portal/Portal";
 import PortalLoginRegister from "./components/PortalLoginRegister/PortalLoginRegister";
+import { PATH_HOME } from "../../routes/routes";
 
 function Header() {
   const [modals, setModals] = useState<CatalogItem[]>(catalogList);
@@ -23,7 +24,7 @@ function Header() {
         <div className={styles.headerInner}>
           <AboutShop />
           <div className={styles.body}>
-            <Link className={styles.headerWebsiteLogo} to='/'>
+            <Link className={styles.headerWebsiteLogo} to={PATH_HOME}>
               <Logo />
             </Link>
             <SearchBar className={styles.searchBar} />

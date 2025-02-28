@@ -202,10 +202,6 @@ export const NAVIGATE_ITEMS: {
   name: string;
 }[] = [
     {
-      to: PATH_SHOP,
-      name: "Интернет-магазин",
-    },
-    {
       to: PATH_HOME,
       name: "Главная",
     },
