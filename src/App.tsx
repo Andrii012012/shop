@@ -4,6 +4,7 @@ import {
   PATH_ABOUT_COMPANY,
   PATH_ACCOUNT,
   PATH_BASKET,
+  PATH_CARD_PRODUCT,
   PATH_CATALOG,
   PATH_DELIVERY,
   PATH_FEEDBACK,
@@ -14,7 +15,7 @@ import {
   PATH_PAYMENT_BOOKING,
   PATH_POLITICS,
   PATH_PROMOTION,
-  PATH_SHOP
+  PATH_SHOP,
 } from "./routes/routes";
 import { useEffect } from "react";
 import { getNewsThunk } from "./features/news/news";
@@ -35,9 +36,9 @@ import Politics from "./pages/Politics/Politics";
 import Delivery from "./pages/Delivery/Delivery";
 import PaymentBooking from "./pages/PaymentBooking/PaymentBooking";
 import HowToMakeOrder from "./pages/HowToMakeOrder/HowToMakeOrder";
+import CardProduct from "./pages/CardProduct/CardProduct";
 
 function App() {
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -62,7 +63,11 @@ function App() {
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
         <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
         <Route path={`${PATH_PAYMENT_BOOKING}`} element={<PaymentBooking />} />
-        <Route path={`${PATH_HOW_TO_MAKE_ORDER}/*`} element={<HowToMakeOrder/>} />
+        <Route
+          path={`${PATH_HOW_TO_MAKE_ORDER}/*`}
+          element={<HowToMakeOrder />}
+        />
+        <Route path={`${PATH_CARD_PRODUCT}/*`} element={<CardProduct />} />
       </Routes>
     </Layout>
   );
