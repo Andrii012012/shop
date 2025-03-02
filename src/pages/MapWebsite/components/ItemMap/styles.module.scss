@@ -1,0 +1,51 @@
+@use 'sass:map';
+@use '../../../../utils/styles/functions.scss' as f;
+@use '../../../../utils/styles/mixin.scss' as m;
+@import '../../../../utils/styles/colors.scss';
+
+.title {
+    margin-bottom: f.rem(20);
+}
+
+.item {
+    margin-bottom: f.rem(20);
+    cursor: pointer;
+
+    a {
+        display: block;
+        color: map.get($colors, 'darkGray');
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.sectionName {
+    margin-bottom: f.rem(20);
+    padding-left: f.rem(20);
+}
+
+.activeSectionMain {
+    color: map.get($colors, 'green');
+    font-weight: 700;
+    position: relative;
+    padding: 0 0 0 f.rem(20);
+
+    &::before {
+        content: "";
+        display: block;
+        width: 7px;
+        height: 7px;
+        background-color: map.get($colors, 'green');
+        border-radius: 50%;
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0, -50%);
+    }
+}
+
+.activeSection {
+    font-weight: 600;
+}

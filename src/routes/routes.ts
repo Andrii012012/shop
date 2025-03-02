@@ -12,3 +12,4 @@ export const PATH_POLITICS = '/politics';
 export const PATH_DELIVERY = '/delivery';
 export const PATH_PAYMENT_BOOKING= '/paymentBooking';
 export const PATH_HOW_TO_MAKE_ORDER = '/howToMakeOrder';
+export const PATH_MAP_WEBSITE= '/mapWebsite';

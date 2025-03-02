@@ -152,3 +152,10 @@ export interface IPolitics {
   title: string;
   description: string | null;
 }
+
+export interface IMapWebsite {
+  sectionMain?: string;
+  section?: string;
+  to?: string;
+  children: IMapWebsite[] | null;
+}
