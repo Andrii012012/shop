@@ -12,27 +12,23 @@ export interface IBaseProduct {
   name: string;
   manufacturer: string;
   price: number;
-  images: string[];
+  images?: string[];
   discount: number | null;
-  promotion: string | null;
-  hitProduct: number;
-  shelfLife: string;
-  comments: IComment[];
+  promotion?: string | null;
+  hitProduct?: number;
+  shelfLife?: string;
+  comments?: IComment[];
   weight?: number;
+  isStock: boolean;
   [key: string]: any;
 }
 
-export interface IDefaultDisplayProduct {
-  isStock: boolean;
-  name: string;
-  manufacturer: string;
+export interface IDefaultDisplayProduct extends IBaseProduct {
   volume: number;
   release: string;
-  price: number;
   isRecipe: boolean;
   isDelivery: boolean;
   countryOrigin: string;
-  weight?: number;
 }
 
 export interface IRelease {

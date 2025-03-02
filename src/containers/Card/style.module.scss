@@ -12,6 +12,9 @@
     border-radius: f.rem(10);
     cursor: pointer;
     transition: 0.3s linear;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .activeCard {
@@ -148,4 +151,37 @@
     max-height: 0;
     opacity: 0;
     transition: 0.3s linear;
+}
+
+.discount {
+    color: map.get($colors, 'lightGreen');
+}
+
+.priceWithoutDiscount {
+    display: inline-block;
+    position: relative;
+    font-weight: 700;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 110%;
+        height: 1.5px;
+        background-color: map.get($colors, 'darkGray');
+        position: absolute;
+        border-radius: 1px;
+        top: 50%;
+        left: -5%;
+        transform: translate(0, -50%);
+        z-index: 1;
+    }
+}
+
+.body{
+    position: relative;
+    p:first-child{
+        position: absolute;
+        top: -50%;
+        left: 0;
+    }
 }

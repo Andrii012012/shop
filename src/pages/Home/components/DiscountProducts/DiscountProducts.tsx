@@ -13,7 +13,7 @@ export default function DiscountProducts(): JSX.Element {
         <section className={styles.wrapper}>
             <ListProducts title='Товары по акции' prevButton={styles.prevButton} nextButton={styles.nextButton}>
                 {products.map((item, _) => (
-                    <SwiperSlide>
+                    <SwiperSlide className={styles.slide}>
                         <Card
                             isStock={true}
                             name={item.name}
@@ -25,6 +25,7 @@ export default function DiscountProducts(): JSX.Element {
                             isDelivery={item.isDelivery}
                             countryOrigin={item.countryOrigin}
                             weight={item.weight}
+                            discount={item.discount}
                         />
                     </SwiperSlide>
                 ))}

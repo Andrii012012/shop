@@ -3,6 +3,11 @@
 @use '../../../../utils/styles/mixin.scss' as m;
 @import '../../../../utils/styles/colors.scss';
 
-.wrapper{
+.wrapper {
     margin-bottom: f.rem(100);
+}
+
+.slide {
+    display: flex;
+    height: initial;
 }

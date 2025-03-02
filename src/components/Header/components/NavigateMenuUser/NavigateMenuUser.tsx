@@ -3,7 +3,7 @@ import HeartIcon from "../../../../assets/images/header/heartIcon.svg?react";
 import TrashIcon from "../../../../assets/images/header/trashIcon.svg?react";
 import UserIcon from "../../../../assets/images/header/userIcon.svg?react";
 import { NavLink } from "react-router-dom";
-import { PATH_ACCOUNT, PATH_BASKET, PATH_LIKED } from "../../../../routes/routes";
+import { PATH_ACCOUNT, PATH_BASKET, PATH_HOME, PATH_LIKED } from "../../../../routes/routes";
 import { useAppSelector } from "../../../../hooks/useAppSelector";
 import { useAppDispatch } from "../../../../hooks/useAppDispatch";
 import { LogoutUser } from "../../../../features/user/user";
@@ -35,7 +35,7 @@ function NavigateMenuUser(props: IProps): JSX.Element {
         </NavLink>
       </li>
       {!dataUser ? <li onClick={() => setModalLogin(true)} className={styles.headerActionFavorites}>
-        <NavLink to="" className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
+        <NavLink to={PATH_HOME} className={({ isActive }) => `${styles.headerActionFavoritesLink} ${isActive ? styles.active : ""}`}>
           <UserIcon />
           Войти
         </NavLink>

@@ -5,7 +5,7 @@
         "manufacturer": "NOVARTIS PHARMA",
         "price": 425,
         "images": ["productImage.png"],
-        "discount": null,
+        "discount": 223,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",

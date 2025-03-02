@@ -27,6 +27,7 @@ export default function Liked(): JSX.Element {
                                 isDelivery={item.isDelivery}
                                 countryOrigin={item.countryOrigin}
                                 weight={item.weight}
+                                discount={item.discount}
                             />
                         </li>
                     ))}

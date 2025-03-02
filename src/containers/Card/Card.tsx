@@ -16,11 +16,14 @@ interface IProps {
     isDelivery: boolean;
     countryOrigin: string;
     weight?: number;
+    discount: number | null;
 }
 
 export default function Card(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, weight } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, weight, discount } = props;
+
+    const initPrice = discount ? discount : price;
 
     const [counter, setCounter] = useState<number>(1);
 
@@ -40,10 +43,11 @@ export default function Card(props: IProps): JSX.Element {
                 manufacturer={manufacturer}
                 volume={volume}
                 release={release}
-                price={counter * price}
+                price={counter * initPrice}
                 isRecipe={isRecipe}
                 isDelivery={isDelivery}
                 countryOrigin={countryOrigin}
+                discount={discount}
             />
             <div className={styles.imageProduct}>
                 <img src={imageDefaultProduct} alt="" />
@@ -55,11 +59,16 @@ export default function Card(props: IProps): JSX.Element {
                 <li className={gStyles.textExtraMedium}><h4>Объем:</h4> <span>{volume} г</span></li>
                 <li className={gStyles.textExtraMedium}><h4>Выпуск:</h4> <span>{release}</span></li>
             </ul>
-            <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{counter * price} грн</p>
+            {discount
+                ? <div className={styles.body}>
+                    <p className={`${styles.priceWithoutDiscount} ${gStyles.textBig}`}>{price} грн</p>
+                    <p className={`${styles.discount} ${styles.price} ${gStyles.textExtraLarge}`}>{counter * initPrice} грн</p>
+                </div>
+                : <p className={`${styles.price} ${gStyles.textExtraLarge}`}>{counter * initPrice} грн</p>}
             <CounterCard
                 name={name}
                 manufacturer={manufacturer}
-                price={price}
+                price={initPrice}
                 isRecipe={isRecipe}
                 countryOrigin={countryOrigin}
                 counter={counter}

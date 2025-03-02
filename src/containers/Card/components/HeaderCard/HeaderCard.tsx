@@ -6,6 +6,7 @@ import { callLocalStore } from '../../../../servers/callLocalStore';
 import { useAppDispatch } from '../../../../hooks/useAppDispatch';
 import { useAppSelector } from '../../../../hooks/useAppSelector';
 import { LoginUser } from '../../../../features/user/user';
+import IconHeartOutlineFull from '../../../../assets/images/global/iconHeartOutlineFull.svg?react';
 
 interface IProps {
     isStock: boolean;
@@ -17,11 +18,12 @@ interface IProps {
     isRecipe: boolean;
     isDelivery: boolean;
     countryOrigin: string;
+    discount: number | null;
 }
 
 export default function HeaderCard(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, discount } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -42,6 +44,7 @@ export default function HeaderCard(props: IProps): JSX.Element {
                 isRecipe,
                 isDelivery,
                 countryOrigin,
+                discount,
             });
         } else {
             dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);
@@ -61,7 +64,7 @@ export default function HeaderCard(props: IProps): JSX.Element {
     return (
         <div className={styles.header}>
             <div onClick={() => dataUser && handleToggleLikedProduct()} className={styles.iconHeart}>
-                <Heart className={checkIsLikedProduct() ? styles.iconActive : ""} />
+                {checkIsLikedProduct() ? <IconHeartOutlineFull /> : <Heart />}
             </div>
             <p className={gStyles.textMedium}>{isStock ? <span className={styles.inStock}>В наличии</span> : <span className={styles.outStock}>Закончились</span>}</p>
         </div>
