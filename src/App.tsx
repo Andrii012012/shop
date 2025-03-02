@@ -10,6 +10,7 @@ import {
   PATH_HOME,
   PATH_HOW_TO_MAKE_ORDER,
   PATH_LIKED,
+  PATH_MAP_WEBSITE,
   PATH_NEWS,
   PATH_PAYMENT_BOOKING,
   PATH_POLITICS,
@@ -35,6 +36,7 @@ import Politics from "./pages/Politics/Politics";
 import Delivery from "./pages/Delivery/Delivery";
 import PaymentBooking from "./pages/PaymentBooking/PaymentBooking";
 import HowToMakeOrder from "./pages/HowToMakeOrder/HowToMakeOrder";
+import MapWebsite from "./pages/MapWebsite/MapWebsite";
 
 function App() {
 
@@ -62,7 +64,8 @@ function App() {
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
         <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
         <Route path={`${PATH_PAYMENT_BOOKING}`} element={<PaymentBooking />} />
-        <Route path={`${PATH_HOW_TO_MAKE_ORDER}/*`} element={<HowToMakeOrder/>} />
+        <Route path={`${PATH_HOW_TO_MAKE_ORDER}/*`} element={<HowToMakeOrder />} />
+        <Route path={`${PATH_MAP_WEBSITE}`} element={<MapWebsite />} />
       </Routes>
     </Layout>
   );

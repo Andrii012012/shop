@@ -8,6 +8,7 @@ import MenuList from "./components/MenuList/MenuList";
 import { Link } from "react-router-dom";
 import iconLogo from '../../assets/images/header/websiteLogo.svg'
 import Button from "../ui/Button/Button";
+import { PATH_MAP_WEBSITE } from "../../routes/routes";
 
 export default function Footer() {
   return (
@@ -80,7 +81,7 @@ export default function Footer() {
                 защещены
               </p>
             </div>
-            <Link to='/' className={style.footerBottomMapLink}>
+            <Link to={PATH_MAP_WEBSITE} className={style.footerBottomMapLink}>
               Карта сайта
             </Link>
           </div>
