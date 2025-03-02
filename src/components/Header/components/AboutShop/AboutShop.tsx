@@ -1,7 +1,13 @@
 import styles from "./styles.module.scss";
 import CheckIcon from "../../../../assets/images/header/checkIcon.svg?react";
+import Button from "../../../ui/Button/Button";
+import { useState } from "react";
+import Portal from "../../../../containers/Portal/Portal";
+import LeaveContacts from "../../../LeaveContacts/LeaveContacts";
 
 function AboutShop() {
+
+  const [portal, setPortal] = useState<boolean>(false);
 
   return (
     <>
@@ -19,9 +25,7 @@ function AboutShop() {
           <a href="tel:+74752751025" className={styles.headerContactItem}>
             <span>Мед. техника</span> +7 (4752) 75‒10‒25
           </a>
-          <a href="#" className={styles.headerContactCallback}>
-            Заказать обратный звонок
-          </a>
+          <Button onClick={() => setPortal(true)} className={styles.headerContactCallback} title="Заказать обратный звонок" />
         </div>
       </div>
       <ul className={styles.headerInfo}>
@@ -45,6 +49,9 @@ function AboutShop() {
           <p>Быстрая и надежная доставка</p>
         </li>
       </ul>
+      <Portal isOpen={portal} setIsOpen={setPortal}>
+        <LeaveContacts setIsOpen={setPortal} />
+      </Portal>
     </>
   );
 }

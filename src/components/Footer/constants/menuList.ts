@@ -1,5 +1,6 @@
-import { ACCOUNT_SECTIONS, CATALOG_PRODUCT } from "../../../constants/path";
+import { ABOUT_COMPANY, ACCOUNT_SECTIONS, CATALOG_PRODUCT } from "../../../constants/path";
 import {
+  PATH_ABOUT_COMPANY,
   PATH_ACCOUNT,
   PATH_DELIVERY,
   PATH_FEEDBACK,
@@ -16,7 +17,7 @@ export const MENU_LIST: IMenuList = {
     { name: "Акция", to: PATH_PROMOTION },
     { name: "Новости", to: PATH_NEWS },
   ],
-  company: [{ name: "Реквизиты", to: "/" }],
+  company: [{ name: "Реквизиты", to: `${PATH_ABOUT_COMPANY}/${ABOUT_COMPANY.requisite}` }],
   help: [
     { name: "Как сделать заказ", to: PATH_HOW_TO_MAKE_ORDER },
     { name: "Оплата и бронирование", to: PATH_PAYMENT_BOOKING },

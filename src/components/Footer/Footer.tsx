@@ -8,9 +8,15 @@ import MenuList from "./components/MenuList/MenuList";
 import { Link } from "react-router-dom";
 import iconLogo from '../../assets/images/header/websiteLogo.svg'
 import Button from "../ui/Button/Button";
-import { PATH_MAP_WEBSITE } from "../../routes/routes";
+import { PATH_HOME, PATH_MAP_WEBSITE } from "../../routes/routes";
+import Portal from "../../containers/Portal/Portal";
+import LeaveContacts from "../LeaveContacts/LeaveContacts";
+import { useState } from "react";
 
 export default function Footer() {
+
+  const [portal, setPortal] = useState<boolean>(false);
+
   return (
     <footer className={style.footer}>
       <div className={gStyle.container}>
@@ -18,7 +24,7 @@ export default function Footer() {
           <div className={style.footerTop}>
             <ul className={style.footerInfo}>
               <li className={style.footerInfoWebsiteLogo}>
-                <Link to='/'>
+                <Link to={PATH_HOME}>
                   <img
                     src={iconLogo}
                     alt="Website Logo"
@@ -58,7 +64,7 @@ export default function Footer() {
                 >
                   +7 475 725 14 10
                 </a>
-                <Button className={style.footerInfoContactsCallBack} title='Заказать обратный звонок' />
+                <Button onClick={() => setPortal(true)} className={style.footerInfoContactsCallBack} title='Заказать обратный звонок' />
               </li>
             </ul>
             <nav className={style.footerNavigation}>
@@ -87,6 +93,9 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer >
+      <Portal isOpen={portal} setIsOpen={setPortal}>
+        <LeaveContacts setIsOpen={setPortal} />
+      </Portal>
+    </footer>
   );
 }
