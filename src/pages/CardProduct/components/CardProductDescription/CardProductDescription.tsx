@@ -21,6 +21,7 @@ function CardProductDescription(prop) {
   const { products, data } = prop;
 
   const product = data;
+  // console.log(product);
 
   const [countProduct, setCountProduct] = useState(1);
 

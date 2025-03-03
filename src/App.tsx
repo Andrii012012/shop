@@ -67,7 +67,7 @@ function App() {
           path={`${PATH_HOW_TO_MAKE_ORDER}/*`}
           element={<HowToMakeOrder />}
         />
-        <Route path={`${PATH_CARD_PRODUCT}/*`} element={<CardProduct />} />
+        <Route path={`${PATH_CARD_PRODUCT}/:id/*`} element={<CardProduct />} />
       </Routes>
     </Layout>
   );

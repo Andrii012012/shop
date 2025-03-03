@@ -17,6 +17,7 @@ interface IProps {
   isDelivery: boolean;
   countryOrigin: string;
   weight?: number;
+  productId: number;
 }
 
 export default function Card(props: IProps): JSX.Element {
@@ -31,6 +32,7 @@ export default function Card(props: IProps): JSX.Element {
     isRecipe,
     isDelivery,
     weight,
+    productId,
   } = props;
 
   const [counter, setCounter] = useState<number>(1);
@@ -53,7 +55,7 @@ export default function Card(props: IProps): JSX.Element {
       onMouseLeave={(event) => handleMouseLeaveSetClass(event)}
       onMouseEnter={(event) => handleMouseEnterSetClass(event)}
     >
-      <Link to={"/cardProduct"}>
+      <Link to={`/cardProduct/${productId}`}>
         <HeaderCard
           isStock={isStock}
           name={name}

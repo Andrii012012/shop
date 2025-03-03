@@ -1,6 +1,6 @@
-@use 'sass:map';
+@use "sass:map";
 @use "/src/utils/styles/functions.scss" as f;
-@import '../../../../utils/styles/colors.scss';
+@import "../../../../utils/styles/colors.scss";
 
 .wrapper {
   max-width: 100%;
@@ -12,23 +12,23 @@
 
 .burgerMenuButton {
   display: flex;
-  place-content: center;
+  align-items: center;
   background: none;
   font-weight: 700;
-  color: map.get($colors, 'white');
+  color: map.get($colors, "white");
 
   svg {
     display: block;
-    fill: map.get($colors, 'white');
+    fill: map.get($colors, "white");
     margin-right: f.rem(52);
   }
 }
 
 .active {
-  color: map.get($colors, 'lightGreen');
+  color: map.get($colors, "lightGreen");
 
   svg {
-    fill: map.get($colors, 'lightGreen');
+    fill: map.get($colors, "lightGreen");
   }
 }
 
@@ -72,7 +72,7 @@
 
       &:hover {
         background-color: map.get($colors, "deepGreen");
-        color: map.get($colors, "white")
+        color: map.get($colors, "white");
       }
 
       &:hover svg {
