@@ -70,7 +70,7 @@ function App() {
           element={<HowToMakeOrder />}
         />
         <Route path={`${PATH_MAP_WEBSITE}`} element={<MapWebsite />} />
-        <Route path={`${PATH_CARD_PRODUCT}/*`} element={<CardProduct />} />
+        <Route path={`${PATH_CARD_PRODUCT}/:id/*`} element={<CardProduct />} />
       </Routes>
     </Layout>
   );
