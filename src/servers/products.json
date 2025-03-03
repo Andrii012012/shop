@@ -14,30 +14,36 @@
     "release": [
       {
         "name": "Ампулы / Растворы для инъекций",
+        "formType": "injection",
         "icon": "",
         "dosage": [1, 2],
-        "packing": [20, 50, 75, 100, 150]
+        "packing": [20, 50, 75, 100, 150],
+        "isRelease": true
       },
       {
         "name": "Суппозитории",
+        "formType": "suppository",
         "icon": "",
         "dosage": [2, 3],
         "packing": [20, 50, 75, 100]
       },
       {
         "name": "Пластырь",
+        "formType": "patch",
         "icon": "",
         "dosage": [3, 4],
         "packing": [20, 50, 75]
       },
       {
         "name": "Гель / Туба",
+        "formType": "gel",
         "icon": "",
         "dosage": [1, 2],
         "packing": [20, 50, 75, 100, 150]
       },
       {
         "name": "Таблетки",
+        "formType": "tablet",
         "icon": "",
         "dosage": [4, 5],
         "packing": [20, 50]

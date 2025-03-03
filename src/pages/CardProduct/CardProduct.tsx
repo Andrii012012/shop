@@ -17,8 +17,7 @@ import CardProductDescription from "./components/CardProductDescription/CardProd
 import CardProductInstruction from "./components//CardProductInstruction/CardProductInstruction";
 import CardProductUsage from "./components/CardProductUsage/CardProductUsage";
 import CardProductPharmacologic from "./components/CardProductPharmacologic/CardProductPharmacologic";
-import { useFetch } from "../../hooks/useFetch";
-import { useEffect, useLayoutEffect } from "react";
+import { useEffect } from "react";
 
 function CardProduct() {
   function activeClassLink({ isActive }: { isActive: boolean }) {
@@ -27,10 +26,8 @@ function CardProduct() {
 
   const { id } = useParams();
 
-  const [data] = useFetch("/src/servers/productItem.json");
-
   const products = useAppSelector((state) => state.products.products);
-  // console.log(products);
+  console.log(products);
 
   const navigateRoute = useNavigate();
 
@@ -68,15 +65,11 @@ function CardProduct() {
       <Routes>
         <Route
           index
-          element={
-            <CardProductDescription products={products[0]} data={data} />
-          }
+          element={<CardProductDescription product={products[0]} />}
         />
         <Route
           path={`description`}
-          element={
-            <CardProductDescription products={products[0]} data={data} />
-          }
+          element={<CardProductDescription product={products[0]} />}
         />
         <Route
           path={`instruction`}

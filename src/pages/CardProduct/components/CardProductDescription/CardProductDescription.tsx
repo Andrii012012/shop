@@ -18,10 +18,8 @@ interface PProps {
 }
 
 function CardProductDescription(prop) {
-  const { products, data } = prop;
-
-  const product = data;
-  // console.log(product);
+  const { product } = prop;
+  console.log(product);
 
   const [countProduct, setCountProduct] = useState(1);
 
@@ -33,7 +31,7 @@ function CardProductDescription(prop) {
     <PillsIcon />,
   ];
 
-  const renderJSX = Object.keys(product).length !== 0;
+  const renderJSX = product && Object.keys(product).length !== 0;
 
   return renderJSX ? (
     <div className={styles.cardProductDescription}>
@@ -91,7 +89,7 @@ function CardProductDescription(prop) {
                 Форма выпуска препарата
               </h2>
               <ul className={styles.productDescriptionReleaseList}>
-                {product.releaseFormat.map(
+                {product.release.map(
                   (item: { name?: string }, index: number) => (
                     <li
                       className={
@@ -115,7 +113,7 @@ function CardProductDescription(prop) {
                 Дозировка
               </h2>
               <ul className={styles.productDescriptionDosageList}>
-                {product.releaseFormat.map(
+                {product.release.map(
                   (item, index: number) =>
                     item.formType === "gel" &&
                     item.dosage.map((item: number, index: number) => (
@@ -140,7 +138,7 @@ function CardProductDescription(prop) {
                 Фасовка
               </h2>
               <ul className={styles.productDescriptionPackingList}>
-                {product.releaseFormat.map(
+                {product.release.map(
                   (item, index: number) =>
                     item.formType === "gel" &&
                     item.packing.map((item: number, index: number) => (
