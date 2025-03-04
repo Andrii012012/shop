@@ -77,7 +77,7 @@ export default function CardProduct() {
           />
           <Route
             path={`pharmocologic`}
-            element={<CardProductPharmacologic product={products} />}
+            element={<CardProductPharmacologic pharmacologicalAction={products.pharmacologicalAction} name={products.name} />}
           />
         </Routes>
       </div>

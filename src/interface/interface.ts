@@ -70,7 +70,7 @@ export interface IMedicalDrugs extends IBaseProduct {
   storageConditions: string;
   instructionsUse: IInstructionsUse;
   indicationsUse: IIndicationsUse;
-  pharmacologicalAction: string;
+  pharmacologicalAction: string[];
 }
 
 export interface ISectionNews {
