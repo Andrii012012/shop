@@ -15,7 +15,6 @@ import CardProductUsage from "./components/CardProductUsage/CardProductUsage";
 import CardProductPharmacologic from "./components/CardProductPharmacologic/CardProductPharmacologic";
 import { useEffect } from "react";
 import { findProductById } from "../../features/products/filters";
-import { IInstructionsUse } from "../../interface/interface";
 
 export default function CardProduct() {
   function activeClassLink({ isActive }: { isActive: boolean }) {
@@ -70,11 +69,11 @@ export default function CardProduct() {
           />
           <Route
             path={`instruction`}
-            element={<CardProductInstruction instructionsUse={products.instructionsUse as IInstructionsUse[]} name={products.name} />}
+            element={<CardProductInstruction instructionsUse={products.instructionsUse} name={products.name} />}
           />
           <Route
             path={`usage`}
-            element={<CardProductUsage product={products} />}
+            element={<CardProductUsage indicationsUse={products.indicationsUse} />}
           />
           <Route
             path={`pharmocologic`}

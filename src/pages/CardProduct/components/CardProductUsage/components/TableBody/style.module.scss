@@ -1,0 +1,21 @@
+@use 'sass:map';
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.instructionTableRow {
+  &:last-child {
+    td {
+      padding: f.rem(20) f.rem(30) f.rem(20) f.rem(30);
+    }
+  }
+}
+
+.instructionTableColumnBody {
+  padding: f.rem(20) f.rem(30) 0 f.rem(30);
+  border-right: 2px solid map.get($colors, "lightGray");
+  height: initial;
+
+  &:last-child {
+    border-right: none;
+  }
+}

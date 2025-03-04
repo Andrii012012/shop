@@ -51,6 +51,15 @@ export interface IInstructionsUse {
   };
 }
 
+export interface IIndicationsUse {
+  description: string[];
+  recommendation: string[] | null;
+  table?: {
+    header: string[];
+    body: string[][];
+  };
+}
+
 export interface IMedicalDrugs extends IBaseProduct {
   season: TSeasons;
   activeIngredient: string;
@@ -60,7 +69,7 @@ export interface IMedicalDrugs extends IBaseProduct {
   isRecipe: boolean;
   storageConditions: string;
   instructionsUse: IInstructionsUse;
-  indicationsUse: string;
+  indicationsUse: IIndicationsUse;
   pharmacologicalAction: string;
 }
 
