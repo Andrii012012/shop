@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.description {
+  span {
+    font-weight: 700;
+  }
+
+  mark {
+    color: map.get($colors, "darkGray");
+    text-decoration: underline;
+    background: transparent;
+    font-weight: 500;
+  }
+
+  p {
+    margin-top: f.rem(30);
+  }
+}
+
+.descriptionBody {
+  margin-bottom: f.rem(30);
+}

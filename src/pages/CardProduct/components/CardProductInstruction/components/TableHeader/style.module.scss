@@ -1,0 +1,34 @@
+@use 'sass:map';
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.instructionTableHeader {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: f.rem(65);
+  padding: 0 0 0 f.rem(30);
+  background-color: map.get($colors, "grayWhite");
+  border: 2px solid map.get($colors, "lightGray");
+  border-top-right-radius: f.rem(10);
+  border-top-left-radius: f.rem(10);
+}
+
+.instructionTableHead {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: flex-end;
+  height: 100%;
+
+  th {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: f.rem(160);
+    height: 100%;
+    border-left: 2px solid map.get($colors, "lightGray");
+  }
+}

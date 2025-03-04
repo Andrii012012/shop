@@ -43,6 +43,14 @@ export interface IRelease {
   [key: string]: any;
 }
 
+export interface IInstructionsUse {
+  description: string[];
+  table?: {
+    header: string[];
+    body: string[];
+  };
+}
+
 export interface IMedicalDrugs extends IBaseProduct {
   season: TSeasons;
   activeIngredient: string;
@@ -51,7 +59,7 @@ export interface IMedicalDrugs extends IBaseProduct {
   isDelivery: boolean;
   isRecipe: boolean;
   storageConditions: string;
-  instructionsUse: string;
+  instructionsUse: IInstructionsUse;
   indicationsUse: string;
   pharmacologicalAction: string;
 }
@@ -165,5 +173,5 @@ export interface IProductStock {
   id: number;
   name: string;
   stock: boolean;
-  release: Omit<IRelease[], 'icon'>;
+  release: Omit<IRelease[], "icon">;
 }
