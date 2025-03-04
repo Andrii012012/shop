@@ -17,7 +17,7 @@ interface IProps {
   product: IBaseProduct;
 }
 
-export default function CardProductDescription(props: IProps) {
+export default function AdditionalInfoProductDescription(props: IProps) {
   const { product } = props;
 
   const [stockProducts] = useFetch<IProductStock>("/src/servers/productsStock.json");
@@ -109,7 +109,19 @@ export default function CardProductDescription(props: IProps) {
             />
           </div>
           <div className={styles.productDescriptionPriceBlock}>
-            <Sidebar price={product.price} counter={counter} setCounter={setCounter} isDelivery={product.isDelivery} stock={settings.stock} />
+            <Sidebar
+              price={product.price}
+              counter={counter}
+              setCounter={setCounter}
+              isDelivery={product.isDelivery}
+              stock={settings.stock}
+              id={String(product.id)}
+              name={product.name}
+              countryOrigin={product.countryOrigin}
+              isRecipe={product.isRecipe}
+              weight={product.weight}
+              manufacturer={product.manufacturer}
+            />
             <Contacts />
           </div>
         </main>

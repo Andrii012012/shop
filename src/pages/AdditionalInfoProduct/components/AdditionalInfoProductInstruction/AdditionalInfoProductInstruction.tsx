@@ -10,7 +10,7 @@ interface IProps {
   name: string;
 }
 
-export default function CardProductInstruction(props: IProps) {
+export default function AdditionalInfoProductInstruction(props: IProps) {
   const { instructionsUse, name } = props;
 
   return (

@@ -7,7 +7,7 @@ interface IProps {
   name: string;
 }
 
-function CardProductPharmacologic(props: IProps) {
+export default function AdditionalInfoProductPharmacologic(props: IProps) {
   const { pharmacologicalAction, name } = props;
 
   return (
@@ -27,5 +27,3 @@ function CardProductPharmacologic(props: IProps) {
     </div>
   );
 }
-
-export default CardProductPharmacologic;

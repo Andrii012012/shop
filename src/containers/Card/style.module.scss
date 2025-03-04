@@ -149,3 +149,7 @@
     opacity: 0;
     transition: 0.3s linear;
 }
+
+.link {
+    color: map.get($colors, 'darkGray');
+}

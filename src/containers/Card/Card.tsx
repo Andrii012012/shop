@@ -5,6 +5,7 @@ import { useState } from "react";
 import HeaderCard from "./components/HeaderCard/HeaderCard";
 import CounterCard from "./components/CounterCard/CounterCard";
 import { Link } from "react-router-dom";
+import { PATH_ADDITIONAL_INFO_PRODUCT } from "../../routes/routes";
 
 interface IProps {
   isStock: boolean;
@@ -55,18 +56,18 @@ export default function Card(props: IProps): JSX.Element {
       onMouseLeave={(event) => handleMouseLeaveSetClass(event)}
       onMouseEnter={(event) => handleMouseEnterSetClass(event)}
     >
-      <Link to={`/cardProduct/${productId}`}>
-        <HeaderCard
-          isStock={isStock}
-          name={name}
-          manufacturer={manufacturer}
-          volume={volume}
-          release={release}
-          price={counter * price}
-          isRecipe={isRecipe}
-          isDelivery={isDelivery}
-          countryOrigin={countryOrigin}
-        />
+      <HeaderCard
+        isStock={isStock}
+        name={name}
+        manufacturer={manufacturer}
+        volume={volume}
+        release={release}
+        price={counter * price}
+        isRecipe={isRecipe}
+        isDelivery={isDelivery}
+        countryOrigin={countryOrigin}
+      />
+      <Link className={styles.link} to={`${PATH_ADDITIONAL_INFO_PRODUCT}/${productId}`}>
         <div className={styles.imageProduct}>
           <img src={imageDefaultProduct} alt="" />
         </div>

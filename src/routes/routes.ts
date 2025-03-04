@@ -13,4 +13,4 @@ export const PATH_DELIVERY = "/delivery";
 export const PATH_PAYMENT_BOOKING = "/paymentBooking";
 export const PATH_HOW_TO_MAKE_ORDER = "/howToMakeOrder";
 export const PATH_MAP_WEBSITE = "/mapWebsite";
-export const PATH_CARD_PRODUCT = "cardProduct";
+export const PATH_ADDITIONAL_INFO_PRODUCT = "additionalInfoProduct";

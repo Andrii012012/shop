@@ -1,7 +1,6 @@
 import styles from "./style.module.scss";
 import gStyles from "../../../../styles/styles.module.scss";
 import { IIndicationsUse } from "../../../../interface/interface";
-import getHTMLStructure from "../../../../utils/js/getHTMLStructure";
 import Description from "./components/Description/Description";
 import TableHeader from "./components/TableHeader/TableHeader";
 import TableBody from "./components/TableBody/TableBody";
@@ -11,7 +10,7 @@ interface IProps {
   indicationsUse: IIndicationsUse[];
 }
 
-export default function CardProductUsage(props: IProps) {
+export default function AdditionalInfoProductUsage(props: IProps) {
   const { indicationsUse } = props;
 
   return (

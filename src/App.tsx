@@ -3,8 +3,8 @@ import Home from "./pages/Home/Home";
 import {
   PATH_ABOUT_COMPANY,
   PATH_ACCOUNT,
+  PATH_ADDITIONAL_INFO_PRODUCT,
   PATH_BASKET,
-  PATH_CARD_PRODUCT,
   PATH_CATALOG,
   PATH_DELIVERY,
   PATH_FEEDBACK,
@@ -38,7 +38,7 @@ import Delivery from "./pages/Delivery/Delivery";
 import PaymentBooking from "./pages/PaymentBooking/PaymentBooking";
 import HowToMakeOrder from "./pages/HowToMakeOrder/HowToMakeOrder";
 import MapWebsite from "./pages/MapWebsite/MapWebsite";
-import CardProduct from "./pages/CardProduct/CardProduct";
+import AdditionalInfoProduct from "./pages/AdditionalInfoProduct/AdditionalInfoProduct";
 
 function App() {
   const dispatch = useAppDispatch();
@@ -70,7 +70,7 @@ function App() {
           element={<HowToMakeOrder />}
         />
         <Route path={`${PATH_MAP_WEBSITE}`} element={<MapWebsite />} />
-        <Route path={`${PATH_CARD_PRODUCT}/:id/*`} element={<CardProduct />} />
+        <Route path={`${PATH_ADDITIONAL_INFO_PRODUCT}/:id/*`} element={<AdditionalInfoProduct />} />
       </Routes>
     </Layout>
   );

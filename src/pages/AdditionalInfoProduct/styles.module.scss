@@ -1,0 +1,6 @@
+@use "../../utils/styles/functions.scss" as f;
+@import "../../utils/styles/colors.scss";
+
+.cardProduct {
+  background-color: map-get($colors, "grayWhite");
+}
