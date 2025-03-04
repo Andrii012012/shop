@@ -40,6 +40,7 @@ export interface IRelease {
   icon: string;
   dosage: number[];
   packing: number[];
+  [key: string]: any;
 }
 
 export interface IMedicalDrugs extends IBaseProduct {
@@ -158,4 +159,11 @@ export interface IMapWebsite {
   section?: string;
   to?: string;
   children: IMapWebsite[] | null;
+}
+
+export interface IProductStock {
+  id: number;
+  name: string;
+  stock: boolean;
+  release: Omit<IRelease[], 'icon'>;
 }

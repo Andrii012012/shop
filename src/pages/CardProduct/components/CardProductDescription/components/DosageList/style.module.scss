@@ -1,0 +1,35 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionDosageList {
+  display: flex;
+  align-items: center;
+
+  .dosageListItem {
+    display: grid;
+    place-content: center;
+    font-weight: 600;
+    font-size: f.rem(16);
+    line-height: 120%;
+    width: f.rem(110);
+    cursor: pointer;
+    max-width: f.rem(113);
+    width: 100%;
+    padding: f.rem(14) 0;
+    background-color: map.get($colors, "grayWhite");
+
+    &:first-child {
+      border-radius: f.rem(100) 0 0 f.rem(100);
+    }
+
+    &:last-child {
+      border-radius: 0 f.rem(100) f.rem(100) 0
+    }
+
+  }
+}
+
+.isDosageType {
+  border: 3px solid map.get($colors, "lightGreen");
+}

@@ -1,0 +1,33 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionReleaseList {
+  display: flex;
+  flex-direction: column;
+  row-gap: f.rem(10);
+
+  .releaseListItem {
+    display: flex;
+    align-items: center;
+    column-gap: f.rem(20);
+    padding: f.rem(7);
+    cursor: pointer;
+
+    background-color: map-get($colors, "grayWhite");
+    border: 3px solid map-get($colors, "grayWhite");
+
+    height: f.rem(50);
+    border-radius: f.rem(25);
+
+    &.isFormType {
+      border-color: map-get($colors, "lightGreen");
+    }
+
+    p {
+      font-weight: 600;
+      font-size: f.rem(16);
+      line-height: 120%;
+    }
+  }
+}

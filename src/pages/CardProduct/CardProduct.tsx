@@ -7,27 +7,23 @@ import {
   useNavigate,
   useParams,
 } from "react-router-dom";
-
 import { PATH_CARD_PRODUCT } from "../../routes/routes";
 import { useAppSelector } from "../../hooks/useAppSelector";
-
-import { IBaseProduct } from "../../interface/interface";
-
 import CardProductDescription from "./components/CardProductDescription/CardProductDescription";
 import CardProductInstruction from "./components//CardProductInstruction/CardProductInstruction";
 import CardProductUsage from "./components/CardProductUsage/CardProductUsage";
 import CardProductPharmacologic from "./components/CardProductPharmacologic/CardProductPharmacologic";
 import { useEffect } from "react";
+import { findProductById } from "../../features/products/filters";
 
-function CardProduct() {
+export default function CardProduct() {
   function activeClassLink({ isActive }: { isActive: boolean }) {
     return `${style.tabsItemLink} ${isActive ? style.activeLink : ""}`.trim();
   }
 
   const { id } = useParams();
 
-  const products = useAppSelector((state) => state.products.products);
-  console.log(products);
+  const products = useAppSelector(findProductById(Number(id)));
 
   const navigateRoute = useNavigate();
 
@@ -48,44 +44,43 @@ function CardProduct() {
     },
   ];
 
-  return (
-    <div className={style.cardProduct}>
-      <div className={gStyle.container}>
-        <ul className={style.tabs}>
-          {SWITCH_CONTENT.map((item, index) => (
-            <li key={index} className={style.tabsItem}>
-              <NavLink to={item.to} className={activeClassLink}>
-                {item.name}
-              </NavLink>
-            </li>
-          ))}
-        </ul>
+  if (products) {
+    return (
+      <div className={style.cardProduct}>
+        <div className={gStyle.container}>
+          <ul className={style.tabs}>
+            {SWITCH_CONTENT.map((item, index) => (
+              <li key={index} className={style.tabsItem}>
+                <NavLink to={item.to} className={activeClassLink}>
+                  {item.name}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <Routes>
+          <Route
+            index
+            element={<CardProductDescription product={products} />}
+          />
+          <Route
+            path={`description`}
+            element={<CardProductDescription product={products} />}
+          />
+          <Route
+            path={`instruction`}
+            element={<CardProductInstruction product={products} />}
+          />
+          <Route
+            path={`usage`}
+            element={<CardProductUsage product={products} />}
+          />
+          <Route
+            path={`pharmocologic`}
+            element={<CardProductPharmacologic product={products} />}
+          />
+        </Routes>
       </div>
-
-      <Routes>
-        <Route
-          index
-          element={<CardProductDescription product={products[0]} />}
-        />
-        <Route
-          path={`description`}
-          element={<CardProductDescription product={products[0]} />}
-        />
-        <Route
-          path={`instruction`}
-          element={<CardProductInstruction product={products[0]} />}
-        />
-        <Route
-          path={`usage`}
-          element={<CardProductUsage product={products[0]} />}
-        />
-        <Route
-          path={`pharmocologic`}
-          element={<CardProductPharmacologic product={products[0]} />}
-        />
-      </Routes>
-    </div>
-  );
+    );
+  } return <></>;
 }
-
-export default CardProduct;

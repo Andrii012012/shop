@@ -1,0 +1,30 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionCuresList {
+  display: flex;
+  flex-direction: column;
+  row-gap: f.rem(10);
+  margin-bottom: f.rem(30);
+
+  .curesListItem {
+    position: relative;
+    font-weight: 500;
+    font-size: f.rem(16);
+    line-height: 156%;
+    padding-left: f.rem(15);
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: f.rem(9);
+      left: 0px;
+
+      min-width: f.rem(6);
+      min-height: f.rem(6);
+      border-radius: 50%;
+      background-color: map-get($colors, "darkTurquoise");
+    }
+  }
+}
