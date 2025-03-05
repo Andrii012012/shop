@@ -21,6 +21,7 @@ interface IProps {
   countryOrigin: string;
   weight?: number;
   productId: number;
+  discount: number | null;
 }
 
 export default function Card(props: IProps): JSX.Element {
@@ -35,6 +36,7 @@ export default function Card(props: IProps): JSX.Element {
     isDelivery,
     weight,
     productId,
+    discount,
   } = props;
 
   const [stockProducts] = useFetch<IProductStock>("/src/servers/productsStock.json");
@@ -67,10 +69,11 @@ export default function Card(props: IProps): JSX.Element {
         manufacturer={manufacturer}
         volume={volume}
         release={release}
-        price={counter * price}
+        price={discount ? discount : counter * price}
         isRecipe={isRecipe}
         isDelivery={isDelivery}
         countryOrigin={countryOrigin}
+        discount={discount}
         id={productId}
       />
       <Link className={styles.link} to={`/${PATH_ADDITIONAL_INFO_PRODUCT}/${productId}`}>
@@ -96,9 +99,12 @@ export default function Card(props: IProps): JSX.Element {
             <h4>Выпуск:</h4> <span>{release}</span>
           </li>
         </ul>
-        <p className={`${styles.price} ${gStyles.textExtraLarge}`}>
-          {counter * price} грн
-        </p>
+        <div className={styles.bodyPrice}>
+          {discount && <p className={`${styles.priceDefault} ${gStyles.textBig}`}>{price} грн</p>}
+          <p className={`${styles.price} ${gStyles.textExtraLarge} ${discount ? styles.activePrice : ""}`}>
+            {discount ? (discount * counter) : (counter * price)} грн
+          </p>
+        </div>
       </Link>
       <CounterCard
         name={name}

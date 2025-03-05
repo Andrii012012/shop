@@ -73,7 +73,7 @@ export default function AdditionalInfoProductDescription(props: IProps) {
             images={product.images}
             name={product.name}
             manufacturer={product.manufacturer}
-            price={product.price}
+            price={!product.discount ? product.price : product.discount}
             isDelivery={product.isDelivery}
             isRecipe={product.isRecipe}
             countryOrigin={product.countryOrigin}
@@ -81,6 +81,7 @@ export default function AdditionalInfoProductDescription(props: IProps) {
             volume={product.volume}
             isStock={dataStock?.stock || false}
             id={product.id}
+            discount={product.discount}
           />
           <div className={styles.productDescriptionBlock}>
             <h1 className={styles.productDescriptionTitle}>

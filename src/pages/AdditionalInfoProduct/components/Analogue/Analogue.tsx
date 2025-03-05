@@ -33,6 +33,7 @@ export default function Analogue(props: IProps) {
                 countryOrigin={item.countryOrigin}
                 weight={item.weight}
                 productId={item.id}
+                discount={item.discount}
               />
             </SwiperSlide>
           ))}

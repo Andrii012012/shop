@@ -153,3 +153,30 @@
 .link {
     color: map.get($colors, 'darkGray');
 }
+
+.bodyPrice {
+    position: relative;
+}
+
+.priceDefault {
+    position: absolute;
+    top: -50%;
+    left: 0;
+    font-weight: 700;
+
+    &::before {
+        content: "";
+        display: block;
+        width: 105%;
+        height: 1.5px;
+        position: absolute;
+        top: 50%;
+        left: -5%;
+        transform: translate(5%, -50%);
+        background-color: map.get($colors, "darkGray");
+    }
+}
+
+.activePrice {
+    color: map.get($colors, "lightGreen");
+}

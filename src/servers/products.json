@@ -485,7 +485,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 400,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",
@@ -972,7 +972,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 353,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",
@@ -1459,7 +1459,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 415,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",
@@ -1946,7 +1946,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 342,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",
@@ -2433,7 +2433,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 380,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",

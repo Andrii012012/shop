@@ -35,6 +35,7 @@ export interface IDefaultDisplayProduct {
   isDelivery: boolean;
   countryOrigin: string;
   weight?: number;
+  discount: number | null;
 }
 
 export interface IRelease {

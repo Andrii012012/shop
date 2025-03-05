@@ -8,8 +8,6 @@ export default function Liked(): JSX.Element {
 
     const likedProducts = useAppSelector((state) => state.user.user?.likedProducts);
 
-    console.log(likedProducts);
-
     return (
         <main className={styles.liked}>
             <div className={gStyles.container}>
@@ -29,6 +27,7 @@ export default function Liked(): JSX.Element {
                                 countryOrigin={item.countryOrigin}
                                 weight={item.weight}
                                 productId={item.id}
+                                discount={item.discount}
                             />
                         </li>
                     ))}

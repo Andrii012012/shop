@@ -17,12 +17,13 @@ interface IProps {
     isRecipe: boolean;
     isDelivery: boolean;
     countryOrigin: string;
-    id: number
+    id: number;
+    discount: number | null;
 }
 
 export default function HeaderCard(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, id } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, id, discount } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -39,11 +40,12 @@ export default function HeaderCard(props: IProps): JSX.Element {
                 manufacturer,
                 volume,
                 release,
-                price,
+                price: discount ? discount : price,
                 isRecipe,
                 isDelivery,
                 countryOrigin,
                 id,
+                discount
             });
         } else {
             dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);

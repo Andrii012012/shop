@@ -37,16 +37,16 @@ export default function Sidebar(props: IProps) {
       countryOrigin,
       manufacturer,
       weight: weight || 0,
-      price,
+      price: discount ? discount : price,
       count: counter,
     }));
   }
 
   return (
     <>
-      {discount && <div className={styles.discountPrice}><p className={`${gStyles.textLarge}`}>{300} грн</p></div>}
+      {discount && <div className={styles.discountPrice}><p className={`${gStyles.textLarge}`}>{price} грн</p></div>}
       <h2 className={styles.productDescriptionPrice}>
-        {price * counter}грн
+        {!discount ? price * counter : discount * counter}грн
       </h2 >
       <div className={styles.productDescriptionPriceInfo}>
         <p className={styles.priceInfoInStock}>

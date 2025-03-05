@@ -17,10 +17,11 @@ interface IProps {
   countryOrigin: string;
   isStock: boolean;
   id: number;
+  discount: number | null
 }
 
 export default function ImageListProduct(props: IProps) {
-  const { images, name, manufacturer, isDelivery, countryOrigin, release, volume, isRecipe, price, isStock, id } = props;
+  const { images, name, manufacturer, isDelivery, countryOrigin, release, volume, isRecipe, price, isStock, id, discount } = props;
 
   const dispatch = useAppDispatch();
   const dataUser = useAppSelector((state) => state.user.user);
@@ -41,6 +42,7 @@ export default function ImageListProduct(props: IProps) {
           isRecipe,
           isDelivery,
           countryOrigin,
+          discount,
         });
       } else {
         dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);

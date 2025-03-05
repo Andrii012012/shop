@@ -28,6 +28,7 @@ export default function SeasonProducts(): JSX.Element {
                 countryOrigin={item.countryOrigin}
                 weight={item.weight}
                 productId={item.id}
+                discount={item.discount}
               />
             </SwiperSlide>
           ))}
