@@ -6,15 +6,16 @@ import CartIcon from "../../../../../../assets/images/products/cartIcon.svg?reac
 import { useAppDispatch } from "../../../../../../hooks/useAppDispatch";
 import { addProduct } from "../../../../../../features/basket/basket";
 import IconWarning from '../../../../../../assets/images/global/iconWarning.svg?react';
+import { IStock } from "../type";
 
 interface IProps {
   counter: number;
   price: number;
   isDelivery: boolean;
   setCounter: React.Dispatch<React.SetStateAction<number>>;
-  stock: boolean;
+  stock: IStock;
   id: string;
-  image?: string;
+  images: string[];
   name: string;
   isRecipe: boolean;
   countryOrigin: string;
@@ -24,14 +25,22 @@ interface IProps {
 }
 
 export default function Sidebar(props: IProps) {
-  const { counter, price, isDelivery, setCounter, stock, id, name, weight, manufacturer, isRecipe, countryOrigin, image, discount } = props;
+  const { counter, price, isDelivery, setCounter, stock, id, name, weight, manufacturer, isRecipe, countryOrigin, images, discount } = props;
 
   const dispatch = useAppDispatch();
+
+  function checkStock() {
+    const booleans = [];
+    for (let key in stock) {
+      booleans.push(stock[key]);
+    };
+    return typeof booleans.find((item) => item === false) === 'boolean' ? false : true;
+  }
 
   function handleAddBasketProduct() {
     dispatch(addProduct({
       id,
-      image,
+      images,
       name,
       isRecipe,
       countryOrigin,
@@ -52,7 +61,7 @@ export default function Sidebar(props: IProps) {
         <p className={styles.priceInfoInStock}>
           <span className={styles.priceInfoInStockTitle}>В наличии:</span>
           <span className={styles.priceInfoInStockValue}>
-            {stock ? <p className={styles.green}>Много</p> : <p className={styles.red}>Нет в наличии</p>}
+            {checkStock() ? <p className={styles.green}>Много</p> : <p className={styles.red}>Нет в наличии</p>}
           </span>
         </p>
         <p className={styles.priceInfoDelivery}>

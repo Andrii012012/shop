@@ -13,7 +13,9 @@ export default function ProductLists(props: IProps): JSX.Element {
 
     const productsShow = [];
 
-    for (let index = (currentValue * 12 - 12); index < currentValue * 12; index++) {
+    const tillValue = (currentValue * 12 > products.length ? products.length : currentValue * 12);
+
+    for (let index = (currentValue * 12 - 12); index < tillValue; index++) {
         productsShow.push(products[index]);
     }
 
@@ -32,6 +34,8 @@ export default function ProductLists(props: IProps): JSX.Element {
                         countryOrigin={item.countryOrigin}
                         productId={item.id}
                         discount={item.discount}
+                        weight={item.weight}
+                        images={item.images}
                     />
                 ))}
             </ul>

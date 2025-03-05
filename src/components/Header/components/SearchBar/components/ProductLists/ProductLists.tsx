@@ -39,7 +39,7 @@ function ProductLists(props: IProps) {
             <li onMouseEnter={() => handleSetPlaceholder(item.name)} key={index} className={style.searchPopupListItem}>
               <Link to={`${PATH_ADDITIONAL_INFO_PRODUCT}/${item.id}`} className={style.searchPopupListLink}>
                 <img
-                  src="src/assets/images/header/productIcon.png"
+                  src={`/src/assets/images/products/${item.images[0]}`}
                   alt="Product Icon"
                   className={style.searchPopupListLinkImg}
                 />

@@ -26,6 +26,7 @@ export default function DiscountProducts(): JSX.Element {
                             weight={item.weight}
                             productId={item.id}
                             discount={item.discount}
+                            images={item.images}
                         />
                     </SwiperSlide>
                 ))}

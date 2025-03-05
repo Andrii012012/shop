@@ -22,6 +22,7 @@ interface IProps {
   weight?: number;
   productId: number;
   discount: number | null;
+  images: string[];
 }
 
 export default function Card(props: IProps): JSX.Element {
@@ -37,6 +38,7 @@ export default function Card(props: IProps): JSX.Element {
     weight,
     productId,
     discount,
+    images = ['productImage.png']
   } = props;
 
   const [stockProducts] = useFetch<IProductStock>("/src/servers/productsStock.json");
@@ -44,6 +46,8 @@ export default function Card(props: IProps): JSX.Element {
   const dataStock = checkProductStock(name, stockProducts);
 
   const [counter, setCounter] = useState<number>(1);
+
+  const currentPrice = discount ? discount : counter * price;
 
   function handleMouseEnterSetClass(
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
@@ -69,16 +73,17 @@ export default function Card(props: IProps): JSX.Element {
         manufacturer={manufacturer}
         volume={volume}
         release={release}
-        price={discount ? discount : counter * price}
+        price={currentPrice}
         isRecipe={isRecipe}
         isDelivery={isDelivery}
         countryOrigin={countryOrigin}
         discount={discount}
         id={productId}
+        images={images}
       />
       <Link className={styles.link} to={`/${PATH_ADDITIONAL_INFO_PRODUCT}/${productId}`}>
         <div className={styles.imageProduct}>
-          <img src={imageDefaultProduct} alt="" />
+          <img src={`/src/assets/images/products/${images[0]}`} alt="" />
         </div>
         <div className={`${styles.recipe} ${gStyles.textMedium}`}>
           {isRecipe ? (
@@ -109,12 +114,13 @@ export default function Card(props: IProps): JSX.Element {
       <CounterCard
         name={name}
         manufacturer={manufacturer}
-        price={price}
+        price={currentPrice}
         isRecipe={isRecipe}
         countryOrigin={countryOrigin}
         counter={counter}
         setCounter={setCounter}
         weight={weight}
+        images={images}
       />
       <div className={styles.wrrapperDelivery}>
         <h4 className={`${styles.delivery} ${gStyles.textBig}`}>

@@ -65,10 +65,7 @@ function App() {
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
         <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
         <Route path={`${PATH_PAYMENT_BOOKING}`} element={<PaymentBooking />} />
-        <Route
-          path={`${PATH_HOW_TO_MAKE_ORDER}/*`}
-          element={<HowToMakeOrder />}
-        />
+        <Route path={`${PATH_HOW_TO_MAKE_ORDER}/*`} element={<HowToMakeOrder />} />
         <Route path={`${PATH_MAP_WEBSITE}`} element={<MapWebsite />} />
         <Route path={`${PATH_ADDITIONAL_INFO_PRODUCT}/:id/*`} element={<AdditionalInfoProduct />} />
       </Routes>

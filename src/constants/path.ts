@@ -37,7 +37,7 @@ export const enum NEWS {
   detailsNews = "detailsNews",
 }
 
-export const enum HOWTOMAKEORDER {
+export const enum HOW_TO_MAKE_ORDER {
   medicineWithoutPrescription = "Лекарственный препарат без рецепта",
   medicineWithPrescription = "Лекарственный препарат по рецепту врача",
 }

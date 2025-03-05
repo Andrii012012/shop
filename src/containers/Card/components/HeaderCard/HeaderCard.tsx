@@ -19,11 +19,12 @@ interface IProps {
     countryOrigin: string;
     id: number;
     discount: number | null;
+    images: string[];
 }
 
 export default function HeaderCard(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, id, discount } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, id, discount, images } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -45,7 +46,8 @@ export default function HeaderCard(props: IProps): JSX.Element {
                 isDelivery,
                 countryOrigin,
                 id,
-                discount
+                discount,
+                images,
             });
         } else {
             dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);

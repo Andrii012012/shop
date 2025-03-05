@@ -8,7 +8,7 @@ interface IProps {
     changePaginationAfter?: number;
     className: string;
     setCurrentValue: React.Dispatch<React.SetStateAction<number>>;
-}
+};
 
 export default function Pagination(props: IProps): JSX.Element {
 
@@ -16,7 +16,7 @@ export default function Pagination(props: IProps): JSX.Element {
 
     const pagination: (string | number)[] = [];
 
-    for (let index = 0; index < countPagination; index++) {
+    for (let index = 0; index <= countPagination; index++) {
         if (index >= 1 && (index >= currentNumber - countShowPaginationBullets / 2) && pagination.length <= countShowPaginationBullets) {
             pagination.push(index);
         }

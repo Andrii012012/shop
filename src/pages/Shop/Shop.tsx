@@ -50,7 +50,7 @@ export default function Shop(): JSX.Element {
                     <section className={styles.content}>
                         <AdditionalSort products={filterProducts} settings={settings} setSettings={setSettings} />
                         <ProductLists currentValue={currentValue} products={filterProducts} />
-                        <Pagination setCurrentValue={setCurrentValue} countPagination={Math.floor(products.length / 12)} currentNumber={currentValue} className={styles.pagination} />
+                        <Pagination setCurrentValue={setCurrentValue} countPagination={Math.round(filterProducts.length / 12)} currentNumber={currentValue} className={styles.pagination} />
                     </section>
                 </div>
                 <SimilarProducts />

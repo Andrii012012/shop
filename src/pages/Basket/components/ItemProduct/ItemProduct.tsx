@@ -22,11 +22,12 @@ interface IProps {
     count: number;
     handleRemoveProduct: (productId: string[]) => void;
     weight: number;
+    images: string[];
 };
 
 export default function ItemProduct(props: IProps): JSX.Element {
 
-    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, isSelectAllProduct, id, count, handleRemoveProduct, weight } = props;
+    const { manufacturer, countryOrigin, isRecipe, name, price, setState, state, images, isSelectAllProduct, id, count, handleRemoveProduct, weight } = props;
 
     const [counter, setCounter] = useState<number>(count);
 
@@ -34,7 +35,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
 
     const dispatch = useAppDispatch();
 
-    const pattern = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter, weight };
+    const pattern = { id: id, name, isRecipe, manufacturer, countryOrigin, price: totalPrice, count: counter, weight, images };
 
     function handlePutProduct(product: ISelectedProduct) {
         setState((prevState) => {
@@ -107,7 +108,7 @@ export default function ItemProduct(props: IProps): JSX.Element {
                     <Checkbox className={styles.checkboxSelectProduct} valueCheckbox={checkProduct()} />
                 </div>
                 <div className={styles.imageProduct}>
-                    <img src={imageProduct} />
+                    <img src={`/src/assets/images/products/${images[0]}`} />
                 </div>
                 <div className={styles.wrapper}>
                     <div className={styles.headerProduct}>

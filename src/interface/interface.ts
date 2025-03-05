@@ -30,6 +30,7 @@ export interface IDefaultDisplayProduct {
   manufacturer: string;
   volume: number;
   release: string;
+  images: string[];
   price: number;
   isRecipe: boolean;
   isDelivery: boolean;
@@ -97,7 +98,7 @@ export interface IBaseOptionsSlice {
 
 export interface IBasketProduct {
   id: string;
-  image?: string;
+  images: string[];
   name: string;
   price: number;
   isRecipe: boolean;

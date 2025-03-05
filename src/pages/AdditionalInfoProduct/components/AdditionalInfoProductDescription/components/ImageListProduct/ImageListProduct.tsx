@@ -43,6 +43,7 @@ export default function ImageListProduct(props: IProps) {
           isDelivery,
           countryOrigin,
           discount,
+          images,
         });
       } else {
         dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);

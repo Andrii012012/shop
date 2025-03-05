@@ -33,7 +33,6 @@ export default function Review(props: IProps): JSX.Element {
                 </div>
             </div>
             <p className={`${styles.description} ${gStyles.textExtraMedium}`}>{description}</p>
-            <Link className={`${styles.button} ${gStyles.textExtraMedium}`} to='/'>Полный отзыв</Link>
         </div >
     );
 }

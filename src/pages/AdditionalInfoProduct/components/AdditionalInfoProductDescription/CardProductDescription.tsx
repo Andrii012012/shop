@@ -27,38 +27,32 @@ export default function AdditionalInfoProductDescription(props: IProps) {
   const [counter, setCounter] = useState(1);
 
   const [settings, setSettings] = useState<ISettings>({
-    name: product?.release[0]?.name || "",
-    dosage: 1,
-    packing: 20,
-    stock: false,
+    name: "",
+    dosage: 0,
+    packing: 0,
+    stock: {
+      name: false,
+      dosage: false,
+      packing: false,
+    },
   });
-
-  useEffect(() => {
-    if (dataStock) {
-      setSettings((prevState) => ({ ...prevState, stock: dataStock.stock }))
-    }
-  }, [dataStock]);
-
-  useEffect(() => {
-    setSettings((prevState) => {
-      const newState = { ...prevState };
-      newState.dosage = product.release.find(((item: IRelease) => item.name === newState.name ? 1 : 0))?.dosage[0];
-      newState.packing = product.release.find(((item: IRelease) => item.name === newState.name ? 1 : 0))?.packing[0];
-      return newState;
-    });
-  }, [settings.name]);
 
   function handleChangeSettings(key: keyof ISettings, value: string | number | boolean): void {
     setSettings((prevState) => {
       const newState = { ...prevState };
-      newState[key] = value;
+
+      if (key !== 'stock' && typeof value !== 'boolean') {
+        newState[key] = value;
+      }
 
       if (dataStock?.stock) {
         let isStock = true;
         dataStock.release.map((item, _) => {
-          if (item.name === newState.name && !item[key].includes(newState[key])) isStock = false;
+          if (item.name === newState.name && !item[key].includes(newState[key])) {
+            isStock = false;
+          }
         });
-        newState.stock = isStock;
+        newState.stock[key] = isStock;
       }
 
       return newState;
@@ -135,6 +129,7 @@ export default function AdditionalInfoProductDescription(props: IProps) {
               weight={product.weight}
               manufacturer={product.manufacturer}
               discount={product.discount}
+              images={product.images}
             />
             <Contacts />
           </div>

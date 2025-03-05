@@ -79,9 +79,6 @@ export default function Footer() {
           </div>
           <div className={style.footerBottom}>
             <div className={style.footerBottomCopyright}>
-              <Link to='/' className={style.footerBottomCopyrightLink}>
-                Версия для печати
-              </Link>
               <p className={style.footerBottomCopyrightText}>
                 Разработка сайта - Веб студия “Максоком” 2022. Все права
                 защещены

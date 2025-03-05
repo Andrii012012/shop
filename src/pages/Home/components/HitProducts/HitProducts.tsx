@@ -28,6 +28,7 @@ export default function HitProducts(): JSX.Element {
               countryOrigin={item.countryOrigin}
               weight={item.weight}
               productId={item.id}
+              images={item.images}
               discount={item.discount}
             />
           </SwiperSlide>
