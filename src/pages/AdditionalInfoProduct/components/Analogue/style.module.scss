@@ -2,24 +2,6 @@
 @use "../../../../utils/styles/functions.scss" as f;
 @import "../../../../utils/styles/colors.scss";
 
-.cardProductUsage {
-  width: 100%;
-  background-color: map.get($colors, 'white');
-  padding: f.rem(50) 0 f.rem(100) 0;
-}
-
-
-.table {
-  display: block;
-  margin: f.rem(30) 0 f.rem(50) 0;
-  max-width: f.rem(1010);
-  width: 100%;
-  border-radius: f.rem(10);
-  border-collapse: collapse;
-  border: 2px solid map.get($colors, "lightGray");
-  overflow: hidden;
-}
-
-.tableActive {
-  margin-bottom: f.rem(30);
+.wrapper {
+  margin-bottom: f.rem(100);
 }

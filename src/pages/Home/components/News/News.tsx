@@ -10,7 +10,7 @@ export default function News(): JSX.Element {
 
     let news = useAppSelector((state) => state.news.news);
 
-    if (news) {
+    if (Array.isArray(news)) {
         return (
             <section className={styles.wrapper}>
                 <div className={gStyles.container}>

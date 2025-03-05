@@ -18,6 +18,7 @@ import SwitchContent from "../../components/SwitchContent/SwitchContent";
 import { ADDITIONAL_INFO_PRODUCT } from "../../constants/path";
 import Navigate from '../../components/Navigate/Navigate';
 import Analogue from './components/Analogue/Analogue';
+import Comments from './components/Comments/Comments';
 
 export default function AdditionalInfoProduct() {
 
@@ -68,6 +69,7 @@ export default function AdditionalInfoProduct() {
           </Routes>
         </div>
         <Analogue name={products.name || ""} />
+        <Comments comments={products.comments} />
       </div>
     );
   } return <></>;

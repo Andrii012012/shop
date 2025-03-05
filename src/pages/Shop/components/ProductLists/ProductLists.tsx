@@ -22,7 +22,6 @@ export default function ProductLists(props: IProps): JSX.Element {
             <ul className={styles.list}>
                 {productsShow.map((item, _) => (
                     <Card
-                        isStock={true}
                         name={item?.name}
                         manufacturer={item?.manufacturer}
                         volume={item?.release[0].packing[0]}

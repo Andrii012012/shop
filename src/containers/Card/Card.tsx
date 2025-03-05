@@ -11,7 +11,6 @@ import { IProductStock } from "../../interface/interface";
 import { checkProductStock } from "../../features/products/filters";
 
 interface IProps {
-  isStock?: boolean; //You need to remove this field
   name: string;
   manufacturer: string;
   volume: number;
@@ -26,7 +25,6 @@ interface IProps {
 
 export default function Card(props: IProps): JSX.Element {
   const {
-    isStock,
     name,
     manufacturer,
     countryOrigin,

@@ -19,7 +19,6 @@ export default function Liked(): JSX.Element {
                     {likedProducts?.map((item, index) => (
                         <li key={index}>
                             <Card
-                                isStock={true}
                                 name={item.name}
                                 manufacturer={item.manufacturer}
                                 volume={item.volume}

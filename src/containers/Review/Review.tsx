@@ -16,11 +16,13 @@ export default function Review(props: IProps): JSX.Element {
 
     const { avatar = '', name, surname, mark, description } = props;
 
+    console.log(avatar);
+
     return (
         <div className={`${styles.review}`} >
             <div className={styles.header}>
                 <div className={styles.avatar}>
-                    <img src={userAvatar} alt="" />
+                    <img src={`/src/assets/images/avatar/${avatar}`} alt="" />
                 </div>
                 <div className={styles.body}>
                     <p className={`${gStyles.textBig} ${styles.name}`}>{name} {surname}</p>

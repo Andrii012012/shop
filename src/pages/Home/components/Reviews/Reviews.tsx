@@ -19,7 +19,7 @@ export default function Reviews(): JSX.Element {
                         {data.map((item, index) => (
                             <SwiperSlide key={index} className={styles.slide}>
                                 <Review
-                                    avatar={'avatar1.png'}
+                                    avatar={item.avatar}
                                     name={item.name}
                                     surname={item.surname}
                                     mark={item.marks}

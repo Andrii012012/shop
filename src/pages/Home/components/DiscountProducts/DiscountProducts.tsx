@@ -15,7 +15,6 @@ export default function DiscountProducts(): JSX.Element {
                 {products.map((item, _) => (
                     <SwiperSlide>
                         <Card
-                            isStock={true}
                             name={item.name}
                             manufacturer={item.manufacturer}
                             volume={item.release[0].packing[0]}
