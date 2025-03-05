@@ -41,3 +41,10 @@ export const enum HOWTOMAKEORDER {
   medicineWithoutPrescription = "Лекарственный препарат без рецепта",
   medicineWithPrescription = "Лекарственный препарат по рецепту врача",
 }
+
+export const enum ADDITIONAL_INFO_PRODUCT {
+  description = "Описание товара",
+  instruction = "Инструкции по применению",
+  usage = "Показания к применению",
+  pharmocologic = "Фармокологическое действие",
+}

@@ -1,0 +1,61 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productImagesBlock {
+  width: f.rem(512);
+
+  .imageMain {
+    display: grid;
+    place-content: center;
+    position: relative;
+
+    width: f.rem(512);
+    height: f.rem(512);
+
+    border: 2px solid map-get($colors, "silver");
+    border-radius: f.rem(10);
+    background-color: map-get($colors, "white");
+
+    margin-bottom: f.rem(20);
+  }
+
+  .imagesList {
+    display: flex;
+    column-gap: f.rem(20);
+
+    .imagesListItem {
+      display: grid;
+      place-content: center;
+
+      flex: 1;
+      width: f.rem(112);
+      height: f.rem(112);
+
+      img {
+        max-width: f.rem(90);
+        max-height: f.rem(81);
+        width: 100%;
+        height: 100%;
+      }
+
+      border: 2px solid map-get($colors, "silver");
+      border-radius: f.rem(10);
+
+      cursor: pointer;
+      user-select: none;
+    }
+  }
+}
+
+.icon {
+  position: absolute;
+  top: f.rem(30);
+  left: f.rem(30);
+  cursor: pointer;
+  fill: map.get($colors, 'darkGray');
+}
+
+.active {
+  fill: map.get($colors, 'brick') !important;
+}

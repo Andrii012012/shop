@@ -1,0 +1,47 @@
+@use "sass:map";
+@use "../../../../utils/styles/functions.scss" as f;
+@import "../../../../utils/styles/colors.scss";
+
+.cardProductDescription {
+  background-color: map-get($colors, "white");
+  padding: 50px 0px 100px;
+  color: map-get($colors, "darkGray");
+}
+
+.productDescriptionMain {
+  display: flex;
+  column-gap: f.rem(30);
+}
+
+.productDescriptionBlock {
+  max-width: f.rem(560);
+
+  .productDescriptionH2Titles {
+    font-weight: 700;
+    font-size: f.rem(20);
+    margin-bottom: f.rem(10);
+  }
+
+  .productDescriptionTitle {
+    font-weight: 700;
+    font-size: f.rem(30);
+    color: map-get($colors, "darkGray");
+    margin-bottom: f.rem(30);
+  }
+
+  .productDescriptionRelease {
+    margin-bottom: f.rem(30);
+  }
+
+  .productDescriptionDosage {
+    margin-bottom: f.rem(30);
+  }
+
+  .productDescriptionPacking {
+    margin-bottom: f.rem(30);
+  }
+}
+
+.productDescriptionPriceBlock {
+  width: f.rem(310);
+}

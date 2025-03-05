@@ -1,0 +1,15 @@
+@use "../../utils/styles/functions.scss" as f;
+@import "../../utils/styles/colors.scss";
+
+.additionalInfoProduct {
+  background-color: map-get($colors, "grayWhite");
+  padding: f.rem(10) 0 f.rem(100) 0;
+}
+
+.navigate {
+  margin: 0 0 f.rem(50) 0;
+}
+
+.wrapper {
+  margin-bottom: f.rem(100);
+}

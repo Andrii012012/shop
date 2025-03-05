@@ -1,0 +1,30 @@
+@use "../../../../utils/styles/functions.scss" as f;
+@import "../../../../utils/styles/colors.scss";
+
+.cardProductPharmacologic {
+  background-color: map-get($colors, "white");
+  padding: 50px 0px 100px;
+  color: map-get($colors, "darkGray");
+}
+
+.pharmacologicTitle {
+  margin-bottom: f.rem(20);
+  font-weight: 700;
+}
+
+.description {
+  p {
+    margin-top: f.rem(30);
+  }
+
+  span {
+    font-weight: 700;
+  }
+
+  strong {
+    font-weight: 700;
+    font-size: f.rem(20);
+    line-height: f.em(27, 20);
+  }
+
+}

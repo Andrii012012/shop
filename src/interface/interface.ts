@@ -9,6 +9,7 @@ export interface IComment {
 export type TSeasons = "winter" | "summer" | "spring" | "autunm" | "all";
 
 export interface IBaseProduct {
+  id: number;
   name: string;
   manufacturer: string;
   price: number;
@@ -23,6 +24,7 @@ export interface IBaseProduct {
 }
 
 export interface IDefaultDisplayProduct {
+  id: number;
   isStock: boolean;
   name: string;
   manufacturer: string;
@@ -40,6 +42,24 @@ export interface IRelease {
   icon: string;
   dosage: number[];
   packing: number[];
+  [key: string]: any;
+}
+
+export interface IInstructionsUse {
+  description: string[];
+  table?: {
+    header: string[];
+    body: string[];
+  };
+}
+
+export interface IIndicationsUse {
+  description: string[];
+  recommendation: string[] | null;
+  table?: {
+    header: string[];
+    body: string[][];
+  };
 }
 
 export interface IMedicalDrugs extends IBaseProduct {
@@ -50,9 +70,9 @@ export interface IMedicalDrugs extends IBaseProduct {
   isDelivery: boolean;
   isRecipe: boolean;
   storageConditions: string;
-  instructionsUse: string;
-  indicationsUse: string;
-  pharmacologicalAction: string;
+  instructionsUse: IInstructionsUse;
+  indicationsUse: IIndicationsUse;
+  pharmacologicalAction: string[];
 }
 
 export interface ISectionNews {
@@ -158,4 +178,11 @@ export interface IMapWebsite {
   section?: string;
   to?: string;
   children: IMapWebsite[] | null;
+}
+
+export interface IProductStock {
+  id: number;
+  name: string;
+  stock: boolean;
+  release: Omit<IRelease[], "icon">;
 }

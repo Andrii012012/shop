@@ -1,0 +1,61 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionPriceContacts {
+  margin-top: f.rem(50);
+  padding: f.rem(28);
+  border: 2px solid map-get($colors, "silver");
+  border-radius: f.rem(10);
+
+  .contactsListInfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: f.rem(10);
+    margin-bottom: f.rem(30);
+
+    .contactsListInfoItem {
+      .contactsListInfoLink {
+        font-weight: 500;
+        font-size: 16px;
+        line-height: 110%;
+        text-decoration: underline;
+        text-decoration-skip-ink: none;
+        color: map-get($colors, "green");
+      }
+    }
+  }
+
+  .contactsTimeInfo {
+    font-weight: 500;
+    font-size: f.rem(16);
+    line-height: 110%;
+    margin-bottom: f.rem(20);
+
+    .contactsTimeInfoTitle {
+      font-weight: 700;
+      font-size: f.rem(18);
+    }
+  }
+
+  .contactsPhoneInfo {
+    font-weight: 500;
+    font-size: f.rem(16);
+    line-height: 110%;
+
+    .contactsPhoneInfoTitle {
+      font-weight: 700;
+      font-size: f.rem(18);
+      margin-bottom: f.rem(5);
+    }
+
+    .phoneLink {
+      display: inline-block;
+      font-size: f.rem(18);
+      line-height: 160%;
+      text-decoration: underline;
+      text-decoration-skip-ink: none;
+      color: map-get($colors, "darkGray");
+    }
+  }
+}

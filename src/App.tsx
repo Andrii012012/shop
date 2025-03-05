@@ -3,6 +3,7 @@ import Home from "./pages/Home/Home";
 import {
   PATH_ABOUT_COMPANY,
   PATH_ACCOUNT,
+  PATH_ADDITIONAL_INFO_PRODUCT,
   PATH_BASKET,
   PATH_CATALOG,
   PATH_DELIVERY,
@@ -15,7 +16,7 @@ import {
   PATH_PAYMENT_BOOKING,
   PATH_POLITICS,
   PATH_PROMOTION,
-  PATH_SHOP
+  PATH_SHOP,
 } from "./routes/routes";
 import { useEffect } from "react";
 import { getNewsThunk } from "./features/news/news";
@@ -37,9 +38,9 @@ import Delivery from "./pages/Delivery/Delivery";
 import PaymentBooking from "./pages/PaymentBooking/PaymentBooking";
 import HowToMakeOrder from "./pages/HowToMakeOrder/HowToMakeOrder";
 import MapWebsite from "./pages/MapWebsite/MapWebsite";
+import AdditionalInfoProduct from "./pages/AdditionalInfoProduct/AdditionalInfoProduct";
 
 function App() {
-
   const dispatch = useAppDispatch();
 
   useEffect(() => {
@@ -64,8 +65,12 @@ function App() {
         <Route path={`${PATH_POLITICS}`} element={<Politics />} />
         <Route path={`${PATH_DELIVERY}`} element={<Delivery />} />
         <Route path={`${PATH_PAYMENT_BOOKING}`} element={<PaymentBooking />} />
-        <Route path={`${PATH_HOW_TO_MAKE_ORDER}/*`} element={<HowToMakeOrder />} />
+        <Route
+          path={`${PATH_HOW_TO_MAKE_ORDER}/*`}
+          element={<HowToMakeOrder />}
+        />
         <Route path={`${PATH_MAP_WEBSITE}`} element={<MapWebsite />} />
+        <Route path={`${PATH_ADDITIONAL_INFO_PRODUCT}/:id/*`} element={<AdditionalInfoProduct />} />
       </Routes>
     </Layout>
   );

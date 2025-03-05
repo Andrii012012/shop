@@ -1,0 +1,19 @@
+@use 'sass:map';
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.description {
+  span {
+    font-weight: 700;
+  }
+
+  strong {
+    font-size: f.rem(25);
+    font-weight: 700;
+    line-height: f.em(35, 25);
+  }
+
+  p {
+    margin: f.rem(30) 0 0 0;
+  }
+}

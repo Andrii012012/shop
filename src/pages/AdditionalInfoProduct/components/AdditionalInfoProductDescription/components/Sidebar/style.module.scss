@@ -1,0 +1,121 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionPrice {
+  font-weight: 700;
+  font-size: f.rem(55);
+  text-align: right;
+  margin-bottom: f.rem(20);
+  margin-top: f.rem(10);
+}
+
+.productDescriptionPriceInfo {
+
+  .priceInfoInStock,
+  .priceInfoDelivery,
+  .priceInfoQuantity {
+    display: flex;
+    align-content: center;
+    justify-content: space-between;
+    font-weight: 700;
+    font-size: f.rem(18);
+    margin-bottom: f.rem(30);
+
+    .priceInfoInStockValue,
+    .priceInfoDeliveryValue {
+      color: map-get($colors, "lightGreen");
+    }
+  }
+}
+
+.priceInfoQuantity {
+  .priceInfoQuantityTitle {
+    display: grid;
+    place-content: center;
+  }
+
+  .priceInfoQuantityCounter {
+    max-width: f.rem(100);
+    width: 100%;
+    border-radius: f.rem(100);
+  }
+}
+
+.cartButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: f.rem(10);
+
+  width: 100%;
+  height: f.rem(70);
+  border-radius: f.rem(35);
+  background-color: map-get($colors, "lightGreen");
+
+  font-weight: 700;
+  font-size: f.rem(18);
+  color: map-get($colors, "white");
+}
+
+.red {
+  color: map.get($colors, 'lightRed');
+}
+
+.green {
+  color: map.get($colors, 'lightGreen');
+}
+
+.discountPrice {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  p {
+    position: relative;
+    text-align: center;
+    display: inline-block;
+
+    &::before {
+      content: '';
+      display: block;
+      width: 105%;
+      height: 1.5px;
+      background-color: map.get($colors, "darkGray");
+      position: absolute;
+      top: 50%;
+      left: -5%;
+      transform: translate(0, -50%);
+    }
+  }
+}
+
+.bodyWarning {
+  width: 100%;
+  border-radius: f.rem(10);
+  border: 3px solid map.get($colors, "brick");
+  margin-bottom: f.rem(30);
+
+  .header {
+    background-color: map.get($colors, "brick");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: f.rem(8) 0;
+    margin-bottom: f.rem(15);
+
+    svg {
+      max-width: f.rem(44);
+      max-height: f.rem(44);
+    }
+  }
+
+  p {
+    font-size: f.rem(14);
+    color: map.get($colors, "brick");
+    padding: 0 f.rem(20) f.rem(15) f.rem(20);
+    text-align: center;
+    line-height: f.em(17.04, 14);
+    font-weight: 700;
+  }
+}

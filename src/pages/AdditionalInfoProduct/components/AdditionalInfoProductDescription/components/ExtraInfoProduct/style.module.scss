@@ -1,0 +1,27 @@
+@use "sass:map";
+@use "../../../../../../utils/styles/functions.scss" as f;
+@import "../../../../../../utils/styles/colors.scss";
+
+.productDescriptionInfo {
+  .productDescriptionInfoList {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    font-weight: 400;
+    font-size: f.rem(16);
+    line-height: 155%;
+
+    .infoListItem {
+      column-gap: f.rem(5);
+
+      .infoListItemTitle {
+        font-weight: 600;
+      }
+
+      .infoListItemLink {
+        color: map-get($colors, "green");
+      }
+    }
+  }
+}

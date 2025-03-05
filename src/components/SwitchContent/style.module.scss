@@ -21,4 +21,5 @@
 .activeLink {
   background-color: map.get($colors, 'white');
   color: map.get($colors, "deepGreen") !important;
+  border-radius: f.rem(10) f.rem(10) 0 0;
 }

@@ -3,6 +3,8 @@ import { IBaseProduct } from "../../../../../../interface/interface";
 import { useEffect, useRef } from "react";
 import { OverlayScrollbars } from "overlayscrollbars";
 import './style.scss';
+import { Link } from "react-router-dom";
+import { PATH_ADDITIONAL_INFO_PRODUCT } from "../../../../../../routes/routes";
 
 interface IProps {
   products: IBaseProduct[];
@@ -35,7 +37,7 @@ function ProductLists(props: IProps) {
         {products.map((item, index) => {
           return (
             <li onMouseEnter={() => handleSetPlaceholder(item.name)} key={index} className={style.searchPopupListItem}>
-              <a href="#" className={style.searchPopupListLink}>
+              <Link to={`${PATH_ADDITIONAL_INFO_PRODUCT}/${item.id}`} className={style.searchPopupListLink}>
                 <img
                   src="src/assets/images/header/productIcon.png"
                   alt="Product Icon"
@@ -47,7 +49,7 @@ function ProductLists(props: IProps) {
                 <span className={style.searchPopupListLinkPrice}>
                   {item.price} $
                 </span>
-              </a>
+              </Link>
             </li>
           );
         })}

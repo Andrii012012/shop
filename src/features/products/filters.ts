@@ -1,25 +1,38 @@
 import { createSelector } from "@reduxjs/toolkit";
 import { RootState } from "../../store/store";
-import { IBaseProduct, TSeasons } from "../../interface/interface";
+import {
+  IBaseProduct,
+  IProductStock,
+  TSeasons,
+} from "../../interface/interface";
 import { ISettings } from "../../pages/Shop/types/type";
 
 const products = (state: RootState) => state.products.products;
 
 export const seasonProductsFilter = (season: TSeasons) => {
   return createSelector(products, (state) => {
-    return state.filter((item) => item.season === season);
+    if (Array.isArray(state)) {
+      return state.filter((item) => item.season === season);
+    }
+    return [];
   });
 };
 
 export const hitProductsFilter = (hitProduct: number) => {
   return createSelector(products, (state) => {
-    return state.filter((item) => item.hitProduct >= hitProduct);
+    if (Array.isArray(state)) {
+      return state.filter((item) => item.hitProduct >= hitProduct);
+    }
+    return [];
   });
 };
 
 export const discountProductsFilter = () => {
   return createSelector(products, (state) => {
-    return state.filter((item) => item.discount);
+    if (Array.isArray(state)) {
+      return state.filter((item) => item.discount);
+    }
+    return [];
   });
 };
 
@@ -106,3 +119,37 @@ export const findProductWithPromotionFilter = (promotion: string) =>
       }
     });
   });
+
+export const findProductById = (id: number) =>
+  createSelector(products, (state) => {
+    if (Array.isArray(state)) {
+      return state.find((item, _) => {
+        if (item.id === id) {
+          return item;
+        }
+      });
+    }
+  });
+
+export function checkProductStock(
+  name: string,
+  productStock: IProductStock[] | null | {}
+): IProductStock | undefined {
+  if (Array.isArray(productStock)) {
+    return productStock.find((item: IProductStock, _) => {
+      if (item.name === name) {
+        return item;
+      }
+    });
+  }
+}
+
+export const searchAnalogue = (name: string) => {
+  return createSelector(products, (state) => {
+    return state.filter((item) => {
+      if (item.name.toLocaleLowerCase().includes(name.toLocaleLowerCase())) {
+        return item;
+      }
+    });
+  });
+};
