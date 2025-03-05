@@ -16,6 +16,8 @@ import AdditionalInfoProductUsage from "./components/AdditionalInfoProductUsage/
 import AdditionalInfoProductPharmacologic from "./components/AdditionalInfoProductPharmacologic/AdditionalInfoProductPharmacologic";
 import SwitchContent from "../../components/SwitchContent/SwitchContent";
 import { ADDITIONAL_INFO_PRODUCT } from "../../constants/path";
+import Navigate from '../../components/Navigate/Navigate';
+import Analogue from './components/Analogue/Analogue';
 
 export default function AdditionalInfoProduct() {
 
@@ -31,8 +33,9 @@ export default function AdditionalInfoProduct() {
 
   if (products) {
     return (
-      <div className={styles.cardProduct}>
+      <div className={styles.additionalInfoProduct}>
         <div className={gStyles.container}>
+          <Navigate className={styles.navigate} links={[{ name: products.name, to: "" }]} />
           <SwitchContent className={styles.switchPaths} links={[
             { name: ADDITIONAL_INFO_PRODUCT.description, to: `/${PATH_ADDITIONAL_INFO_PRODUCT}/${id}/${ADDITIONAL_INFO_PRODUCT.description}` },
             { name: ADDITIONAL_INFO_PRODUCT.instruction, to: `/${PATH_ADDITIONAL_INFO_PRODUCT}/${id}/${ADDITIONAL_INFO_PRODUCT.instruction}` },
@@ -40,28 +43,31 @@ export default function AdditionalInfoProduct() {
             { name: ADDITIONAL_INFO_PRODUCT.pharmocologic, to: `/${PATH_ADDITIONAL_INFO_PRODUCT}/${id}/${ADDITIONAL_INFO_PRODUCT.pharmocologic}` },
           ]} />
         </div>
-        <Routes>
-          <Route
-            index
-            element={<AdditionalInfoProductDescription product={products} />}
-          />
-          <Route
-            path={ADDITIONAL_INFO_PRODUCT.description}
-            element={<AdditionalInfoProductDescription product={products} />}
-          />
-          <Route
-            path={ADDITIONAL_INFO_PRODUCT.instruction}
-            element={<AdditionalInfoProductInstruction instructionsUse={products.instructionsUse} name={products.name} />}
-          />
-          <Route
-            path={ADDITIONAL_INFO_PRODUCT.usage}
-            element={<AdditionalInfoProductUsage indicationsUse={products.indicationsUse} />}
-          />
-          <Route
-            path={ADDITIONAL_INFO_PRODUCT.pharmocologic}
-            element={<AdditionalInfoProductPharmacologic pharmacologicalAction={products.pharmacologicalAction} name={products.name} />}
-          />
-        </Routes>
+        <div className={styles.wrapper}>
+          <Routes>
+            <Route
+              index
+              element={<AdditionalInfoProductDescription product={products} />}
+            />
+            <Route
+              path={ADDITIONAL_INFO_PRODUCT.description}
+              element={<AdditionalInfoProductDescription product={products} />}
+            />
+            <Route
+              path={ADDITIONAL_INFO_PRODUCT.instruction}
+              element={<AdditionalInfoProductInstruction instructionsUse={products.instructionsUse} name={products.name} />}
+            />
+            <Route
+              path={ADDITIONAL_INFO_PRODUCT.usage}
+              element={<AdditionalInfoProductUsage indicationsUse={products.indicationsUse} />}
+            />
+            <Route
+              path={ADDITIONAL_INFO_PRODUCT.pharmocologic}
+              element={<AdditionalInfoProductPharmacologic pharmacologicalAction={products.pharmacologicalAction} name={products.name} />}
+            />
+          </Routes>
+        </div>
+        <Analogue name={products.name || ""} />
       </div>
     );
   } return <></>;

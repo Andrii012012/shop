@@ -1,9 +1,11 @@
 import Button from "../../../../../../components/ui/Button/Button";
 import Counter from "../../../../../../components/ui/Counter/Counter";
 import styles from "./style.module.scss";
+import gStyles from '../../../../../../styles/styles.module.scss';
 import CartIcon from "../../../../../../assets/images/products/cartIcon.svg?react";
 import { useAppDispatch } from "../../../../../../hooks/useAppDispatch";
 import { addProduct } from "../../../../../../features/basket/basket";
+import IconWarning from '../../../../../../assets/images/global/iconWarning.svg?react';
 
 interface IProps {
   counter: number;
@@ -18,10 +20,11 @@ interface IProps {
   countryOrigin: string;
   manufacturer: string;
   weight: number | undefined;
+  discount: number | null;
 }
 
 export default function Sidebar(props: IProps) {
-  const { counter, price, isDelivery, setCounter, stock, id, name, weight, manufacturer, isRecipe, countryOrigin, image } = props;
+  const { counter, price, isDelivery, setCounter, stock, id, name, weight, manufacturer, isRecipe, countryOrigin, image, discount } = props;
 
   const dispatch = useAppDispatch();
 
@@ -41,6 +44,7 @@ export default function Sidebar(props: IProps) {
 
   return (
     <>
+      {discount && <div className={styles.discountPrice}><p className={`${gStyles.textLarge}`}>{300} грн</p></div>}
       <h2 className={styles.productDescriptionPrice}>
         {price * counter}грн
       </h2 >
@@ -61,6 +65,12 @@ export default function Sidebar(props: IProps) {
           <p className={styles.priceInfoQuantityTitle}>Количество:</p>
           <Counter className={styles.priceInfoQuantityCounter} setValue={setCounter} value={counter} />
         </div>
+        {!isDelivery && <div className={styles.bodyWarning}>
+          <div className={styles.header}>
+            <IconWarning />
+          </div>
+          <p>Лекарственные средства, которые отпускаются по рецепту при заказе через сайт, возможно получить только в аптеке самовывозом при предъявлении рецепта.</p>
+        </div>}
       </div>
       <Button
         title="В корзину"

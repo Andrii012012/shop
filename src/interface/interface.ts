@@ -9,6 +9,7 @@ export interface IComment {
 export type TSeasons = "winter" | "summer" | "spring" | "autunm" | "all";
 
 export interface IBaseProduct {
+  id: number;
   name: string;
   manufacturer: string;
   price: number;
@@ -23,6 +24,7 @@ export interface IBaseProduct {
 }
 
 export interface IDefaultDisplayProduct {
+  id: number;
   isStock: boolean;
   name: string;
   manufacturer: string;

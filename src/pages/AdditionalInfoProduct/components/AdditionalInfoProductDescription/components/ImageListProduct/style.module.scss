@@ -8,6 +8,7 @@
   .imageMain {
     display: grid;
     place-content: center;
+    position: relative;
 
     width: f.rem(512);
     height: f.rem(512);
@@ -45,4 +46,16 @@
       user-select: none;
     }
   }
+}
+
+.icon {
+  position: absolute;
+  top: f.rem(30);
+  left: f.rem(30);
+  cursor: pointer;
+  fill: map.get($colors, 'darkGray');
+}
+
+.active {
+  fill: map.get($colors, 'brick') !important;
 }

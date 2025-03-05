@@ -7,7 +7,7 @@
         "images": [
             "productImage.png"
         ],
-        "discount": null,
+        "discount": 225,
         "hitProduct": 3,
         "shelfLife": "3 года",
         "activeIngredient": "диклофенак",

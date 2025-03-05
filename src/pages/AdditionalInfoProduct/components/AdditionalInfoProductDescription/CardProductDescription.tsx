@@ -22,12 +22,12 @@ export default function AdditionalInfoProductDescription(props: IProps) {
 
   const [stockProducts] = useFetch<IProductStock>("/src/servers/productsStock.json");
 
-  const dataStock = checkProductStock(product, stockProducts);
+  const dataStock = checkProductStock(product.name, stockProducts);
 
   const [counter, setCounter] = useState(1);
 
   const [settings, setSettings] = useState<ISettings>({
-    name: "",
+    name: product?.release[0]?.name || "",
     dosage: 1,
     packing: 20,
     stock: false,
@@ -69,7 +69,19 @@ export default function AdditionalInfoProductDescription(props: IProps) {
     <div className={styles.cardProductDescription}>
       <div className={gStyle.container}>
         <main className={styles.productDescriptionMain}>
-          <ImageListProduct images={product.images} />
+          <ImageListProduct
+            images={product.images}
+            name={product.name}
+            manufacturer={product.manufacturer}
+            price={product.price}
+            isDelivery={product.isDelivery}
+            isRecipe={product.isRecipe}
+            countryOrigin={product.countryOrigin}
+            release={product.release}
+            volume={product.volume}
+            isStock={dataStock?.stock || false}
+            id={product.id}
+          />
           <div className={styles.productDescriptionBlock}>
             <h1 className={styles.productDescriptionTitle}>
               {product.name}
@@ -121,6 +133,7 @@ export default function AdditionalInfoProductDescription(props: IProps) {
               isRecipe={product.isRecipe}
               weight={product.weight}
               manufacturer={product.manufacturer}
+              discount={product.discount}
             />
             <Contacts />
           </div>

@@ -25,6 +25,7 @@ export default function DiscountProducts(): JSX.Element {
                             isDelivery={item.isDelivery}
                             countryOrigin={item.countryOrigin}
                             weight={item.weight}
+                            productId={item.id}
                         />
                     </SwiperSlide>
                 ))}

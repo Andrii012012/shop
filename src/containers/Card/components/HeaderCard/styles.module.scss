@@ -19,3 +19,11 @@
 .iconActive {
     fill: map.get($colors, 'brick') !important;
 }
+
+.outStock {
+    color: map.get($colors, "lightRed");
+}
+
+.inStock {
+    color: map.get($colors, "lightGreen");
+}

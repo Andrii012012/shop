@@ -31,6 +31,7 @@ export default function ProductLists(props: IProps): JSX.Element {
                         isRecipe={item?.isRecipe}
                         isDelivery={item?.isDelivery}
                         countryOrigin={item.countryOrigin}
+                        productId={item.id}
                     />
                 ))}
             </ul>

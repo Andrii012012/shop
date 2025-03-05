@@ -6,9 +6,12 @@ import HeaderCard from "./components/HeaderCard/HeaderCard";
 import CounterCard from "./components/CounterCard/CounterCard";
 import { Link } from "react-router-dom";
 import { PATH_ADDITIONAL_INFO_PRODUCT } from "../../routes/routes";
+import { useFetch } from "../../hooks/useFetch";
+import { IProductStock } from "../../interface/interface";
+import { checkProductStock } from "../../features/products/filters";
 
 interface IProps {
-  isStock: boolean;
+  isStock?: boolean; //You need to remove this field
   name: string;
   manufacturer: string;
   volume: number;
@@ -36,6 +39,10 @@ export default function Card(props: IProps): JSX.Element {
     productId,
   } = props;
 
+  const [stockProducts] = useFetch<IProductStock>("/src/servers/productsStock.json");
+
+  const dataStock = checkProductStock(name, stockProducts);
+
   const [counter, setCounter] = useState<number>(1);
 
   function handleMouseEnterSetClass(
@@ -57,7 +64,7 @@ export default function Card(props: IProps): JSX.Element {
       onMouseEnter={(event) => handleMouseEnterSetClass(event)}
     >
       <HeaderCard
-        isStock={isStock}
+        isStock={dataStock?.stock || false}
         name={name}
         manufacturer={manufacturer}
         volume={volume}
@@ -66,8 +73,9 @@ export default function Card(props: IProps): JSX.Element {
         isRecipe={isRecipe}
         isDelivery={isDelivery}
         countryOrigin={countryOrigin}
+        id={productId}
       />
-      <Link className={styles.link} to={`${PATH_ADDITIONAL_INFO_PRODUCT}/${productId}`}>
+      <Link className={styles.link} to={`/${PATH_ADDITIONAL_INFO_PRODUCT}/${productId}`}>
         <div className={styles.imageProduct}>
           <img src={imageDefaultProduct} alt="" />
         </div>
@@ -94,7 +102,6 @@ export default function Card(props: IProps): JSX.Element {
           {counter * price} грн
         </p>
       </Link>
-
       <CounterCard
         name={name}
         manufacturer={manufacturer}

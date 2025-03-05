@@ -17,11 +17,12 @@ interface IProps {
     isRecipe: boolean;
     isDelivery: boolean;
     countryOrigin: string;
+    id: number
 }
 
 export default function HeaderCard(props: IProps): JSX.Element {
 
-    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery } = props;
+    const { isStock, name, manufacturer, countryOrigin, volume, release, price, isRecipe, isDelivery, id } = props;
 
     const dataUser = useAppSelector((state) => state.user.user);
 
@@ -42,6 +43,7 @@ export default function HeaderCard(props: IProps): JSX.Element {
                 isRecipe,
                 isDelivery,
                 countryOrigin,
+                id,
             });
         } else {
             dataUserCopy.likedProducts = dataUserCopy?.likedProducts.filter((item, _) => item.name !== name && item);
@@ -63,7 +65,7 @@ export default function HeaderCard(props: IProps): JSX.Element {
             <div onClick={() => dataUser && handleToggleLikedProduct()} className={styles.iconHeart}>
                 <Heart className={checkIsLikedProduct() ? styles.iconActive : ""} />
             </div>
-            <p className={gStyles.textMedium}>{isStock ? <span className={styles.inStock}>В наличии</span> : <span className={styles.outStock}>Закончились</span>}</p>
+            <p className={gStyles.textMedium}>{isStock ? <span className={styles.inStock}>В наличии</span> : <span className={styles.outStock}>Нет в наличии</span>}</p>
         </div>
     );
 }
